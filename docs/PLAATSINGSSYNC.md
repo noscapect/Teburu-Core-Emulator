@@ -103,3 +103,10 @@ The four visible Corvetto outcomes were copied using the revision-checked table-
 A standalone map counter to the left of the indented miniature-card text was merged into Helena's placement, making the destination unreadable. The shared completed-outcome feed reader now excludes standalone numeric map counters outside that text lane. It preserves numbers within destination text or the card lane: unknown destinations still fail recognition. The same feed boundaries and Masquerade support are used for named component outcomes and player-character relocations.
 
 Two distinct matching observations confirmed Helena at Isola and the existing revision-checked table-only API recorded that placement. No sensor input was sent. A temporary targeted reader supports this running session; the corrected integrated reader is staged in the portable installation for subsequent launches. The parser regression covers the observed counter, inline/within-lane unknown destinations and the event-screen layout. Private observations remain under `private/helena-recovery/`.
+
+## Masquerade Encounter-token — 1 november 2026
+
+De expliciete feedmelding **Masquerade Encounter added in Città Studi** werd niet door de componentlezer verwerkt. De lezer accepteert nu deze voltooide plaatsingsmelding voor het unieke Masquerade-token. Alleen bekende stadsdistricten worden overgenomen; een nieuwere onbekende bestemming blokkeert de oudere plaatsing. De bestaande schermcontroles en twee-waarnemingenregel blijven behouden.
+
+Twee verschillende actuele appwaarnemingen bevestigden Città Studi. De revision-checked table-only API herstelde het token; de gedeelde browserpagina toonde het daar zonder JavaScript-fouten. Er is geen spelinvoer verstuurd. De geïntegreerde correctie is ook in de portable installatie opgeslagen voor volgende starts; de lopende sessie kreeg de bevestigde plaatsing zonder Core-herstart. Afbeeldingen en waarnemingen blijven onder `private/masquerade-token-recovery/`.
+Validatie: `node --test` slaagde met alle 548 ontdekte tests, inclusief tijdelijke kopieën. De gerichte parserregressie slaagde ook afzonderlijk (7 tests).

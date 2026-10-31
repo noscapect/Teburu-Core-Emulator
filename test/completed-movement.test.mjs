@@ -8,6 +8,16 @@ const profile=JSON.parse(readFileSync(new URL('../data/games/milan-uprising/city
 const raw=lines=>({available:true,width:2560,height:1600,mapGeometry:'android-city-v1',lines});
 const card=(text,y=500)=>({text,x:1510,y});
 
+test('Masquerade encounter added cards place the unique token and reject unknown newer destinations',()=>{
+ const lines=[card('Masquerade',1169),card('Encounter added in',1221),card('Città Studi',1273)];
+ assert.deepEqual(readComponentOutcomes(raw(lines),profile).instructions,[{componentId:'masquerade',operation:'place',zoneId:'citta-studi'}]);
+ const newer=readComponentOutcomes(raw([card('Masquerade Encounter added in Duomo',500),...lines.map(l=>({...l,text:l.text==='Città Studi'?'Unknown':l.text}))]),profile);
+ assert.deepEqual(newer.instructions,[]);assert.equal(newer.unsupported.length,1);
+ assert.equal(readComponentOutcomes(raw([card('Add Masquerade Encounter in Città Studi')]),profile),null);
+ assert.equal(readComponentOutcomes({...raw(lines),mapGeometry:null},profile),null);
+ assert.equal(readComponentOutcomes(raw([...lines,card('An error occurred',700)]),profile),null);
+});
+
 test('Il Dottore accepts the observed II OCR spelling for completed outcomes only',()=>{
  const frame={...raw([card('II Dottore placed in Centrale')]),mapGeometry:null};frame.lines.unshift({text:'MASQUERADE',x:1257,y:77});
  assert.deepEqual(readComponentOutcomes(frame,profile).instructions,[{componentId:'npc-il-dottore',operation:'place',zoneId:'centrale'}]);

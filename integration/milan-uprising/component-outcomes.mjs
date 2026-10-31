@@ -10,7 +10,7 @@ export function readComponentOutcomes(raw,profile){
  const latest=new Map(),unsupported=[];
  for(const group of groups){
   const text=group.map(l=>l.text).join(' '),compact=normalize(text);
-  const movement=readCompletedMovement(text,profile.zones),placed=compact.match(/^(.+?)(?:placedin|placedat)(.+)$/),removed=compact.match(/^remove(.+?)from(?:the)?map$/)||compact.match(/^(.+?)removedfrom(?:the)?map$/);
+  const movement=readCompletedMovement(text,profile.zones),placed=compact.match(/^(.+?)(?:placedin|placedat)(.+)$/)||compact.match(/^(masqueradeencounter)addedin(.+)$/),removed=compact.match(/^remove(.+?)from(?:the)?map$/)||compact.match(/^(.+?)removedfrom(?:the)?map$/);
   if(!placed&&!removed&&!movement)continue;
   const name=movement?.name||(placed||removed)[1],matches=profile.components.filter(c=>matchesOutcomeName(c,name));
   if(matches.length!==1){unsupported.push(text);continue;}

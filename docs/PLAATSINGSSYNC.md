@@ -110,3 +110,10 @@ De expliciete feedmelding **Masquerade Encounter added in Città Studi** werd ni
 
 Twee verschillende actuele appwaarnemingen bevestigden Città Studi. De revision-checked table-only API herstelde het token; de gedeelde browserpagina toonde het daar zonder JavaScript-fouten. Er is geen spelinvoer verstuurd. De geïntegreerde correctie is ook in de portable installatie opgeslagen voor volgende starts; de lopende sessie kreeg de bevestigde plaatsing zonder Core-herstart. Afbeeldingen en waarnemingen blijven onder `private/masquerade-token-recovery/`.
 Validatie: `node --test` slaagde met alle 548 ontdekte tests, inclusief tijdelijke kopieën. De gerichte parserregressie slaagde ook afzonderlijk (7 tests).
+
+### Verwijdering Masquerade Encounter — 1 november 2026
+
+De vervolgmelding **Masquerade Encounter removed from Città Studi** wordt nu ook herkend. Een bekende stadsbestemming is vereist; de nieuwste zichtbare toevoeging of verwijdering bepaalt de uitkomst. Verwijdering wordt vóór de bewegingsparser behandeld, zodat `removed from` niet als `moved from` met een onjuist personage wordt gelezen. Een ontbrekend icoon alleen verwijdert niets.
+
+Twee afzonderlijke actuele waarnemingen bevestigden de verwijdering; de revision-checked table-only API bracht het token terug naar voorraad. De browsercontrole bevestigde dat het niet meer bij Città Studi staat, zonder JavaScript-fouten. Geen appinvoer of Core-herstart uitgevoerd. De portable bronbestanden zijn bijgewerkt voor volgende starts. Bewijs blijft onder `private/masquerade-token-recovery/`.
+Validatie: alle 549 door `node --test` ontdekte tests slagen, inclusief tijdelijke kopieën; de acht gerichte parsertests slagen ook afzonderlijk.

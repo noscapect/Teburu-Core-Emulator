@@ -8,6 +8,17 @@ const profile=JSON.parse(readFileSync(new URL('../data/games/milan-uprising/city
 const raw=lines=>({available:true,width:2560,height:1600,mapGeometry:'android-city-v1',lines});
 const card=(text,y=500)=>({text,x:1510,y});
 
+test('Masquerade removal supersedes an older addition and requires a known district',()=>{
+ const added=card('Masquerade Encounter added in Città Studi',500);
+ const removal=[card('Masquerade',1169),card('Encounter removed',1221),card('from Città Studi',1272)];
+ assert.deepEqual(readComponentOutcomes(raw([added,...removal]),profile).instructions,[{componentId:'masquerade',operation:'remove'}]);
+ const unknown=readComponentOutcomes(raw([added,...removal.map(l=>({...l,text:l.text.replace('Città Studi','Unknown')}))]),profile);
+ assert.deepEqual(unknown.instructions,[]);assert.equal(unknown.unsupported.length,1);
+ assert.equal(readComponentOutcomes(raw([card('Remove Masquerade Encounter from Città Studi')]),profile),null);
+ assert.equal(readComponentOutcomes(raw([card('Masquerade Encounter is no longer visible')]),profile),null);
+ assert.deepEqual(readComponentOutcomes(raw([...removal.map(l=>({...l,y:l.y-700})),card('Masquerade Encounter added in Duomo',1200)]),profile).instructions,[{componentId:'masquerade',operation:'place',zoneId:'duomo'}]);
+});
+
 test('Masquerade encounter added cards place the unique token and reject unknown newer destinations',()=>{
  const lines=[card('Masquerade',1169),card('Encounter added in',1221),card('Città Studi',1273)];
  assert.deepEqual(readComponentOutcomes(raw(lines),profile).instructions,[{componentId:'masquerade',operation:'place',zoneId:'citta-studi'}]);

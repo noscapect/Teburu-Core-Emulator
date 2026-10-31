@@ -10,13 +10,17 @@ export function readComponentOutcomes(raw,profile){
  const latest=new Map(),unsupported=[];
  for(const group of groups){
   const text=group.map(l=>l.text).join(' '),compact=normalize(text);
-  const movement=readCompletedMovement(text,profile.zones),placed=compact.match(/^(.+?)(?:placedin|placedat)(.+)$/)||compact.match(/^(masqueradeencounter)addedin(.+)$/),removed=compact.match(/^remove(.+?)from(?:the)?map$/)||compact.match(/^(.+?)removedfrom(?:the)?map$/);
+  const removedAt=compact.match(/^(masqueradeencounter)removedfrom(.+)$/);
+  const movement=removedAt?null:readCompletedMovement(text,profile.zones),placed=compact.match(/^(.+?)(?:placedin|placedat)(.+)$/)||compact.match(/^(masqueradeencounter)addedin(.+)$/),removed=compact.match(/^remove(.+?)from(?:the)?map$/)||compact.match(/^(.+?)removedfrom(?:the)?map$/)||removedAt;
   if(!placed&&!removed&&!movement)continue;
   const name=movement?.name||(placed||removed)[1],matches=profile.components.filter(c=>matchesOutcomeName(c,name));
   if(matches.length!==1){unsupported.push(text);continue;}
   const componentId=matches[0].id;
   if(movement&&matches[0].groupId==='characters')continue;
-  if(removed){latest.set(componentId,{componentId,operation:'remove'});continue;}
+  if(removed){
+   if(removedAt&&!profile.zones.some(z=>z.area==='city'&&normalize(z.label)===removedAt[2])){latest.set(componentId,null);unsupported.push(text);continue;}
+   latest.set(componentId,{componentId,operation:'remove'});continue;
+  }
   const zone=profile.zones.find(z=>z.area==='city'&&(movement?z.id===movement.zoneId:normalize(z.label)===placed[2]));
   if(!zone){latest.set(componentId,null);unsupported.push(text);continue;}
   latest.set(componentId,{componentId,operation:'place',zoneId:zone.id});

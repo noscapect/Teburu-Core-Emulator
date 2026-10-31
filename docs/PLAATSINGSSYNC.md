@@ -117,3 +117,21 @@ De vervolgmelding **Masquerade Encounter removed from Città Studi** wordt nu oo
 
 Twee afzonderlijke actuele waarnemingen bevestigden de verwijdering; de revision-checked table-only API bracht het token terug naar voorraad. De browsercontrole bevestigde dat het niet meer bij Città Studi staat, zonder JavaScript-fouten. Geen appinvoer of Core-herstart uitgevoerd. De portable bronbestanden zijn bijgewerkt voor volgende starts. Bewijs blijft onder `private/masquerade-token-recovery/`.
 Validatie: alle 549 door `node --test` ontdekte tests slagen, inclusief tijdelijke kopieën; de acht gerichte parsertests slagen ook afzonderlijk.
+
+### Herhaalde melding: correctie op schijf versus geladen code — 1 november 2026
+
+De nieuwe melding **Masquerade Encounter added in Isola** werd door de actuele bron correct verwerkt, maar de lopende adapter rapporteerde geen componentuitkomst. Dat proces was gestart vóór beide parsercorrecties en behield de oude ES-module in het geheugen. De eerdere eenmalige API-herstelacties hadden de gecorrigeerde herkenning niet in het lopende proces geactiveerd. Alleen bestanden kopiëren activeert geen reeds geïmporteerde Node-module.
+
+Voor deze bestaande sessie draait nu een tijdelijke achtergrondlezer die uitsluitend expliciete Masquerade-plaatsingen en -verwijderingen door dezelfde gecorrigeerde parser verwerkt. Twee verschillende recente waarnemingen, generatiecontrole, revision-check en idempotentie blijven vereist. Deze lezer verstuurt alleen table-only correcties, stopt bij het einde van het oorspronkelijke adapterproces of bij detectie van de geïntegreerde actuele lezer en vereist geen open browser of chat. Isola is automatisch hersteld en in de browser gecontroleerd zonder JavaScript-fouten. Geen spelinvoer of Core-herstart uitgevoerd. Private code, observaties en logs staan onder `private/masquerade-token-recovery/`.
+
+De portable bron en gegenereerde runtime bevatten beide de geïntegreerde lezer voor volgende starts. `board-status.synchronization.readers.componentOutcomes` rapporteert voortaan de werkelijk geladen herkenningsversie (`masquerade-lifecycle-v1`), ook als er geen componentmelding zichtbaar is. Dit maakt verschil tussen opgeslagen en actieve code controleerbaar.
+
+De echte-adapterreplay doorloopt in één proces toevoegen in Città Studi, verwijderen, toevoegen in Isola, verwijderen en toevoegen in Duomo. Oudere kaarten blijven zichtbaar. Elke overgang vereist twee waarnemingen, blijft bij herhaling idempotent, wordt naar de sessie opgeslagen en behoudt het personage en Restricted-fiche. Dit bewijst de herkende meldingscyclus; verborgen of onleesbare appuitkomsten zijn hiermee niet afgedekt.
+Validatie: `node --test` slaagde met alle 549 ontdekte tests; de uitgebreide echte-adapterreplay slaagde ook afzonderlijk. Browser en latere statuscontrole bevestigden het token in Isola.
+
+### Positieve portretten los van volledige invloedkaart — 1 november 2026
+
+De adapter blokkeerde bevestigde kaartportretten totdat ook de volledige invloedkaart stabiel was. Een onleesbare of geanimeerde invloedteller kon daardoor een afzonderlijk bevestigde personagepositie tegenhouden. De toepassing gebruikt nu uitsluitend de reeds door twee beeldwaarnemingen bevestigde `confirmedCharacterMoves`, onafhankelijk van de invloedkaart. Bescherming van invoergeneratie, foutscherm, busy-toestand en wachtende personageverplaatsing blijft behouden. Een enkel onbevestigd portret wordt niet overgenomen.
+
+De echte-adapterreplay controleert toepassing bij een onbeschikbare invloedkaart en behoud bij alleen een onbevestigd portret. De lopende oude adaptersessie krijgt dezelfde beperkte correctie via de tijdelijke achtergrondlezer; de portable bron en runtime zijn bijgewerkt voor volgende starts. De geladen geïntegreerde versie wordt gemeld als `synchronization.readers.mapPortraits: independent-confirmed-v1`.
+Validatie: alle 549 door `node --test` ontdekte tests slagen. De browser bevestigde Helena, Aristide en Orlando in Cinque Giornate zonder JavaScript-fouten; de gebruiker bevestigde vervolgens dat de zichtbare bordstand overeenkwam.

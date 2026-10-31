@@ -4,7 +4,7 @@ import {readSetupLocationTiles,buildSetupTileActions} from '../../src/games/mila
 import {independentInfluenceUpdates,independentControlUpdates} from '../../src/games/milan-uprising/influence-observations.js';
 import {createPositiveObservations} from '../../src/adapters/positive-observations.js';
 import {buildComponentInstructions} from '../../src/games/milan-uprising/component-instructions.js';
-import {readComponentOutcomes} from './component-outcomes.mjs';
+import {readComponentOutcomes,COMPONENT_OUTCOMES_VERSION} from './component-outcomes.mjs';
 import {execFile} from 'node:child_process';
 import {promisify} from 'node:util';
 import {readFileSync,writeFileSync,unlinkSync,existsSync} from 'node:fs';
@@ -368,7 +368,9 @@ export async function observe(force=false){
       writeFileSync(stateFile('last-setup-sync.json'),JSON.stringify({capturedAt:raw.capturedAt,revision:table.snapshot().revision,totals:value.setupMap.totals,clearedResearch:setupClearedResearch,categories:['influence','control'],unverified:['characters','location tiles','story markers']},null,2));
     }
     if(value.available&&value.screen!=='error'&&value.mapPieces?.ready&&(value.mapPieces.stable||value.mapPieces.investigationStable||value.mapPieces.investigationRemovalStable)&&(replayObservation||value.mapPieces.generation===inputGeneration)){
-      const characterMoves=value.mapPieces.stable&&(value.influenceMap?.stable||value.stable&&value.setupMap?.ready)&&!busy?value.mapPieces.characterMoves.filter(m=>m.componentId!==pendingMove?.action.componentId&&table.snapshot().placements[m.componentId]!==m.zoneId):[];
+      // The image worker confirms each portrait independently across captures.
+      // An unrelated unclear/animated Influence counter must not block it.
+      const characterMoves=value.mapPieces.stable&&!busy?(value.mapPieces.confirmedCharacterMoves||[]).filter(m=>m.componentId!==pendingMove?.action.componentId&&table.snapshot().placements[m.componentId]!==m.zoneId):[];
       const removeInvestigation=value.mapPieces.investigationRemovalStable?value.mapPieces.removedInvestigationLocations||[]:[];
       const investigationLocations=((value.mapPieces.investigationStable??value.mapPieces.stable)?value.mapPieces.investigationLocations:[]).filter(id=>!removeInvestigation.includes(id)&&(!value.encounterMarkers?.stable||!value.encounterMarkers.removeInvestigation.includes(id)));
       if(investigationLocations.length||characterMoves.length||removeInvestigation.length)try{
@@ -482,7 +484,7 @@ function persist(){writeFileSync(sessionFile,JSON.stringify(table.exportSession(
 export async function boardStatus({refresh=true}={}){
   const observation=refresh?await observe(true):last&&Date.now()-last.receivedAt<5000?last:{...last,available:false,screen:'unavailable',stable:false,error:'Waiting for a fresh app observation.'};
   const roster=source==='android'?(refresh?await savedRoster.refresh(observation):savedRoster.result()):{ready:false,characters:[],error:'Saved roster reading requires Milan on the tablet.'};
-  return {source,observation,roster,recovery,synchronization:{complete:false,issues:[...(observation.locationBonusOutcomes?.unsupported||[]),...(observation.componentOutcomes?.unsupported||[]),...(observation.daySummary?.unsupported||[]),...(observation.cityOutcomes?.unsupported||[]),...[observation.locationBonusOutcomes?.error,observation.componentOutcomes?.error,observation.mapPieces?.error,observation.mapPieces?.companionError].filter(Boolean)],scope:'Only observed categories are confirmed; a full campaign snapshot is not available from the app.',setup:observation.setupMap||null,influenceMap:observation.influenceMap||null,background:true},session:table.exportSession(),busy,pendingMove:pendingMove?{action:pendingMove.action,sentAt:pendingMove.sentAt}:null,movement:{sensorCount:40,mappedZones:40,movableComponents:movable.map(c=>c.id),allowedComponents:!pendingMove&&acceptsMovement(observation)?[observation.componentId]:[],phase:observation.screen}};
+  return {source,observation,roster,recovery,synchronization:{complete:false,readers:{componentOutcomes:COMPONENT_OUTCOMES_VERSION,mapPortraits:'independent-confirmed-v1'},issues:[...(observation.locationBonusOutcomes?.unsupported||[]),...(observation.componentOutcomes?.unsupported||[]),...(observation.daySummary?.unsupported||[]),...(observation.cityOutcomes?.unsupported||[]),...[observation.locationBonusOutcomes?.error,observation.componentOutcomes?.error,observation.mapPieces?.error,observation.mapPieces?.companionError].filter(Boolean)],scope:'Only observed categories are confirmed; a full campaign snapshot is not available from the app.',setup:observation.setupMap||null,influenceMap:observation.influenceMap||null,background:true},session:table.exportSession(),busy,pendingMove:pendingMove?{action:pendingMove.action,sentAt:pendingMove.sentAt}:null,movement:{sensorCount:40,mappedZones:40,movableComponents:movable.map(c=>c.id),allowedComponents:!pendingMove&&acceptsMovement(observation)?[observation.componentId]:[],phase:observation.screen}};
 }
 export function editExpansionPiece({componentId,zoneId,operation,expectedRevision}){
   if(busy||pendingMove)throw Error('Wait for the current app input to finish.');

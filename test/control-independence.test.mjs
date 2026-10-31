@@ -43,6 +43,41 @@ test('real adapter applies Control independently of an unreadable Influence card
  const final=tableSession().state,token=profile.components.find(c=>c.groupId==='control'&&final.placements[c.id]==='cadorna');assert.equal(final.faces[token.id],'anarchs');
  assert.equal(boardTiles().tiles.cadorna.bonus.value,'media');assert.equal(final.placements['character-nosferatu'],'qt8');assert.equal(final.faces['investigation-1'],'restricted');
  await observe(true);assert.equal(tableSession().state.revision,final.revision);
+ // Exercise the complete parser -> two observations -> persisted session path.
+ // Keep older cards visible as Milan does, then add/remove/add in one process.
+ const history=[];
+ async function encounter(text,expected){
+  history.push(text);
+  const lines=history.map((text,i)=>({text,x:1348,y:400+i*170}));
+  const next={available:true,width:2560,height:1600,mapGeometry:'android-city-v1',lines};
+  await writeFile(process.env.MILAN_FEEDBACK_REPLAY_OBSERVATION,JSON.stringify(next));
+  const before=tableSession().state.placements.masquerade;
+  await observe(true);assert.equal(tableSession().state.placements.masquerade,before);
+  await new Promise(resolve=>setTimeout(resolve,2));
+  const result=await observe(true);
+  assert.equal(result.componentOutcomes.applied,true);
+  assert.equal(tableSession().state.placements.masquerade,expected);
+  const revision=tableSession().state.revision;
+  await observe(true);assert.equal(tableSession().state.revision,revision);
+  const persisted=JSON.parse(await readFile(${JSON.stringify(join(state,'tablet-chronicle-table-expansions.json'))},'utf8'));
+  assert.equal(persisted.state.placements.masquerade,expected);
+ }
+ await encounter('Masquerade Encounter added in Città Studi','citta-studi');
+ await encounter('Masquerade Encounter removed from Città Studi',null);
+ await encounter('Masquerade Encounter added in Isola','isola');
+ await encounter('Masquerade Encounter removed from Isola',null);
+ await encounter('Masquerade Encounter added in Duomo','duomo');
+ assert.equal(tableSession().state.placements['character-nosferatu'],'qt8');
+ assert.equal(tableSession().state.faces['investigation-1'],'restricted');
+ const portraitFrame={available:true,width:2560,height:1600,mapGeometry:'android-city-v1',lines:[{text:'NIGHT 6 HOUR 3 SUSPICION MASQUERADE',x:300,y:80}],mapPieces:{ready:true,stable:true,characterMoves:[{componentId:'character-nosferatu',zoneId:'cinque-giornate'}],confirmedCharacterMoves:[{componentId:'character-nosferatu',zoneId:'cinque-giornate'}],investigationLocations:[]}};
+ await writeFile(process.env.MILAN_FEEDBACK_REPLAY_OBSERVATION,JSON.stringify(portraitFrame));
+ const portraits=await observe(true);assert.equal(portraits.influenceMap.ready,false);
+ assert.equal(tableSession().state.placements['character-nosferatu'],'cinque-giornate');
+ // A single unconfirmed portrait never qualifies, even if another item is stable.
+ portraitFrame.mapPieces.characterMoves=[{componentId:'character-nosferatu',zoneId:'qt8'}];
+ portraitFrame.mapPieces.confirmedCharacterMoves=[];
+ await writeFile(process.env.MILAN_FEEDBACK_REPLAY_OBSERVATION,JSON.stringify(portraitFrame));await observe(true);
+ assert.equal(tableSession().state.placements['character-nosferatu'],'cinque-giornate');
  console.log('independent Control and verified later outcomes passed');`;
  const {stdout}=await promisify(execFile)(process.execPath,['--input-type=module','-e',script],{windowsHide:true,timeout:30000,env:{...process.env,MILAN_FEEDBACK_STATE_DIR:state,MILAN_FEEDBACK_REPLAY_OBSERVATION:frame,MILAN_FEEDBACK_REPLAY_IMAGE:''}});
  assert.match(stdout,/independent Control and verified later outcomes passed/);

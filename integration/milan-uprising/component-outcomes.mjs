@@ -1,5 +1,6 @@
 import {readFeedCards} from './feed-cards.mjs';
 import {readCompletedMovement} from '../../src/games/milan-uprising/completed-movement.js';
+export const COMPONENT_OUTCOMES_VERSION='masquerade-lifecycle-v1';
 const normalize=s=>s.normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLowerCase().replace(/[^a-z0-9]/g,'');
 // Observed capital-I/l confusion in this exact NPC name, not fuzzy matching.
 export function matchesOutcomeName(component,name){

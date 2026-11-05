@@ -14,4 +14,4 @@ The normal city map can add positively recognized pieces or correct supported po
 
 This is not a full save import. Hidden, obscured and unrecognized components cannot be reconstructed automatically. A missing icon alone removes nothing. Some markers and special tiles require manual correction; characters may need rescanning and placement.
 
-Clearing on an arbitrary game screen can leave an incomplete table. For stuck scan/movement input alone, use [Recover input](SAVEGAME-PERSONAGES.md); that preserves confirmed positions.
+Clearing on an arbitrary game screen can leave an incomplete table. For stuck scan/movement input alone, use [Recover input](SAVED-ROSTER-AND-RECOVERY.md); that preserves confirmed positions.

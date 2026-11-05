@@ -1,10 +1,10 @@
 # Working on this project
 
-Read README.md, docs/PLAN.md, docs/ARCHITECTUUR.md, docs/BESLUITEN.md and docs/ONDERZOEK.md before expanding.
+Read README.md, docs/PLAN.md, docs/ARCHITECTURE.md, docs/DECISIONS.md and docs/RESEARCH.md before expanding.
 Communicate in Dutch. Maintain documentation in English. Keep the local demo working without external dependencies.
 The end goal is to use the unmodified official game app without any physical game components. Sandbox is an intermediate step, not a replacement for that goal. Read docs/TEBURU-DEEPSEARCH.md for current source findings.
 Run `node --test` on board logic changes; check the UI for visible changes.
-Read docs/CONTRACTEN.md for the implemented first cross-section. Physical component inventory and Milan rules remain open. Keep legacy/ as reference.
+Read docs/CONTRACTS.md for the implemented first cross-section. Physical component inventory and Milan rules remain open. Keep legacy/ as reference.
 Separate engine, rules, game data, UI and presentation. Milan is a game module; the engine must not depend on it.
 Engine and rules work headless; 2D and later 3D use the same commands and state. No graphical objects in domain logic.
 Sandbox is the current only mode; automated rules are not yet available. App/hardware integration remains an optional adapter and standalone research track.

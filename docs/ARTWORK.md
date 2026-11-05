@@ -27,7 +27,7 @@ The tool only selects textures with exactly matching names and sizes from `resou
 
 ## Presentation and boundaries
 
-Portraits appear in the inventory, at the selected item, and on the board. Location images are shown on the new city map. Token icons follow the chosen side. The original map is now the main interactive view, with its own approximate click areas and features on top of the image. A schematic view and expandable map reference remain available; see [TAFEL-LAYOUT.md](TAFEL-LAYOUT.md). Images do not change lines, positions, exports or undo/redo.
+Portraits appear in the inventory, at the selected item, and on the board. Location images are shown on the new city map. Token icons follow the chosen side. The original map is now the main interactive view, with its own approximate click areas and features on top of the image. A schematic view and expandable map reference remain available; see [TABLE-LAYOUT.md](TABLE-LAYOUT.md). Images do not change lines, positions, exports or undo/redo.
 
 The server only publishes a filtered catalog and selected PNG routes under `/local-artwork/`. No general access to `private/`, source manifest, or installation files. File names, PNG header, size and resolved paths are checked. Missing images fall back on text and symbols.
 

@@ -12,7 +12,7 @@ Once released, the adapter sends and releases one temporary contact at the desti
 
 A sent move is therefore saved locally as long as confirmation is missing, even after an adapter restart. A later recognizable app confirmation updates the table without resending the sensor contact. Until then, the next move is blocked. For the first user trial, the user reported that Milan recorded Simona's placement in Haven 2L, leaving the table behind; that position has been restored based on this confirmation. The adaptive processing of late confirmations was tested separately with simulated observations.
 
-The transition from the last Haven character to the day phase has also been added as a confirmation route. This transition was originally missed, leaving Latebra on the board. See [research and automatic influence transfer](../DAGFASE-AUTOMATISERING.md).
+The transition from the last Haven character to the day phase has also been added as a confirmation route. This transition was originally missed, leaving Latebra on the board. See [research and automatic influence transfer](../DAY-PHASE-AUTOMATION.md).
 
 ## Verified on October 23, 2026
 

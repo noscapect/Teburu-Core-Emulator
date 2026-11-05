@@ -2,7 +2,7 @@
 
 ## Current start and stop route — October 29, 2026
 
-For the published runtime, use `Start-TCE.cmd`; the installed candidate creates a shortcut **Teburu Core Emulator (TCE)**. Follow the Windows/helper preparation and tablet checking in [INSTALLATION.md](INSTALLATION.md). The new **Stop Core** closes its own helper and returns the radio transfer recorded by our session to Windows. **Quit app and return Bluetooth to Windows** also closes both web services. After a crash, recovery is explicit; just closing the browser doesn't stop the services. LAN sharing is not automatically started by the new launcher; see [share board](BORD-DELEN.md).
+For the published runtime, use `Start-TCE.cmd`; the installed candidate creates a shortcut **Teburu Core Emulator (TCE)**. Follow the Windows/helper preparation and tablet checking in [INSTALLATION.md](INSTALLATION.md). The new **Stop Core** closes its own helper and returns the radio transfer recorded by our session to Windows. **Quit app and return Bluetooth to Windows** also closes both web services. After a crash, recovery is explicit; just closing the browser doesn't stop the services. LAN sharing is not automatically started by the new launcher; see [share board](BOARD-SHARING.md).
 
 The description below documents the older, separately provisioned private PC launchers and their trials from October 23–28. Their shortcuts and old stop behavior are not instructions for a fresh clone or the new candidate. The necessary runtime code is now in `integration/runtime/`, while machine data and observations remain local.
 
@@ -32,14 +32,14 @@ The link will continue to spin after the launcher and Codex are closed. The PC m
 - The production adapter is started separately from the interactive tool terminal via the launcher. After terminating the launcher, the background task continued to run cycles. Restarting reuses the same process.
 - Tests check that cycles do not overlap, that the job continues after an error, and that stopping waits for a running cycle. With the Sunset expansion on October 24, the entire project suite passes 46 tests. An additional standalone replay trial verifies QT8 control removal without a browser or changes to the real campaign.
 
-The standalone implementation does not automatically increase recognition coverage. For current limits, including hidden instructions and control takeovers, see [day phase automation](DAGFASE-AUTOMATISERING.md).
+The standalone implementation does not automatically increase recognition coverage. For current limits, including hidden instructions and control takeovers, see [day phase automation](DAY-PHASE-AUTOMATION.md).
 
 ## Checking the Control Center on October 24, 2026
 
 The real local page shows the active Core and the current data from the remote board server. Browser control includes desktop, phone width, copy actions, connection status and simulated start/stop controls. An actual repeat start request reused the connected Core without interrupting the connection. Preparation after a missing service, concurrent requests and retries after an error have also been checked with separate tests of the start function. The cold radio transmission was not performed again in this GUI trial while Milan was connected. The public suite passes with 49 tests; it also checks that the remote relay does not provide access to the start window or the associated API.
 
 
-After an app crash, the user can click on the board **App restarted? Select Recover input**, or in the Control Center **Reset registrations / recover input**. The Android adapter also recognizes a modified app process instance. Registration progress is advisory; the Core reader status determines whether a scan can be offered. See [scan recovery](games/milan-uprising/SAVEGAME-PERSONAGES.md).
+After an app crash, the user can click on the board **App restarted? Select Recover input**, or in the Control Center **Reset registrations / recover input**. The Android adapter also recognizes a modified app process instance. Registration progress is advisory; the Core reader status determines whether a scan can be offered. See [scan recovery](games/milan-uprising/SAVED-ROSTER-AND-RECOVERY.md).
 
 
 ## Faster feedback when scanning and placing

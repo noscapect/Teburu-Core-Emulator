@@ -27,7 +27,7 @@ The private Core regression suite now has 25 successful scenarios. The new ring 
 
 ## Firmware and battery - October 28, 2026
 
-The virtual ring now reports persistently stored compatibility version 1.15.0 and a stable simulated battery value in the same way as the dice. Checked live in the unmodified Teburu app 1.2.0: Firmware up to date, 46%, 3852 mV. The previous zero values ​​and both warnings have been resolved. This replaces the previously unknown battery telemetry for our simulation; it is not a measurement of physical hardware. See [firmware simulation](../FIRMWARE-SIMULATIE.md).
+The virtual ring now reports persistently stored compatibility version 1.15.0 and a stable simulated battery value in the same way as the dice. Checked live in the unmodified Teburu app 1.2.0: Firmware up to date, 46%, 3852 mV. The previous zero values ​​and both warnings have been resolved. This replaces the previously unknown battery telemetry for our simulation; it is not a measurement of physical hardware. See [firmware simulation](../FIRMWARE-SIMULATION.md).
 
 ## LED segment orientation — October 28, 2026
 

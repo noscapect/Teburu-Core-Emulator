@@ -6,4 +6,4 @@ Repeated messages do not create duplicates. A recognized newer encounter destina
 
 Leave the relevant screen open briefly. Investigation updates can continue while a character move awaits confirmation. Covered icons, unknown destinations and unreadable messages can prevent automatic synchronization. A missing icon alone is not a removal instruction.
 
-After [Clear board & resync](TAFEL-LEGEN.md), a still-visible supported message or map marker can restore the position. This does not reconstruct an entire campaign.
+After [Clear board & resync](CLEAR-AND-RESYNC.md), a still-visible supported message or map marker can restore the position. This does not reconstruct an entire campaign.

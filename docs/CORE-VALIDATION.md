@@ -2,7 +2,7 @@
 
 ## Current addition — October 28, 2026
 
-All 26 private Core regression scenarios pass, including the new LED ring test for firmware migration, atomic storage, error handling, restart, and stable simulated battery. The virtual Bluetooth test is also successful. After activation, the unmodified Teburu app 1.2.0 on the real tablet shows ring version 1.15.0, Firmware up to date and 46% / 3852 mV. This is proven by the version and battery display, not running official firmware or full hardware compatibility. See [firmware simulation](FIRMWARE-SIMULATIE.md) and [Prospero](games/milan-uprising/PROSPERO.md).
+All 26 private Core regression scenarios pass, including the new LED ring test for firmware migration, atomic storage, error handling, restart, and stable simulated battery. The virtual Bluetooth test is also successful. After activation, the unmodified Teburu app 1.2.0 on the real tablet shows ring version 1.15.0, Firmware up to date and 46% / 3852 mV. This is proven by the version and battery display, not running official firmware or full hardware compatibility. See [firmware simulation](FIRMWARE-SIMULATION.md) and [Prospero](games/milan-uprising/PROSPERO.md).
 
 The older numbers and test results below belong to the indicated research phases.
 
@@ -51,7 +51,7 @@ The private offline runner compiles the same Core source as the adapter, without
 
 The offline run passes sixteen scenarios, including ten existing comparison files. These comparison files are regression references; they do not in themselves constitute independent evidence. The report explicitly states that no radio or official app was used.
 
-The additional independent SDK test checks all forty individual contacts and releases, forty simultaneous contacts, and each individual release without losing the other contacts. The virtual Bluetooth transport also passed on all forty contacts and releases. The motion adapter was monitored with simulated app observations for eleven miniatures × forty destinations. This is software coverage; physical acceptance at each destination remains necessary separately. See [drag control and evidence limits](games/milan-uprising/SLEPEN-EN-SENSOREN.md).
+The additional independent SDK test checks all forty individual contacts and releases, forty simultaneous contacts, and each individual release without losing the other contacts. The virtual Bluetooth transport also passed on all forty contacts and releases. The motion adapter was monitored with simulated app observations for eleven miniatures × forty destinations. This is software coverage; physical acceptance at each destination remains necessary separately. See [drag control and evidence limits](games/milan-uprising/DRAGGING-AND-SENSOR-INPUT.md).
 
 The original SDK recognizes five separate synthetic d10s and their independent values, even when delivered in split messages. The test involves all ten values ​​of the first d10 and then a group roll with all five. The private adapter provides a random physical value from one to ten per chosen die; the applicant cannot specify a desired outcome. Each die retains its own locally stored identity. This is input to the official app, not our own calculation of gaming success.
 

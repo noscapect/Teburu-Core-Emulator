@@ -34,7 +34,7 @@ The installation also includes USB and deep link library names. These are not pr
 | Window Capture + OCR/Image Recognition | No Core input; possibly normal UI controls separately | Candidacy for visible assignments such as placing influence | Fallback route for outbound automation. First present unclear recognition for checking. Cannot resolve hardware blockage. |
 | Official SDK | Unproven for existing apps | Unproven for existing apps | Parallel documentation route. The [request page](https://www.teburu.com/request-sdk/) focuses on private amateur games; no application made or agreement accepted. |
 
-An Android emulator runs the Android app, but does not replace the Core and registration/sensor protocol. Follow-up research has found a concrete possible advantage: Netsim/Bumble can connect a separate virtual Bluetooth core on the same PC to Android, without physical radio loopback. This has not yet been tested with Milan. See [replace or use tablet differently](ZONDER-TABLET.md).
+An Android emulator runs the Android app, but does not replace the Core and registration/sensor protocol. Follow-up research has found a concrete possible advantage: Netsim/Bumble can connect a separate virtual Bluetooth core on the same PC to Android, without physical radio loopback. This has not yet been tested with Milan. See [replace or use tablet differently](TABLET-ALTERNATIVES.md).
 
 ## Why the browser can't be the whole bridge
 
@@ -67,7 +67,7 @@ Our current `table.arrange` is a complete setup. Do not use it with influence on
 
 ## Concrete next steps and decision moments
 
-1. **Record normal setup flow.** Launch the official app in a separate test session, follow Main/One Device/Controller/Remote as provided and note the exact point at which Core or miniatures are needed. Do not use hidden mode. The existing protocol is in [APP-VALIDATIE.md](APP-VALIDATIE.md); this has not yet been implemented.
+1. **Record normal setup flow.** Launch the official app in a separate test session, follow Main/One Device/Controller/Remote as provided and note the exact point at which Core or miniatures are needed. Do not use hidden mode. The existing protocol is in [APP-VALIDATION.md](APP-VALIDATION.md); this has not yet been implemented.
 2. **Native transport loose proof.** The read-only capability probe is available. Next experiment: its own generic GATT service with its own test client, without Teburu identity, to test advertising, connection, write/notify and the device setup. Only the transport layer proves this; not yet implemented.
 3. **Substantiate actual input contract.** Use public specifications or own permitted observations to determine service profile, session start, character significance, location/contact, and time sequence. Only keep your own identifiers private. If a security bypass or cloned tag identity is required, then that route is not a deployment path for this project.
 4. **Prove feedback separately.** Once a normal session is reachable, compare one visible influence change with available own logs/saves or a usable communication channel. [Unity log documentation](https://docs.unity3d.com/6000.1/Documentation/Manual/log-files.html) only gives the general location, not a Milan state diagram. In the absence of machine-readable output: first test a local capture/OCR with a concrete app screen.

@@ -8,15 +8,15 @@
 
 Addition November 5, 2026: own table sessions support validated import/replay and undo/redo; see **Expansion 0.4** and **Recovery History**. The original export-only cross-section is historical. This recovery contract does not import official app saves; general autosave and migrations remain open.
 
-This document stores the successive engine and module contracts. The engine still has sandbox rules only; the associated runtime is an optional adapter with the official app as the rules authority. Older inventory tables with “official app not connected” describe that earlier cross-section. The required own adapter code is now in `integration/runtime/`; current distribution and verification are in [installation](INSTALLATION.md), [release-review](RELEASE-REVIEW.md) and [validation](VALIDATIE.md). Historical contract restrictions are not a current statement that app contact has never been demonstrated.
+This document stores the successive engine and module contracts. The engine still has sandbox rules only; the associated runtime is an optional adapter with the official app as the rules authority. Older inventory tables with “official app not connected” describe that earlier cross-section. The required own adapter code is now in `integration/runtime/`; current distribution and verification are in [installation](INSTALLATION.md), [release-review](RELEASE-REVIEW.md) and [validation](VALIDATION.md). Historical contract restrictions are not a current statement that app contact has never been demonstrated.
 
 ## Expansion stock 0.8
 
-`withExpansions(base, catalog, selected)` only adds the selected Milan stocks to a copy of the base profile. Components are given a `expansionId` and presentation label; generic zone/component commands remain the same. The extended profile has its own release ID and package version. `extendTableSession` is an explicit additive conversion of our own base board exports, with validation and replay before and after conversion. Regular imports remain profile-related. See [packages, controls and private adapter boundaries](games/milan-uprising/UITBREIDINGEN.md).
+`withExpansions(base, catalog, selected)` only adds the selected Milan stocks to a copy of the base profile. Components are given a `expansionId` and presentation label; generic zone/component commands remain the same. The extended profile has its own release ID and package version. `extendTableSession` is an explicit additive conversion of our own base board exports, with validation and replay before and after conversion. Regular imports remain profile-related. See [packages, controls and private adapter boundaries](games/milan-uprising/EXPANSIONS.md).
 
 ## Expansion 0.6 - named map and atomic arrangement
 
-Separate package `milan-city` version `0.6.0`, profile schema 2. The retail and demo packages are retained. Zones optionally have `area` (ID), `attributes` (unique IDs) and `sourceId` (existing resource). The presentation chooses its own schematic layout; these fields do not create a sensor protocol or adjacency graph. `boardEvidence` and `campaignSetup` are version 1 Milan metadata; official initial position and sensor mapping are explicitly unproven. See KAART-EN-OPSTELLING.md.
+Separate package `milan-city` version `0.6.0`, profile schema 2. The retail and demo packages are retained. Zones optionally have `area` (ID), `attributes` (unique IDs) and `sourceId` (existing resource). The presentation chooses its own schematic layout; these fields do not create a sensor protocol or adjacency graph. `boardEvidence` and `campaignSetup` are version 1 Milan metadata; official initial position and sensor mapping are explicitly unproven. See BOARD-AND-SETUP.md.
 
 New generic command `table.arrange {placements: [{componentId, zoneId}], faces: [{componentId, faceId}]}` replaces all placements and token sides atomically. Parts not mentioned go to stock; sides not mentioned receive their first profile value. IDs, duplicates, zone capacity and allowed sides are checked before commit. Existing events and rolls are retained; the setup adds one event and revision. The application provides `arrange(payload)`. Undo/redo and export/import follow the same state and replay.
 
@@ -58,7 +58,7 @@ Captured before migration. Scope: only existing neutral demo; no new assumptions
 
 | Part | Status | Authority |
 | --- | --- | --- |
-| 8×5 sensor grid | verified in ONDERZOEK.md | profile data, no engine constant |
+| 8×5 sensor grid | verified in RESEARCH.md | profile data, no engine constant |
 | Sensor Orientation and Milan Locations | unknown | no mapping implemented |
 | Four pawns and d6/d10 | existing synthetic demo, not a complete component list | local sandbox |
 | Retail Miniatures, Influence Cubes and Tokens | counts and identities verified in extension 0.5 | separate retail package, manual placement/sides |
@@ -97,7 +97,7 @@ No change to engine, profile or save versions. The existing corrected map 0.7 ge
 
 ## Milan module — explicit final influence counts
 
-`buildInfluenceArrangement(profile, state, updates)` accepts unique `{zoneId, faction, count}` combinations for city districts, with integers from zero to three. The pure builder checks inventory and returns `{changed, placements, faces}` for one existing `table.arrange` order. Only the named faction influence changes; other placements and sides are retained. The caller skips the command at `changed:false`. This is explicit data acquisition, not automatic Milan rules. See [day phase study](DAGFASE-AUTOMATISERING.md).
+`buildInfluenceArrangement(profile, state, updates)` accepts unique `{zoneId, faction, count}` combinations for city districts, with integers from zero to three. The pure builder checks inventory and returns `{changed, placements, faces}` for one existing `table.arrange` order. Only the named faction influence changes; other placements and sides are retained. The caller skips the command at `changed:false`. This is explicit data acquisition, not automatic Milan rules. See [day phase study](DAY-PHASE-AUTOMATION.md).
 
 `buildBoardInstructions(profile, state, {influence, removeControl})` combines the same final influence counts with explicit control removal from unique city districts. Control deletion only removes the affected control tokens. All validation is done before the existing atomic assignment. The application does not perform phase or faction decisions.
 
@@ -109,7 +109,7 @@ No change to engine, profile or save versions. The existing corrected map 0.7 ge
 
 `prepareComponentSetup(profile, state, locations)` initializes a newly presented component setup: the entire influence/control map is validated and old Investigation tokens are returned to stock. This only concerns tokens with the side `investigation`; restricted sides and other categories are retained. The adapter uses this step once per setup and saves the old local session beforehand. Regular map updates via `reconcileDistrictMap` will retain Investigation tokens. Fresh, explicitly confirmed markers during the same setup are not cleared repeatedly.
 
-`setLocationTile(state, zones, {zoneId, kind, face, value, expectedRevision})` returns new `milan-location-tiles` state. `kind` is bonus or special; `face` is unconfirmed, hidden or visible. Only city districts and known values ​​are allowed. Projections copy the tile data. The city table optionally adds this module state as `locationTiles` to the existing session envelope; the engine remains unchanged. See [location tiles](games/milan-uprising/LOCATIETEGELS.md).
+`setLocationTile(state, zones, {zoneId, kind, face, value, expectedRevision})` returns new `milan-location-tiles` state. `kind` is bonus or special; `face` is unconfirmed, hidden or visible. Only city districts and known values ​​are allowed. Projections copy the tile data. The city table optionally adds this module state as `locationTiles` to the existing session envelope; the engine remains unchanged. See [location tiles](games/milan-uprising/LOCATION-TILES.md).
 
 
 ## Optional reader controls in the UI
@@ -130,10 +130,10 @@ The optional scan presentation groups a miniature strip and the Core into one pe
 
 ## Milan module — explicit component instructions
 
-`buildComponentInstructions(profile, state, instructions)` validates a nonempty batch of unique known component IDs with `operation: place | remove | face`, an existing `zoneId` for placements, and an optional valid `faceId`. Face-only instructions require a side. It validates final ally/ghoul district occupancy before returning an idempotent `{changed, placements, faces}` arrangement for the existing atomic table command. No engine or session format changes are introduced. The private adapter uses this contract for supported explicit named app outcomes and user-verified table-only corrections. See [placement synchronization](PLAATSINGSSYNC.md) for observed coverage and limitations.
+`buildComponentInstructions(profile, state, instructions)` validates a nonempty batch of unique known component IDs with `operation: place | remove | face`, an existing `zoneId` for placements, and an optional valid `faceId`. Face-only instructions require a side. It validates final ally/ghoul district occupancy before returning an idempotent `{changed, placements, faces}` arrangement for the existing atomic table command. No engine or session format changes are introduced. The private adapter uses this contract for supported explicit named app outcomes and user-verified table-only corrections. See [placement synchronization](PLACEMENT-SYNCHRONIZATION.md) for observed coverage and limitations.
 
 ## Presentation and observation timing — October 27, 2026
 
 `withPendingPlacement(view, action)` in the presentation decorators returns a projected pending destination and `pendingPlacement` presentation flag without changing confirmed session state, events, revision or exports. The renderer marks it as awaiting confirmation. No graphical object is introduced into domain state.
 
-`createPositiveObservations({key,maxGap})` tracks independent positive observations by input generation. It returns only items seen in two distinct successive captures within the allowed gap, including the previous capture time for post-request freshness checks. Missing items reset their candidate; absence is not a removal instruction. See [faster feedback](SNELLERE-TERUGKOPPELING.md) for measured limits and private-reader activation.
+`createPositiveObservations({key,maxGap})` tracks independent positive observations by input generation. It returns only items seen in two distinct successive captures within the allowed gap, including the previous capture time for post-request freshness checks. Missing items reset their candidate; absence is not a removal instruction. See [faster feedback](FASTER-FEEDBACK.md) for measured limits and private-reader activation.

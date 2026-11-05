@@ -15,7 +15,7 @@ Targeted public searches for SDK/simulator and Milan/digital rolls/remote on the
 
 ## Execution and form of proof
 
-Use only normal UI controls and a separate test session. Record date, Windows version, game version shown, download hash and hardware present. The download identity is in [INSTALLATIE-ONDERZOEK.md](INSTALLATIE-ONDERZOEK.md).
+Use only normal UI controls and a separate test session. Record date, Windows version, game version shown, download hash and hardware present. The download identity is in [INSTALLATION-RESEARCH.md](INSTALLATION-RESEARCH.md).
 
 For each test, record the actual steps, screen text, result and next blocking point. Outcomes are `passed`, `blocked`, `failed` or `not run`. An unreachable screen means `blocked`, not that the feature is missing.
 

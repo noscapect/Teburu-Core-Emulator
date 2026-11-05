@@ -1,6 +1,6 @@
 # Replace tablet or use as Milan screen
 
-Surveyed on October 22, 2026. This is a choice for the next integration trial, not a new compatibility claim. The existing limited live trial remains described in [APP-VALIDATIE.md](APP-VALIDATIE.md#live-table-service-and-influence).
+Surveyed on October 22, 2026. This is a choice for the next integration trial, not a new compatibility claim. The existing limited live trial remains described in [APP-VALIDATION.md](APP-VALIDATION.md#live-table-service-and-influence).
 
 ## Outcome
 

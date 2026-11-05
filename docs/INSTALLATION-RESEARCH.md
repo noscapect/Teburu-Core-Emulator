@@ -30,7 +30,7 @@ No proven Core replacement, character registration, sensor/location mapping, ses
 
 ## Next verification
 
-The concrete test protocol and the unsent manufacturer questions are in [APP-VALIDATIE.md](APP-VALIDATIE.md).
+The concrete test protocol and the unsent manufacturer questions are in [APP-VALIDATION.md](APP-VALIDATION.md).
 
 1. Once visible controls are possible: open the app normally and note the game version shown, start flow, device roles and the precise point at which a Core is needed.
 2. Try digital rolls and any manual input via the normal UI only. If hardware blocks access, document that block; do not conclude that the function is missing.
@@ -41,4 +41,4 @@ Only then can a real adapter be specified. The local `virtual-core` remains sole
 
 ## Later static floor
 
-The first check above is historical. On October 22, original textures were exported locally only by user command; see [ARTWORK.md](ARTWORK.md). The readable assembly manifest was then examined in more detail for BLE, network and WebRTC clues, 45 location presentation files were counted and a read-only boundary condition probe was performed. See [APP-KOPPELING-VOORONDERZOEK.md](APP-KOPPELING-VOORONDERZOEK.md). This is not runtime/protocol validation. Raw observations and fingerprints remain private.
+The first check above is historical. On October 22, original textures were exported locally only by user command; see [ARTWORK.md](ARTWORK.md). The readable assembly manifest was then examined in more detail for BLE, network and WebRTC clues, 45 location presentation files were counted and a read-only boundary condition probe was performed. See [APP-INTEGRATION-RESEARCH.md](APP-INTEGRATION-RESEARCH.md). This is not runtime/protocol validation. Raw observations and fingerprints remain private.

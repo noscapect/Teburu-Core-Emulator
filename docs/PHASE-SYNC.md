@@ -81,13 +81,13 @@ Activation follow-up: the user manually restarted the adapter. Live verification
 
 ## General component placement follow-up
 
-The recorded Night 3 Sunset card placed Agnese Della Luna at Cadorna. This named story miniature was absent because the previous readers covered characters, selected companion flows and markers, but not general named placements. The new component-outcome reader, validated arrangement builder, all-component correction controls and visible synchronization-issue reporting are documented in [placement synchronization](PLAATSINGSSYNC.md). All 90 public tests and the recorded/browser regressions passed. Activation still requires loading the updated private adapter; no full-app placement guarantee is asserted.
+The recorded Night 3 Sunset card placed Agnese Della Luna at Cadorna. This named story miniature was absent because the previous readers covered characters, selected companion flows and markers, but not general named placements. The new component-outcome reader, validated arrangement builder, all-component correction controls and visible synchronization-issue reporting are documented in [placement synchronization](PLACEMENT-SYNCHRONIZATION.md). All 90 public tests and the recorded/browser regressions passed. Activation still requires loading the updated private adapter; no full-app placement guarantee is asserted.
 
-Placement follow-up activated: after the user's adapter restart, a new worker recognized Agnese's recorded card and automatically placed her on Cadorna. Live status and browser verification confirmed her miniature, no pending request or synchronization issues, and all 233 manual correction options. No gameplay input was sent. See PLAATSINGSSYNC.md for the validated automatic routes and remaining recognition limits.
+Placement follow-up activated: after the user's adapter restart, a new worker recognized Agnese's recorded card and automatically placed her on Cadorna. Live status and browser verification confirmed her miniature, no pending request or synchronization issues, and all 233 manual correction options. No gameplay input was sent. See PLACEMENT-SYNCHRONIZATION.md for the validated automatic routes and remaining recognition limits.
 
 ## Faster feedback activation — 27 October 2026
 
-The requested [faster feedback](SNELLERE-TERUGKOPPELING.md) is active after the user's adapter restart. Pending destinations are presentation-only, ordinary completed movement cards now confirm requests, and targeted location/portrait reads prioritize the requested character. Positive observations are tracked independently per component. Live timing fields confirm the new reader path is running. Contrast compensation on the masked movement-overlay path resolved an existing Orlando request at Portello automatically, without additional sensor input; a browser check confirmed the final state. Reader-only tests show seconds of remaining confirmation latency, so immediate preview must not be described as immediate app acceptance.
+The requested [faster feedback](FASTER-FEEDBACK.md) is active after the user's adapter restart. Pending destinations are presentation-only, ordinary completed movement cards now confirm requests, and targeted location/portrait reads prioritize the requested character. Positive observations are tracked independently per component. Live timing fields confirm the new reader path is running. Contrast compensation on the masked movement-overlay path resolved an existing Orlando request at Portello automatically, without additional sensor input; a browser check confirmed the final state. Reader-only tests show seconds of remaining confirmation latency, so immediate preview must not be described as immediate app acceptance.
 
 ## Independent influence outcomes — San Siro
 
@@ -101,7 +101,7 @@ Activation follow-up: after the user's restart, the new worker applied San Siro'
 
 ## QT8 location-bonus reveal
 
-The QT8 **Possible Haven** feed card exposed another previously unsupported category: location-bonus reveals did not update the separate tile store. The current tile is now visible and verified in the browser. The prepared reader tracks explicit known reveal cards independently and applies the existing revision-checked tile operation after two matching observations, preserving actual Haven placement and other tile kinds. See LOCATIETEGELS.md for behavior and validation. Backend activation is separate from the current table correction.
+The QT8 **Possible Haven** feed card exposed another previously unsupported category: location-bonus reveals did not update the separate tile store. The current tile is now visible and verified in the browser. The prepared reader tracks explicit known reveal cards independently and applies the existing revision-checked tile operation after two matching observations, preserving actual Haven placement and other tile kinds. See LOCATION-TILES.md for behavior and validation. Backend activation is separate from the current table correction.
 
 ## Washington Investigation removal
 

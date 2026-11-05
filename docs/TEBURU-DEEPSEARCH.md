@@ -1,22 +1,22 @@
 # Teburu and Milan Uprising — technical research
 
-Reading Guide, November 5, 2026: The public source study and early negative runtime outcomes below are historic. Subsequent limited interaction with the unmodified official app and supported board updates are in [VALIDATION](VALIDATIE.md). General statements such as “no working official app bridge” describe the research phase at that time. Full campaign compatibility and manufacturer support remain unproven; current functions are in [README](../README.md).
+Reading Guide, November 5, 2026: The public source study and early negative runtime outcomes below are historic. Subsequent limited interaction with the unmodified official app and supported board updates are in [VALIDATION](VALIDATION.md). General statements such as “no working official app bridge” describe the research phase at that time. Full campaign compatibility and manufacturer support remain unproven; current functions are in [README](../README.md).
 
 ## Distribution status — October 29, 2026
 
-The required own derived runtime code and the allowed artwork selection are now in the repository. The original SDK, machine configuration and individual identifiers remain excluded. A Windows review package is built locally; the release workflow was not executed. This does not change the app compatibility proof boundaries below. Follow [installation](INSTALLATION.md), [release-review](RELEASE-REVIEW.md) and [validation](VALIDATIE.md) for the current distribution and open acceptance tests; the dated source and runtime records are historically preserved.
+The required own derived runtime code and the allowed artwork selection are now in the repository. The original SDK, machine configuration and individual identifiers remain excluded. A Windows review package is built locally; the release workflow was not executed. This does not change the app compatibility proof boundaries below. Follow [installation](INSTALLATION.md), [release-review](RELEASE-REVIEW.md) and [validation](VALIDATION.md) for the current distribution and open acceptance tests; the dated source and runtime records are historically preserved.
 
 ## Current local evidence status — October 28, 2026
 
-The public source study and dated runtime reports below are historical. A limited private link with the unchanged official app has now been demonstrated; this does not make the public sandbox a full emulator. The resumed NPC setup screen was checked live with Agnese in Washington. In the unchanged Teburu app 1.2.0, LED ring version 1.15.0 and the simulated battery display 46% / 3852 mV have also been confirmed. The ring orientation on the board was corrected with a separate browser trial. See [placement synchronization](PLAATSINGSSYNC.md), [firmware simulation](FIRMWARE-SIMULATIE.md) and [validation](VALIDATIE.md).
+The public source study and dated runtime reports below are historical. A limited private link with the unchanged official app has now been demonstrated; this does not make the public sandbox a full emulator. The resumed NPC setup screen was checked live with Agnese in Washington. In the unchanged Teburu app 1.2.0, LED ring version 1.15.0 and the simulated battery display 46% / 3852 mV have also been confirmed. The ring orientation on the board was corrected with a separate browser trial. See [placement synchronization](PLACEMENT-SYNCHRONIZATION.md), [firmware simulation](FIRMWARE-SIMULATION.md) and [validation](VALIDATION.md).
 
 These are local observations, not new public source claims, full campaign validation, or evidence of manufacturer support. Private source code, identifiers and raw observations remain under ignored private/.
 
-Current runtime outcome as of October 22, 2026: The unmodified Windows app started normally and the offered setup choices were viewed. Single/Main waiting for a Core; Controller requests connection to an existing Main. The individual private SDK builds and local runtime test passed; the normal Milan-Main setup did not produce a connection on this trial. No campaign or virtual input connection with Milan proven. See [APP-VALIDATIE.md](APP-VALIDATIE.md). The historical research stages below are not a current statement that the app has never been started.
+Current runtime outcome as of October 22, 2026: The unmodified Windows app started normally and the offered setup choices were viewed. Single/Main waiting for a Core; Controller requests connection to an existing Main. The individual private SDK builds and local runtime test passed; the normal Milan-Main setup did not produce a connection on this trial. No campaign or virtual input connection with Milan proven. See [APP-VALIDATION.md](APP-VALIDATION.md). The historical research stages below are not a current statement that the app has never been started.
 
 Researched October 21, 2026. Public sources only; no app unpacked, hardware read, SDK requested or agreement accepted. This report replaces previous assumptions where explicitly stated below.
 
-Follow-up on October 22, 2026: the official Windows build has now been downloaded and unpacked for local installation by user command. Static installation findings are in [INSTALLATIE-ONDERZOEK.md](INSTALLATIE-ONDERZOEK.md). The historical download findings below remain dated October 21; the app did not start for this sequel either. No SDK requested or agreement accepted.
+Follow-up on October 22, 2026: the official Windows build has now been downloaded and unpacked for local installation by user command. Static installation findings are in [INSTALLATION-RESEARCH.md](INSTALLATION-RESEARCH.md). The historical download findings below remain dated October 21; the app did not start for this sequel either. No SDK requested or agreement accepted.
 
 ## Final goal and conclusion
 
@@ -93,7 +93,7 @@ The installed Windows app 1.0.9 is now examined as a readable local artwork sour
 
 ## Continued: two-way link, October 22, 2026
 
-[APP-KOPPELING-VOORONDERZOEK.md](APP-KOPPELING-VOORONDERZOEK.md) compares the connection routes and describes new static prompts: BLE/Network/WebRTC assemblies in the installation manifest and 45 location presentation files. No files or configurations inherited as protocol mapping. A read-only Windows probe stores its own preconditions and Bluetooth capabilities exclusively under `private/integration/`.
+[APP-INTEGRATION-RESEARCH.md](APP-INTEGRATION-RESEARCH.md) compares the connection routes and describes new static prompts: BLE/Network/WebRTC assemblies in the installation manifest and 45 location presentation files. No files or configurations inherited as protocol mapping. A read-only Windows probe stores its own preconditions and Bluetooth capabilities exclusively under `private/integration/`.
 
 Preferred direction for research is an optional native helper with separate app input and state feedback. Test normal app flow first; remote participation and the SDK do not prove a boardless session. A BLE-Core route alone does not guarantee an influence condition. App not started, changed or connected; no service profiles or official messages have been implemented. The advice and the following experiments do not require prior contact with the manufacturer.
 

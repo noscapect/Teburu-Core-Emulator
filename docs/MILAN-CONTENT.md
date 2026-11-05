@@ -1,6 +1,6 @@
 # Milan content 0.5 — retail base game
 
-Addition 0.6: The Named District/Haven map and Manual Setup Assistance are now available as a separate package. See [KAART-EN-OPSTELLING.md](KAART-EN-OPSTELLING.md). The description below remains the scope of retail package 0.5; existing saves remain usable.
+Addition 0.6: The Named District/Haven map and Manual Setup Assistance are now available as a separate package. See [BOARD-AND-SETUP.md](BOARD-AND-SETUP.md). The description below remains the scope of retail package 0.5; existing saves remain usable.
 
 Source check and deployment: October 22, 2026. Data package: `data/games/milan-uprising/retail.json`, `releaseId: retail-core`, package version `0.5.0`, profile schema version 2. Sandbox only; actual physical content does not make the table a complete or automatically validated gaming session.
 

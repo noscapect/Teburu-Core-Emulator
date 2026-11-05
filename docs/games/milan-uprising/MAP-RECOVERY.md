@@ -8,6 +8,6 @@ Two matching observations are required for positively recognized positions and m
 
 Stacked miniatures, dialogs and unreadable icons can hide information. Absence alone does not remove a piece. Restricted tokens, special tiles and story markers are not reconstructed from guesses.
 
-**Map · partial recovery** means the table has been partially restored. Compare it with Milan; recognized location instructions or placement confirmations may add information later. Relevant setup screens and corrections are available for [location tiles](LOCATIETEGELS.md).
+**Map · partial recovery** means the table has been partially restored. Compare it with Milan; recognized location instructions or placement confirmations may add information later. Relevant setup screens and corrections are available for [location tiles](LOCATION-TILES.md).
 
-After a full clear, several setup screens are often needed. See [clearing and recovery](TAFEL-LEGEN.md). There is no complete import of the official campaign save.
+After a full clear, several setup screens are often needed. See [clearing and recovery](CLEAR-AND-RESYNC.md). There is no complete import of the official campaign save.

@@ -24,16 +24,16 @@ During linked play, Milan determines input. Requested positions have a pending m
 
 ## Guides
 
-- [Dragging and confirmation](SLEPEN-EN-SENSOREN.md)
-- [Scanning, saved roster and input recovery](SAVEGAME-PERSONAGES.md)
-- [Allies and ghouls](ALLIES-EN-GHOULS.md)
-- [Location tiles and Haven rooms](LOCATIETEGELS.md)
-- [Clearing and partially restoring the table](TAFEL-LEGEN.md)
-- [City-map recovery](KAARTHERSTEL.md)
-- [Investigation marker synchronization](ONDERZOEKFICHES-SYNC.md)
-- [Expansions](UITBREIDINGEN.md)
+- [Dragging and confirmation](DRAGGING-AND-SENSOR-INPUT.md)
+- [Scanning, saved roster and input recovery](SAVED-ROSTER-AND-RECOVERY.md)
+- [Allies and ghouls](ALLIES-AND-GHOULS.md)
+- [Location tiles and Haven rooms](LOCATION-TILES.md)
+- [Clearing and partially restoring the table](CLEAR-AND-RESYNC.md)
+- [City-map recovery](MAP-RECOVERY.md)
+- [Investigation marker synchronization](INVESTIGATION-MARKER-SYNC.md)
+- [Expansions](EXPANSIONS.md)
 - [Prospero and the LED ring](PROSPERO.md)
 
-[LAN sharing](../../BORD-DELEN.md) and [firmware simulation](../../FIRMWARE-SIMULATIE.md) are shared TCE features. Prospero's presentation and interpretation of app output belong to this module.
+[LAN sharing](../../BOARD-SHARING.md) and [firmware simulation](../../FIRMWARE-SIMULATION.md) are shared TCE features. Prospero's presentation and interpretation of app output belong to this module.
 
-Technical findings and acceptance evidence are recorded in [project validation](../../VALIDATIE.md); they do not establish support for other game apps.
+Technical findings and acceptance evidence are recorded in [project validation](../../VALIDATION.md); they do not establish support for other game apps.

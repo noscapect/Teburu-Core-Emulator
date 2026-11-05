@@ -6,7 +6,7 @@ Investigated on October 24, 2026, after the user opened the official Teburu app 
 
 Interception is not necessary for this first step. The installed official Teburu Android app **1.2.0** already contains separate firmware update archives for Core, dice and LED ring. Only the bundled Core archive was copied to the ignored research folder via the existing authorized USB connection. The official app and firmware have not been changed; Update was not pressed and no firmware was sent or installed.
 
-The board package filename refers to **2.31**. That does not prove that this is the latest online version, or that the Virtual Core is running this firmware. At the time of this research, the virtual Core reported version 0.0.0. By user request, a [separate simulated update with persistent compatibility versions](FIRMWARE-SIMULATIE.md) now exists; it also does not run official firmware.
+The board package filename refers to **2.31**. That does not prove that this is the latest online version, or that the Virtual Core is running this firmware. At the time of this research, the virtual Core reported version 0.0.0. By user request, a [separate simulated update with persistent compatibility versions](FIRMWARE-SIMULATION.md) now exists; it also does not run official firmware.
 
 ## Checked properties
 

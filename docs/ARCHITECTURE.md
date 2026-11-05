@@ -10,9 +10,9 @@ A game module provides components, board geometry, presentation, app recognition
 
 `resources/addons.json` registers versioned game modules. The generic engine, server, installer and Core/WSL transport do not import a Milan module. Milan screens and presentation are under `src/games/milan-uprising/`, data under `data/games/milan-uprising/` and the app adapter under `integration/milan-uprising/`; `integration/runtime/` contains shared infrastructure. Multiple games can be enabled independently. The current linked launcher opens one game session at a time and closes the previous one in a controlled manner when switching. See [module contract](GAME-MODULES.md).
 
-Game installation uses an existing artwork archive or a registered download/extraction recipe. The Windows client is not installed or running. Node monitors the controlled source, integrity and cleanup; a separate Python process exports only selected images. Engine and rules remain artwork-free. WSL2 remains the fixed Bluetooth route; SDK and machine data remain excluded from distribution. See [installation](INSTALLATION.md) and [validation](VALIDATIE.md).
+Game installation uses an existing artwork archive or a registered download/extraction recipe. The Windows client is not installed or running. Node monitors the controlled source, integrity and cleanup; a separate Python process exports only selected images. Engine and rules remain artwork-free. WSL2 remains the fixed Bluetooth route; SDK and machine data remain excluded from distribution. See [installation](INSTALLATION.md) and [validation](VALIDATION.md).
 
-The current application offers sandbox rules, validated import/replay of custom table sessions, and an optional app adapter. Milan now contains thirty city districts and ten Haven rooms; the official app remains the rules authority for linked play. Full campaign validation remains open. See [validation](VALIDATIE.md).
+The current application offers sandbox rules, validated import/replay of custom table sessions, and an optional app adapter. Milan now contains thirty city districts and ten Haven rooms; the official app remains the rules authority for linked play. Full campaign validation remains open. See [validation](VALIDATION.md).
 
 ## Historical structure — from October 21, 2026
 
@@ -78,7 +78,7 @@ src/presentation/3d/         # phase 3 only
 src/adapters/                # storage, randomness, optional integration
 ```
 
-The first modules in this directory plan now exist; 3D is deliberately missing. No additional toolchain. Contracts and current restrictions are in CONTRACTEN.md. Since extension 0.4, single cubes/tokens and validated JSON recovery via event replay are available for the same profile. Migrations, complex component types, rules, stacking order and orientation will follow later.
+The first modules in this directory plan now exist; 3D is deliberately missing. No additional toolchain. Contracts and current restrictions are in CONTRACTS.md. Since extension 0.4, single cubes/tokens and validated JSON recovery via event replay are available for the same profile. Migrations, complex component types, rules, stacking order and orientation will follow later.
 
 ## App and hardware
 
@@ -86,7 +86,7 @@ The end goal is now explicitly using the official app without physical game comp
 
 The local virtual core adapter is a behavioral simulator only. Identity selection, temporary sensor contact and logical zone placement are separated. Releasing a sensor does not remove a pawn. Repeated contact provides an interaction intention, not a rule action. Actual hardware identity mapping, sensor ordering and handshake are not reproduced. Public resources and restrictions are in TEBURU-DEEPSEARCH.md.
 
-Retaining the official app remains preferable, but is not an engine dependency. Only add an adapter once a documented/permitted interface has been proven. The UI does not create GATT payloads. Keep mock, hardware presence and proven app compatibility visible separately. Research remains in ONDERZOEK.md; no security circumvention or protected assets without permission.
+Retaining the official app remains preferable, but is not an engine dependency. Only add an adapter once a documented/permitted interface has been proven. The UI does not create GATT payloads. Keep mock, hardware presence and proven app compatibility visible separately. Research remains in RESEARCH.md; no security circumvention or protected assets without permission.
 
 ## Acceptance of the architecture
 
@@ -96,7 +96,7 @@ Retaining the official app remains preferable, but is not an engine dependency. 
 4. Invalid data/commands do not change anything; incompatible saves are rejected or explicitly migrated.
 5. Sandbox works without full Milan rules or Teburu.
 
-See BESLUITEN.md for changes from the original design.
+See DECISIONS.md for changes from the original design.
 
 
 ## Table view and future app updates (October 22, 2026)
@@ -105,4 +105,4 @@ The physical renderer combines the optional local map view with custom visual cl
 
 `tabletop.subscribe(listener)` reports successful state changes, undo, redo, reset and import. A listener reads a new projection; the return function writes it out. An adapter can thus work via the same application commands as a player; the renderer is updated without DOM access from the adapter. Switching table profiles unwrites the old UI and removes its resize and keyboard listeners. Errors in an observer do not roll back a successful domain request.
 
-The official app remains the intended source of rules, campaign and assignments such as placing influence during a city round. A future proven bridge should translate such instructions into validated table changes, while preserving the remaining chunks, atomic application, and handling duplicate or outdated messages. Transport, message mapping and automatic influence transfer are still missing. No fictional Teburu protocol has been added. See TAFEL-LAYOUT.md.
+The official app remains the intended source of rules, campaign and assignments such as placing influence during a city round. A future proven bridge should translate such instructions into validated table changes, while preserving the remaining chunks, atomic application, and handling duplicate or outdated messages. Transport, message mapping and automatic influence transfer are still missing. No fictional Teburu protocol has been added. See TABLE-LAYOUT.md.

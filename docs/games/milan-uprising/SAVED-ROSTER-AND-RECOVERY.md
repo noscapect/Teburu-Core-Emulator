@@ -8,7 +8,7 @@ The shelf follows the active scan request. Once complete, unused selections disa
 
 ## Loaded campaign
 
-Supported visible setup screens and map observations can copy positions. This is not a full import of the official save. Check hidden, stacked and unrecognized components yourself. See [partial recovery](TAFEL-LEGEN.md).
+Supported visible setup screens and map observations can copy positions. This is not a full import of the official save. Check hidden, stacked and unrecognized components yourself. See [partial recovery](CLEAR-AND-RESYNC.md).
 
 ## After Milan crashes or restarts
 

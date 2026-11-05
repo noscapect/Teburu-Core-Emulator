@@ -6,7 +6,7 @@ TCE is the emulator product; supported games are treated as modules. General doc
 
 ## Current reading guide — November 5, 2026
 
-The dated decisions below retain the scope at the time. The current version has a modular sandbox, validated import/replay of custom table sessions, undo/redo, and an optional published app adapter. Limited interaction with the unmodified official app has been demonstrated; full campaign compatibility and manufacturer support have not been proven. Selected artwork may be included under the distribution exception. The SDK and machine data remain excluded. See [README](../README.md), [validation](VALIDATIE.md) and [module contract](GAME-MODULES.md).
+The dated decisions below retain the scope at the time. The current version has a modular sandbox, validated import/replay of custom table sessions, undo/redo, and an optional published app adapter. Limited interaction with the unmodified official app has been demonstrated; full campaign compatibility and manufacturer support have not been proven. Selected artwork may be included under the distribution exception. The SDK and machine data remain excluded. See [README](../README.md), [validation](VALIDATION.md) and [module contract](GAME-MODULES.md).
 
 The passages from **In-depth after source research** describe historical decisions from October 21. Statements such as “app integration remains open,” “local artwork only,” and future imports describe that phase, not current capabilities.
 
@@ -58,7 +58,7 @@ Status: First modular sandbox cross-section implemented. Rules, physical content
 | Storage | JSON demo export | Versionable saves and validated imports in phase 2; demo format remains separate. |
 | Expansion | Other games not specified | Module contracts and packages; generic design keys with second synthetic profile. |
 
-All existing code, tests, neutral design, prototype features and research findings are retained. The active demo now uses the separated layers; legacy/ keeps the original demo. CONTRACTEN.md describes the deployed contract and open physical inventory. Sensor verification does not prove Milan location mapping or app compatibility. Rights and security limits continue to apply.
+All existing code, tests, neutral design, prototype features and research findings are retained. The active demo now uses the separated layers; legacy/ keeps the original demo. CONTRACTS.md describes the deployed contract and open physical inventory. Sensor verification does not prove Milan location mapping or app compatibility. Rights and security limits continue to apply.
 
 Trade-off: establish small explicit contracts and migrate step by step. Don't build generic rule scripting, plugin marketplace, or 3D toolchain before concrete game actions make it necessary.
 

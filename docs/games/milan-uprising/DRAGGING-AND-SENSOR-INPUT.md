@@ -16,4 +16,4 @@ A pending move blocks duplicate input. Later recognizable confirmation can compl
 
 Supported confirmation comes from location instructions, completed-movement messages and two matching fresh map observations. Covered or missing portraits do not prove removal. Unknown screens and lost connections can prevent automatic confirmation.
 
-After Milan restarts, use [input recovery](SAVEGAME-PERSONAGES.md) if needed. [Separate placement instructions](ALLIES-EN-GHOULS.md) apply to allies and ghouls. Not every app phase or expansion has been validated.
+After Milan restarts, use [input recovery](SAVED-ROSTER-AND-RECOVERY.md) if needed. [Separate placement instructions](ALLIES-AND-GHOULS.md) apply to allies and ghouls. Not every app phase or expansion has been validated.

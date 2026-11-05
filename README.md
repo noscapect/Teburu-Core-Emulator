@@ -51,8 +51,8 @@ General TCE user guides:
 - [Installation and updating](docs/INSTALLATION.md)
 - [Automatic PC preparation](docs/AUTOMATIC-SETUP.md)
 - [Adding and managing games](docs/GAME-ADDONS.md)
-- [Sharing a linked board on the LAN](docs/BORD-DELEN.md)
-- [Firmware simulation](docs/FIRMWARE-SIMULATIE.md)
+- [Sharing a linked board on the LAN](docs/BOARD-SHARING.md)
+- [Firmware simulation](docs/FIRMWARE-SIMULATION.md)
 
 For board operation, setup, expansions and game-specific limits, open the selected [game module's guide](docs/README.md#game-modules).
 

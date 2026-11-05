@@ -24,9 +24,9 @@ Both devices must be able to reach each other on the local network. A guest netw
 
 The board page, selected board assets, current session, and board status are passed from the local adapter. Move requests go to the same existing adapter, including active player check and app confirmation. The sharing server does not add any game rules or hardware protocol.
 
-Miniatures can also be dragged to another box via this link while holding down the left mouse button. After an update, refresh the page with Ctrl+F5. During the app confirmation, the last confirmed position remains visible. See [drag control](../games/milan-uprising/SLEPEN-EN-SENSOREN.md).
+Miniatures can also be dragged to another box via this link while holding down the left mouse button. After an update, refresh the page with Ctrl+F5. During the app confirmation, the last confirmed position remains visible. See [drag control](../games/milan-uprising/DRAGGING-AND-SENSOR-INPUT.md).
 
-The [location tiles](../games/milan-uprising/LOCATIETEGELS.md) can also be selected and turned over via this link. This shared table data remains on the host PC. Two simultaneous changes use a revision control, so that an outdated browser mode does not silently replace the last change.
+The [location tiles](../games/milan-uprising/LOCATION-TILES.md) can also be selected and turned over via this link. This shared table data remains on the host PC. Two simultaneous changes use a revision control, so that an outdated browser mode does not silently replace the last change.
 
 Core start/stop, pairing, tech logs, manual sensor input, and setup import are not available through this board link. The technical PC control on port 5180 remains local. The board link uses its own login, checks Host and Origin, limits incorrect code attempts, and shares only the committed board routes.
 

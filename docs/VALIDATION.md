@@ -12,17 +12,17 @@ All 150 public tests pass with Node 26 and bundled Node 22. The regression runs 
 
 ## NPC move with explicit origin - October 30, 2026
 
-All 147 public tests pass with Node 26 and the bundled Node 22. The recorded message for Agnese Washington → Duomo was processed by the real adapter in an isolated replay after two observations, retaining other miniatures and a Restricted token. Two new live images confirmed the same move; the browser shows Agnese in Duomo. Milan remained connected and no app or sensor input was sent. The parser tests both completed travel forms, aborted/unknown routes and the suppression of older notifications. See [placement synchronization](PLAATSINGSSYNC.md#agnese-moved-from-washington-to-duomo--october-30-2026).
+All 147 public tests pass with Node 26 and the bundled Node 22. The recorded message for Agnese Washington → Duomo was processed by the real adapter in an isolated replay after two observations, retaining other miniatures and a Restricted token. Two new live images confirmed the same move; the browser shows Agnese in Duomo. Milan remained connected and no app or sensor input was sent. The parser tests both completed travel forms, aborted/unknown routes and the suppression of older notifications. See [placement synchronization](PLACEMENT-SYNCHRONIZATION.md#agnese-moved-from-washington-to-duomo--october-30-2026).
 
 ## Tile retention during follow-up setup — October 30, 2026
 
-All 144 public tests pass with Node 26 and the bundled Node 22. The new regression goes through the real adapter from Board tiles to Components setup: tile position and room upgrades remain identical even after repeated component observation; explicit clearing continues to clear everything. The live missing tiles were recovered from the exact auto-reset backup without changing the 63 placed items. Local and LAN browser check confirms both symbols after Milan has already gone to companion placement. See [the transition correction](project-history/LOCATIETEGELS.md#preserve-tiles-through-the-next-setup-step).
+All 144 public tests pass with Node 26 and the bundled Node 22. The new regression goes through the real adapter from Board tiles to Components setup: tile position and room upgrades remain identical even after repeated component observation; explicit clearing continues to clear everything. The live missing tiles were recovered from the exact auto-reset backup without changing the 63 placed items. Local and LAN browser check confirms both symbols after Milan has already gone to companion placement. See [the transition correction](project-history/LOCATION-TILES.md#preserve-tiles-through-the-next-setup-step).
 
 ## Location tiles after resume - October 30, 2026
 
 - All 143 public tests pass with Node 26 and the bundled Node 22. New tests check the entire thirty-district bonus inventory, two independent observations, generation boundaries, rejecting regular cards/wrong geometry/duplicate tiles, no back on just a missing icon, room upgrade retention, and idempotency.
 - The real adapter chain is isolated with a recorded setup image repeated: the first image does not apply tiling; the second confirms 29 locations. Washington automatically remains unconfirmed and has been visually checked and copied separately for the current setup. Special illustrations other than Haven are not yet automatically recognized.
-- Browser check on localhost and the LAN board link confirms Haven on QT8, Underground on Portello, explanation under Location and only symbols on the city board. The connection with Milan remained active; no app, scan or sensor input was sent. See [location tiles](games/milan-uprising/LOCATIETEGELS.md).
+- Browser check on localhost and the LAN board link confirms Haven on QT8, Underground on Portello, explanation under Location and only symbols on the city board. The connection with Milan remained active; no app, scan or sensor input was sent. See [location tiles](games/milan-uprising/LOCATION-TILES.md).
 
 ## Included text recognition and actual setup fix - October 30, 2026
 

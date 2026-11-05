@@ -1,5 +1,11 @@
 # Architectuurbeslissingen — 21 oktober 2026
 
+## Actuele leeswijzer — 5 november 2026
+
+De gedateerde beslissingen hieronder bewaren de toenmalige scope. De huidige versie heeft een modulaire sandbox, gevalideerde import/replay van eigen tafelsessies, undo/redo en een optionele gepubliceerde appadapter. Beperkte interactie met de ongewijzigde officiële app is aangetoond; volledige campagnecompatibiliteit en fabrikantondersteuning zijn niet bewezen. Geselecteerd artwork mag worden meegeleverd volgens de distributie-uitzondering. De SDK en machinegegevens blijven uitgesloten. Zie [README](../README.md), [validatie](VALIDATIE.md) en [modulecontract](GAME-MODULES.md).
+
+De passages vanaf **Verdieping na bronnenonderzoek** beschrijven historische besluiten vanaf 21 oktober. Uitspraken zoals “appintegratie blijft open”, “uitsluitend lokaal artwork” en toekomstige import beschrijven die fase, niet de huidige mogelijkheden.
+
 ## Eén automatische PC-voorbereiding — 29 oktober 2026
 
 De losse primaire installatieknoppen zijn vervangen door **Set up automatically**, na eenmalige expliciete voorwaarden/toestemming. De backend doorloopt de bestaande begrensde acties zonder een bevestiging per component. Windows-UAC en eventuele herstart blijven OS-acties; een herstart wordt nooit automatisch uitgevoerd. Alleen bij meerdere/missende adapters wordt een keuze gevraagd. Linux krijgt een eigen niet-root helperaccount, zodat gebruikers normaal geen terminal/account hoeven voor te bereiden. Tabletstatus wordt automatisch gecontroleerd. Handmatige bediening blijft onder Advanced. Zie [automatische setup](AUTOMATIC-SETUP.md).
@@ -24,7 +30,7 @@ Bluetooth via WSL2 is de vaste transportkeuze voor de Windows-/Android-route. He
 
 De projecteigenaar heeft publicatie van het geselecteerde artwork en de eigen afgeleide integratiecode expliciet toegestaan. Het artwork wordt standaard als één archief meegeleverd en via Game add-ons lokaal uitgepakt; een distributie mag het archief weglaten. De benodigde eigen runtimecode wordt onder `integration/runtime/` beheerd; de launcher maakt daaruit een afzonderlijke genegeerde werkmap `private/linked/`. Machineconfiguratie, spelstanden, observaties en willekeurig gegenereerde identities blijven lokaal. De oorspronkelijke SDK, libraries, voorbeelden en documentatie blijven uitgesloten. De bestaande private ontwikkelopstelling wordt niet gekopieerd of gewijzigd. De gekoppelde route vereist nog steeds expliciete configuratie van de eigen radio en tablet; een volledige campagne of iedere machine is hiermee niet bewezen. Zie [installatie](INSTALLATION.md).
 
-## Verdieping na bronnenonderzoek
+## Historie — verdieping na bronnenonderzoek, 21 oktober 2026
 
 - Officiële app gebruiken zonder fysieke spelonderdelen is het einddoel; sandbox en eigen regels zijn ondersteunend, geen stilzwijgende vervanging van dat doel.
 - Sensorcontact is niet hetzelfde als spelzonebezetting. De nieuwe studie scheidt die, behoudt de oorspronkelijke demo en laat meerdere demopionnen één zone delen.

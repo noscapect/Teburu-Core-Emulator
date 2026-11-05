@@ -6,6 +6,8 @@
 
 ## Leeswijzer — 29 oktober 2026
 
+Aanvulling 5 november 2026: eigen tafelsessies ondersteunen gevalideerde import/replay en undo/redo; zie **Uitbreiding 0.4** en **Herstelgeschiedenis**. De oorspronkelijke doorsnede met uitsluitend export is historisch. Dit herstelcontract importeert geen officiële app-saves; algemene automatische opslag en migraties blijven open.
+
 Dit document bewaart de opeenvolgende engine- en modulecontracten. De engine heeft nog steeds uitsluitend sandboxregels; de gekoppelde runtime is een optionele adapter met de officiële app als regelautoriteit. Oudere inventaristabellen met “officiële app niet verbonden” beschrijven die eerdere doorsnede. De benodigde eigen adaptercode staat inmiddels in `integration/runtime/`; actuele distributie en verificatie staan in [installatie](INSTALLATION.md), [release-review](RELEASE-REVIEW.md) en [validatie](VALIDATIE.md). Historische contractbeperkingen zijn geen actuele verklaring dat appcontact nooit is aangetoond.
 
 ## Uitbreidingsvoorraad 0.8

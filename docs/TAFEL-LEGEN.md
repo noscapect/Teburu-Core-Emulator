@@ -1,15 +1,17 @@
-# Tafel legen en opnieuw inlezen
+# Tafel legen en gedeeltelijk herstellen
 
-Op de gekoppelde tafel staat onder **Table menu → Clear board & resync** een opdracht om de virtuele tafel volledig leeg te maken. Na de bevestiging gaan alle losse onderdelen terug naar de voorraad. Tegelinstellingen, tijdelijke scanregistraties en onbevestigde bewegingen worden gewist. De officiële Android-save en de Coreverbinding worden niet aangepast. Eventuele actieve sensorcontacten worden uitsluitend vrijgegeven; er wordt geen scan, verplaatsing of worp verstuurd.
+Kies op de gekoppelde tafel **Table menu → Clear board & resync** en bevestig om de virtuele tafel leeg te maken. Losse onderdelen gaan terug naar de voorraad; tegelinstellingen, tijdelijke scanregistraties en wachtende bewegingen worden gewist. De officiële Android-save en Coreverbinding blijven behouden. De adapter bewaart vooraf een lokale herstelkopie.
 
-De private adapter bewaart vóór het legen een lokale herstelkopie van de tafel en tegelinstellingen. De reset wordt opgeslagen en andere open bordpagina's nemen hem via de bestaande statuspoll over. Ook wanneer de nieuwe sessie dezelfde revisie krijgt als de vorige, dwingt de herstelgeneratie opnieuw inlezen af. Tegelrevisies blijven oplopen zodat een oude browserbewerking wordt geweigerd.
+## Opnieuw inlezen
 
-De achtergrondadapter begint vervolgens opnieuw met twee overeenkomende waarnemingen. Toon het componentenopstellingsscherm in Milan om invloed en controle in alle dertig districten opnieuw op te bouwen. Een volledige, stabiel herkende componentenopstelling begint ook automatisch met een lege tafel: onderdelen uit een eerdere campagne blijven niet liggen. Herhaalde beelden binnen dezelfde opstellingsstap wissen geen nieuw toegevoegde onderdelen.
+Toon de relevante setup- of kaartschermen in Milan en laat ze openstaan voor twee overeenkomende waarnemingen. Ondersteunde informatie omvat invloed en controle, zichtbare personages en bepaalde NPC's/companions, onderzoeksmarkers en locatietegels. Welke informatie beschikbaar is, hangt van het getoonde scherm en de leesbaarheid af.
 
-Dit is geen volledige save-import. De officiële app levert via deze koppeling geen compleet bordmomentopnamebericht. Alleen zichtbare en ondersteunde kaartgegevens of instructies worden automatisch overgenomen. Personages moeten zo nodig opnieuw worden gescand en geplaatst; locatiebonussen, verborgen gegevens en verhaalmarkers vragen hun eigen opstellingsstappen. Leegmaken op een willekeurig spelscherm kan dus niet alle onderdelen onmiddellijk reconstrueren. De interface vermeldt die beperking vóór het legen.
+**Scenario setup → Board tiles** levert ondersteunde tegelstanden. De daaropvolgende **Components setup** bouwt de componentenopstelling opnieuw op en behoudt die tegels en geregistreerde Havenkamerzijden. Herhaalde beelden binnen dezelfde setup wissen geen vers bevestigde markers.
 
-Een zichtbare **Next Encounter in …**-melding kan nu ook het bijbehorende [onderzoeksfiche herstellen](ONDERZOEKFICHES-SYNC.md). Zonder zo'n ondersteunde instructie worden onderzoeksposities niet uit oude campagnes teruggehaald.
+De gewone stadskaart kan positief herkende onderdelen aanvullen of ondersteunde posities corrigeren. Een zichtbare ondersteunde encountermelding kan een onderzoeksmarker herstellen. Controleer het resultaat tegen Milan.
 
-Aanvulling op 25 oktober: de [gewone stadskaart kan nu ook positief herkende controlefiches en zichtbare onderzoeksiconen herstellen](KAARTHERSTEL.md). Volledig leesbare personageportretten kunnen ontbrekende posities aanvullen; gestapelde of verborgen onderdelen blijven onvolledig. Toon de stadskaart na een reset en laat hem even openstaan voor de aanvullende beeldlezing.
+## Beperkingen
 
-Verificatie: de headless tests controleren tegelreset en afwijzing van oude revisies. De LAN-test controleert authenticatie, oorsprong en doorsturen van de reset. Een geïsoleerde private adapterproef controleert een lege opgeslagen tafel, herstelkopie, alleen sensorvrijgave, opnieuw inlezen van een opgenomen Android-opstelling en het behoud van nieuwe markers binnen dezelfde stap. Een browserproef controleert annuleren en bevestigen via het tafelmenu zonder echte spelinvoer. Dit vervangt geen live acceptatietest in een volledige campagne.
+Dit is geen volledige save-import. Verborgen, afgedekte en niet-herkende onderdelen worden niet automatisch gereconstrueerd. Alleen een ontbrekend icoon verwijdert geen onderdeel. Sommige markers en bijzondere locatietegels vereisen handmatige correctie; personages moeten zo nodig opnieuw worden gescand en geplaatst.
+
+Leegmaken op een willekeurig spelscherm kan daarom een onvolledige tafel opleveren. Gebruik voor uitsluitend vastgelopen scan- of bewegingsinvoer [Recover input](SAVEGAME-PERSONAGES.md); die bediening behoudt bevestigde posities.

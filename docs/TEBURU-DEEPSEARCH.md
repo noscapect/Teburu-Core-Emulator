@@ -1,5 +1,7 @@
 # Teburu en Milan Uprising — technisch onderzoek
 
+Leeswijzer, 5 november 2026: de openbare bronstudie en vroege negatieve runtime-uitkomsten hieronder zijn historisch. Latere beperkte interactie met de ongewijzigde officiële app en ondersteunde bordupdates staan in [VALIDATIE](VALIDATIE.md). Algemene uitspraken als “geen werkende officiële-appbrug” beschrijven de toenmalige onderzoeksfase. Volledige campagnecompatibiliteit en fabrikantondersteuning blijven onbewezen; actuele functies staan in [README](../README.md).
+
 ## Distributiestatus — 29 oktober 2026
 
 De benodigde eigen afgeleide runtimecode en de toegestane artworkselectie staan nu in de repository. De oorspronkelijke SDK, machineconfiguratie en individuele identifiers blijven uitgesloten. Een Windows-reviewpakket is lokaal gebouwd; de releaseworkflow is niet uitgevoerd. Dit verandert de onderstaande grenzen van het appcompatibiliteitsbewijs niet. Volg [installatie](INSTALLATION.md), [release-review](RELEASE-REVIEW.md) en [validatie](VALIDATIE.md) voor de actuele distributie en nog open acceptatietests; de gedateerde bron- en runtimeverslagen blijven historisch behouden.

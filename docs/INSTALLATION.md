@@ -6,7 +6,7 @@ The local release-candidate build includes Node, Python/NumPy/OpenCV, UnityPy an
 
 In Control Center, accept the setup/Android tools terms once and choose **Set up automatically**. TCE prepares missing Windows components, Linux, Bluetooth sharing and app helpers in sequence. Text recognition is included and needs no Windows language installation. Already installed components are reused. Approve Windows permission prompts; if a restart is needed, reopen TCE and choose **Continue setup**. Connect and unlock the Android tablet by USB, allow debugging and open Milan. Tablet checks are automatic. Confirm English/landscape and choose **Start Core**. See [automatic setup](AUTOMATIC-SETUP.md) for recovery and exceptional manual steps.
 
-These release changes are awaiting owner review. The GitHub release workflow has not been run, and a complete clean-machine/hardware acceptance test is still required. See [release review and acceptance checklist](RELEASE-REVIEW.md). The instructions below also document the source edition, which still needs development tools.
+The Windows package is a local release candidate, not a published reviewed release. Complete installation with physical hardware on a clean second PC remains unvalidated. The source edition below requires development tools for linked play.
 
 First open the TCE game library and choose **Add game** for Milan. TCE uses an existing artwork archive or downloads the reviewed Windows ZIP (about 1.01 GB), extracts 156 images and enables the game. It never installs or starts the Windows client. Choose **Connect Android** to open Milan’s Control Center, then follow the PC/tablet steps above. Multiple games can remain enabled. See [adding games](GAME-ADDONS.md).
 
@@ -45,7 +45,7 @@ Implementation references: [Microsoft WSL installation](https://learn.microsoft.
 
 ### App helpers and tablet connection
 
-The optional linked table includes the project's own integration source, Core codec, Bluetooth transport and screenshot readers. The original Teburu SDK, its libraries, examples and documentation are not included or required to build this runtime. Publishing the artwork and the project's derived integration code was explicitly authorized by the project owner on 29 October 2026. This does not grant permission to redistribute the SDK itself.
+The optional linked table includes its own integration source and helpers. The original Teburu SDK is neither included nor required to build this runtime.
 
 The supported setup is a Windows 10/11 PC and the official Milan app on an Android tablet. The app needs its own normal installation. This remains an experimental integration with the limited validation documented in [README](../README.md); an entire campaign and arbitrary tablet layouts have not been validated. Screenshot recognition is calibrated to English, landscape 2560 × 1600. The source edition requires an authorized USB debugging connection, Android Platform Tools (`adb` on PATH), .NET 8 SDK, Python 3 with the `py` launcher, WSL2 with a Linux distribution and Python 3/venv, and usbipd-win. Source setup downloads the pinned English OCR model and prepares the local reader; the packaged edition includes it. Windows English OCR is optional. These tools are prerequisites for the integration, not for the standalone table.
 
@@ -68,12 +68,8 @@ If prerequisites are missing, the standalone artwork table remains available. A 
 
 From a source checkout, share the linked board on your LAN with `node tools/share-board.mjs YOUR-PC-LAN-IP` in another terminal. The Control Center displays the generated URL and access code. The linked launcher starts LAN sharing automatically; the source CLI remains available for selecting an address manually. Allow the Node service through your firewall for your private network if Windows asks. Technical Core controls remain local; this command does not change firewall rules automatically.
 
-## Updating and verification
+## Updating
 
 Pull changes and restart. The linked launcher refreshes only the distributed runtime source and preserves its private settings and sessions. Re-run setup after changing build dependencies or C# code. Do not run files under `integration/runtime/` directly: they are templates for the private runtime.
 
-```powershell
-node --test
-```
-
-The public test suite checks engine/session behavior and artwork installation. A successful test suite is not proof of compatibility with every physical adapter or official-app version.
+For source changes, test commands and acceptance evidence, see the [project documentation](README.md#voor-ontwikkelaars-en-projectreview).

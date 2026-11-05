@@ -6,7 +6,13 @@
 
 Spelinstallatie gebruikt een bestaand artworkarchief of een geregistreerde download-/extractierecipe. De Windows-client wordt niet geïnstalleerd of uitgevoerd. Node bewaakt de gecontroleerde bron, integriteit en opruiming; een afzonderlijk Python-proces exporteert alleen geselecteerde afbeeldingen. Engine en regels blijven artworkvrij. WSL2 blijft de vaste Bluetooth-route; SDK en machinegegevens blijven uitgesloten van distributie. Zie [installatie](INSTALLATION.md) en [validatie](VALIDATIE.md).
 
-Architectuur vastgesteld en eerste sandboxdoorsnede geïmplementeerd op 21 oktober 2026. Milan Uprising heeft een afzonderlijke game-module met neutrale profieldata; echte spelregels en locaties ontbreken nog. Prioriteit: getrouwe functionele 2D-reproductie, daarna automatisering en optionele visuele uitbreiding.
+De huidige applicatie biedt sandboxregels, gevalideerde import/replay van eigen tafelsessies en een optionele appadapter. Milan bevat inmiddels dertig stadsdistricten en tien Havenkamers; de officiële app blijft de regelautoriteit bij gekoppeld spelen. Volledige campagnevalidatie blijft open. Zie [validatie](VALIDATIE.md).
+
+## Historische opbouw — vanaf 21 oktober 2026
+
+De beschrijving hieronder bewaart de opeenvolgende architectuurstappen. Uitspraken over ontbrekende locaties, uitsluitend export of afwezige appintegratie horen bij de beschreven eerdere versie.
+
+Architectuur vastgesteld en eerste sandboxdoorsnede geïmplementeerd op 21 oktober 2026. Milan Uprising heeft in die eerste doorsnede een afzonderlijke game-module met neutrale profieldata; echte spelregels en locaties ontbreken dan nog. Prioriteit: getrouwe functionele 2D-reproductie, daarna automatisering en optionele visuele uitbreiding.
 
 Uitbreiding 0.5 op 22 oktober: een apart schema-2-retailpakket bevat brongecontroleerde fysieke onderdelen en identiteiten. Generieke componentzijden worden als IDs in de engine bijgehouden; categorieën, bronverwijzingen en kleuren blijven in data/projecties. Regels en volledige locatiekaart blijven open. De oudere neutrale profielen en hun saves blijven werken.
 

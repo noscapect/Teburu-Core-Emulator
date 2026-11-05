@@ -1,17 +1,13 @@
-# Herstel vanaf de gewone stadskaart
+# Gedeeltelijk herstel vanaf de stadskaart
 
-Een volledige reset wist de fysieke onderdelen van de virtuele tafel. De eerdere kaartadapter zette daarna alleen invloed terug. Daardoor ontbraken controlefiches, miniaturen en onderzoeksfiches, ook wanneer die in Milan nog zichtbaar waren. De resetfunctie was daarmee onvoldoende als volledig herstelmiddel.
+Laat de stadskaart in Milan openstaan om ondersteunde zichtbare informatie naar de gekoppelde tafel over te nemen. De adapter werkt op de achtergrond; de bordpagina hoeft daarvoor niet open te blijven.
 
-De kaartadapter herstelt nu naast invloed ook **positief herkende controlefiches**. Twee overeenkomende waarnemingen zijn vereist. Een onleesbaar of afgedekt controle-icoon wordt niet als een lege locatie geïnterpreteerd. De controletoewijzing bewaart de individuele invloedskubussen, personages en andere fiches, zodat de afzonderlijke synchronisaties elkaar niet blijven overschrijven.
-
-Een optionele private beeldlezer herkent bovendien zichtbare Investigation-iconen en voldoende herkenbare personageportretten. Hij controleert de kaartuitlijning tegen het lokaal beschikbare originele kaartbeeld en vertaalt alleen eenduidige beeldposities naar districten. Twee opeenvolgende gelijkluidende resultaten zijn vereist. Nieuwe scans, herstel en een gewijzigde appinstantie maken oudere resultaten ongeldig. Alleen ontbrekende personageposities worden aangevuld; een bevestigde verplaatsing wordt niet door een ouder beeldresultaat overschreven. Positieve onderzoekswaarnemingen voegen een ontbrekend fiche toe zonder duplicaten of het verwijderen van andere markers.
-
-Deze beeldlezer draait op de achtergrond, los van de snelle sensorinvoer en zonder Codex of een open browser. Het onderzoek gebruikt uitsluitend private lokale beeldverwerkingshulpmiddelen en beelden; de publieke demo blijft zonder externe dependencies werken. De extra beeldlezing begint hoogstens eenmaal per vijf seconden en kan na een reset enige tijd nodig hebben voor twee overeenkomende beelden.
+Twee overeenkomende waarnemingen zijn vereist voor positief herkende posities en markerstanden. Ondersteunde kaartinformatie omvat invloed en controle, zichtbare spelerspersonages, bepaalde NPC-/companionportretten en Investigation-iconen. Herkende personageposities kunnen ontbrekende én bestaande lokale posities bijwerken. Een wachtende zet kan met verse passende waarnemingen worden bevestigd zonder nieuwe sensorinvoer.
 
 ## Grenzen
 
-Gestapelde miniaturen kunnen elkaars portret afdekken. Onherkenbare personages, Restricted-fiches, speciale tegels en andere verhaalmarkers worden niet uit vermoedens of uit een oude campagne teruggezet. De melding **Map · partial recovery** blijft daarom expliciet spreken over gedeeltelijk herstel. Een latere herkende locatie-instructie of plaatsingsbevestiging kan een ontbrekende miniatuurpositie alsnog vastleggen. Dit is geen volledige save-import of bewijs van een compleet geëmuleerd spel.
+Gestapelde miniaturen, dialoogvensters en onleesbare iconen kunnen informatie afdekken. Afwezigheid alleen verwijdert geen onderdeel. Restricted-fiches, bijzondere tegels en verhaalmarkers worden niet uit vermoedens teruggezet.
 
-## Verificatie
+**Map · partial recovery** betekent dat de tafel gedeeltelijk is hersteld. Controleer hem tegen Milan; een herkende locatie-instructie of plaatsingsbevestiging kan later aanvullende informatie leveren. Voor [locatietegels](LOCATIETEGELS.md) zijn de bijbehorende setupschermen en correcties beschikbaar.
 
-De opname die deze fout liet zien bevat 18 invloedskubussen, 21 herkenbare controlefiches en een onderzoeksfiche bij Washington. De geïsoleerde herstelproef begint met een lege tafel en reconstrueert de 21 controlefiches, het onderzoeksfiche en het herkenbare Orlando-portret bij QT8. Hij controleert herhalen, opnieuw leegmaken en het behoud van fiches wanneer een icoon tijdelijk niet leesbaar is. De publieke tests controleren bovendien geldige controlewissels, behoud van andere onderdelen, herhaalbaarheid en atomaire weigering van ongeldige waarnemingen. De publieke suite heeft 69 geslaagde tests.
+Na volledig leegmaken zijn vaak meerdere setupschermen nodig. Zie [tafel legen en herstellen](TAFEL-LEGEN.md). Er is geen volledige import van de officiële campagne-save.

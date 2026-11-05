@@ -1,9 +1,9 @@
-# Onderzoeksfiche uit een encountermelding
+# Onderzoeksmarkers synchroniseren
 
-De private adapter herkent de zichtbare melding **[locatie] – Next Encounter in [bestemming]** in een faseoverzicht. Beide locatienamen moeten bekende stadsdistricten zijn. Na twee overeenkomende waarnemingen wordt op de bestemming een fiche met de zijde **Investigation** geplaatst. Een al aanwezig onderzoeksfiche wordt hergebruikt; opnieuw lezen maakt geen duplicaten. Andere onderzoeksfiches en Restricted-zijden blijven behouden.
+De gekoppelde tafel neemt ondersteunde **[locatie] – Next Encounter in [bestemming]**-meldingen en positief herkende Investigation-iconen op de kaart over na twee overeenkomende waarnemingen.
 
-Dit herstelt ook een ontbrekend fiche na **Clear board & resync**, zolang de betreffende melding nog zichtbaar is in Milan. De overname werkt op de achtergrond zonder een open browser of Codex. Een onbekende bestemming, onduidelijke melding of lege fichevoorraad verandert de tafel niet gedeeltelijk. Deze uitbreiding leest geen onderzoeksiconen van willekeurige kaartschermen: zonder zichtbare ondersteunde instructie kan de adapter die informatie nog niet reconstrueren.
+Een herhaalde melding maakt geen duplicaat. Een herkende nieuwere encounterbestemming kan de marker van de vervallen bestemming naar de nieuwe verplaatsen. Andere markers en Restricted-zijden blijven behouden. Dit kopieert een appuitkomst en stuurt geen sensorcontact of spelactie naar Milan.
 
-De actuele melding **QT8 – Next Encounter in Washington** is gecontroleerd tegen het zichtbare fiche bij Washington in de officiële Android-app. Na activering heeft de achtergrondadapter dit fiche geplaatst; de gedeelde bordpagina toont het bij Washington met het lokale Investigation-artwork. Er is geen sensorcontact of spelactie naar Milan verstuurd.
+Laat het relevante scherm even openstaan. Ook terwijl een personagezet op bevestiging wacht, kan de achtergrondlezer onderzoeksmarkers bijwerken. Afgedekte iconen, onbekende bestemmingen en onleesbare meldingen kunnen automatische overname verhinderen. Ontbreken van een icoon alleen is geen verwijderinstructie.
 
-De publieke suite heeft 67 geslaagde tests. De geïsoleerde private proef speelt de echte schermopname opnieuw af en controleert herstel na leegmaken, twee waarnemingen, geen duplicaten en weigering van een onbekende bestemming. De bestaande nachtfaseproef voor personageverplaatsingen en controleverwijdering slaagt eveneens. Ruwe schermopnamen blijven onder genegeerd `private/`.
+Na [Clear board & resync](TAFEL-LEGEN.md) kan een nog zichtbare ondersteunde melding of kaartmarker de positie herstellen. Dit reconstrueert geen volledige campagne.

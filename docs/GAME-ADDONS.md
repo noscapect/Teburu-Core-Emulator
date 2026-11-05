@@ -20,8 +20,8 @@ Milan uses `milan-artwork.json.gz`. You can still obtain this archive separately
 
 Use the displayed folder when a custom installation directory was chosen. Copying an archive into the original download folder after installing TCE elsewhere does not update the installed copy. Keep the resulting archive: if it disappears, that game becomes unavailable even if its extracted images remain. Other games, settings and saves are preserved. Restoring the same archive restores its previous installation and enabled state.
 
-## Source edition and packaging
+## Source edition
 
 The included archives keep the standalone source edition dependent only on Node. Automatic extraction additionally needs Python with `UnityPy==1.23.0`; the packaged Windows release includes the correct runtime and all extraction dependencies. No Python installation is needed for release users.
 
-Release builders include available declared artwork by default. `node tools/build-release.mjs --without-artwork` omits it while retaining code, recipes and extractors. The manual workflow has the equivalent **include_artwork** option. A missing declared archive does not prevent installing TCE itself. The SDK and official Windows client ZIP are never bundled. See [module architecture and extension contract](GAME-MODULES.md).
+A missing artwork archive does not prevent installing TCE itself. The SDK and official Windows client ZIP are not bundled. Release builders can find packaging instructions in the [project release guide](RELEASE-REVIEW.md).

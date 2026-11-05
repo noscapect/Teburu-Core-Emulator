@@ -1,38 +1,17 @@
-# Personages scannen en herstellen
+# Miniaturen scannen en invoer herstellen
 
-De gekoppelde tafel toont de laatst gelezen opgeslagen groep als hulpmiddel. Registratievinkjes, bordposities en OCR-herkenning mogen een nieuwe RFID-scan niet blokkeren. De Core moet verbonden zijn en de officiële app moet de RFID-lezer hebben ingeschakeld. Alle bekende speelbare miniaturen kunnen dan opnieuw worden aangeboden; de officiële app beoordeelt de scan.
+De gekoppelde tafel toont de laatst gelezen opgeslagen groep als hulpmiddel bij registratie. Scannen is beschikbaar wanneer de Core verbonden is en Milan de lezer inschakelt. Milan bepaalt welke miniatuur geldig is.
 
-Bij een nieuw spel of een niet bevestigde savegroep staan alle zeven basispersonages in de miniaturenstrook. Een achtergebleven groep van vier uit een vorige sessie beperkt die keuze niet. Bij een bevestigde geladen save toont de strook de nog te scannen leden van die groep. De keuze komt uit de componentgegevens en heeft geen vaste limiet van vier.
+Sleep de gevraagde miniatuur uit de strook naast de kaart naar de Core-lezer, of gebruik **Pieces → Scan a miniature**. Sleep het gelezen onderdeel daarna naar de bestemming die Milan vraagt. Scannen alleen legt geen bordpositie vast; de tafel wacht op appbevestiging.
 
-Een door Milan bevestigde plaatsing haalt de miniatuur uit de beschikbare strook, ook zonder bevestigde savegroep. Deze registratie blijft bewaard na verversen en serverherstart. Een nieuwe setup of invoerherstel maakt de miniaturen opnieuw beschikbaar; opnieuw scannen kan bovendien via **Pieces → Scan a miniature**. Alleen scannen is nog geen bevestigde plaatsing.
+De strook volgt het actuele scanverzoek. Na voltooiing verdwijnt de ongebruikte selectie; de volledige voorraad blijft bereikbaar via Pieces/Stock. Bij een bevestigde geladen groep helpt de strook de nog te scannen leden te vinden. Onleesbare groepsgegevens blokkeren een ingeschakelde lezer niet. De voorraad bevat elf spelerspersonages, acht bondgenoten en zeven ghouls; hun beschikbaarheid hangt van Milan af.
 
-## Fysieke handeling op het virtuele bord
+## Geladen campagne
 
-De miniaturenstrook links is sinds 25 oktober alleen zichtbaar bij een actueel scanverzoek: personages bij personagekeuze, bondgenoten/ghouls bij een bijbehorend verzoek. Zodra de keuze voltooid is of het spel begint, verdwijnt de ongebruikte voorraad uit deze strook, ook als de savegroep nog niet leesbaar is. Tijdens plaatsing blijft alleen de zojuist gelezen miniatuur op de Core zichtbaar. Een lege strook neemt geen ruimte naast het bord in. De volledige voorraad blijft bereikbaar via Pieces/Stock. Deze weergavekeuze verandert geen registratie of bordpositie.
+Zichtbare ondersteunde setupschermen en kaartwaarnemingen kunnen posities overnemen. Dit is geen volledige import van de officiële save. Controleer verborgen, gestapelde en niet-herkende onderdelen zelf. Zie [gedeeltelijk herstel](TAFEL-LEGEN.md).
 
-Sleep een miniatuur uit de wachtrij naast het bord naar de Core-lezer. Dit is een tijdelijk lezercontact, geen blijvende spelpositie. Daarna sleep je het gelezen personage naar de locatie die Milan aanwijst. De adapter bewaart die positie pas na een herkende appbevestiging. Een personage mag opnieuw dezelfde bestemming krijgen: een oude bordpositie vervangt geen nieuw sensorcontact. Klikken op een scanknop blijft een toegankelijk alternatief.
+## Na een crash of herstart van Milan
 
-De opgeslagen groep komt uit profielmetadata die de private Android-adapter via de geautoriseerde USB-verbinding leest. De officiële app en savebestanden worden niet gewijzigd. Bij onleesbare metadata blijft de laatst bekende groep adviserend zichtbaar; een ingeschakelde Core-lezer blijft bruikbaar. Onbekende bestandsformaten worden niet op basis van vermoedens geïnterpreteerd.
+Gebruik **App restarted? Recover input** op het bord of **Reset registrations / recover input** in het Control Center als de invoer vastzit. Deze bediening wist tijdelijke registratievoortgang en wachtende invoer en geeft actieve sensorcontacten vrij. Bevestigde bordposities, fiches en de officiële campagne blijven behouden. Er wordt geen zet opnieuw verstuurd.
 
-## Na een crash of herstart
-
-De achtergrondadapter vergelijkt de Android-app-procesinstantie met de vorige waarneming. Bij een andere instantie worden tijdelijke registratievoortgang, scancontext en een nog onbevestigde beweging vergeten. De beweging wordt voor onderzoek als afgebroken bewaard en nooit automatisch opnieuw verstuurd. Een herstart van alleen onze server behoudt de bekende appinstantie.
-
-Op het bord staat **App restarted? Recover input**. Het Control Center biedt **Reset registrations / recover input**. Deze bediening is ook beschikbaar als schermherkenning of saveprofieluitlezing niet lukt. Ze wist tijdelijke voortgang en geeft actieve sensorcontacten vrij, zonder bewegingen te bevestigen of nieuwe spelacties te kiezen. Bevestigde bordposities, fiches en officiële campagnebestanden blijven behouden. Dit is dus geen opdracht om de hele campagne te wissen. Volg na herstel het actuele scherm in Milan en scan opnieuw wanneer de lezer actief is.
-
-Als Android niet via USB bereikbaar is, kan de adapter een procesherstart niet waarnemen. Gebruik dan de herstelknop zodra de Coreverbinding weer beschikbaar is. Korte gelijktijdige sensoracties blijven geserialiseerd om overlappende contacten te voorkomen.
-
-## Verificatie en grenzen
-
-De geïsoleerde herstelproef controleert een gewijzigde procesinstantie, afgebroken wachtende beweging, behouden sessie, herhaald scannen en uitsluitend vrijgeven van actieve contacten. Browserproeven controleren slepen naar de lezer, tijdelijke presentatie, plaatsingsbevestiging, foutafhandeling en schermformaten. Dit zijn simulatieproeven; ze vervangen geen echte acceptatie door Milan. Eerder werden onder meer plaatsingen in Haven 2L en QT8 door de echte app bevestigd. Een volledige campagne-import blijft buiten deze beperkte uitlezing.
-
-De publieke demo blijft zonder externe dependencies werken; protocolgegevens en ruwe apparaatwaarnemingen blijven onder private/.
-
-
-## Bondgenoten en ghouls scannen
-
-De gekoppelde PC-Core ondersteunt naast de zeven personages ook de vier miniaturen uit onze retailvoorraad: **Carabinieri Officer**, **Reporter**, **Con Artist** en **Fixer**. Ze hebben afzonderlijke scanknoppen met het label Ally of Ghoul. Wanneer Milan om een Ally/Ghoul vraagt, staan deze vier miniaturen naast het bord klaar om naar de Core-lezer te slepen. Scannen verandert hun blijvende bordpositie niet. De officiële app bepaalt welke miniatuur in de huidige situatie geldig is; selecteer zelf het juiste onderdeel.
-
-De private adapter herkent het zichtbare verzoek om een Ally/Ghoul te scannen en kent een daaropvolgende plaatsingsinvoer toe aan de aangeboden miniatuur, niet aan de spelersnaam onderaan dat scherm. Alle veertig sensorbestemmingen gebruiken de bestaande plaatsingsroute met appbevestiging. Een niet herkende bevestiging blijft onbevestigd; de adapter verzint geen plaatsing.
-
-De elf scanselecties zijn afzonderlijk getest op hun semantische gegevens uit lokale appmetadata. Hiervoor worden uitsluitend eigen gegenereerde virtuele identiteiten gebruikt. De browserproef controleert de vier knoppen, de wachtrij, slepen naar de lezer en het behoud van bordposities. De bijgewerkte Core is opnieuw met de tablet verbonden en de lezer is actief. Acceptatie van een concrete bondgenoot/ghoul en de daaropvolgende plaatsing moet tijdens het echte spelen nog worden bevestigd; de tests kiezen geen onderdeel namens de speler.
+Bij een via USB herkende nieuwe appinstantie wordt tijdelijke invoer eveneens hersteld. Zonder USB-verbinding kan de adapter die herstart niet waarnemen. Volg na herstel het actuele scherm in Milan en scan opnieuw wanneer daarom wordt gevraagd.

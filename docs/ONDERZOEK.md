@@ -1,5 +1,7 @@
 # Onderzoeksregister
 
+Leeswijzer, 5 november 2026: de actuele functies staan in [README](../README.md) en het bewijs in [VALIDATIE](VALIDATIE.md). De oudere onderzoeksfasen hieronder bewaren ook negatieve uitkomsten die later door beperkte appinteractie zijn ingehaald. Zij betekenen niet dat appcontact of bordterugkoppeling nooit is aangetoond. Volledige campagnecompatibiliteit en fabrikantondersteuning blijven onbewezen.
+
 ## Huidige bewijsstatus — 29 oktober 2026
 
 De gedateerde passages hieronder bewaren eerdere onderzoeksfasen. Inmiddels is beperkte interactie met de ongewijzigde officiële app lokaal aangetoond; de eigen afgeleide runtimecode en het toegestane artwork zijn gepubliceerd. Dit bewijst geen volledige campagnecompatibiliteit of fabrikantondersteuning. De oorspronkelijke SDK blijft uitgesloten. Zie [actuele validatie](VALIDATIE.md), [Teburu-onderzoek](TEBURU-DEEPSEARCH.md) en [release-review](RELEASE-REVIEW.md). De releaseworkflow is nog niet uitgevoerd en fysieke acceptatie op een schone tweede machine blijft open.

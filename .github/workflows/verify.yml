@@ -11,7 +11,7 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: 22
-      - run: node --test
+      - run: npm test
       - name: Install included artwork without developer files
         run: node --input-type=module -e "import {prepareLinkedRuntime} from './tools/linked-runtime.mjs'; await prepareLinkedRuntime();"
   integration-build:

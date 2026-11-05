@@ -1,5 +1,13 @@
 # Gefaseerd ontwikkelplan
 
+## Actuele prioriteiten en leeswijzer — 5 november 2026
+
+De werkende basis bestaat uit de sandbox, eigen sessie-import/replay en undo/redo, Milan-inventarissen en de optionele appadapter. Beperkte interactie met de ongewijzigde officiële app is aangetoond. De publieke softwarecontrole telt 169 geslaagde tests op Windows/Node 26.7.0; zie [validatie](VALIDATIE.md).
+
+De eerstvolgende acceptatiepunten zijn volledige spelrondes en hervatten, volledige campagneopstellingen en uitbreidingen, robuuste synchronisatie en installatie op een schone tweede pc met echte tablet/radio. De release blijft afhankelijk van review en fysieke acceptatie.
+
+De gedateerde lijsten hieronder zijn ontwikkelhistorie. Oudere open vakjes voor inmiddels aanwezige import/replay, undo/redo, inventaris of appcontact vormen geen actuele achterstand. Algemene sessiemigraties, automatische sandboxopslag, volledige regels en 3D zijn daarmee niet voltooid. Gebruik README voor huidige functies en VALIDATIE voor gedateerd bewijs.
+
 ## Overdraagbare distributie — 29 oktober 2026
 
 - [x] Vereenvoudig het Control Center naar één automatische PC-voorbereiding na eenmalige toestemming, met voortgang, herstart-/retry-opvolging, automatische adapterkeuze waar eenduidig, geïsoleerd Linux-account en automatische tabletcontrole. Handmatige stappen blijven onder Advanced. Echte schone-machineacceptatie blijft open.

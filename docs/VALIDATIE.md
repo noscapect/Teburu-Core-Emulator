@@ -1,4 +1,10 @@
-# Validatie — 21 oktober 2026
+# Validatie
+
+## Actuele publieke softwarecontrole — 5 november 2026
+
+Op Windows met Node 26.7.0 slagen alle **169 publieke tests**, zonder fouten, overgeslagen of geannuleerde tests. Opdracht: `node --test test/*.test.mjs tests/*.test.js`. `npm test` gebruikt dezelfde selectie; beide CI-workflows gebruiken voortaan `npm test`. Alleen deze twee publieke suites tellen mee. Een kale `node --test` kan ook tijdelijke kopieën onder genegeerde werkmappen ontdekken.
+
+Deze controle herhaalt geen browser-, pakket-, Node 22- of fysieke app-/hardwareacceptatie. Beperkte interactie met de ongewijzigde officiële app is eerder aangetoond; volledige campagnecompatibiliteit en installatie op een schone tweede fysieke machine blijven open. De gedateerde verslagen hieronder bewaren hun oorspronkelijke aantallen en bewijsgrenzen.
 
 ## Onafhankelijke controle en schone feedtekst — 30 oktober 2026
 
@@ -10,7 +16,7 @@ Alle 147 publieke tests slagen met Node 26 en de gebundelde Node 22. De opgenome
 
 ## Tegelbehoud tijdens vervolgsetup — 30 oktober 2026
 
-Alle 144 publieke tests slagen met Node 26 en de gebundelde Node 22. De nieuwe regressie doorloopt de echte adapter van Board tiles naar Components setup: tegelstand en kamerupgrades blijven identiek, ook na herhaalde componentwaarneming; expliciet leegmaken blijft alles wissen. De live verdwenen tegels zijn uit de exacte automatische-resetback-up hersteld zonder de 63 geplaatste onderdelen te wijzigen. Lokale en LAN-browsercontrole bevestigen beide symbolen nadat Milan al naar companion placement is gegaan. Zie [de overgangscorrectie](LOCATIETEGELS.md#preserve-tiles-through-the-next-setup-step).
+Alle 144 publieke tests slagen met Node 26 en de gebundelde Node 22. De nieuwe regressie doorloopt de echte adapter van Board tiles naar Components setup: tegelstand en kamerupgrades blijven identiek, ook na herhaalde componentwaarneming; expliciet leegmaken blijft alles wissen. De live verdwenen tegels zijn uit de exacte automatische-resetback-up hersteld zonder de 63 geplaatste onderdelen te wijzigen. Lokale en LAN-browsercontrole bevestigen beide symbolen nadat Milan al naar companion placement is gegaan. Zie [de overgangscorrectie](project-history/LOCATIETEGELS.md#preserve-tiles-through-the-next-setup-step).
 
 ## Locatietegels na hervatten — 30 oktober 2026
 

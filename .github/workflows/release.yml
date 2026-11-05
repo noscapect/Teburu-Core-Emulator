@@ -27,7 +27,7 @@ jobs:
       - uses: actions/setup-dotnet@v4
         with:
           dotnet-version: 8.0.x
-      - run: node --test
+      - run: npm test
       - name: Build self-contained review package
         env:
           TCE_INCLUDE_ARTWORK: ${{ inputs.include_artwork }}

@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "start": "node server.mjs",
-    "test": "node --test",
+    "test": "node --test test/*.test.mjs tests/*.test.js",
     "linked": "node tools/start-linked.mjs",
     "setup:linked": "node tools/setup-linked.mjs",
     "build:release": "node tools/build-release.mjs",

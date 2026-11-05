@@ -12,7 +12,7 @@ Dit document bewaart de opeenvolgende engine- en modulecontracten. De engine hee
 
 ## Uitbreidingsvoorraad 0.8
 
-`withExpansions(base, catalog, selected)` voegt uitsluitend de gekozen Milan-voorraden toe op een kopie van het basisprofiel. Componenten krijgen een `expansionId` en presentatielabel; generieke zone-/componentopdrachten blijven gelijk. Het uitgebreide profiel heeft een eigen release-ID en pakketversie. `extendTableSession` is een expliciete additieve conversie van onze eigen basisbordexports, met validatie en replay vóór en na conversie. De gewone import blijft profielgebonden. Zie [pakketten, bediening en private adaptergrenzen](UITBREIDINGEN.md).
+`withExpansions(base, catalog, selected)` voegt uitsluitend de gekozen Milan-voorraden toe op een kopie van het basisprofiel. Componenten krijgen een `expansionId` en presentatielabel; generieke zone-/componentopdrachten blijven gelijk. Het uitgebreide profiel heeft een eigen release-ID en pakketversie. `extendTableSession` is een expliciete additieve conversie van onze eigen basisbordexports, met validatie en replay vóór en na conversie. De gewone import blijft profielgebonden. Zie [pakketten, bediening en private adaptergrenzen](games/milan-uprising/UITBREIDINGEN.md).
 
 ## Uitbreiding 0.6 — benoemde kaart en atomaire opstelling
 
@@ -109,7 +109,7 @@ Geen wijziging aan engine-, profiel- of saveversies. De bestaande gecorrigeerde 
 
 `prepareComponentSetup(profile, state, locations)` initialiseert een opnieuw aangeboden componentenopstelling: de volledige invloed-/controlekaart wordt gevalideerd en oude onderzoeksfiches gaan terug naar voorraad. Het betreft alleen fiches met de zijde `investigation`; restricted-zijden en andere categorieën blijven behouden. De adapter gebruikt deze stap één keer per setup en bewaart vooraf de oude lokale sessie. Gewone kaartupdates via `reconcileDistrictMap` blijven onderzoeksfiches behouden. Verse, expliciet bevestigde markers tijdens dezelfde setup worden niet herhaaldelijk gewist.
 
-`setLocationTile(state, zones, {zoneId, kind, face, value, expectedRevision})` retourneert nieuwe `milan-location-tiles`-toestand. `kind` is bonus of special; `face` is unconfirmed, hidden of visible. Alleen stadsdistricten en bekende waarden zijn toegestaan. Projecties kopiëren de tegeldata. De stadstafel voegt deze moduletoestand optioneel als `locationTiles` aan de bestaande sessie-envelop toe; de engine blijft ongewijzigd. Zie [locatietegels](LOCATIETEGELS.md).
+`setLocationTile(state, zones, {zoneId, kind, face, value, expectedRevision})` retourneert nieuwe `milan-location-tiles`-toestand. `kind` is bonus of special; `face` is unconfirmed, hidden of visible. Alleen stadsdistricten en bekende waarden zijn toegestaan. Projecties kopiëren de tegeldata. De stadstafel voegt deze moduletoestand optioneel als `locationTiles` aan de bestaande sessie-envelop toe; de engine blijft ongewijzigd. Zie [locatietegels](games/milan-uprising/LOCATIETEGELS.md).
 
 
 ## Optionele lezerbediening in de UI

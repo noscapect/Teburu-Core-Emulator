@@ -2,7 +2,7 @@
 
 ## Actuele aanvulling — 28 oktober 2026
 
-Alle 26 private Core-regressiescenario’s slagen, inclusief de nieuwe LED-ringproef voor firmwaremigratie, atomaire opslag, foutafhandeling, herstart en stabiele gesimuleerde batterij. De virtuele Bluetooth-proef slaagt eveneens. Na activering toont de ongewijzigde Teburu-app 1.2.0 op de echte tablet ringversie 1.15.0, Firmware up to date en 46% / 3852 mV. Dit bewijst de versie- en batterijweergave, geen uitvoering van officiële firmware of volledige hardwarecompatibiliteit. Zie [firmware-simulatie](FIRMWARE-SIMULATIE.md) en [Prospero](PROSPERO.md).
+Alle 26 private Core-regressiescenario’s slagen, inclusief de nieuwe LED-ringproef voor firmwaremigratie, atomaire opslag, foutafhandeling, herstart en stabiele gesimuleerde batterij. De virtuele Bluetooth-proef slaagt eveneens. Na activering toont de ongewijzigde Teburu-app 1.2.0 op de echte tablet ringversie 1.15.0, Firmware up to date en 46% / 3852 mV. Dit bewijst de versie- en batterijweergave, geen uitvoering van officiële firmware of volledige hardwarecompatibiliteit. Zie [firmware-simulatie](FIRMWARE-SIMULATIE.md) en [Prospero](games/milan-uprising/PROSPERO.md).
 
 De oudere aantallen en testuitkomsten hieronder horen bij de aangegeven onderzoeksfasen.
 
@@ -43,7 +43,7 @@ De private offline runner compileert dezelfde Core-bron als de adapter, zonder W
 | Veertig tijdelijke contacten | Alle afzonderlijk, samen en onafhankelijk vrijgeven | Enkele bestemmingen bevestigd |
 | Personage aanbieden | Scanvoorwaarden, annuleren, zeven synthetische selecties | Vier personages geregistreerd |
 | Radio-instellingen | Bevestiging en interne toestand | Verbinding bewezen; geen bewijs van volledige hardwaredekking |
-| LED-ring / lichtopdrachten | Ringmelding met eigen identiteit, oorspronkelijke SDK-decoder, virtueel Bluetooth-transport en beperkte kleurprojectie | Gebruiker bevestigt op 25 oktober **Connected** bij Prospero; volledige animaties blijven open. Zie [Prospero](PROSPERO.md). |
+| LED-ring / lichtopdrachten | Ringmelding met eigen identiteit, oorspronkelijke SDK-decoder, virtueel Bluetooth-transport en beperkte kleurprojectie | Gebruiker bevestigt op 25 oktober **Connected** bij Prospero; volledige animaties blijven open. Zie [Prospero](games/milan-uprising/PROSPERO.md). |
 | Vijf virtuele fysieke d10's | Eigen vaste identiteiten, groeps- en selectieworpen, oorspronkelijke SDK-callbacks en virtueel Bluetooth-transport | Alle vijf herkend op het setupscherm; spelchecks nog toetsen |
 | Firmware bijwerken / tags schrijven | Expliciet niet ondersteund | Normale appoptie om zonder update door te gaan gebruikt |
 | Invloed en blijvende pionpositie | Afzonderlijke terugkoppeladapter | Android-kaartoverdracht nog onvolledig |
@@ -51,7 +51,7 @@ De private offline runner compileert dezelfde Core-bron als de adapter, zonder W
 
 De offline run slaagt voor zestien scenario's, waaronder tien bestaande vergelijkingsbestanden. Deze vergelijkingsbestanden zijn regressiereferenties; zij vormen op zichzelf geen onafhankelijk bewijs. Het rapport vermeldt expliciet dat geen radio of officiële app is gebruikt.
 
-De aanvullende onafhankelijke SDK-proef controleert alle veertig afzonderlijke contacten en vrijgaven, veertig gelijktijdige contacten en iedere afzonderlijke vrijgave zonder de andere contacten te verliezen. Ook het virtuele Bluetooth-transport heeft alle veertig contacten en vrijgaven doorgegeven. De bewegingsadapter is met nagebootste appwaarnemingen voor elf miniaturen × veertig bestemmingen gecontroleerd. Dit is softwaredekking; fysieke acceptatie op iedere bestemming blijft afzonderlijk nodig. Zie [sleepbediening en bewijsgrenzen](SLEPEN-EN-SENSOREN.md).
+De aanvullende onafhankelijke SDK-proef controleert alle veertig afzonderlijke contacten en vrijgaven, veertig gelijktijdige contacten en iedere afzonderlijke vrijgave zonder de andere contacten te verliezen. Ook het virtuele Bluetooth-transport heeft alle veertig contacten en vrijgaven doorgegeven. De bewegingsadapter is met nagebootste appwaarnemingen voor elf miniaturen × veertig bestemmingen gecontroleerd. Dit is softwaredekking; fysieke acceptatie op iedere bestemming blijft afzonderlijk nodig. Zie [sleepbediening en bewijsgrenzen](games/milan-uprising/SLEPEN-EN-SENSOREN.md).
 
 De oorspronkelijke SDK herkent vijf afzonderlijke synthetische d10's en hun onafhankelijke waarden, ook bij aanlevering in gesplitste berichten. De test omvat alle tien waarden van de eerste d10 en vervolgens een groepsworp met alle vijf. De private adapter biedt een willekeurige fysieke waarde van één tot en met tien per gekozen dobbelsteen; de aanvrager kan geen gewenste uitkomst opgeven. Iedere dobbelsteen behoudt zijn eigen lokaal opgeslagen identiteit. Dit is invoer voor de officiële app, geen eigen berekening van spelsucces.
 

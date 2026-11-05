@@ -22,7 +22,7 @@ Alle 144 publieke tests slagen met Node 26 en de gebundelde Node 22. De nieuwe r
 
 - Alle 143 publieke tests slagen met Node 26 en de gebundelde Node 22. Nieuwe proeven controleren de volledige dertig-districtsbonusinventaris, twee onafhankelijke waarnemingen, generatiegrenzen, afwijzen van gewone kaarten/verkeerde geometrie/dubbele tegels, geen achterzijde op alleen een ontbrekend icoon, behoud van kamerupgrades en idempotentie.
 - De echte adapterketen is geïsoleerd met een opgenomen setupbeeld herhaald: het eerste beeld past geen tegels toe; het tweede bevestigt 29 locaties. Washington blijft automatisch onbevestigd en is voor de huidige opstelling afzonderlijk visueel gecontroleerd en gekopieerd. Andere speciale illustraties dan Haven zijn nog niet automatisch herkend.
-- Browsercontrole op localhost én de LAN-bordlink bevestigt Haven op QT8, Underground op Portello, uitleg onder Location en uitsluitend symbolen op het stadsbord. De verbinding met Milan bleef actief; er is geen app-, scan- of sensorinvoer verstuurd. Zie [locatietegels](LOCATIETEGELS.md).
+- Browsercontrole op localhost én de LAN-bordlink bevestigt Haven op QT8, Underground op Portello, uitleg onder Location en uitsluitend symbolen op het stadsbord. De verbinding met Milan bleef actief; er is geen app-, scan- of sensorinvoer verstuurd. Zie [locatietegels](games/milan-uprising/LOCATIETEGELS.md).
 
 ## Inbegrepen tekstherkenning en werkelijke setupreparatie — 30 oktober 2026
 

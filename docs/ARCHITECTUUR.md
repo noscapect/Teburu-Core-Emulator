@@ -1,4 +1,10 @@
-# Architectuur — modulair tabletop-platform
+# Architectuur — Teburu Core Emulator
+
+## Productgrens
+
+TCE levert Core-emulatie, virtuele apparaten, transport, modulebeheer en tafel-/sessie-infrastructuur voor ondersteunde Teburu-games. Officiële apps blijven verantwoordelijk voor regels, verhaal en campagne. De sandbox is een hulpmiddel binnen TCE; het projectdoel is de ongewijzigde officiële apps zonder fysieke spelonderdelen gebruiken.
+
+Een spelmodule levert componenten, bordgeometrie, presentatie, appherkenning en spelspecifieke invoer. Namen van districten, facties, fasen of personages horen niet in de generieke engine of het gedeelde transport. Milan Uprising is de huidige concrete module en validatiecasus. De registratie bevat momenteel geen tweede spelmodule; ondersteuning voor meerdere modules is een architectuurmogelijkheid, geen compatibiliteitsclaim voor alle games.
 
 ## Actuele scope — 29 oktober 2026
 

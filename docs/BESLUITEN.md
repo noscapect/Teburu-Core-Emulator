@@ -1,5 +1,9 @@
 # Architectuurbeslissingen — 21 oktober 2026
 
+## Productafbakening — 5 november 2026
+
+TCE is het emulatorproduct; ondersteunde spellen worden als modules behandeld. Algemene documentatie beschrijft de gedeelde Core, apparaten, transport, installatie en lifecycle. Spelhandleidingen staan onder `docs/games/<id>/`. Milan is de huidige module en testcasus, geen productbrede afhankelijkheid of model voor de regels van andere spellen. Compatibiliteitsclaims worden per spel en officiële app getoetst. Deze afbakening verandert geen runtimegedrag of daadwerkelijk ondersteunde spellen.
+
 ## Actuele leeswijzer — 5 november 2026
 
 De gedateerde beslissingen hieronder bewaren de toenmalige scope. De huidige versie heeft een modulaire sandbox, gevalideerde import/replay van eigen tafelsessies, undo/redo en een optionele gepubliceerde appadapter. Beperkte interactie met de ongewijzigde officiële app is aangetoond; volledige campagnecompatibiliteit en fabrikantondersteuning zijn niet bewezen. Geselecteerd artwork mag worden meegeleverd volgens de distributie-uitzondering. De SDK en machinegegevens blijven uitgesloten. Zie [README](../README.md), [validatie](VALIDATIE.md) en [modulecontract](GAME-MODULES.md).

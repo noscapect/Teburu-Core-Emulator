@@ -12,6 +12,6 @@ TCE werkt hiermee uitsluitend zijn eigen simulatiestatus bij. Er wordt geen offi
 
 Voortgang en fouten verschijnen naast de knop. Pas na succesvolle voltooiing worden de versies opgeslagen. Bij onderbreking of een schrijffout kun je opnieuw proberen. **New simulation available** betekent dat de opgeslagen status nog niet de huidige doelen bevat.
 
-Verbind Milan opnieuw na voltooiing om de versiegegevens in de app te verversen. Een Core-herstart wist de opgeslagen versies niet. De simulatie verplaatst geen onderdelen, kiest geen worpuitkomst en wijzigt de officiële campagne niet.
+Verbind de officiële app opnieuw na voltooiing om de versiegegevens in de app te verversen. Een Core-herstart wist de opgeslagen versies niet. De simulatie verplaatst geen onderdelen, kiest geen worpuitkomst en wijzigt de officiële campagne niet.
 
-De ring en dobbelstenen tonen gesimuleerde batterijgegevens; dat zijn geen fysieke metingen. De versies zijn bedoeld voor de geteste appkoppeling en bewijzen geen volledige hardware- of campagnecompatibiliteit. Controleer bij een verbindings- of timeoutmelding eerst de getoonde status voordat je opnieuw probeert.
+De ring en dobbelstenen tonen gesimuleerde batterijgegevens; dat zijn geen fysieke metingen. De bovenstaande versies zijn de huidige doelen van de gedeelde runtime. Acceptatie is alleen aangetoond voor de geteste appversies, niet voor iedere Teburu-game. Zie de [modulehandleidingen](README.md#spelmodules) voor ondersteuning. Controleer bij een verbindings- of timeoutmelding eerst de getoonde status voordat je opnieuw probeert.

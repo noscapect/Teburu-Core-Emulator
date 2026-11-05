@@ -1,5 +1,11 @@
 # TCE and game modules
 
+## Product and documentation boundaries
+
+TCE is the emulator product. Game modules extend that product with a particular board, component set and official-app adapter. The official app remains the rule and campaign authority; the shared sandbox and engine are infrastructure for virtual play.
+
+General installation, Core lifecycle and device documentation lives in the main documentation directory. Game-specific user guides live under `docs/games/<id>/`; the current [Milan guide](games/milan-uprising/README.md) contains that module's setup requirements, board operation and compatibility limits. Record acceptance per module/app version as well as shared runtime tests. Neither module registration nor a shared Core implementation alone proves another game's compatibility.
+
 TCE owns the generic tabletop engine, module registry, game library, artwork installer, runtime lifecycle, synthetic Core codec and Bluetooth transport. Each game owns its rules/data, tabletop screens, app observations, miniature semantics and artwork selection. There is no import of Milan from the shared engine, server or transport. Only Milan currently has a real app adapter; this architecture does not claim that other Teburu games have already been implemented or hardware-validated.
 
 Multiple modules can remain installed and enabled simultaneously. Enabling or opening one does not disable another. Each has its own archive, cache, adapter workspace and session/game identifiers. The library distinguishes **enabled games** from the game currently opened for play. Standalone tables can be opened separately. The current linked launcher runs one Android/Core adapter session at a time; switching first returns the previous session's Bluetooth adapter and closes its service. A cleanup failure prevents switching. That limit does not limit how many modules can remain enabled.

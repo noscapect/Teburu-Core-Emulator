@@ -19,9 +19,9 @@ Bestaande Linux-distributies en accounts blijven behouden. De helper gebruikt ee
 Na **This PC is ready**:
 
 1. Verbind en ontgrendel de Android-tablet via USB.
-2. Sta USB-debugging toe en open Milan.
-3. Laat de automatische tabletcontrole afronden en bevestig English/landscape. Schermherkenning is afgestemd op **2560 × 1600**.
-4. Kies **Start Core** en verbind via de normale flow in Milan.
+2. Sta USB-debugging toe en open de officiële app van het geselecteerde spel.
+3. Laat de automatische tabletcontrole afronden en volg de taal-, oriëntatie- en resolutievereisten van de [spelmodule](README.md#spelmodules).
+4. Kies **Start Core** en verbind via de normale flow in de officiële app.
 
 Gebruik **Stop Core** om de radio terug te geven. **Quit app and return Bluetooth to Windows** sluit ook de services. Het sluiten van alleen de browser stopt TCE niet.
 

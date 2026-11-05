@@ -1,5 +1,11 @@
 # Gefaseerd ontwikkelplan
 
+## TCE en spelmodules
+
+Het product is de Teburu Core Emulator. Werk aan gedeeld Core-gedrag, transport, virtuele apparaten, installatie, herstel en module-isolatie hoort bij TCE. Bordgegevens, appschermen en campagnesynchronisatie horen bij de betrokken spelmodule. Een eigen regelimplementatie is geen voorwaarde voor emulatie: de officiële app blijft regelautoriteit.
+
+Milan Uprising is de huidige geïmplementeerde module en levert concrete acceptatiescenario's. Aanvullende spellen vereisen een eigen module, assets, adapter en echte appvalidatie volgens [het modulecontract](GAME-MODULES.md). Een geslaagde Milan-proef bewijst geen algemene Teburu-appcompatibiliteit.
+
 ## Actuele prioriteiten en leeswijzer — 5 november 2026
 
 De werkende basis bestaat uit de sandbox, eigen sessie-import/replay en undo/redo, Milan-inventarissen en de optionele appadapter. Beperkte interactie met de ongewijzigde officiële app is aangetoond. De publieke softwarecontrole telt 169 geslaagde tests op Windows/Node 26.7.0; zie [validatie](VALIDATIE.md).
@@ -27,16 +33,16 @@ De gedateerde lijsten hieronder zijn ontwikkelhistorie. Oudere open vakjes voor 
 ## Actuele voortgang — 28 oktober 2026
 
 - [x] Herken zichtbare NPC-portretten bij de hervatstap NPC placement; Agnese in Washington live bevestigd. Geen volledige save-import: verborgen onderdelen en overige NPC-portretten blijven afzonderlijk te toetsen. Zie [plaatsingssynchronisatie](PLAATSINGSSYNC.md).
-- [x] Herstel alleen de tien Haven-bonuslabels; districtslabels blijven in het locatiepaneel. Zie [locatietegels](LOCATIETEGELS.md).
+- [x] Herstel alleen de tien Haven-bonuslabels; districtslabels blijven in het locatiepaneel. Zie [locatietegels](games/milan-uprising/LOCATIETEGELS.md).
 - [x] Voeg de LED-ring toe aan de blijvende firmware-simulatie en dezelfde batterijaanpak als dice. Teburu 1.2.0 toont live 1.15.0, Firmware up to date en 46%. Zie [firmware-simulatie](FIRMWARE-SIMULATIE.md).
-- [x] Corrigeer de LED-segmentoriëntatie in de presentatie; vier verschillende kleuren gecontroleerd in een geïsoleerde browserproef. Zie [Prospero](PROSPERO.md).
+- [x] Corrigeer de LED-segmentoriëntatie in de presentatie; vier verschillende kleuren gecontroleerd in een geïsoleerde browserproef. Zie [Prospero](games/milan-uprising/PROSPERO.md).
 - [ ] Valideer een volledige geladen campagneopstelling en volledige ringanimaties; de beperkte proeven hierboven bewijzen dit niet.
 
 De gedateerde prioriteiten hieronder beschrijven eerdere onderzoeksfasen. Actuele verificatie en aantallen staan in [VALIDATIE.md](VALIDATIE.md); nieuwe module- en installatietests vervangen eerdere kleinere suite-aantallen niet als hardwarebewijs.
 
 ## Hoofddoel en eerstvolgende integratiemijlpalen
 
-- [x] Voeg de fysieke voorraden van alle zes uitbreidingen toe, met apart profiel, opslag/replay, extra miniaturenscans en handmatige markerbediening op de gekoppelde tafel; zie [uitbreidingen en verificatiegrenzen](UITBREIDINGEN.md).
+- [x] Voeg de fysieke voorraden van alle zes uitbreidingen toe, met apart profiel, opslag/replay, extra miniaturenscans en handmatige markerbediening op de gekoppelde tafel; zie [uitbreidingen en verificatiegrenzen](games/milan-uprising/UITBREIDINGEN.md).
 - [ ] Accepteer de vier extra personages, nieuwe bondgenoten/ghouls en uitbreidingscampagnes via echte Android-spelhandelingen; automatiseer Sabbat-/Nephilim-terugkoppeling pas na gecontroleerde waarnemingen.
 
 Aanvullend onderzoek op 24 oktober: het ongewijzigde Core-firmwarepakket is al in de geïnstalleerde Teburu-app gevonden en lokaal gecontroleerd. Netwerkonderschepping of het starten van een update was niet nodig. Gebruik dit als onafhankelijke statische referentie voor concrete emulatorverschillen; volledige firmware-uitvoering blijft een apart, onbewezen spoor. Zie [firmware-onderzoek](FIRMWARE-ONDERZOEK.md).

@@ -1,5 +1,5 @@
-import {mkdir,readFile,writeFile,readdir,copyFile} from 'node:fs/promises';
-import {resolve,join,dirname,extname} from 'node:path';
+import {mkdir,readFile,writeFile,readdir,copyFile,rm} from 'node:fs/promises';
+import {resolve,join,dirname,extname,sep} from 'node:path';
 import {fileURLToPath} from 'node:url';
 import {createHash} from 'node:crypto';
 import {execFile} from 'node:child_process';
@@ -30,6 +30,21 @@ export async function copyReleaseSources(source,destination,{includeArtwork=true
  for(const name of releaseFiles){await mkdir(dirname(join(destination,name)),{recursive:true});await copyFile(join(source,name),join(destination,name));}
 }
 const sha=bytes=>createHash('sha256').update(bytes).digest('hex');
+export async function removeReleaseBuildCaches(app){
+ const root=resolve(app);
+ async function clean(directory){
+  for(const entry of await readdir(directory,{withFileTypes:true})){
+   const target=resolve(directory,entry.name);
+   if(!target.startsWith(root+sep))throw Error('Unsafe release cleanup path.');
+   if(entry.isSymbolicLink())throw Error('Release must not contain symbolic links.');
+   if(entry.isDirectory()){
+    if(['bin','obj','__pycache__'].includes(entry.name.toLowerCase()))await rm(target,{recursive:true,force:true});
+    else await clean(target);
+   }
+  }
+ }
+ await clean(root);
+}
 export async function buildRelease({source=fileURLToPath(new URL('../',import.meta.url)),output,includeArtwork=true}={}){
  if(process.platform!=='win32'||process.arch!=='x64')throw Error('Build the Windows x64 release on Windows x64.');
  const version=JSON.parse(await readFile(join(source,'package.json'),'utf8')).version;
@@ -80,8 +95,11 @@ export async function buildRelease({source=fileURLToPath(new URL('../',import.me
  for(const [name,url] of [['dotnet-license.txt','https://raw.githubusercontent.com/dotnet/runtime/release/8.0/LICENSE.TXT'],['dotnet-third-party.txt','https://raw.githubusercontent.com/dotnet/runtime/release/8.0/THIRD-PARTY-NOTICES.TXT']]){
   const response=await fetch(url);if(!response.ok)throw Error('Runtime license download failed');await writeFile(join(app,'notices',name),await response.text());
  }
+ // Restore/build tooling can create caches after source staging. Remove them
+ // from the final payload and fail closed if an excluded path reappears.
+ await removeReleaseBuildCaches(app);
  const integrity={schemaVersion:1,files:{}};
- async function hashTree(path=''){for(const entry of await readdir(join(app,path),{withFileTypes:true})){const name=path?path+'/'+entry.name:entry.name;if(entry.isDirectory())await hashTree(name);else integrity.files[name]=sha(await readFile(join(app,name)));}}
+ async function hashTree(path=''){for(const entry of await readdir(join(app,path),{withFileTypes:true})){const name=path?path+'/'+entry.name:entry.name;if(['private','work','.git','sdk','state','bin','obj','__pycache__'].includes(entry.name.toLowerCase()))throw Error('Excluded release path: '+name);if(entry.isSymbolicLink())throw Error('Release must not contain symbolic links.');if(entry.isDirectory())await hashTree(name);else integrity.files[name]=sha(await readFile(join(app,name)));}}
  await hashTree();await writeFile(join(app,'release-files.json'),JSON.stringify(integrity));
  const zip=join(directory,`TCE-${version}-windows-x64.zip`);
  await run('powershell.exe',['-NoProfile','-NonInteractive','-Command','Compress-Archive -LiteralPath $env:MILAN_RELEASE_APP -DestinationPath $env:MILAN_RELEASE_ZIP'],{windowsHide:true,timeout:300000,env:{...process.env,MILAN_RELEASE_APP:app,MILAN_RELEASE_ZIP:zip}});

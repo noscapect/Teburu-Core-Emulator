@@ -3,7 +3,7 @@ import assert from 'node:assert/strict';
 import {mkdtemp,mkdir,writeFile,readdir,rm} from 'node:fs/promises';
 import {tmpdir} from 'node:os';
 import {join,dirname} from 'node:path';
-import {copyReleaseSources,releaseRoots,releaseFiles} from '../tools/build-release.mjs';
+import {copyReleaseSources,releaseRoots,releaseFiles,removeReleaseBuildCaches} from '../tools/build-release.mjs';
 import {inspectTablet,createPreparationJob} from '../server/connection-wizard.mjs';
 import {createCoreLifecycle} from '../server/core-lifecycle.mjs';
 import {createCoreStarter} from '../integration/runtime/pc-core-start.mjs';
@@ -25,6 +25,22 @@ test('release source staging excludes private workspaces, SDK binaries and build
   assert.deepEqual(await readdir(join(target,'integration/runtime')),['runtime.mjs']);
  }finally{await rm(root,{recursive:true,force:true});}
 });
+test('final release cleanup removes caches created after staging and preserves published helpers',async()=>{
+ const root=await mkdtemp(join(tmpdir(),'tce-final-release-'));
+ try{
+  const app=join(root,'TCE'),outside=join(root,'obj');
+  for(const folder of ['integration/runtime/app-observer/obj','integration/runtime/app-observer/bin','runtime/python/__pycache__','integration/runtime/app-observer/build'])await mkdir(join(app,folder),{recursive:true});
+  await mkdir(outside);await writeFile(join(outside,'keep.txt'),'outside release');
+  await writeFile(join(app,'integration/runtime/app-observer/obj/project.assets.json'),'local build paths');
+  await writeFile(join(app,'integration/runtime/app-observer/build/AppObserver.exe'),'published helper');
+  await removeReleaseBuildCaches(app);
+  assert.deepEqual(await readdir(join(app,'integration/runtime/app-observer')),['build']);
+  assert.deepEqual(await readdir(join(app,'runtime/python')),[]);
+  assert.equal(await readFile(join(app,'integration/runtime/app-observer/build/AppObserver.exe'),'utf8'),'published helper');
+  assert.equal(await readFile(join(outside,'keep.txt'),'utf8'),'outside release');
+ }finally{await rm(root,{recursive:true,force:true});}
+});
+
 test('tablet wizard distinguishes permission and multiple devices without reading screens or leaking serials',async()=>{
  for(const [text,stage] of [['device-secret\tunauthorized\n','permission'],['a\tdevice\nb\tdevice','usb'],['','usb']]){
   let calls=0;const report=await inspectTablet({adb:'adb',application:{androidPackage:'com.xplored.teburu.vtm',display:{width:2560,height:1600}},execute:async()=>{calls++;return {stdout:text};}});

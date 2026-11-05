@@ -22,7 +22,7 @@ node server.mjs
 
 Open http://127.0.0.1:5178, choose **Add game** for a listed module, then **Open tabletop**. `npm start` is an equivalent shortcut. Stop the server with Ctrl+C.
 
-On Windows, **Start-TCE.cmd** opens the game library. The local Windows release candidate includes runtimes, an installer and automatic PC preparation; no reviewed public release is available yet. See [installation](docs/INSTALLATION.md).
+On Windows, **Start-TCE.cmd** opens the game library. The [Windows pre-release](https://github.com/noscapect/Teburu-Core-Emulator/releases/tag/v0.1.0) includes runtimes, an installer and automatic PC preparation. The repository and release assets are private; access requires repository permission. See [installation](docs/INSTALLATION.md).
 
 ## Connect an official app
 
@@ -73,7 +73,7 @@ Engine, game modules, application, UI and presentation are separate. Domain stat
 | `test/`, `tests/` | Public software tests |
 | `private/` | Ignored local settings, sessions, observations and identifiers |
 
-Run the public suites with `npm test` or `node --test test/*.test.mjs tests/*.test.js`. Both CI workflows use the same selection. A bare `node --test` can include temporary working copies. The latest recorded local run passed 169 public tests on Windows/Node 26.7.0; this is software evidence, not universal app or hardware acceptance.
+Run the public suites with `npm test` or `node --test test/*.test.mjs tests/*.test.js`. Both CI workflows use the same selection. A bare `node --test` can include temporary working copies. Release checks passed 170 public tests on Windows/Node 26.7.0 and bundled Node 22.23.4; this is software evidence, not universal app or hardware acceptance.
 
 Use the [documentation index](docs/README.md) for architecture, module contracts, research and validation. Compatibility evidence must identify the game, app version, scenario and hardware tested.
 

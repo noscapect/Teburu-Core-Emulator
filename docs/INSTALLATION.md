@@ -1,12 +1,12 @@
 # Install TCE on another computer
 
-## Windows release candidate
+## Windows pre-release
 
-The local release-candidate build includes Node, Python/NumPy/OpenCV, UnityPy and its pinned extraction dependencies, and self-contained .NET helpers. Extract its ZIP and run **Install-TCE.cmd**, then use the desktop shortcut. This installs for your Windows account and preserves private settings on upgrade. **Start-TCE.cmd** also runs directly from the extracted folder. No system Node, Python, .NET SDK or extraction-tool installation is needed for this packaged edition.
+Download `TCE-0.1.0-windows-x64.zip` from the [private GitHub release](https://github.com/noscapect/Teburu-Core-Emulator/releases/tag/v0.1.0). Repository access is required. The package includes Node, Python/NumPy/OpenCV, UnityPy and its pinned extraction dependencies, and self-contained .NET helpers. Extract its ZIP and run **Install-TCE.cmd**, then use the desktop shortcut. This installs for your Windows account and preserves private settings on upgrade. **Start-TCE.cmd** also runs directly from the extracted folder. No system Node, Python, .NET SDK or extraction-tool installation is needed for this packaged edition.
 
 In a linked module's Control Center, accept the setup/Android tools terms once and choose **Set up automatically**. TCE prepares missing Windows components, Linux, Bluetooth sharing and app helpers in sequence. Text recognition is included and needs no Windows language installation. Already installed components are reused. Approve Windows permission prompts; if a restart is needed, reopen TCE and choose **Continue setup**. Connect and unlock the Android tablet by USB, allow debugging and open the selected game's official app. Follow the module's display requirements and choose **Start Core**. See [automatic setup](AUTOMATIC-SETUP.md) for recovery and exceptional manual steps.
 
-The Windows package is a local release candidate, not a published reviewed release. Complete installation with physical hardware on a clean second PC remains unvalidated. The source edition below requires development tools for linked play.
+This is an early pre-release. Complete installation with physical hardware on a clean second PC remains unvalidated. The source edition below requires development tools for linked play.
 
 First open the TCE game library and choose **Add game** for an available module. Each module declares its artwork and any supported acquisition route. Choose **Connect Android** for a module with a linked adapter, then follow the PC/tablet steps above. Multiple modules can remain enabled; the launcher runs one linked session at a time. See [adding games](GAME-ADDONS.md) and the [module guides](README.md#game-modules).
 

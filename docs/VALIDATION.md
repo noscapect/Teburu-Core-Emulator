@@ -1,5 +1,11 @@
 # Validation
 
+## First pre-release checks — November 5, 2026
+
+All **170 public tests** pass on Windows with Node 26.7.0 and the packaged Node 22.23.4. The additional regression verifies that final release cleanup removes nested `bin`, `obj` and `__pycache__` directories created after source staging, preserves published helpers and leaves adjacent directories outside the package untouched.
+
+The initial ZIP inspection found generated .NET restore caches containing local paths. That candidate was rejected before upload. The builder now removes such caches immediately before generating the file manifest and rejects excluded paths encountered during hashing. Software checks do not establish clean-machine physical acceptance or full-campaign support; `v0.1.0` is a private pre-release.
+
 ## Current public software audit — November 5, 2026
 
 On Windows with Node 26.7.0, all **169 public tests** pass, with no errors, skipped, or canceled tests. Command: `node --test test/*.test.mjs tests/*.test.js`. `npm test` uses the same selection; both CI workflows now use `npm test`. Only these two public suites count. A bare `node --test` can also discover temporary copies under ignored workspaces.

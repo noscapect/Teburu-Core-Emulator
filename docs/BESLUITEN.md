@@ -1,76 +1,76 @@
-# Architectuurbeslissingen — 21 oktober 2026
+# ArchitectureDecisions — October 21, 2026
 
-## Productafbakening — 5 november 2026
+## Product scope — November 5, 2026
 
-TCE is het emulatorproduct; ondersteunde spellen worden als modules behandeld. Algemene documentatie beschrijft de gedeelde Core, apparaten, transport, installatie en lifecycle. Spelhandleidingen staan onder `docs/games/<id>/`. Milan is de huidige module en testcasus, geen productbrede afhankelijkheid of model voor de regels van andere spellen. Compatibiliteitsclaims worden per spel en officiële app getoetst. Deze afbakening verandert geen runtimegedrag of daadwerkelijk ondersteunde spellen.
+TCE is the emulator product; supported games are treated as modules. General documentation describes the shared Core, devices, transport, installation and lifecycle. Game manuals are under `docs/games/<id>/`. Milan is the current module and test case, not a product-wide dependency or model for the rules of other games. Compatibility claims are assessed per game and official app. This delimitation does not change runtime behavior or actual supported games.
 
-## Actuele leeswijzer — 5 november 2026
+## Current reading guide — November 5, 2026
 
-De gedateerde beslissingen hieronder bewaren de toenmalige scope. De huidige versie heeft een modulaire sandbox, gevalideerde import/replay van eigen tafelsessies, undo/redo en een optionele gepubliceerde appadapter. Beperkte interactie met de ongewijzigde officiële app is aangetoond; volledige campagnecompatibiliteit en fabrikantondersteuning zijn niet bewezen. Geselecteerd artwork mag worden meegeleverd volgens de distributie-uitzondering. De SDK en machinegegevens blijven uitgesloten. Zie [README](../README.md), [validatie](VALIDATIE.md) en [modulecontract](GAME-MODULES.md).
+The dated decisions below retain the scope at the time. The current version has a modular sandbox, validated import/replay of custom table sessions, undo/redo, and an optional published app adapter. Limited interaction with the unmodified official app has been demonstrated; full campaign compatibility and manufacturer support have not been proven. Selected artwork may be included under the distribution exception. The SDK and machine data remain excluded. See [README](../README.md), [validation](VALIDATIE.md) and [module contract](GAME-MODULES.md).
 
-De passages vanaf **Verdieping na bronnenonderzoek** beschrijven historische besluiten vanaf 21 oktober. Uitspraken zoals “appintegratie blijft open”, “uitsluitend lokaal artwork” en toekomstige import beschrijven die fase, niet de huidige mogelijkheden.
+The passages from **In-depth after source research** describe historical decisions from October 21. Statements such as “app integration remains open,” “local artwork only,” and future imports describe that phase, not current capabilities.
 
-## Eén automatische PC-voorbereiding — 29 oktober 2026
+## One automatic PC preparation - October 29, 2026
 
-De losse primaire installatieknoppen zijn vervangen door **Set up automatically**, na eenmalige expliciete voorwaarden/toestemming. De backend doorloopt de bestaande begrensde acties zonder een bevestiging per component. Windows-UAC en eventuele herstart blijven OS-acties; een herstart wordt nooit automatisch uitgevoerd. Alleen bij meerdere/missende adapters wordt een keuze gevraagd. Linux krijgt een eigen niet-root helperaccount, zodat gebruikers normaal geen terminal/account hoeven voor te bereiden. Tabletstatus wordt automatisch gecontroleerd. Handmatige bediening blijft onder Advanced. Zie [automatische setup](AUTOMATIC-SETUP.md).
+The separate primary installation buttons have been replaced by **Set up automatically**, after one-time explicit conditions/permission. The backend cycles through the existing bounded actions without a confirmation per component. Windows UAC and any restart remain OS actions; a restart is never performed automatically. A choice will only be requested if there are multiple/missing adapters. Linux gets its own non-root helper account, so users normally don't need to prepare a terminal/account. Tablet status is checked automatically. Manual controls remain under Advanced. See [automatic setup](AUTOMATIC-SETUP.md).
 
-## Optionele artworkarchieven — 29 oktober 2026
+## Optional artwork archives — October 29, 2026
 
-Artwork kan gebundeld of afzonderlijk worden aangeleverd. Het eerdere voorstel zonder automatische clientextractie is vervangen: **Add game** gebruikt een bestaand archief of downloadt een gecontroleerde Windows-client-ZIP en extraheert uitsluitend de benodigde beelden. Geen installatie of uitvoering van de Windows-game; Android blijft verplicht voor gekoppeld spelen. Meerdere modules kunnen ingeschakeld blijven. Zie [modulecontract](GAME-MODULES.md).
+Artwork can be supplied bundled or separately. The previous proposal without automatic client extraction has been replaced: **Add game** uses an existing archive or downloads a controlled Windows client ZIP and extracts only the necessary images. No installation or running of the Windows game; Android remains required for linked play. Multiple modules can remain enabled. See [module contract](GAME-MODULES.md).
 
-## Projectnaam — 29 oktober 2026
+## Project name — October 29, 2026
 
-Het project heet voortaan **Teburu Core Emulator (TCE)**; de GitHub-repository heet `Teburu-Core-Emulator`. Dit betreft uitsluitend de naam, zichtbare projectbranding en pakket-/launchernamen. Milan Uprising blijft de bestaande spelmodule. De volgende refactorering voor meer spelmodules is afzonderlijk werk. Sessie-/profiel-ID's, interne formaatnamen en bestaande opslag blijven behouden; deze naamswijziging is geen nieuw compatibiliteitsbewijs.
+The project is now called **Teburu Core Emulator (TCE)**; the GitHub repository is called `Teburu-Core-Emulator`. This only concerns the name, visible project branding and package/launcher names. Milan Uprising remains the existing game module. The next refactoring for more game modules is separate work. Session/profile IDs, internal format names, and existing storage are preserved; this name change is not a new proof of compatibility.
 
-## Windows-releasekandidaat — 29 oktober 2026
+## Windows release candidate - October 29, 2026
 
-De releasebuilder gebruikt alleen publieke bronmappen, verpakt Node/Python en self-contained .NET-helpers, bewaart third-party notices en voegt een bestandsmanifest toe. De per-user installer bewaart private instellingen bij bijwerken. Android-tools worden pas na afzonderlijke toestemming rechtstreeks van Google gedownload; Linux-pakketten en de eigen geïsoleerde helperomgeving worden via vaste opdrachten voorbereid. Tablettoestemming, voorgrondapp en schermresolutie worden gecontroleerd; taal en oriëntatie blijven een expliciete gebruikersbevestiging. Normaal stoppen geeft uitsluitend de door onze sessie geregistreerde radio-overdracht terug; na geforceerd afsluiten is herstel expliciet. De releaseworkflow is alleen handmatig en mag niet voor de review worden uitgevoerd. Geen fysieke tweede-machineacceptatie of volledige campagnevalidatie geclaimd.
+The release builder uses only public source directories, packages Node/Python and self-contained .NET helpers, stores third-party notices, and adds a file manifest. The per-user installer keeps private settings when updated. Android tools are only downloaded directly from Google after separate permission; Linux packages and the own isolated helper environment are prepared via fixed commands. Tablet permission, foreground app and screen resolution are checked; language and orientation remain an explicit user confirmation. Normal stopping returns only the radio transfer recorded by our session; after force shutdown, recovery is explicit. The release workflow is manual only and should not be run before the review. No physical second machine acceptance or full campaign validation claimed.
 
-## Windows-voorbereiding — 29 oktober 2026
+## Windows Prep - October 29, 2026
 
-Bluetooth via WSL2 is de vaste transportkeuze voor de Windows-/Android-route. Het Control Center controleert de Windows-onderdelen en biedt expliciete installatieacties voor WSL, Debian en usbipd, plus selectie en delen van één gedetecteerde Bluetooth-adapter. Alle installatie- en UAC-vensters blijven zichtbaar. Er is geen automatische herstart, verwijdering/conversie van bestaande distributies of adapteroverdracht bij een statuscontrole. Acties zijn vast begrensd en alleen beschikbaar via de lokale same-origin bediening. Machineconfiguratie en voortgang blijven in private/. Een broncheckout is hiermee nog geen complete gebundelde release. Zie [installatie](INSTALLATION.md).
+Bluetooth over WSL2 is the solid transport choice for the Windows/Android route. The Control Center monitors Windows components and provides explicit installation actions for WSL, Debian, and usbipd, plus selection and sharing of one detected Bluetooth adapter. All installation and UAC windows remain visible. There is no automatic restart, removal/conversion of existing distributions, or adapter transfer on a health check. Actions are fixed and only available via the local same-origin control. Machine configuration and progress remain in private/. A source checkout is therefore not a complete bundled release. See [installation](INSTALLATION.md).
 
-## Overdraagbare distributie — 29 oktober 2026
+## Transferable distribution – October 29, 2026
 
-De projecteigenaar heeft publicatie van het geselecteerde artwork en de eigen afgeleide integratiecode expliciet toegestaan. Het artwork wordt standaard als één archief meegeleverd en via Game add-ons lokaal uitgepakt; een distributie mag het archief weglaten. De benodigde eigen runtimecode wordt onder `integration/runtime/` beheerd; de launcher maakt daaruit een afzonderlijke genegeerde werkmap `private/linked/`. Machineconfiguratie, spelstanden, observaties en willekeurig gegenereerde identities blijven lokaal. De oorspronkelijke SDK, libraries, voorbeelden en documentatie blijven uitgesloten. De bestaande private ontwikkelopstelling wordt niet gekopieerd of gewijzigd. De gekoppelde route vereist nog steeds expliciete configuratie van de eigen radio en tablet; een volledige campagne of iedere machine is hiermee niet bewezen. Zie [installatie](INSTALLATION.md).
+The project owner has explicitly allowed publication of the selected artwork and its own derived integration code. The artwork is supplied as one archive by default and extracted locally via Game add-ons; a distribution may omit the archive. The required custom runtime code is managed under `integration/runtime/`; the launcher creates a separate ignored workspace `private/linked/` from it. Machine configuration, saved game states, observations and randomly generated identities remain local. The original SDK, libraries, examples and documentation remain excluded. The existing private development setup will not be copied or changed. The linked route still requires explicit configuration of the own radio and tablet; an entire campaign or every machine is not proven. See [installation](INSTALLATION.md).
 
-## Historie — verdieping na bronnenonderzoek, 21 oktober 2026
+## History — in-depth after source research, October 21, 2026
 
-- Officiële app gebruiken zonder fysieke spelonderdelen is het einddoel; sandbox en eigen regels zijn ondersteunend, geen stilzwijgende vervanging van dat doel.
-- Sensorcontact is niet hetzelfde als spelzonebezetting. De nieuwe studie scheidt die, behoudt de oorspronkelijke demo en laat meerdere demopionnen één zone delen.
-- SDK-aanvraagroute is gevonden, maar niet bewezen geschikt voor bestaande apps en niet aangevraagd. Eventuele vertrouwelijke inhoud blijft buiten de publieke repo.
-- Officiële Milan-digitale dice zijn de eerste te testen route; hardwaredice nabootsen krijgt geen automatische prioriteit.
-- Een browser-Central API bewijst geen virtuele Core/peripheral. Transportkeuze wacht op bewijs en toegestane interfaces.
+- Using the official app without physical game components is the end goal; sandbox and custom rules are supportive, not a tacit replacement of that goal.
+- Sensor contact is not the same as game zone occupancy. The new study separates those, keeping the original demo and allowing multiple demo pawns to share one zone.
+- SDK request route found, but not proven suitable for existing apps and not requested. Any confidential content will remain outside the public repo.
+- Official Milan digital dice are the first route to be tested; emulating hardware dice is not automatically prioritized.
+- A browser-Central API does not prove a virtual Core/peripheral. Transport choice awaits evidence and permitted interfaces.
 
-Onderbouwing: TEBURU-DEEPSEARCH.md. Echte appcompatibiliteit blijft onbewezen.
+Substantiation: TEBURU-DEEPSEARCH.md. True app compatibility remains unproven.
 
-Status: eerste modulaire sandboxdoorsnede geïmplementeerd. Regels, fysieke inhoud, 3D en appintegratie blijven open.
+Status: First modular sandbox cross-section implemented. Rules, physical content, 3D and app integration remain open.
 
-| Onderwerp | Vorige richting | Nieuwe beslissing |
+| Subject | Previous direction | New decision |
 | --- | --- | --- |
-| Productgrens | Milan-bordvervanger met adapter | Generiek tabletop-platform met Milan als eerste game-module. |
-| Bordmodel | Vier vaste pionnen en 8 × 5, één pion per cel | Entiteiten en zones in kern; geometrie, aantallen en bezetting in profiel/module. |
-| Spelregels | Volledige regels buiten eerste scope | Getrouwe handmatige 2D-reproductie in fase 1; automatisering expliciet in fase 2. |
-| Gegevens | Demo-waarden direct in code | Versieerbare declaratieve pakketten voor componenten, personages, scenario's en releases, met rechten/herkomst. |
-| Presentatie | Browser rond eenvoudig model | Strikte scheiding engine, regels, gegevens, UI en presentatie. Optioneel 3D in fase 3 zonder regelherschrijving. |
-| Appintegratie | Compatibiliteit als eerste hoofdroute | Zelfstandig onderzoeksspoor en optionele adapter; appbehoud blijft voorkeur, compatibiliteit onbewezen. |
-| Sandbox | Mogelijke uitwijkroute | Volwaardige toekomstige modus, met structurele controles en handmatige handelingen. |
-| Opslag | JSON-demo-export | Versieerbare saves en gevalideerde import in fase 2; demoformaat blijft apart. |
-| Uitbreiding | Andere spellen niet gespecificeerd | Modulecontracten en pakketten; generiek ontwerp toetsen met tweede synthetisch profiel. |
+| Product boundary | Milan board replacement with adapter | Generic tabletop platform with Milan as the first game module. |
+| Board model | Four fixed pawns and 8 × 5, one pawn per cell | Entities and zones in core; geometry, numbers and occupancy in profile/module. |
+| Rules | Complete rules outside first scope | Faithful manual 2D reproduction in phase 1; automation explicitly in phase 2. |
+| Data | Demo values ​​directly in code | Versionable declarative packages for components, characters, scenarios and releases, with permissions/origin. |
+| Presentation | Browser around simple model | Strict separation of engine, rules, data, UI and presentation. Optional 3D in phase 3 without line rewriting. |
+| App integration | Compatibility as the first main route | Standalone research track and optional adapter; app retention remains preferred, compatibility unproven. |
+| Sandbox | Possible alternative route | Full-fledged future mode, with structural controls and manual actions. |
+| Storage | JSON demo export | Versionable saves and validated imports in phase 2; demo format remains separate. |
+| Expansion | Other games not specified | Module contracts and packages; generic design keys with second synthetic profile. |
 
-Alle bestaande code, tests, neutrale vormgeving, prototypefuncties en onderzoeksbevindingen blijven behouden. De actieve demo gebruikt nu de gescheiden lagen; legacy/ bewaart de oorspronkelijke demo. CONTRACTEN.md beschrijft het geïmplementeerde contract en de open fysieke inventaris. Sensorverificatie bewijst geen Milan-locatiemapping of appcompatibiliteit. Rechten- en beveiligingsgrenzen blijven gelden.
+All existing code, tests, neutral design, prototype features and research findings are retained. The active demo now uses the separated layers; legacy/ keeps the original demo. CONTRACTEN.md describes the deployed contract and open physical inventory. Sensor verification does not prove Milan location mapping or app compatibility. Rights and security limits continue to apply.
 
-Afweging: leg kleine expliciete contracten vast en migreer stapsgewijs. Bouw geen algemene regelscripting, pluginmarktplaats of 3D-toolchain voordat concrete spelhandelingen dit nodig maken.
+Trade-off: establish small explicit contracts and migrate step by step. Don't build generic rule scripting, plugin marketplace, or 3D toolchain before concrete game actions make it necessary.
 
-## 0.7 — lokaal app-artwork
+## 0.7 — local app artwork
 
-Originele, leesbare textures uit de lokaal geïnstalleerde app worden uitsluitend onder genegeerd `private/artwork/` bewaard. De server heeft een beperkte PNG-allowlist en een gefilterde catalogus; domeinstate en sessie-export bevatten geen afbeeldingen of lokale paden. Geen externe demo-dependencies. De optionele UnityPy-extractor staat los van de runtime. Details: [ARTWORK.md](ARTWORK.md).
+Original, readable textures from the locally installed app are stored exclusively under ignored `private/artwork/`. The server has a limited PNG allowlist and a filtered catalogue; domain state and session export do not contain images or local paths. No external demo dependencies. The optional UnityPy extractor is separate from the runtime. Details: [ARTWORK.md](ARTWORK.md).
 
-Kaartnamen Portello, Sempione en Argonne zijn gecorrigeerd op basis van de scherpe appkaart. Nieuw standaardpakket `city.json` 0.7.0 met eigen release-ID; `campaign.json` 0.6 blijft intact voor bestaande sessies. Geen stille sessiemigratie.
+Map names Portello, Sempione and Argonne have been corrected based on the sharp app map. New standard package `city.json` 0.7.0 with its own release ID; `campaign.json` 0.6 remains intact for existing sessions. No silent session migration.
 
 
-## Tafel eerst, 22 oktober 2026
+## Table First, October 22, 2026
 
-De oorspronkelijke kaart wordt met lokaal artwork de interactieve hoofdweergave. Volledige schermbreedte, een compacte zijbalk, schaalbare kaart en aparte voorbereidingsvensters vervangen de lange informatiepagina. Visuele klikgebieden zijn eigen benaderingen, buiten de engine. Bekijken is de standaard; voorraadselectie schakelt naar plaatsen. De volledige locatie-inhoud blijft toegankelijk wanneer het bord meer dan vier onderdelen samenvat.
+The original map becomes the main interactive view with local artwork. Full screen width, a compact sidebar, scalable map and separate preparation windows replace the long information page. Visual click areas are proprietary approaches, outside of the engine. Viewing is the default; inventory selection switches to places. The entire location content remains accessible when the board summarizes more than four items.
 
-De officiële app blijft het einddoel en de beoogde regelautoriteit. Automatisering kan dezelfde applicatie aansturen: observatie van statewijzigingen vernieuwt de UI ook zonder gebruikershandeling. Er is geen werkende officiële appadapter of automatisch overgenomen cityronde ingebouwd. Origineel artwork blijft uitsluitend lokaal.
+The official app remains the end goal and intended regulatory authority. Automation can control the same application: observation of state changes also refreshes the UI without user action. There is no working official app adapter or automatically adopted city tour built in. Original artwork remains exclusively local.

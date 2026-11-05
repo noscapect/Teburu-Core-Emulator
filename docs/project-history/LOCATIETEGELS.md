@@ -45,7 +45,7 @@ For Office, Gym, Library, and Gallery, the second side represents the purchased 
 The earlier approach incorrectly treated the fixed room layout and effect text as information that needed to be observed in Milan. The experimental Haven screenshot worker is no longer scheduled and no longer updates room state in the private adapter. No ten-room overview is required. Legacy observation helpers remain compatible with saved side data, but the normal board obtains its room identity and effect text from the fixed catalog.
 
 
-## Saved-game setup synchronization — 30 October 2026
+## Saved-game setup synchronization - October 30, 2026
 
 ### Preserve tiles through the next setup step
 
@@ -95,7 +95,7 @@ The fixed room reference update passes all 80 public tests. Tests cover both sid
 
 The subsequent fixed-layout correction passes all 86 public tests. The browser check verifies all ten room identities and bonus labels immediately on opening, both side descriptions, read-only room identity/effect text, side changes, optional upgraded artwork, return to the standard background, and mobile layout. Headless checks cover preserved upgrades, legacy metadata correction, export/restore, and unchanged player/component state. The previous screenshot and manual-bonus workflows are historical, not requirements of the current UI.
 
-## Revealed location bonuses — 27 October 2026
+## Revealed location bonuses — October 27, 2026
 
 The private adapter now recognizes explicit **[known bonus] Location Bonus revealed in [district]** feed cards on the calibrated city map. Each tile needs two matching observations; unrelated cards do not block it. Known bonus labels map to the existing bonus-tile values. Unknown labels or districts are reported for verification rather than guessed. A newer unreadable type for a known district suppresses its older observed bonus. Repeated observations do not advance the tile revision again.
 
@@ -105,10 +105,10 @@ Isolated replay verifies two observations, all known bonus labels, invalid types
 
 Activation verified after the user's restart: a new worker reported QT8's two-read Possible Haven reveal as applied, with no synchronization issues. The live browser still showed the correct tile and explanation without page errors. All 94 public tests passed.
 
-## Historical board text placement — 27 October 2026
+## Historical board text placement — October 27, 2026
 
 This historical change was narrowed on 28 October: Haven labels are visible again, as described below. At this stage, location-bonus labels and Haven-room bonus text are no longer drawn over the board in either map or grid presentation. Click a district or Haven room to read the information and controls under Table pieces → Location. Tile state, automatic recognition and session persistence are unchanged. A live browser check verified no floating bonus labels, QT8's Possible Haven explanation in the location panel, and Haven-room details on selection, without game input or page errors.
 
-### Haven-labels hersteld — 28 oktober 2026
+### Haven labels restored - October 28, 2026
 
-Alleen de Haven-kamers tonen hun huidige geregistreerde bonus weer direct op de fysieke kaart en in de rasterweergave. Bonuslabels van stadsdistricten blijven verborgen. De bestaande locatiebediening blijft beschikbaar. Live browsercontrole: tien Haven-labels, de geregistreerde upgraded-bonus +2 Willpower voor Haven 1L, geen districtslabels of dubbele labels bij verversen en geen paginafouten.
+Only the Haven rooms will again show their current registered bonus directly on the physical map and in the grid view. City district bonus labels remain hidden. The existing location controls remain available. Live browser control: ten Haven labels, the registered upgraded bonus +2 Willpower for Haven 1L, no district labels or duplicate labels on refresh, and no page errors.

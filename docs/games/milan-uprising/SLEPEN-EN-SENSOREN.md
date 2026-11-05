@@ -1,19 +1,19 @@
-# Miniaturen slepen en bevestigen
+# Dragging and confirming miniatures
 
-Houd de linkermuisknop op een miniatuur ingedrukt, sleep naar een locatie en laat los. Dit werkt vanuit de voorraad, het bord en de locatielijst. Selecteren en vervolgens op een bestemming klikken is ook mogelijk. Escape, verlies van vensterfocus of loslaten buiten het bord annuleert slepen. Loslaten op dezelfde plek verstuurt geen nieuwe zet.
+Hold the left mouse button on a miniature, drag it to a location and release. This works from stock, the board and the location list. Selecting a component and clicking a destination also works. Escape, losing window focus or dropping outside the board cancels dragging. Dropping on the same location sends no new move.
 
-## Zelfstandige sandbox
+## Standalone sandbox
 
-Plaatsingen zijn handmatig. De tafel controleert de structuur van de opdracht, maar voert geen Milan-spelregels uit. Gebruik Session om de tafel te exporteren en later te herstellen. Undo/redo bewaart maximaal honderd lokale handelingen.
+Placements are manual. The table checks command structure but does not execute Milan rules. Use Session to export and later restore the table. Undo/redo retains up to one hundred local operations.
 
-## Gekoppelde tafel
+## Linked table
 
-Volg de opdracht in Milan. Alleen de gevraagde miniatuur en ondersteunde bestemmingen zijn beschikbaar. Tijdens de herkende zonsopgangplaatsing zijn alleen Havenkamers toegestaan.
+Follow Milan's request. Only the requested miniature and supported destinations are available. During recognized Sunrise placement, only Haven rooms are allowed.
 
-Na loslaten verschijnt de aangevraagde bestemming met een gestippelde amberkleurige rand en wachtmarkering. Dit is een voorlopige weergave: de opgeslagen positie blijft de laatst bevestigde positie totdat Milan de zet bevestigt. Een tijdelijk sensorcontact wordt na invoer weer vrijgegeven; dat verwijdert de miniatuur niet van het bord.
+After release, the requested destination appears with a dashed amber outline and waiting badge. This is provisional: the saved position remains the last confirmed position until Milan confirms the move. Temporary sensor contact is released after input; this does not remove a miniature from the board.
 
-Een wachtende zet blokkeert dubbele invoer. Latere herkenbare bevestiging kan de zet alsnog afronden zonder opnieuw een contact te sturen. Controleer bij een fout of lange wachttijd eerst de tablet: Milan kan de invoer al hebben verwerkt. Een timeout bewijst geen afwijzing.
+A pending move blocks duplicate input. Later recognizable confirmation can complete it without sending another contact. After an error or long wait, check the tablet first: Milan may already have processed the input. A timeout does not prove rejection.
 
-Ondersteunde bevestiging komt uit locatie-instructies, voltooide verplaatsingsmeldingen en twee overeenkomende, verse kaartwaarnemingen. Afgedekte of ontbrekende portretten zijn geen bewijs dat een onderdeel is verwijderd. Onbekende schermen en verbroken verbindingen kunnen automatische bevestiging verhinderen.
+Supported confirmation comes from location instructions, completed-movement messages and two matching fresh map observations. Covered or missing portraits do not prove removal. Unknown screens and lost connections can prevent automatic confirmation.
 
-Gebruik na een herstart van Milan zo nodig [invoerherstel](SAVEGAME-PERSONAGES.md). Voor bondgenoten en ghouls gelden de afzonderlijke [plaatsingsinstructies](ALLIES-EN-GHOULS.md). Niet iedere appfase of uitbreiding is gevalideerd.
+After Milan restarts, use [input recovery](SAVEGAME-PERSONAGES.md) if needed. [Separate placement instructions](ALLIES-EN-GHOULS.md) apply to allies and ghouls. Not every app phase or expansion has been validated.

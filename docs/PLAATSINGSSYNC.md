@@ -4,7 +4,7 @@ The linked table copies observed official-app outcomes. It does not have a compl
 
 ## Named placements
 
-### Sunset NPC batch and Il Dottore OCR — 31 October 2026
+### Sunset NPC batch and Il Dottore OCR — October 31, 2026
 
 The reported Sunset batch showed Salvador Espartelo in Garibaldi, Il Dottore in Centrale and Hasanah in Città Studi. At inspection the first and third were already recorded, while OCR consistently read Il Dottore as `II Dottore`, leaving his placement unsupported. The outcome reader now accepts that single observed spelling for `npc-il-dottore`; it does not broadly replace letters or fuzzy-match other names. The character reader uses the same identity check to avoid reporting known NPC movement as an unknown player character.
 
@@ -14,7 +14,7 @@ The current recovery reader was extended to confirm named NPC outcomes across in
 
 The reader handles complete, known-component feed cards of the forms **[name] placed in [district]**, **placed at**, **moved to**, and **moved from [origin] to [destination]**. Completed player-character movement retains its separate reader and portrait-precedence rules. Explicit **Remove [name] from map** and **[name] removed from map** cards are supported. Cards are read in displayed order, the newest recognized instruction for each component wins, and an unreadable newest destination blocks an older placement. Two matching observations and calibrated map geometry are required. No missing-portrait inference is used.
 
-### Agnese moved from Washington to Duomo — 30 October 2026
+### Agnese moved from Washington to Duomo — October 30, 2026
 
 The observed four-line card `Agnese Della Luna / moved from / Washington to / Duomo` was previously ignored: only the shorter `moved to` form was recognized. A shared headless parser now matches complete known origin/destination names; splitting at the first `to` would incorrectly split Washington itself. Unknown newer routes suppress older placements. Known NPC movement is handled by the component reader without an erroneous unknown-character warning from the separate player reader.
 
@@ -30,7 +30,7 @@ Copies require the current table revision. Invalid identities, destinations, sid
 
 ## Coverage and limits
 
-### Cadorna Influence, Control and bonus — 31 October 2026
+### Cadorna Influence, Control and bonus — October 31, 2026
 
 The official app showed Anarch Control, zero Anarch Influence and a Media Office reveal in Cadorna. The table retained old Anarch/Camarilla cubes and the other Control side. The observer supplied readable explicit outcome cards but no accepted full-map geometry, so the city-summary and bonus readers ignored them. These readers now share the established calibrated Masquerade-feed eligibility used by named miniature outcomes. This permits explicit known outcomes without treating unclear or covered map counters as a complete Influence map. Unknown layouts and network-error screens remain rejected; two independent observations are still required by the adapter.
 
@@ -59,24 +59,24 @@ Activation and live verification are recorded separately after restarting the lo
 
 After the user's manual adapter restart on 26 October 2026, the background reader recognized Agnese's card across matching observations and placed `npc-agnese-della-luna` at Cadorna automatically. Live status reported the outcome applied, no synchronization issues and no pending move. Browser verification confirmed the miniature on Cadorna, all 233 correction choices, filtering and a fitting mobile layout, without page errors or gameplay requests. Automatic coverage remains limited to recognized explicit outcomes and the existing supported visual readers; the all-component correction controls cover user-verified exceptions.
 
-## NPC-opstelling bij hervatten — 28 oktober 2026
+## NPC lineup on resume - October 28, 2026
 
-De private adapter herkent nu ook **Scenario setup → NPC placement**. De bestaande geometrisch gecontroleerde portretlezer zoekt daarbij NPC-iconen op de kaart. Twee gelijke waarnemingen plaatsen het herkende onderdeel op onze tafel; ontbrekende portretten verwijderen niets. Dit leest de zichtbare hervatopstelling, geen volledige campagnesave.
+The private adapter now also recognizes **Scenario setup → NPC placement**. The existing geometrically controlled portrait reader searches for NPC icons on the map. Two equal observations place the recognized part on our table; missing portraits don't delete anything. This reads the visible resume setup, not a full campaign save.
 
-Live gecontroleerd op het geladen spel: Agnese Della Luna stond in Milan in Washington, terwijl onze tafel nog Cadorna bewaarde. Na activering corrigeerde de achtergrondadapter dit automatisch naar Washington. De browsercontrole bevestigde de miniatuur op Washington zonder paginafouten. De geïsoleerde NPC- en companionproeven en alle 94 publieke tests slagen. Andere NPC-portretten en verborgen delen van de geladen stand zijn niet met deze ene live proef gevalideerd.
+Checked live on the loaded game: Agnese Della Luna was in Milan in Washington, while our table still kept Cadorna. Once activated, the background adapter automatically corrected this to Washington. The browser check confirmed the miniature on Washington with no page errors. The isolated NPC and companion tests and all 94 public tests pass. Other NPC portraits and hidden parts of the loaded mode were not validated with this one live trial.
 
-### Ontbrekende setupplaatsingen — 31 oktober 2026
+### Missing setup placements - October 31, 2026
 
-De volledige schermuitlezing miste de goudkleurige titel **NPC PLACEMENT** en startte daardoor de setup-portretlezer niet. De observer leest nu ook het vaste titelvak met een goudkleurmasker en accepteert uitsluitend de expliciet herkende titels NPC/Allies/Ghouls Placement onder Scenario setup. De portretlezer gebruikt meer beeldkenmerken: de gedetailleerde kaart verdrong eerder Helena's kleine portret uit het kenmerkenbudget. Geometrie-, schaal- en districtcontroles blijven behouden.
+The full screen readout was missing the gold title **NPC PLACEMENT** and therefore did not launch the setup portrait reader. The observer now also reads the fixed title box with a gold color mask and only accepts the explicitly recognized titles NPC/Allies/Ghouls Placement under Scenario setup. The portrait reader uses more image features: the detailed map previously displaced Helena's small portrait from the features budget. Geometry, scale, and district controls are retained.
 
-De correctie is in de lopende lokale adapter geactiveerd zonder appinvoer of herstart van de Core. Twee overeenkomstige live waarnemingen plaatsten Agnese in Duomo, Helena in Isola, Leandro in Calvairate en Ruslana in Corvetto. De gedeelde bordpagina toonde alle vier op hun bevestigde locatie, zonder JavaScript-fouten. De vastgelegde afbeelding is ook met beide OCR-backends gecontroleerd. Een geïsoleerde adaptertest controleert de twee-waarnemingenregel, idempotentie, behoud bij ontbrekende portretten en opeenvolgende NPC-, ally- en ghoul-setup. Live ally-/ghoul-setup blijft met deze NPC-proef onbewezen. Afbeeldingen, waarnemingen en runtimeback-up blijven onder `private/`.
+The fix was activated in the running local adapter without any app input or restart of the Core. Two corresponding live sightings placed Agnese in Duomo, Helena in Isola, Leandro in Calvairate and Ruslana in Corvetto. The shared board page showed all four in their confirmed locations, with no JavaScript errors. The captured image was also checked with both OCR backends. An isolated adapter test checks the two-observation rule, idempotency, missing portrait retention, and sequential NPC, ally, and ghoul setup. Live ally/ghoul setup remains unproven with this NPC trial. Images, observations and runtime backup remain under `private/`.
 
-Validatie: `node --test` slaagde met 542 ontdekte tests, inclusief tijdelijke kopieën. De publieke suites slaagden afzonderlijk met 162 tests en `--test-concurrency=1`; een eerdere gelijktijdige run had één tijdelijke `copyfile`-fout in een bestaande adaptertest.
+Validation: `node --test` passed with 542 discovered tests, including temporary copies. The public suites individually passed 162 tests and `--test-concurrency=1`; a previous concurrent run had one transient `copyfile` error in an existing adapter test.
 
 
-## Unconfirmed character movement recovery — 30 October 2026
+## Unconfirmed character movement recovery — October 30, 2026
 
-### Orlando location-heading recognition — 31 October 2026
+### Orlando location-heading recognition — October 31, 2026
 
 Whole-frame OCR read the active **Cinque Giornate** heading as `Cinque-Giorfiate`, while correctly recognizing Orlando Bianchi. With no exact known district, the adapter classified the screen as other and disallowed movement. The observer now independently reads neutral light lettering in the bounded location-title area on recognized Main/Sheet/End Turn screens. Both full and focused observation paths receive the observed title; district matching remains exact and does not guess from a character's previous position.
 
@@ -91,47 +91,47 @@ The linked board now offers a visible **Milan did not accept this move · clear 
 Validation: all 159 public tests passed. An isolated Edge check verified the visible rejection button, exact rejection request and cleared pending preview without sending real game input. The current portable session received a temporary recovery guard using the same policies and existing revision-checked table-only API; subsequent launches load the integrated adapter. Private observations and recovery logs stay under `private/`.
 
 
-## Masquerade character relocations — 30 October 2026
+## Masquerade character relocations — October 30, 2026
 
 Completed player-character movement cards are now also read on the calibrated 2560 × 1600 Masquerade screen. Previously the reader required ordinary city-map geometry, so explicit movement outcomes on this event screen were ignored. Recognition requires the Masquerade heading and complete known-character/known-destination outcomes in the established right-hand feed. It retains two distinct matching observations; prompts to choose a destination, unsupported displays and error screens are not treated as completed movement. The Confirm button is not required because its OCR can disappear between captures.
 
 The four visible Corvetto outcomes were copied using the revision-checked table-only API after two distinct app observations. No sensor, scan or dice input was sent. Private evidence remains under `private/masquerade-recovery/`. A temporary reader supports the running portable session; subsequent launches load the corrected integrated reader. The public suite passed all 160 tests before the final removal of the unreliable Confirm-button gate; the four focused reader tests also passed after that adjustment.
 
 
-## Helena Varga placement and map-counter noise — 30 October 2026
+## Helena Varga placement and map-counter noise — October 30, 2026
 
 A standalone map counter to the left of the indented miniature-card text was merged into Helena's placement, making the destination unreadable. The shared completed-outcome feed reader now excludes standalone numeric map counters outside that text lane. It preserves numbers within destination text or the card lane: unknown destinations still fail recognition. The same feed boundaries and Masquerade support are used for named component outcomes and player-character relocations.
 
 Two distinct matching observations confirmed Helena at Isola and the existing revision-checked table-only API recorded that placement. No sensor input was sent. A temporary targeted reader supports this running session; the corrected integrated reader is staged in the portable installation for subsequent launches. The parser regression covers the observed counter, inline/within-lane unknown destinations and the event-screen layout. Private observations remain under `private/helena-recovery/`.
 
-## Masquerade Encounter-token — 1 november 2026
+## Masquerade Encounter Token – November 1, 2026
 
-De expliciete feedmelding **Masquerade Encounter added in Città Studi** werd niet door de componentlezer verwerkt. De lezer accepteert nu deze voltooide plaatsingsmelding voor het unieke Masquerade-token. Alleen bekende stadsdistricten worden overgenomen; een nieuwere onbekende bestemming blokkeert de oudere plaatsing. De bestaande schermcontroles en twee-waarnemingenregel blijven behouden.
+The explicit feed message **Masquerade Encounter added in Città Studi** was not processed by the component reader. The reader now accepts this completed placement notification for the unique Masquerade token. Only well-known city districts are taken over; a newer unknown destination blocks the older placement. The existing screen controls and two-observation rule are retained.
 
-Twee verschillende actuele appwaarnemingen bevestigden Città Studi. De revision-checked table-only API herstelde het token; de gedeelde browserpagina toonde het daar zonder JavaScript-fouten. Er is geen spelinvoer verstuurd. De geïntegreerde correctie is ook in de portable installatie opgeslagen voor volgende starts; de lopende sessie kreeg de bevestigde plaatsing zonder Core-herstart. Afbeeldingen en waarnemingen blijven onder `private/masquerade-token-recovery/`.
-Validatie: `node --test` slaagde met alle 548 ontdekte tests, inclusief tijdelijke kopieën. De gerichte parserregressie slaagde ook afzonderlijk (7 tests).
+Two different current app observations confirmed Città Studi. The revision-checked table-only API recovered the token; the shared browser page showed it there with no JavaScript errors. No game entry was sent. The integrated correction is also stored in the portable installation for subsequent starts; the current session got the confirmed placement without a Core restart. Images and observations remain under `private/masquerade-token-recovery/`.
+Validation: `node --test` passed all 548 discovered tests, including temporary copies. The directed parser regression also passed separately (7 tests).
 
-### Verwijdering Masquerade Encounter — 1 november 2026
+### Masquerade Encounter removal – November 1, 2026
 
-De vervolgmelding **Masquerade Encounter removed from Città Studi** wordt nu ook herkend. Een bekende stadsbestemming is vereist; de nieuwste zichtbare toevoeging of verwijdering bepaalt de uitkomst. Verwijdering wordt vóór de bewegingsparser behandeld, zodat `removed from` niet als `moved from` met een onjuist personage wordt gelezen. Een ontbrekend icoon alleen verwijdert niets.
+The follow-up message **Masquerade Encounter removed from Città Studi** is now also recognized. A known city destination is required; the latest visible addition or deletion determines the outcome. Deletion is handled before the motion parser so that `removed from` is not read as `moved from` with an incorrect character. A missing icon alone doesn't remove anything.
 
-Twee afzonderlijke actuele waarnemingen bevestigden de verwijdering; de revision-checked table-only API bracht het token terug naar voorraad. De browsercontrole bevestigde dat het niet meer bij Città Studi staat, zonder JavaScript-fouten. Geen appinvoer of Core-herstart uitgevoerd. De portable bronbestanden zijn bijgewerkt voor volgende starts. Bewijs blijft onder `private/masquerade-token-recovery/`.
-Validatie: alle 549 door `node --test` ontdekte tests slagen, inclusief tijdelijke kopieën; de acht gerichte parsertests slagen ook afzonderlijk.
+Two separate current observations confirmed the removal; the revision-checked table-only API brought the token back to stock. The browser check confirmed that it is no longer at Città Studi, with no JavaScript errors. No app entry or Core restart performed. The portable source files have been updated for subsequent starts. Evidence remains under `private/masquerade-token-recovery/`.
+Validation: All 549 tests discovered by `node --test` pass, including temporary copies; the eight targeted parser tests also pass individually.
 
-### Herhaalde melding: correctie op schijf versus geladen code — 1 november 2026
+### Repeated message: correction on disk versus loaded code - November 1, 2026
 
-De nieuwe melding **Masquerade Encounter added in Isola** werd door de actuele bron correct verwerkt, maar de lopende adapter rapporteerde geen componentuitkomst. Dat proces was gestart vóór beide parsercorrecties en behield de oude ES-module in het geheugen. De eerdere eenmalige API-herstelacties hadden de gecorrigeerde herkenning niet in het lopende proces geactiveerd. Alleen bestanden kopiëren activeert geen reeds geïmporteerde Node-module.
+The new message **Masquerade Encounter added in Isola** was handled correctly by the current source, but the running adapter did not report any component outcome. That process was started before both parser corrections and retained the old ES module in memory. The previous one-time API fixes had not activated the corrected recognition in the running process. Copying files alone does not activate an already imported Node module.
 
-Voor deze bestaande sessie draait nu een tijdelijke achtergrondlezer die uitsluitend expliciete Masquerade-plaatsingen en -verwijderingen door dezelfde gecorrigeerde parser verwerkt. Twee verschillende recente waarnemingen, generatiecontrole, revision-check en idempotentie blijven vereist. Deze lezer verstuurt alleen table-only correcties, stopt bij het einde van het oorspronkelijke adapterproces of bij detectie van de geïntegreerde actuele lezer en vereist geen open browser of chat. Isola is automatisch hersteld en in de browser gecontroleerd zonder JavaScript-fouten. Geen spelinvoer of Core-herstart uitgevoerd. Private code, observaties en logs staan onder `private/masquerade-token-recovery/`.
+This existing session now runs a temporary background reader that only processes explicit Masquerade placements and removals through the same corrected parser. Two different recent observations, generation check, revision check and idempotency remain required. This reader only sends table-only corrections, stops at the end of the original adapter process or upon detection of the integrated current reader, and does not require an open browser or chat. Isola was automatically repaired and checked in the browser without any JavaScript errors. No game entry or Core restart performed. Private code, observations and logs are under `private/masquerade-token-recovery/`.
 
-De portable bron en gegenereerde runtime bevatten beide de geïntegreerde lezer voor volgende starts. `board-status.synchronization.readers.componentOutcomes` rapporteert voortaan de werkelijk geladen herkenningsversie (`masquerade-lifecycle-v1`), ook als er geen componentmelding zichtbaar is. Dit maakt verschil tussen opgeslagen en actieve code controleerbaar.
+The portable source and generated runtime both contain the integrated reader for subsequent starts. From now on, `board-status.synchronization.readers.componentOutcomes` reports the actually loaded recognition version (`masquerade-lifecycle-v1`), even if no component message is visible. This makes the difference between stored and active code verifiable.
 
-De echte-adapterreplay doorloopt in één proces toevoegen in Città Studi, verwijderen, toevoegen in Isola, verwijderen en toevoegen in Duomo. Oudere kaarten blijven zichtbaar. Elke overgang vereist twee waarnemingen, blijft bij herhaling idempotent, wordt naar de sessie opgeslagen en behoudt het personage en Restricted-fiche. Dit bewijst de herkende meldingscyclus; verborgen of onleesbare appuitkomsten zijn hiermee niet afgedekt.
-Validatie: `node --test` slaagde met alle 549 ontdekte tests; de uitgebreide echte-adapterreplay slaagde ook afzonderlijk. Browser en latere statuscontrole bevestigden het token in Isola.
+The real adapter replay goes through add in Città Studi, delete, add in Isola, delete and add in Duomo in one process. Older cards remain visible. Each transition requires two observations, remains idempotent on repeat, saves to the session, and retains the character and Restricted token. The recognized reporting cycle proves this; hidden or unreadable app results are not covered by this.
+Validation: `node --test` passed all 549 tests discovered; the extended real-adapter replay also succeeded separately. Browser and later status check confirmed the token in Isola.
 
-### Positieve portretten los van volledige invloedkaart — 1 november 2026
+### Positive portraits separate from full influence map — November 1, 2026
 
-De adapter blokkeerde bevestigde kaartportretten totdat ook de volledige invloedkaart stabiel was. Een onleesbare of geanimeerde invloedteller kon daardoor een afzonderlijk bevestigde personagepositie tegenhouden. De toepassing gebruikt nu uitsluitend de reeds door twee beeldwaarnemingen bevestigde `confirmedCharacterMoves`, onafhankelijk van de invloedkaart. Bescherming van invoergeneratie, foutscherm, busy-toestand en wachtende personageverplaatsing blijft behouden. Een enkel onbevestigd portret wordt niet overgenomen.
+The adapter blocked confirmed card portraits until the entire influence card was also stable. An unreadable or animated influence counter could therefore block a separately confirmed character position. The application now only uses the `confirmedCharacterMoves`, which has already been confirmed by two image observations, regardless of the influence map. Protection of input generation, error screen, busy state and pending character movement is retained. A single unconfirmed portrait will not be accepted.
 
-De echte-adapterreplay controleert toepassing bij een onbeschikbare invloedkaart en behoud bij alleen een onbevestigd portret. De lopende oude adaptersessie krijgt dezelfde beperkte correctie via de tijdelijke achtergrondlezer; de portable bron en runtime zijn bijgewerkt voor volgende starts. De geladen geïntegreerde versie wordt gemeld als `synchronization.readers.mapPortraits: independent-confirmed-v1`.
-Validatie: alle 549 door `node --test` ontdekte tests slagen. De browser bevestigde Helena, Aristide en Orlando in Cinque Giornate zonder JavaScript-fouten; de gebruiker bevestigde vervolgens dat de zichtbare bordstand overeenkwam.
+The real adapter replay checks application with an unavailable influence card and retention with only an unconfirmed portrait. The running old adapter session receives the same limited correction via the temporary background reader; the portable source and runtime have been updated for subsequent starts. The loaded integrated version is reported as `synchronization.readers.mapPortraits: independent-confirmed-v1`.
+Validation: All 549 tests discovered by `node --test` pass. The browser confirmed Helena, Aristide and Orlando in Cinque Giornate without any JavaScript errors; the user then confirmed that the visible board position matched.

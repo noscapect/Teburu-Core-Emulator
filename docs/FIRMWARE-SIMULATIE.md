@@ -1,17 +1,17 @@
-# Firmware-simulatie
+# Firmware simulation
 
-Open in het lokale Control Center **Simulated firmware → Simulate update · Core + 5 dice + LED ring** om de compatibiliteitsstatus van de virtuele apparaten bij te werken.
+In the local Control Center, open **Simulated firmware → Simulate update · Core + 5 dice + LED ring** to update the virtual devices' compatibility status.
 
-| Virtueel apparaat | Doelversie |
+| Virtual device | Target version |
 | --- | --- |
 | Core | 2.32.0 |
-| Vijf dobbelstenen | 3.39.0 |
-| LED-ring | 1.15.0 |
+| Five dice | 3.39.0 |
+| LED ring | 1.15.0 |
 
-TCE werkt hiermee uitsluitend zijn eigen simulatiestatus bij. Er wordt geen officiële firmware geïnstalleerd of uitgevoerd. De firmware-updateknop en bootloaderoverdracht van de officiële app worden niet ondersteund.
+TCE updates only its own simulation state. No official firmware is installed or executed. The official app's firmware update button and bootloader transfer are unsupported.
 
-Voortgang en fouten verschijnen naast de knop. Pas na succesvolle voltooiing worden de versies opgeslagen. Bij onderbreking of een schrijffout kun je opnieuw proberen. **New simulation available** betekent dat de opgeslagen status nog niet de huidige doelen bevat.
+Progress and errors appear beside the button. Versions are saved only after successful completion. Retry after interruption or a write failure. **New simulation available** means the saved state does not contain the current targets.
 
-Verbind de officiële app opnieuw na voltooiing om de versiegegevens in de app te verversen. Een Core-herstart wist de opgeslagen versies niet. De simulatie verplaatst geen onderdelen, kiest geen worpuitkomst en wijzigt de officiële campagne niet.
+Reconnect the official app after completion to refresh its version information. A Core restart preserves saved versions. Simulation does not move pieces, choose a roll result or change the official campaign.
 
-De ring en dobbelstenen tonen gesimuleerde batterijgegevens; dat zijn geen fysieke metingen. De bovenstaande versies zijn de huidige doelen van de gedeelde runtime. Acceptatie is alleen aangetoond voor de geteste appversies, niet voor iedere Teburu-game. Zie de [modulehandleidingen](README.md#spelmodules) voor ondersteuning. Controleer bij een verbindings- of timeoutmelding eerst de getoonde status voordat je opnieuw probeert.
+Ring and dice battery values are simulated, not physical measurements. The versions above are the shared runtime's current targets. Acceptance has been demonstrated only for tested app versions, not every Teburu game. See the [module guides](README.md#game-modules) for support. After a connection or timeout message, check the displayed status before retrying.

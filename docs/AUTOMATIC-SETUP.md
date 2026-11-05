@@ -1,34 +1,34 @@
-# Automatische pc-voorbereiding
+# Automatic PC preparation
 
-Deze route vereist de complete Windows-pakketeditie. Gebruik voor een broncheckout de [handmatige installatie](INSTALLATION.md).
+This route requires the complete packaged Windows edition. For a source checkout, use the [manual installation instructions](INSTALLATION.md).
 
-Open het Control Center via **Connect Android**, accepteer de voorwaarden voor setup en Android-tools en kies **Set up automatically**. TCE bereidt achtereenvolgens WSL2/Debian, usbipd, één Bluetooth-adapter en de Android-/Linux-helpers voor. Aanwezige onderdelen worden hergebruikt.
+Open the Control Center through **Connect Android**, accept the setup and Android tools terms, and choose **Set up automatically**. TCE prepares WSL2/Debian, usbipd, one Bluetooth adapter and the Android/Linux helpers in sequence. Existing components are reused.
 
-Bij één geschikte radio kiest TCE die automatisch. Bij meerdere radio's of een ontbrekende opgeslagen radio wordt om een keuze gevraagd. Setup start de Core niet en draagt de radio nog niet over aan WSL.
+TCE automatically selects a single suitable radio. If several are available or the saved radio is missing, it asks you to choose. Preparation does not start Core or transfer the radio to WSL.
 
-## Herstart en opnieuw proberen
+## Restarting and retrying
 
-Keur de Windows-beheerdersprompts goed om verder te gaan. Vraagt Windows om een herstart, sla dan werk op, herstart, open TCE en kies **Continue setup**. TCE herstart Windows niet zelf. Een wachtende systeemupdate kan voorbereiding pauzeren tot na een herstart.
+Approve Windows administrator prompts to continue. If Windows requests a restart, save your work, restart, reopen TCE and choose **Continue setup**. TCE never restarts Windows itself. A pending system update can pause preparation until after a restart.
 
-Fouten en annuleringen verschijnen in dezelfde kaart. **Retry setup** herhaalt het onvoltooide werk. Alleen een statuscontrole start geen installer opnieuw.
+Errors and cancellations appear in the same card. **Retry setup** repeats unfinished work. Checking status alone never restarts an installer.
 
-Bestaande Linux-distributies en accounts blijven behouden. De helper gebruikt een eigen account. Een bestaande Debian op WSL1 wordt niet automatisch omgezet; volg daarvoor de instructies onder **Advanced setup and troubleshooting**.
+Existing Linux distributions and accounts are preserved. The helper uses its own account. An existing Debian on WSL1 is not converted automatically; follow **Advanced setup and troubleshooting** for conversion instructions.
 
-## Tablet verbinden
+## Connecting the tablet
 
-Na **This PC is ready**:
+After **This PC is ready**:
 
-1. Verbind en ontgrendel de Android-tablet via USB.
-2. Sta USB-debugging toe en open de officiële app van het geselecteerde spel.
-3. Laat de automatische tabletcontrole afronden en volg de taal-, oriëntatie- en resolutievereisten van de [spelmodule](README.md#spelmodules).
-4. Kies **Start Core** en verbind via de normale flow in de officiële app.
+1. Connect and unlock the Android tablet over USB.
+2. Allow USB debugging and open the selected game's official app.
+3. Wait for the automatic tablet check and follow the [game module's](README.md#game-modules) language, orientation and resolution requirements.
+4. Choose **Start Core** and connect through the official app's normal flow.
 
-Gebruik **Stop Core** om de radio terug te geven. **Quit app and return Bluetooth to Windows** sluit ook de services. Het sluiten van alleen de browser stopt TCE niet.
+Use **Stop Core** to return the radio. **Quit app and return Bluetooth to Windows** also closes the services. Closing only the browser does not stop TCE.
 
-## Tekstherkenning en problemen
+## Text recognition and troubleshooting
 
-Tekstherkenning is inbegrepen in de pakketeditie; een Windows-taalpakket is niet nodig. Ontbrekende of beschadigde herkenningsbestanden worden apart gemeld. De verbinding kan gereed zijn terwijl automatische bordsynchronisatie niet beschikbaar is; herstel dan de TCE-installatie.
+Text recognition is included in the packaged edition; no Windows language pack is required. Missing or damaged recognition files are reported separately. The connection can be ready while automatic board synchronization is unavailable; repair the TCE installation in that case.
 
-Handmatige componentbediening staat onder **Advanced setup and troubleshooting**. Als Windows App Installer ontbreekt, geeft de setup een Store-link. Raadpleeg bij radio-, USB- of verbindingsproblemen ook [installatie](INSTALLATION.md).
+Manual component controls are under **Advanced setup and troubleshooting**. If Windows App Installer is missing, setup provides a Store link. See [installation](INSTALLATION.md) for radio, USB and connection issues.
 
-Volledige eerste installatie met fysieke hardware op een schone tweede pc is nog niet gevalideerd. Ondersteuning voor iedere radio, tablet of schermindeling is niet aangetoond.
+A complete first-time installation with physical hardware on a clean second PC remains unvalidated. Support for every radio, tablet or display layout has not been established.

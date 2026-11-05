@@ -1,63 +1,63 @@
-# Onderzoeksregister
+# Research register
 
-Leeswijzer, 5 november 2026: de actuele functies staan in [README](../README.md) en het bewijs in [VALIDATIE](VALIDATIE.md). De oudere onderzoeksfasen hieronder bewaren ook negatieve uitkomsten die later door beperkte appinteractie zijn ingehaald. Zij betekenen niet dat appcontact of bordterugkoppeling nooit is aangetoond. Volledige campagnecompatibiliteit en fabrikantondersteuning blijven onbewezen.
+Reading guide, November 5, 2026: the current functions are in [README](../README.md) and the proof in [VALIDATION](VALIDATIE.md). The older research phases below also retain negative outcomes that were later overtaken by limited app interaction. They do not mean that app contact or board feedback has never been demonstrated. Full campaign compatibility and manufacturer support remain unproven.
 
-## Huidige bewijsstatus — 29 oktober 2026
+## Current evidence status — October 29, 2026
 
-De gedateerde passages hieronder bewaren eerdere onderzoeksfasen. Inmiddels is beperkte interactie met de ongewijzigde officiële app lokaal aangetoond; de eigen afgeleide runtimecode en het toegestane artwork zijn gepubliceerd. Dit bewijst geen volledige campagnecompatibiliteit of fabrikantondersteuning. De oorspronkelijke SDK blijft uitgesloten. Zie [actuele validatie](VALIDATIE.md), [Teburu-onderzoek](TEBURU-DEEPSEARCH.md) en [release-review](RELEASE-REVIEW.md). De releaseworkflow is nog niet uitgevoerd en fysieke acceptatie op een schone tweede machine blijft open.
+The dated passages below preserve earlier phases of research. Limited interaction with the unmodified official app has now been demonstrated locally; its own derived runtime code and permitted artwork have been published. This does not prove full campaign compatibility or manufacturer support. The original SDK remains excluded. See [current validation](VALIDATIE.md), [Teburu research](TEBURU-DEEPSEARCH.md) and [release review](RELEASE-REVIEW.md). The release workflow has not yet been executed and physical acceptance on a clean second machine remains open.
 
-Gecontroleerd: 21 oktober 2026. Openbare informatie bewijst geen interoperabiliteit.
+Verified: October 21, 2026. Public information does not prove interoperability.
 
-Actuele runtime-uitkomst op 22 oktober 2026: de normale Windows-setup is inmiddels deels uitgevoerd. Single Device en Main Device wachten op een Core; Controller vraagt koppeling met een bestaande Main. Er is geen campagne gestart. De afzonderlijke private SDK-builds en lokale runtimeproef zijn geslaagd; de normale Milan-Main-setup leverde geen verbinding met deze proef op. Zie [APP-VALIDATIE.md](APP-VALIDATIE.md) voor scope en uitkomsten; eerdere passages over niet starten beschrijven de voorafgaande onderzoeksfase.
+Current runtime outcome on October 22, 2026: the normal Windows setup has now been partially executed. Single Device and Main Device wait for a Core; Controller requests connection to an existing Main. No campaign has been started. The individual private SDK builds and local runtime test passed; the normal Milan-Main setup did not produce a connection on this trial. See [APP-VALIDATIE.md](APP-VALIDATIE.md) for scope and results; previous passages about not starting describe the preliminary research phase.
 
-Vervolg 22 oktober 2026: [statische controle van de officiële Windows-installatie](INSTALLATIE-ONDERZOEK.md) bevestigt Windows x64, Unity-runtime en de aanwezigheid van een Bluetooth WinRT-plug-in. Geen app gestart of officiële-appcompatibiliteit bewezen. De normale setupflow en digitale worpen blijven te testen.
+Continued October 22, 2026: [static check of official Windows installation](INSTALLATIE-ONDERZOEK.md) confirms Windows x64, Unity runtime, and the presence of a Bluetooth WinRT plugin. No app launched or official app compatibility proven. The normal setup flow and digital rolls remain to be tested.
 
-## Verdieping en correcties
+## Deepening and corrections
 
-Vervolg kaartonderzoek op 22 oktober 2026: officiële bordfoto’s in Gamefound-updates 42 en 59 tonen dertig stadsdistricten naast tien Havenvelden. De districtnamen, globale plaatsing en attribuuticonen zijn verwerkt in een eigen schematisch profiel; geen foto/artwork overgenomen. De exacte grensverbindingen, sensorindex en volledige officiële campagnebeginstand blijven ongeverifieerd. [KAART-EN-OPSTELLING.md](KAART-EN-OPSTELLING.md) beschrijft de bronbewijzen en onderscheidt de nieuwe handmatige opstellingshulp van een echte startpreset.
+Map research continued on October 22, 2026: Official board photos in Gamefound updates 42 and 59 show thirty city districts next to ten Haven spaces. The district names, global placement and attribute icons are incorporated into their own schematic profile; no photo/artwork reproduced. The exact border connections, sensor index and full official campaign start position remain unverified. [KAART-EN-OPSTELLING.md](KAART-EN-OPSTELLING.md) describes the source evidence and distinguishes the new manual setup aid from a real start preset.
 
-Op 22 oktober 2026 is de openbare retailinventaris verwerkt tot een apart pakket met 132 losse onderdelen. De huidige officiële gamepagina onderbouwt de personagenamen; de handleiding is visueel gecontroleerd op pagina 6, 12 en 13 voor kleuren en onderdeelbetekenis. Zie [MILAN-CONTENT.md](MILAN-CONTENT.md) voor bronnen en de expliciete grens tussen geverifieerde voorraad en nog onbekende locatiekaart/opstelling.
+On October 22, 2026, the public retail inventory was processed into a separate package with 132 separate parts. The current official game page substantiates the character names; the manual has been visually checked on pages 6, 12 and 13 for colors and part meaning. See [MILAN-CONTENT.md](MILAN-CONTENT.md) for sources and the explicit boundary between verified stock and as yet unknown location map/lineup.
 
-Op 22 oktober 2026 zijn de publieke SDK-pagina, documentatie-index, systeemeisen, FAQ en Milan-versiegeschiedenis opnieuw gecontroleerd. De FAQ beschrijft remote deelname met fysieke hardware bij de host; dit is geen bordloze route. Een publieke invoerinterface voor bestaande apps is niet gevonden binnen deze controle. [APP-VALIDATIE.md](APP-VALIDATIE.md) bevat directe bronnen, een nog niet uitgevoerd testprotocol en niet-verzonden fabrikantvragen.
+On October 22, 2026, the public SDK page, documentation index, system requirements, FAQ, and Milan version history were rechecked. The FAQ describes remote participation using physical hardware at the host; this is not a boardless route. A public input interface for existing apps was not found within this check. [APP-VALIDATIE.md](APP-VALIDATIE.md) contains direct sources, an unexecuted test protocol, and unsent manufacturer questions.
 
-Zie [TEBURU-DEEPSEARCH.md](TEBURU-DEEPSEARCH.md) voor het uitgevoerde bronnenonderzoek en de toegepaste wijzigingen. Een officiële SDK-aanvraagroute bestaat; ondersteuning voor virtuele invoer in bestaande apps is niet vastgesteld. Sensorcontact, identiteit en blijvende spelpositie zijn afzonderlijke zaken. De één-pion-per-sensorgrens is geen universele één-pion-per-zonegrens. De officiële Milan-versiegeschiedenis noemt digitale worpen en nieuwere diagnostiek via de aparte Teburu-app. Oudere algemene hardwareclaims moeten daarom per appversie worden getoetst.
+See [TEBURU-DEEPSEARCH.md](TEBURU-DEEPSEARCH.md) for the source research performed and the changes applied. An official SDK request route exists; support for virtual input in existing apps has not been established. Sensor contact, identity and permanent playing position are separate matters. The one-pawn-per-sensor boundary is not a universal one-pawn-per-zone boundary. The official Milan version history mentions digital rolls and newer diagnostics via the separate Teburu app. Older general hardware claims must therefore be tested per app version.
 
-Einddoel: ongewijzigde officiële game-app gebruiken zonder fysieke spelonderdelen. Sandbox is een onderzoeksinstrument. Echte Core-emulatie en de terugkoppeling van app-toestand naar de virtuele tafel blijven onbewezen.
+End goal: Use unmodified official game app without physical game components. Sandbox is a research tool. True Core emulation and the feedback of app state to the virtual table remain unproven.
 
-## Bevestigde basis
+## Attached base
 
-Primaire bron: [Xplored — Teburu Hardware](https://teburu.zendesk.com/hc/en-us/articles/25458765821979-Teburu-Hardware).
+Primary source: [Xplored — Teburu Hardware](https://teburu.zendesk.com/hc/en-us/articles/25458765821979-Teburu-Hardware).
 
-Samengevat: het bord heeft veertig sensoren in een 8 × 5 raster, met 90 mm onderlinge afstand. De Core communiceert via BLE met apps. Miniatuuridentificatie via RFID gebeurt bij de Core; magneten dienen voor positieherkenning op het bord. Dit zijn verschillende functies. Dobbelstenen bepalen hun bovenzijde met accelerometers en sturen hun uitkomst via de Core door.
+In summary, the board has forty sensors in an 8 × 5 grid, spaced 90 mm apart. The Core communicates with apps via BLE. Miniature identification via RFID is done at the Core; magnets serve for position recognition on the board. These are different functions. Dice determine their top side with accelerometers and transmit their outcome via the Core.
 
-Dit bevestigt de hardwarelaag, niet dat Milan veertig speelbare locaties gebruikt, noch dat iedere locatie één sensor is. Onze A1–H5 labels zijn geen officiële identifiers.
+This confirms the hardware layer, not that Milan uses forty playable locations, nor that each location is one sensor. Our A1–H5 labels are not official identifiers.
 
-De [officiële gamepagina](https://games.teburu.com/vtm-milan-uprising) beschrijft de rol van de game-app. De [uitgeversvermelding van de app](https://apps.apple.com/us/app/teburu-vampire-the-masquerade/id6739258011) stelt fysieke game en Teburu als vereisten. Geen bordloze modus geverifieerd.
+The [official game page](https://games.teburu.com/vtm-milan-uprising) describes the role of the game app. The [app publisher listing](https://apps.apple.com/us/app/teburu-vampire-the-masquerade/id6739258011) specifies physical game and Teburu as requirements. No boardless mode verified.
 
-## Open vragen en veilige verificatie
+## Open questions and secure verification
 
-| Onderdeel | Nog onbekend | Eerstvolgende verificatie |
+| Part | Still unknown | Next verification |
 | --- | --- | --- |
-| Core | ondersteunde SDK/API; sessiestatus; gelijktijdige clients | officiële ontwikkelaarsdocumentatie zoeken; eventueel later toestemming vragen aan fabrikant |
-| BLE | GATT UUID's, rollen, berichten, authenticatie, timing | alleen gepubliceerde interface of geautoriseerde waarnemingen van eigen hardware; geen services/packets verzinnen |
-| Bord | sensorindex, oriëntatie, events bij optillen, identificatie van nieuw geplaatste pion | officiële diagnostiek en eigen bord systematisch vergelijken |
-| RFID | registratieproces, identiteit versus campagnegegevens, toegestane alternatieven | documentatie en normale scanflow observeren; geen tags kopiëren of schrijven |
-| Dice | pairing, dobbelsteen-ID, type, ongeldige worp, timing | eigen d6/d10 via officiële diagnostiek testen; demo-RNG is geen vervanging |
-| App | handmatige modus, externe invoer, reconnect, vereiste hardwarechecks | officiële app op gekozen platform met bestaande hardware testen |
-| Milan | locatieprofiel, sensor/locatie-relatie, stapelgedrag | eigen legale bord/documentatie vergelijken; geen scans in repository opnemen |
+| Core | supported SDK/API; session status; concurrent clients | find official developer documentation; if necessary, ask the manufacturer for permission later |
+| BLE | GATT UUIDs, roles, messages, authentication, timing | only published interface or authorized observations of proprietary hardware; no inventing services/packages |
+| Board | sensor index, orientation, lifting events, identification of newly placed pawn | systematically compare official diagnostics and own board |
+| RFID | registration process, identity versus campaign data, permitted alternatives | observe documentation and normal scan flow; no copying or writing tags |
+| Dice | pairing, dice ID, type, invalid roll, timing | test own d6/d10 via official diagnostics; demo RNG is not a replacement |
+| App | manual mode, external input, reconnect, required hardware checks | Test official app on chosen platform with existing hardware |
+| Milan | location profile, sensor/location relationship, stacking behavior | compare your own legal board/documentation; do not include scans in repository |
 
-## Ondersteunende primaire bronnen
+## Supporting primary sources
 
-- [Officiële handleiding](https://teburu.com/downloads/VtM/VTM_MU_GameManual.pdf): referentie voor latere spel- en locatieverificatie; alleen beperkte indextekst was via webextractie leesbaar, geen mapping uit afgeleid.
-- [Teburu diagnostiek-app, Xplored](https://play.google.com/store/apps/details?id=com.xplored.teburu.app): fabrikant biedt controles van sensoren en dobbelstenen.
+- [Official Manual](https://teburu.com/downloads/VtM/VTM_MU_GameManual.pdf): Reference for later game and location verification; only limited index text was readable via web extraction, no mapping derived from it.
+- [Teburu diagnostics app, Xplored](https://play.google.com/store/apps/details?id=com.xplored.teburu.app): manufacturer offers checks of sensors and dice.
 
-## Beslisregel
+## Decision rule
 
-Een BLE-radio of bekend raster is onvoldoende om een Core te emuleren. UUID's, payloads, identity en eventuele beveiliging zijn hier niet vastgesteld. De SDK bestaat, maar is niet aangevraagd of beoordeeld als oplossing voor bestaande officiële apps. Zonder toegestane integratieroute blijft het einddoel onvervuld; gebruik sandbox alleen als expliciet tussenresultaat. Geen app-extractie, firmwarepatching of beveiligingsomzeiling.
+A BLE radio or known raster is insufficient to emulate a Core. UUIDs, payloads, identity and possible security have not been determined here. The SDK exists, but has not been requested or reviewed as a solution for existing official apps. Without a permitted integration route, the end goal remains unfulfilled; only use sandbox as an explicit intermediate result. No app extraction, firmware patching or security circumvention.
 
 
-## Vervolg: tweerichtingskoppeling, 22 oktober 2026
+## Continued: two-way link, October 22, 2026
 
-[APP-KOPPELING-VOORONDERZOEK.md](APP-KOPPELING-VOORONDERZOEK.md) vergelijkt de verbindingsroutes en beschrijft nieuwe statische aanwijzingen: BLE-/netwerk-/WebRTC-assemblies in het installatiemanifest en 45 locatie-presentatiebestanden. Geen bestanden of configuraties overgenomen als protocolmapping. Een read-only Windows-probe bewaart eigen randvoorwaarden en Bluetooth-capabilities uitsluitend onder `private/integration/`.
+[APP-KOPPELING-VOORONDERZOEK.md](APP-KOPPELING-VOORONDERZOEK.md) compares the connection routes and describes new static prompts: BLE/Network/WebRTC assemblies in the installation manifest and 45 location presentation files. No files or configurations inherited as protocol mapping. A read-only Windows probe stores its own preconditions and Bluetooth capabilities exclusively under `private/integration/`.
 
-Voorkeursrichting voor onderzoek is een optionele native helper met afzonderlijke appinvoer en toestandsterugkoppeling. Normale appflow eerst testen; remote deelname en de SDK bewijzen nog geen bordloze sessie. Een BLE-Core-route alleen garandeert geen invloedstoestand. App niet gestart, gewijzigd of verbonden; er zijn geen serviceprofielen of officiële berichten geïmplementeerd. Het advies en de volgende experimenten vereisen geen voorafgaand fabrikantcontact.
+Preferred direction for research is an optional native helper with separate app input and state feedback. Test normal app flow first; remote participation and the SDK do not prove a boardless session. A BLE-Core route alone does not guarantee an influence condition. App not started, changed or connected; no service profiles or official messages have been implemented. The advice and the following experiments do not require prior contact with the manufacturer.

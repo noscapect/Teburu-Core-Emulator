@@ -1,44 +1,44 @@
-# Lokaal artwork (0.7)
+# Local artwork (0.7)
 
-## Distributie-update — 29 oktober 2026
+## Distribution update – October 29, 2026
 
-De geselecteerde 156 Milan-afbeeldingen mogen met toestemming van de projecteigenaar worden meegeleverd in `resources/milan-artwork.json.gz`. **Add game** installeert en schakelt Milan in. Ontbreekt het archief, dan kan de Windows-release de officiële client-ZIP downloaden, verifiëren en de vereiste Texture2D-/Sprite-afbeeldingen extraheren. De Windows-game wordt niet geïnstalleerd of gestart; tijdelijke clientbestanden worden opgeruimd. Android blijft de begeleidende game-app. Zie [game-add-ons](GAME-ADDONS.md) en [modulecontract](GAME-MODULES.md). Hieronder blijven eerdere extractie- en onderzoeksfasen historisch behouden.
+The selected 156 Milan images may be included in `resources/milan-artwork.json.gz` with permission of the project owner. **Add game** installs and enables Milan. If the archive is missing, the Windows release can download the official client ZIP, verify it, and extract the required Texture2D/Sprite images. The Windows game does not install or launch; temporary client files are cleaned up. Android remains the companion gaming app. See [game add-ons](GAME-ADDONS.md) and [module contract](GAME-MODULES.md). Below, earlier extraction and research phases are historically preserved.
 
-De geïnstalleerde officiële Windows-app 1.0.9 bevat leesbare Unity-textures. De lokale tafel gebruikt hiervan 79 originele PNG-exporten: 30 locatiebeelden, 19 personen met icoon en volledig portret, drie kubusiconen, vijf fichesymbolen, een Masquerade-fiche, logo en stadskaart. Geen nieuw artwork gegenereerd. De app is niet gestart, aangepast of gepatcht; er zijn geen versleuteling of beveiligingen omzeild. Verhaal, audio, scripts en scenario's zijn niet geëxporteerd.
+The installed official Windows app 1.0.9 contains readable Unity textures. The local table uses 79 original PNG exports of these: 30 location images, 19 people with icon and full portrait, three cube icons, five token symbols, a Masquerade token, logo and city map. No new artwork generated. The app has not been launched, modified or patched; no encryption or protections have been bypassed. Story, audio, scripts and screenplays were not exported.
 
-## Bestanden en starten
+## Files and start
 
-Op 25 oktober zijn voor de vier personages uit Playable Characters ook de originele iconen en volledige portretten toegevoegd: Jamilah Ianni, Domenica Amato, Aristide Demiana en Romeo De Carlo. De acht beelden blijven onder `private/artwork/`; de bestaande kaart-, basispersonage-, dice- en Prospero-beelden zijn behouden. De voorbereidingstool neemt deze vier personages voortaan eveneens mee. Herlaad de bordpagina na het bijwerken en herstarten van de lokale artworkserver.
+On October 25, the original icons and full portraits were also added for the four characters from Playable Characters: Jamilah Ianni, Domenica Amato, Aristide Demiana and Romeo De Carlo. The eight images remain under `private/artwork/`; the existing card, base character, dice and Prospero images have been retained. The preparation tool will also include these four characters from now on. Reload the board page after updating and restarting the local artwork server.
 
-Daarna zijn ook alle overige uitbreidingsonderdelen gekoppeld: de elf nieuwe bondgenoten/ghouls hebben een icoon én volledig portret, en de NPC’s, factiecontroleminiaturen, Sabbat-/Nephilim-kubussen, vier amuletmarkers en twee speciale locatiefiches hebben hun beschikbare originele iconen. Alle 101 uitbreidingsonderdelen hebben nu een beeldkoppeling. De lokale catalogus bevat in totaal 136 afbeeldingen, inclusief de eerder toegevoegde dice- en Prospero-accessoires. Niet iedere NPC heeft een afzonderlijk groot portret in deze selectie; waar dat ontbreekt gebruikt de detailweergave het icoon.
+Afterwards, all other expansion components are also linked: the eleven new allies/ghouls have an icon and full portrait, and the NPCs, faction control miniatures, Sabbat/Nephilim cubes, four amulet markers and two special location tokens have their available original icons. All 101 expansion parts now have an image link. The local catalog contains a total of 136 images, including the previously added dice and Prospero accessories. Not every NPC has a separate large portrait in this selection; where this is missing, the detailed view uses the icon.
 
-De nummering van amuletmarkers, speciale locatiefiches en de vier Cult Fanatic-varianten is onze voorraadnummering, geen geverifieerde officiële fysieke nummering of automatische locatietoewijzing. De beelden bepalen geen regels of plaatsing. Voor bijwerken met behoud van eerder toegevoegde accessoires ondersteunt de voorbereidingstool `--merge`.
+The numbering of amulet markers, special location tokens, and the four Cult Fanatic variants is our stock numbering, not a verified official physical numbering or automatic location assignment. The images do not determine rules or placement. For updating while retaining previously added accessories, the preparation tool supports `--merge`.
 
-De beelden en het bronmanifest staan uitsluitend in `private/artwork/`, dat door Git wordt genegeerd. Op deze computer zijn ze al aanwezig. Start `node server.mjs` en open http://127.0.0.1:5178. Herstart de server na een nieuwe export. Zonder dit pakket werkt de demo met de bestaande symbolen, zonder Python of andere externe runtime-dependencies.
+The images and source manifest are only in `private/artwork/`, which is ignored by Git. They are already present on this computer. Start `node server.mjs` and open http://127.0.0.1:5178. Restart the server after a new export. Without this package, the demo works with the existing symbols, without Python or other external runtime dependencies.
 
-Voor een eigen lokale installatie is er de optionele voorbereidingstool:
+For your own local installation there is the optional preparation tool:
 
 ```powershell
 python -m pip install UnityPy==1.23.0
-python tools/milan-extract-artwork.py --app-data 'C:\pad\naar\VTMTEBURU_Data'
+python tools/milan-extract-artwork.py --app-data 'C:\path\to\VTMTEBURU_Data'
 ```
 
-De tool selecteert uitsluitend textures met exact passende namen en afmetingen uit `resources.assets` en `sharedassets0.assets`. Meerdere matches worden overgeslagen. Het manifest bewaart texture-naam, bestand, objectindex, afmetingen en SHA-256 voor herleidbaarheid. De bron wordt alleen gelezen; uitvoer gaat naar `private/artwork/`. Python/UnityPy zijn alleen nodig voor deze voorbereiding, niet voor de tafel.
+The tool only selects textures with exactly matching names and sizes from `resources.assets` and `sharedassets0.assets`. Multiple matches are skipped. The manifest stores texture name, file, object index, dimensions, and SHA-256 for traceability. The source is only read; output goes to `private/artwork/`. Python/UnityPy are only needed for this preparation, not for the table.
 
-## Presentatie en grenzen
+## Presentation and boundaries
 
-Portretten verschijnen in de voorraad, bij het geselecteerde onderdeel en op het bord. Locatiebeelden worden op de nieuwe stadskaart getoond. Fiche-iconen volgen de gekozen zijde. De originele kaart is nu de interactieve hoofdweergave, met eigen benaderde klikgebieden en onderdelen bovenop het beeld. Een schematische weergave en uitklapbare kaartreferentie blijven beschikbaar; zie [TAFEL-LAYOUT.md](TAFEL-LAYOUT.md). Afbeeldingen veranderen geen regels, posities, exports of undo/redo.
+Portraits appear in the inventory, at the selected item, and on the board. Location images are shown on the new city map. Token icons follow the chosen side. The original map is now the main interactive view, with its own approximate click areas and features on top of the image. A schematic view and expandable map reference remain available; see [TAFEL-LAYOUT.md](TAFEL-LAYOUT.md). Images do not change lines, positions, exports or undo/redo.
 
-De server publiceert uitsluitend een gefilterde catalogus en geselecteerde PNG-routes onder `/local-artwork/`. Geen algemene toegang tot `private/`, bronmanifest of installatiebestanden. Bestandsnamen, PNG-header, grootte en opgeloste paden worden gecontroleerd. Ontbrekende beelden vallen terug op tekst en symbolen.
+The server only publishes a filtered catalog and selected PNG routes under `/local-artwork/`. No general access to `private/`, source manifest, or installation files. File names, PNG header, size and resolved paths are checked. Missing images fall back on text and symbols.
 
-De scherpe appkaart corrigeert eerdere foto-interpretaties: bovenaan staat Portello; de eerder als Chinatown benoemde zone is Sempione; Corsica is Argonne. Het nieuwe standaardprofiel `city.json` heeft release `milan-city-artwork`, versie 0.7.0. `campaign.json` 0.6 blijft ongewijzigd beschikbaar voor bestaande sessies. De eigen Havenlabels en attribuutgegevens zijn hiermee niet opnieuw als officiële sensor- of regelmapping geverifieerd.
+The sharp app map corrects previous photo interpretations: at the top is Portello; the zone previously referred to as Chinatown is Sempione; Corsica is Argonne. The new standard profile `city.json` has release `milan-city-artwork`, version 0.7.0. `campaign.json` 0.6 remains available unchanged for existing sessions. The own Haven labels and attribute data have not been re-verified as official sensor or rules mapping.
 
-## Bronnen en verspreiding
+## Sources and distribution
 
-- [Officiële appdownloads](https://www.teburu.com/game-apps/): lokaal geïnstalleerde Windows-app 1.0.9, textures visueel gecontroleerd.
-- [UnityPy](https://github.com/K0lb3/UnityPy): open source reader, gebruikt op versie 1.23.0. De toollicentie geeft geen rechten op game-artwork.
-- Openbare SDK-/repozoekresultaten leverden geen geverifieerd herbruikbaar Milan-artpakket op. Een officiële perskit werd gevonden, maar zonder vastgestelde herdistributielicentie.
+- [Official App Downloads](https://www.teburu.com/game-apps/): Locally installed Windows app 1.0.9, textures visually checked.
+- [UnityPy](https://github.com/K0lb3/UnityPy): open source reader, used on version 1.23.0. The tool license does not grant any rights to game artwork.
+- Public SDK/repo search results did not return a verified reusable Milan art package. An official press kit was found, but with no established redistribution license.
 
-Geen herdistributielicentie voor het artwork vastgesteld. De afbeeldingen, het lokale manifest en screenshots worden niet naar GitHub gestuurd. De repository bevat alleen loader, presentatie, extractietool en documentatie. Dit is geen bewijs van appcompatibiliteit of werkende Teburu-emulatie.
+No redistribution license for the artwork established. The images, local manifest, and screenshots are not sent to GitHub. The repository only contains loader, presentation, extraction tool and documentation. This is not proof of app compatibility or working Teburu emulation.
 
-De dobbelbak gebruikt aanvullend vier originele vlaksymbolen uit de lokaal geïnstalleerde app: leeg, schedel, ankh en ankh met tanden. De extractietool neemt ze optioneel mee in de lokale catalogus. De publieke UI bevat alleen de koppeling en een eigen symboolfallback; de afbeeldingen blijven onder private/artwork/.
+The dice tray additionally uses four original face symbols from the locally installed app: empty, skull, ankh and ankh with teeth. The extraction tool optionally includes them in the local catalog. The public UI contains only the link and its own symbol fallback; the images remain under private/artwork/.

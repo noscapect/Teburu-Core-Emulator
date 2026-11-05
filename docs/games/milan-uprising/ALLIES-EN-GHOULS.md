@@ -1,24 +1,24 @@
-# Bondgenoten en ghouls
+# Allies and ghouls
 
-Milan bepaalt beschikbaarheid, kosten, cooldown en effecten. TCE helpt de gevraagde miniatuur te scannen en de plaatsing op de tafel over te nemen. Uitbreidingsvoorraad is aanwezig, maar niet iedere miniatuur en uitbreidingscampagne is in echt spel gevalideerd.
+Milan determines availability, costs, cooldowns and effects. TCE helps scan the requested miniature and copy placement to the table. Expansion inventory is included, but not every miniature and expansion campaign has been validated in real play.
 
-## Plaatsen tijdens Sunset
+## Sunset deployment
 
-1. Open de plaatsingsstap in Milan en scan de gevraagde miniatuur via de virtuele Core-lezer.
-2. Zodra het gekozen bondgenoot-/ghoulscherm herkend is, kies je boven het bord een stadsdistrict en druk je op **Place in Milan**, of sleep je de gescande miniatuur naar dat district.
-3. Controleer acceptatie en eventuele kosten in Milan. Scannen alleen legt geen positie vast.
-4. Blijft automatische bevestiging uit, kies dan **Milan accepted this placement** alleen nadat je het resultaat in Milan hebt gecontroleerd. Kies anders **Milan did not place it**. Deze knoppen sturen geen tweede sensorcontact.
+1. Open the deployment step in Milan and scan the requested miniature with the virtual Core reader.
+2. Once the selected ally/ghoul screen is recognized, choose a city district above the board and press **Place in Milan**, or drag the scanned miniature there.
+3. Check acceptance and any costs in Milan. Scanning alone records no position.
+4. If automatic confirmation is unavailable, choose **Milan accepted this placement** only after checking the result in Milan. Otherwise choose **Milan did not place it**. These buttons send no second sensor contact.
 
-Er mag op onze geregistreerde tafel maximaal één bondgenoot of ghoul per district staan. Spelerspersonages mogen hetzelfde district delen. Havenkamers zijn geen bestemming. Deze controle kent alleen de lokaal geregistreerde onderdelen.
+Our recorded table allows at most one ally or ghoul per district. Player characters may share it. Haven rooms are invalid destinations. This check knows only locally recorded pieces.
 
-Om over te slaan gebruik je **Done** in Milan en volg je de bevestiging daar.
+To skip deployment, use **Done** in Milan and follow its confirmation.
 
-## Terug naar voorraad
+## Returning to stock
 
-Na twee overeenkomende, herkende Day-fasewaarnemingen keren geplaatste bondgenoten en ghouls automatisch terug naar de voorraad. Dit geldt voor de vijftien typen in de basis- en uitbreidingsvoorraad. Personages en andere markers blijven behouden. Recruitment, Hunger en cooldown blijven in Milan.
+After two matching recognized Day-phase observations, deployed allies and ghouls automatically return to stock. This covers the fifteen types in the base/expansion inventory. Characters and other markers remain. Recruitment, Hunger and cooldown stay in Milan.
 
-Verwijdering door andere verhaalgebeurtenissen wordt niet altijd automatisch herkend. Controleer zo'n verwijdering in Milan en gebruik **Pieces → Stock → Copy an ally / ghoul removal → Copy removal from Milan**. Deze handeling corrigeert alleen onze tafel.
+Removal caused by other story events is not always recognized automatically. Verify removal in Milan, then use **Pieces → Stock → Copy an ally / ghoul removal → Copy removal from Milan**. This corrects only our table.
 
-## Geladen campagne
+## Loaded campaign
 
-Ondersteunde **Scenario setup → Ghouls placement / Allies placement**-schermen kunnen zichtbare posities na twee overeenkomende waarnemingen terugzetten. Ook Fixer/Jürgen kan op de herkende actieve stadskaart worden overgenomen. Afgedekte of ontbrekende portretten zijn geen verwijderinstructie. Automatische herkenning van alle andere companionportretten op die actieve kaart is niet gevalideerd.
+Supported **Scenario setup → Ghouls placement / Allies placement** screens can restore visible positions after two matching observations. Fixer/Jürgen can also be copied from the recognized active city map. Missing or covered portraits are not removal instructions. Recognition of every other companion portrait on that active-map route remains unvalidated.

@@ -1,17 +1,17 @@
-# Werken aan dit project
+# Working on this project
 
-Lees README.md, docs/PLAN.md, docs/ARCHITECTUUR.md, docs/BESLUITEN.md en docs/ONDERZOEK.md voordat je uitbreidt.
-Communiceer in het Nederlands. Houd de lokale demo zonder externe dependencies werkend.
-Het einddoel is de ongewijzigde officiële game-app gebruiken zonder fysieke spelonderdelen. Sandbox is een tussenstap, geen vervanging van dat doel. Lees docs/TEBURU-DEEPSEARCH.md voor actuele bronbevindingen.
-Voer `node --test` uit bij wijzigingen aan bordlogica; controleer de UI bij zichtbare wijzigingen.
-Lees docs/CONTRACTEN.md voor de geïmplementeerde eerste doorsnede. Fysieke componentinventaris en Milan-regels blijven open. Behoud legacy/ als referentie.
-Scheid engine, spelregels, spelgegevens, UI en presentatie. Milan is een game-module, geen dependency van de engine.
-Engine en regels werken headless; 2D en later 3D gebruiken dezelfde opdrachten en toestand. Geen grafische objecten in domeinlogica.
-Sandbox is de huidige enige modus; geautomatiseerde regels zijn nog niet beschikbaar. App/hardware-integratie blijft een optionele adapter en zelfstandig onderzoeksspoor.
-Onderscheid tijdelijke sensorcontacten van blijvende spelpositie. De lokale virtual-core is een expliciete gedragssimulatie, geen RFID/BLE-emulator. De officiële SDK-route bestaat, maar ondersteuning/toestemming voor bestaande apps is onbewezen; publiceer geen vertrouwelijke SDK-inhoud.
-Alle events in src/model.js zijn eigen domeinevents, geen Teburu-protocol.
-Presenteer appcompatibiliteit of emulatie nooit als bewezen zonder reproduceerbare hardwaretest.
-Geen beveiligingsomzeiling, gekloonde RFID-identiteiten, firmwarepatches of beschermde assets.
-Distributie-uitzondering bevestigd door de projecteigenaar op 29 oktober 2026: geselecteerd artwork in resources/milan-artwork.json.gz en onze afgeleide integratieruntime mogen op GitHub. De SDK zelf, SDK-libraries, documentatie en voorbeelden blijven uitgesloten. Machinegegevens, spelstanden en identifiers blijven onder private/. Zie docs/INSTALLATION.md.
-Bewaar eventuele eigen hardwarewaarnemingen en identifiers uitsluitend onder private/ (genegeerd).
-Wijzig of installeer niets aan de officiële app of hardware zonder concrete opdracht.
+Read README.md, docs/PLAN.md, docs/ARCHITECTUUR.md, docs/BESLUITEN.md and docs/ONDERZOEK.md before expanding.
+Communicate in Dutch. Maintain documentation in English. Keep the local demo working without external dependencies.
+The end goal is to use the unmodified official game app without any physical game components. Sandbox is an intermediate step, not a replacement for that goal. Read docs/TEBURU-DEEPSEARCH.md for current source findings.
+Run `node --test` on board logic changes; check the UI for visible changes.
+Read docs/CONTRACTEN.md for the implemented first cross-section. Physical component inventory and Milan rules remain open. Keep legacy/ as reference.
+Separate engine, rules, game data, UI and presentation. Milan is a game module; the engine must not depend on it.
+Engine and rules work headless; 2D and later 3D use the same commands and state. No graphical objects in domain logic.
+Sandbox is the current only mode; automated rules are not yet available. App/hardware integration remains an optional adapter and standalone research track.
+Distinguish temporary sensor contacts from permanent playing position. The local virtual core is an explicit behavioral simulation, not an RFID/BLE emulator. The official SDK route exists, but support/permission for existing apps is unproven; do not publish confidential SDK content.
+All events in src/model.js are project-defined domain events, not Teburu protocol.
+Never present app compatibility or emulation as proven without reproducible hardware testing.
+No security bypass, cloned RFID identities, firmware patches or protected assets.
+Distribution exception confirmed by the project owner on October 29, 2026: selected artwork in resources/milan-artwork.json.gz and our derived integration runtime may be published on GitHub. The SDK itself, SDK libraries, documentation and examples remain excluded. Machine data, saved game states and identifiers remain under private/. See docs/INSTALLATION.md.
+Store any observations of your own hardware and identifiers exclusively under private/ (ignored).
+Do not modify or install anything on the official app or hardware without specific instructions.

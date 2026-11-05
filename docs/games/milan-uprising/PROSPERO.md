@@ -1,11 +1,11 @@
-# Prospero en de LED-ring
+# Prospero and the LED ring
 
-De gekoppelde tafel toont **Prospero, Prince of Milan** naast de kaart met vier lichtsegmenten. Dit miniatuuraccessoire staat los van de campagne **Prospero's Legacy** en ontgrendelt geen verhaal of onderdelen.
+The linked table displays **Prospero, Prince of Milan** beside the map with four light segments. This miniature accessory is separate from the **Prospero's Legacy** campaign and unlocks no story or components.
 
-Zonder ontvangen lichtstand toont de voet **LED ring · awaiting Milan**. Ondersteunde lichtopdrachten uit de app bepalen de weergegeven statische kleuren. TCE kent zelf geen spelbetekenis toe aan kleuren. Na verbreken van de Coreverbinding wordt de stand onbekend.
+Without a received light state, the base displays **LED ring · awaiting Milan**. Supported app light commands determine static colors. TCE assigns no game meaning to colors. Disconnecting Core makes the state unknown.
 
-De segmenten volgen het bovenaanzicht in Teburu: licht 3 linksboven, 4 rechtsboven, 1 rechtsonder en 2 linksonder. De gedeelde bordpagina toont dezelfde kleuren. Volledige hardwareanimaties worden niet weergegeven.
+Segments follow Teburu's top view: light 3 top left, 4 top right, 1 bottom right and 2 bottom left. The shared board shows the same colors. Full hardware animations are not displayed.
 
-De virtuele ring meldt compatibiliteitsversie **1.15.0** en een stabiele gesimuleerde batterijwaarde. Dit zijn simulatiegegevens, geen metingen aan een fysieke ring. Gebruik zo nodig de [firmware-simulatie](../../FIRMWARE-SIMULATIE.md) in het Control Center en verbind de app opnieuw.
+The virtual ring reports compatibility version **1.15.0** and a stable simulated battery value. These are simulation data, not physical ring measurements. If necessary, use [firmware simulation](../../FIRMWARE-SIMULATIE.md) in the Control Center, then reconnect the app.
 
-Prospero krijgt geen speelbare personagepositie. Herkenning van de ring en beperkte kleurweergave zijn aangetoond; alle campagnegebonden lichtsequenties zijn nog niet gevalideerd.
+Prospero has no playable-character position. Ring recognition and limited color display have been demonstrated; all campaign light sequences remain unvalidated.

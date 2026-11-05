@@ -1,138 +1,138 @@
-# Contracten v1 — eerste doorsnede
+# Contracts v1 — first cross-section
 
-## Game-add-ons — 29 oktober 2026
+## Game Add-ons - October 29, 2026
 
-`GET /api/game-addons` rapporteert modules, hun afzonderlijke installatie-/ingeschakelde status, downloadvoortgang en de geselecteerde game. Privé-opslag schema 2 heeft `installed`, `enabled[]` en `selected`; schema 1 migreert met behoud van installatie en sessies. `active` blijft een API-alias voor selectie. Lokale same-origin JSON-acties ondersteunen `add` (installeren en inschakelen, eventueel met achtergrondacquisitie), `disable`, `select`, `acquire` en de oudere `install`/`activate`. `open-linked` start de moduleadapter via de launcher. Alleen een aanwezige passende artworkinstallatie maakt gebruik mogelijk. Zie [module- en lifecyclecontract](GAME-MODULES.md).
+`GET /api/game-addons` reports modules, their individual installation/enabled status, download progress, and the selected game. Private storage schema 2 has `installed`, `enabled[]` and `selected`; schema 1 migrates while preserving installation and sessions. `active` remains an API alias for selection. Local same-origin JSON actions support `add` (install and enable, possibly with background acquisition), `disable`, `select`, `acquire` and the older `install`/`activate`. `open-linked` starts the module adapter via the launcher. A matching artwork installation must be present before the module is usable. See [module and lifecycle contract](GAME-MODULES.md).
 
-## Leeswijzer — 29 oktober 2026
+## Reading guide — October 29, 2026
 
-Aanvulling 5 november 2026: eigen tafelsessies ondersteunen gevalideerde import/replay en undo/redo; zie **Uitbreiding 0.4** en **Herstelgeschiedenis**. De oorspronkelijke doorsnede met uitsluitend export is historisch. Dit herstelcontract importeert geen officiële app-saves; algemene automatische opslag en migraties blijven open.
+Addition November 5, 2026: own table sessions support validated import/replay and undo/redo; see **Expansion 0.4** and **Recovery History**. The original export-only cross-section is historical. This recovery contract does not import official app saves; general autosave and migrations remain open.
 
-Dit document bewaart de opeenvolgende engine- en modulecontracten. De engine heeft nog steeds uitsluitend sandboxregels; de gekoppelde runtime is een optionele adapter met de officiële app als regelautoriteit. Oudere inventaristabellen met “officiële app niet verbonden” beschrijven die eerdere doorsnede. De benodigde eigen adaptercode staat inmiddels in `integration/runtime/`; actuele distributie en verificatie staan in [installatie](INSTALLATION.md), [release-review](RELEASE-REVIEW.md) en [validatie](VALIDATIE.md). Historische contractbeperkingen zijn geen actuele verklaring dat appcontact nooit is aangetoond.
+This document stores the successive engine and module contracts. The engine still has sandbox rules only; the associated runtime is an optional adapter with the official app as the rules authority. Older inventory tables with “official app not connected” describe that earlier cross-section. The required own adapter code is now in `integration/runtime/`; current distribution and verification are in [installation](INSTALLATION.md), [release-review](RELEASE-REVIEW.md) and [validation](VALIDATIE.md). Historical contract restrictions are not a current statement that app contact has never been demonstrated.
 
-## Uitbreidingsvoorraad 0.8
+## Expansion stock 0.8
 
-`withExpansions(base, catalog, selected)` voegt uitsluitend de gekozen Milan-voorraden toe op een kopie van het basisprofiel. Componenten krijgen een `expansionId` en presentatielabel; generieke zone-/componentopdrachten blijven gelijk. Het uitgebreide profiel heeft een eigen release-ID en pakketversie. `extendTableSession` is een expliciete additieve conversie van onze eigen basisbordexports, met validatie en replay vóór en na conversie. De gewone import blijft profielgebonden. Zie [pakketten, bediening en private adaptergrenzen](games/milan-uprising/UITBREIDINGEN.md).
+`withExpansions(base, catalog, selected)` only adds the selected Milan stocks to a copy of the base profile. Components are given a `expansionId` and presentation label; generic zone/component commands remain the same. The extended profile has its own release ID and package version. `extendTableSession` is an explicit additive conversion of our own base board exports, with validation and replay before and after conversion. Regular imports remain profile-related. See [packages, controls and private adapter boundaries](games/milan-uprising/UITBREIDINGEN.md).
 
-## Uitbreiding 0.6 — benoemde kaart en atomaire opstelling
+## Expansion 0.6 - named map and atomic arrangement
 
-Afzonderlijk pakket `milan-city` versie `0.6.0`, profielschema 2. De retail- en demopakketten blijven behouden. Zones hebben optioneel `area` (ID), `attributes` (unieke IDs) en `sourceId` (bestaande bron). De presentatie kiest een eigen schematische indeling; deze velden maken geen sensorprotocol of aangrenzendheidsgraaf. `boardEvidence` en `campaignSetup` zijn versie-1-Milan-metadata; officiële beginstand en sensormapping zijn daarin expliciet onbewezen. Zie KAART-EN-OPSTELLING.md.
+Separate package `milan-city` version `0.6.0`, profile schema 2. The retail and demo packages are retained. Zones optionally have `area` (ID), `attributes` (unique IDs) and `sourceId` (existing resource). The presentation chooses its own schematic layout; these fields do not create a sensor protocol or adjacency graph. `boardEvidence` and `campaignSetup` are version 1 Milan metadata; official initial position and sensor mapping are explicitly unproven. See KAART-EN-OPSTELLING.md.
 
-Nieuwe generieke opdracht `table.arrange {placements: [{componentId, zoneId}], faces: [{componentId, faceId}]}` vervangt alle plaatsingen en ficheszijden atomair. Niet genoemde onderdelen gaan naar voorraad; niet genoemde zijden krijgen hun eerste profielwaarde. IDs, duplicaten, zonecapaciteit en toegestane zijden worden gecontroleerd vóór commit. Bestaande events en worpen blijven behouden; de opstelling voegt één event en revisie toe. De applicatie biedt `arrange(payload)`. Undo/redo en export/import volgen dezelfde toestand en replay.
+New generic command `table.arrange {placements: [{componentId, zoneId}], faces: [{componentId, faceId}]}` replaces all placements and token sides atomically. Parts not mentioned go to stock; sides not mentioned receive their first profile value. IDs, duplicates, zone capacity and allowed sides are checked before commit. Existing events and rolls are retained; the setup adds one event and revision. The application provides `arrange(payload)`. Undo/redo and export/import follow the same state and replay.
 
-De afzonderlijke Milan-builder `buildCampaignArrangement(profile, input)` vertaalt handmatige setupinvoer naar deze generieke opdracht. Vier verschillende personages, lokale invoergrenzen en eindige retailvoorraden worden daar gecontroleerd. De engine kent geen factienamen of Milan-startregels. Een volledige matching wijst de controlefiches toe zonder ongewenste gulzige tekorten. Het formulier is geen automatische campagne- of regelmodus; `sandbox` blijft de enige modus.
+The separate Milan builder `buildCampaignArrangement(profile, input)` translates manual setup input into this generic command. Four different characters, local input bounds and finite retail supplies are controlled there. The engine has no faction names or Milan starting rules. A full matching allocates the control tokens without shortages caused by greedy allocation. The form is not an automatic campaign or rule mode; `sandbox` remains the only mode.
 
-## Uitbreiding 0.5 — retailinhoud en componentzijden
+## Extension 0.5 — retail content and component sides
 
-Nieuw profiel `retail-core` versie `0.5.0`, gegevensschema 2; schema 1 blijft geaccepteerd en oudere profielen blijven ongewijzigd. Schema 2 vereist `sources` (unieke id, titel, HTTPS-url), `componentGroups` (unieke id, label, optionele beschrijving) en per component een geldige `sourceId` en `groupId`. Optionele `color` en `shortLabel` zijn presentatiegegevens. `faces` is optioneel en bevat precies twee unieke `{id, label, color?}`-objecten. Bronnen en inventaris staan in MILAN-CONTENT.md. De collecties `characters`, `cards`, `tokens` en `scenarios` blijven gereserveerd voor latere inhoudsschema’s; deze fysieke personages en fiches staan in `components`.
+New profile `retail-core` version `0.5.0`, data schema 2; schema 1 remains accepted and older profiles remain unchanged. Schema 2 requires `sources` (unique ID, title, HTTPS URL), `componentGroups` (unique ID, label, optional description) and a valid `sourceId` and `groupId` per component. Optional `color` and `shortLabel` are presentation data. `faces` is optional and contains exactly two unique `{id, label, color?}` objects. Resources and inventory are in MILAN-CONTENT.md. The collections `characters`, `cards`, `tokens` and `scenarios` remain reserved for later content schemas; these physical characters and tokens are in `components`.
 
-Alleen schema-2-sessies krijgen `state.faces`, met voor elk tweezijdig onderdeel de ID van de actieve zijde. Beginwaarde is de eerste profielzijde, geen voorgeschreven spelopstelling. Nieuwe opdracht: `component.flip {componentId}`. Deze wisselt de zijde zonder plaatsing te veranderen; onbekende of eenzijdige onderdelen worden atomair geweigerd. De applicatie biedt `flip(componentId)`. Projecties leveren afgeleide `faceId`, `faceLabel` en kleur; de domeintoestand bevat uitsluitend zijde-IDs, geen kleuren of grafische objecten. Undo/redo, reset en gevalideerde import gebruiken dezelfde toestand/eventreplay. Het sessie-exportformaat blijft schema 1, met de bestaande exacte pakket-/moduleversiecontrole; oude profielen en exports krijgen niet stilzwijgend een `faces`-veld.
+Only schema 2 sessions get `state.faces`, with each two-sided component having the active side ID. Initial value is the first profile side, not a prescribed game setup. New command: `component.flip {componentId}`. This changes sides without changing placement; unknown or one-sided components are atomically rejected. The application provides `flip(componentId)`. Projections provide derivative `faceId`, `faceLabel` and color; the domain state contains only side IDs, no colors or graphic objects. Undo/redo, reset and validated import use the same state/event replay. The session export format remains schema 1, with the existing exact package/module version control; old profiles and exports do not silently get a `faces` field.
 
-## Herstelgeschiedenis — aanvulling op 0.4
+## Recovery history — addition to 0.4
 
-De applicatie biedt `undo()` en `redo()` met maximaal honderd lokale stappen. Geldige opdrachten en `reset()` bewaren de voorgaande onveranderlijke toestand. Fouten bewaren ook de bestaande herstelmogelijkheden. Een nieuwe geslaagde handeling wist de redo-reeks; opnieuw uitvoeren gebruikt de eerdere toestand en genereert geen nieuwe willekeur.
+The application provides `undo()` and `redo()` with up to one hundred local steps. Valid commands and `reset()` preserve the previous immutable state. Errors also preserve existing recovery options. Another successful operation clears the redo sequence; redo uses the previous state and does not generate new randomness.
 
-Herstelgeschiedenis is applicatietoestand, geen engine-event of Teburu-protocol. De projectie bevat `canUndo` en `canRedo`. Export bevat alleen de actieve sessietoestand en bijbehorende eventreeks. Een geslaagde import en het starten van een nieuw profiel beginnen zonder herstelgeschiedenis; een mislukte import verandert niets. Ongedaan gemaakte handelingen worden niet meegeëxporteerd. De UI biedt herstel uitsluitend op de handmatige tafel en het referentieprofiel; sensorcontact en inputtrace worden niet teruggedraaid.
+Recovery history is application state, not an engine event or Teburu protocol. The projection contains `canUndo` and `canRedo`. Export contains only the active session state and associated event sequence. A successful import and starting a new profile will start with no recovery history; a failed import changes nothing. Undone actions are not exported. The UI provides recovery only on the manual table and reference profile; sensor contact and input trace are not reversed.
 
-## Uitbreiding 0.4 — virtuele tafel en hervatten
+## Extension 0.4 — virtual table and resume
 
-Componenten ondersteunen nu `kind: piece | cube | token` met dezelfde generieke plaats/verplaats/verwijder-opdrachten. Het type bepaalt uitsluitend de presentatie; geen Milan-regel of capaciteit wordt door het type opgelegd. Optioneel `shortLabel` is een presentatielabel. De inhoudscollectie `tokens` blijft leeg en gereserveerd voor latere spelgegevens; losse fiches zijn nu expliciete componenten in `components`, geen nieuw tokenschema.
+Components now support `kind: piece | cube | token` with the same generic place/move/delete commands. The type solely determines the presentation; no Milan rule or capacity is imposed by type. Optional `shortLabel` is a presentation label. The content collection `tokens` remains empty and reserved for later game data; single tokens are now explicit components in `components`, not a new token schema.
 
-Het nieuwe profiel `virtual-table` versie `0.4.0` gebruikt een synthetische werkvoorraad van vier pionnen, twaalf invloedskubussen en acht fiches; zonecapaciteit 32 is een werktafelkeuze. De veertig zones zijn eigen A1–H5-sensorlabels, geen geverifieerde Milan-locatiekaart. Referentie- en sensorstudieprofielen blijven behouden. De projectie levert ook zonecapaciteit en alle individuele bewoners; vormgeving blijft buiten de domeintoestand.
+The new profile `virtual-table` version `0.4.0` uses a synthetic working stock of four pawns, twelve influence cubes and eight tokens; zone capacity 32 is a work table choice. The forty zones are our own A1–H5 sensor labels, not a verified Milan location map. Reference and sensor study profiles are retained. The projection also provides zone capacity and all individual residents; design remains outside the domain state.
 
-`restoreSession(saved)` ondersteunt nu `tabletop-session` schema 1 voor hetzelfde geregistreerde module-/pakket-ID en dezelfde versies. De applicatie voert de complete eventreeks uit vanaf een lege sessie en vergelijkt de gereconstrueerde toestand met de opgeslagen toestand. Volgorde, eventschema, actor, opdrachtvalidatie en vastgelegde worpen worden gecontroleerd. Alleen na volledig slagen wordt de lopende sessie vervangen. Geen nieuwe willekeur bij hervatten. Onbekende/legacyformaten, afwijkende eindtoestand en `inputSimulation` worden geweigerd. De browser begrenst het bestand op 2 MB; de applicatie accepteert maximaal 10.000 events. Sensorstudies kunnen nog niet worden hervat. Migraties en automatische opslag ontbreken. Dit is herstel van onze eigen tafel, geen import van officiële app-saves.
+`restoreSession(saved)` now supports `tabletop-session` schema 1 for the same registered module/package ID and versions. The application executes the complete event sequence from an empty session and compares the reconstructed state with the saved state. Sequence, event schema, actor, command validation and recorded rolls are checked. Only after a complete success will the current session be replaced. Resuming does not generate new randomness. Unknown/legacy formats, non-standard end states and `inputSimulation` are rejected. The browser limits the file to 2 MB; the application accepts a maximum of 10,000 events. Sensor studies cannot yet be resumed. Migrations and automatic saves are missing. This is a restore from our own table, not an import from official app saves.
 
-Onderstaande oudere doorsneden beschrijven de historische scope; deze uitbreiding vervangt de beperkingen tot uitsluitend `piece` en uitsluitend export.
+The older cross-sections below describe the historical scope; This extension replaces the `piece` and export-only restrictions.
 
-## Uitbreiding 0.3 — lokale interactiestudie
+## Extension 0.3 — local interaction study
 
-Nieuw opdracht-type component.interact {componentId, zoneId}: vereist dat de pion al in de genoemde zone staat, legt alleen een intentie vast en verandert geen plaatsing. De sandbox voert geen Milan-actie of regel uit. Bestaande commandotypes en referentieprofiel blijven behouden.
+New command type component.interact {componentId, zoneId}: Requires the pawn to already be in the named zone, only sets an intent and does not change placement. The sandbox does not perform any Milan action or rule. Existing command types and reference profile are retained.
 
-De virtual-core-adapter gebruikt onze eigen expliciete demomapping en demopion-ID's. Register selecteert identiteit, touch maakt een eigen domeinopdracht en release beëindigt alleen tijdelijk contact. Contact moet worden vrijgegeven vóór volgende invoer/identiteitsselectie. Dit is een vereenvoudigde testworkflow, geen vastgestelde Core-statemachine. Capabilities tonen BLE/RFID/appverbinding als false. Trace is eigen simulatorlog, geen pakketdump.
+The virtual core adapter uses our own explicit demo mapping and demo miniature IDs. Register selects identity, touch creates its own domain assignment and release ends only the temporary contact. Contact must be released before next entry/identity selection. This is a simplified testing workflow, not an established Core state machine. Capabilities show BLE/RFID/app connection as false. Trace is own simulator log, not a packet dump.
 
-Het interaction-study-pakket biedt d10 en capaciteit vier als demo-keuze; neutral-demo blijft ongewijzigd. Export krijgt bij de simulator een inputSimulation-veld naast de bestaande sessie-envelop. Import/herstel blijven niet ondersteund. Er worden geen officiële RFID-identiteiten aangemaakt, gekloond of geëxporteerd.
+The interaction study package offers d10 and capacity four as a demo choice; neutral-demo remains unchanged. In the simulator, Export gets an inputSimulation field next to the existing session envelope. Import/restore remains unsupported. No official RFID identities are created, cloned, or exported.
 
-Vastgelegd vóór migratie. Scope: uitsluitend bestaande neutrale demo; geen nieuwe aannames over het fysieke spel. Engineversie 1, modulecontract 1, gegevensschema 1. Uitbreidingen vereisen expliciete versie- en compatibiliteitskeuzes.
+Captured before migration. Scope: only existing neutral demo; no new assumptions about the physical game. Engine version 1, module contract 1, data schema 1. Extensions require explicit version and compatibility choices.
 
-## Inventaris en autoriteit
+## Inventory and authority
 
-| Onderdeel | Status | Autoriteit |
+| Part | Status | Authority |
 | --- | --- | --- |
-| 8 × 5 sensorraster | geverifieerd in ONDERZOEK.md | profieldata, geen engineconstante |
-| Sensororiëntatie en Milan-locaties | onbekend | geen mapping geïmplementeerd |
-| Vier pionnen en d6/d10 | bestaande synthetische demo, geen complete componentenlijst | lokale sandbox |
-| Retailminiaturen, invloedskubussen en fiches | aantallen en identiteiten geverifieerd in uitbreiding 0.5 | afzonderlijk retailpakket, handmatige plaatsing/zijden |
-| Kaarten, karakterstatistieken en scenario's | niet geïmplementeerd | geen beschermde verhaalinhoud; officiële app blijft beoogde autoriteit |
-| Spelregels en beurtverloop | niet geïmplementeerd | alleen sandbox beschikbaar |
-| Officiële app | niet verbonden | beheert geen lokale toestand |
+| 8×5 sensor grid | verified in ONDERZOEK.md | profile data, no engine constant |
+| Sensor Orientation and Milan Locations | unknown | no mapping implemented |
+| Four pawns and d6/d10 | existing synthetic demo, not a complete component list | local sandbox |
+| Retail Miniatures, Influence Cubes and Tokens | counts and identities verified in extension 0.5 | separate retail package, manual placement/sides |
+| Maps, Character Stats and Scenarios | not implemented | no protected story content; official app remains intended authority |
+| Rules of the game and course of turns | not implemented | only sandbox available |
+| Official app | not connected | does not manage local state |
 
-Referentiesessie: plaats p1 op A1; verplaats naar H5; plaats p2 op A1; weiger p1 naar bezet A1 zonder mutatie; verwijder p2; voer vastgelegde d6-uitkomst 4 in; exporteer. Vergelijking met fysiek Milan blijft open.
+Reference session: place p1 on A1; move to H5; place p2 on A1; reject p1 to occupied A1 without mutation; remove p2; enter recorded d6 outcome 4; export. Comparison with physical Milan remains open.
 
-## Gegevens en module
+## Data and module
 
-JSON-profiel bevat schemaVersion, gameId, releaseId, version, provenance, zones (id, label, capacity), components (id, label, kind), dice (toegestane zijdeaantallen), cards, tokens, characters, scenarios en presentation (grid met kolommen en zonevolgorde). Lege inhoudscollecties zijn bewust; hun verdere schemas worden vóór het vullen gespecificeerd. IDs zijn uniek. Geen scripts of externe assets. Presentatievelden worden niet naar de domeinstaat gekopieerd.
+JSON profile contains schemaVersion, gameId, releaseId, version, provenance, zones (id, label, capacity), components (id, label, kind), dice (allowed side numbers), cards, tokens, characters, scenarios and presentation (grid with columns and zone order). Empty content collections are deliberate; their further schemas are specified before filling. IDs are unique. No scripts or external assets. Presentation fields are not copied to the domain state.
 
-Een vertrouwde module bevat id, version, contractVersion, modes, setup(profile) en validate(state, command, profile). De applicatie registreert modules; er wordt geen willekeurige code uit JSON geladen. Deze eerste Milan-module biedt alleen sandbox; regelsmodus wordt expliciet geweigerd. Validate mag structurele checks aanvullen, nooit vervangen.
+A trusted module contains id, version, contractVersion, modes, setup(profile) and validate(state, command, profile). The application registers modules; no arbitrary code is loaded from JSON. This first Milan module only offers sandbox; rules mode is explicitly denied. Validate should supplement structural checks, never replace them.
 
-## Opdrachten en toestand
+## Commands and conditions
 
-Opdracht: {type, actorId, expectedRevision, payload}. Eén lokale actor: local. Types: component.place {componentId, zoneId}, component.remove {componentId}, dice.record {sides, value}. Een geslaagde opdracht retourneert een nieuwe toestand met oplopende revisie en één event {sequence, schemaVersion, type, actorId, payload}. Validatiefouten gooien een fout zonder inputmutatie. Geen klok of willekeur in de engine.
+Command: {type, actorId, expectedRevision, payload}. One local actor: local. Types: component.place {componentId, zoneId}, component.remove {componentId}, dice.record {sides, value}. A successful command returns a new state with ascending revision and one event {sequence, schemaVersion, type, actorId, payload}. Validation errors throw an error with no input mutation. No clock or randomness in the engine.
 
-Toestand: engineVersion, gameId, moduleVersion, packageVersion, mode, revision, placements (componentId → zoneId of null), events. Alles JSON-serialiseerbaar. De renderer krijgt een afgeleide kopie van zones, labels en bezetting, plus afzonderlijke presentatiegegevens. Alleen opdrachten wijzigen de sessie.
+State: engineVersion, gameId, moduleVersion, packageVersion, mode, revision, placements (componentId → zoneId or null), events. Everything JSON serializable. The renderer gets a derived copy of zones, labels and occupancy, plus separate presentation data. Only commands change the session.
 
-Export: format tabletop-session, schemaVersion 1, module-identiteit, pakket-identiteit en state. Alleen export in deze doorsnede; nog geen import, migratie of herstel. De oude demo-export blijft beschikbaar via de bewaarde legacydemo. Verwar beide formaten niet.
+Export: format tabletop-session, schemaVersion 1, module identity, package identity and state. Only export in this section; no import, migration or recovery yet. The old demo export remains available via the saved legacy demo. Do not confuse the two formats.
 
-## Uitbreiding 0.7 — optioneel lokaal artwork
+## Expansion 0.7 — optional local artwork
 
-`GET /local-artwork/catalog.json` geeft een gefilterde catalogus met `available`, `assets`, `components`, `zones`, `groups`, `faces` en `branding`; ontbrekend/ongeldig lokaal pakket geeft `available:false`. Assetwaarden zijn uitsluitend lokale PNG-routes. Geen private bronpaden in deze response. `withArtwork` verrijkt alleen de afgeleide presentatie; engine, opdrachten en sessie-envelop veranderen niet. Locatiebeelden staan alleen aan voor het gecorrigeerde `city.json`-profiel 0.7.0. Zie [ARTWORK.md](ARTWORK.md).
-
-
-## Presentatie-uitbreiding — fysieke tafelweergave
-
-Geen wijziging aan engine-, profiel- of saveversies. De bestaande gecorrigeerde kaart 0.7 krijgt een optionele fysieke renderer met alleen presentatiegeometrie. De schematische renderer en oudere profielen blijven beschikbaar. `tabletop.subscribe(listener)` geeft een unsubscribe-functie en meldt geslaagde statewijzigingen, inclusief import en herstel; geen melding bij een geweigerde opdracht. De callback krijgt geen mutable domeintoestand. Dit is een eigen applicatiecontract voor andere invoerbronnen, geen app- of Teburu-protocol.
-
-## Presentatie-uitbreiding — slepen
-
-`installPieceDrag` vertaalt pointerinvoer naar één bestaande plaatsingsopdracht na loslaten op een ander bordvak. De preview verandert geen domeintoestand. Een optionele `tabletop.canMove(componentId)` kan invoer vooraf beperken; de adapter blijft verantwoordelijk voor opdrachtvalidatie en bevestiging. Tijdens slepen stelt de controller externe hertekeningen uit. Miniaturen blijven op de fysieke kaart zichtbaar ongeacht het aantal overige onderdelen. Engine, profielen en sessieformaat veranderen niet.
-
-## Milan-module — expliciete invloedseindstanden
-
-`buildInfluenceArrangement(profile, state, updates)` accepteert unieke `{zoneId, faction, count}`-combinaties voor stadsdistricten, met gehele aantallen van nul tot drie. De pure builder controleert voorraad en geeft `{changed, placements, faces}` terug voor één bestaande `table.arrange`-opdracht. Alleen de benoemde factie-invloed verandert; andere plaatsingen en zijden blijven behouden. De aanroeper slaat de opdracht over bij `changed:false`. Dit is overname van expliciete gegevens, geen automatische Milan-regels. Zie [dagfase-onderzoek](DAGFASE-AUTOMATISERING.md).
-
-`buildBoardInstructions(profile, state, {influence, removeControl})` combineert dezelfde invloedseindstanden met expliciete controleverwijdering uit unieke stadsdistricten. Controleverwijdering verwijdert uitsluitend de betrokken controlefiches. Alle validatie gebeurt vóór de bestaande atomaire opdracht. De applicatie voert geen fase- of factiebeslissingen uit.
-
-`createPollingWorker({run, interval, onState})` biedt een zelfstandige seriële achtergrondtaak. `start()` begint zonder browserverzoek; fouten worden gemeld en de volgende cyclus wordt opnieuw gepland. `stop()` wacht op de lopende cyclus en voorkomt vervolgruns. De private appadapter gebruikt deze generieke taak buiten engine en UI.
-
-`reconcileDistrictMap(profile, state, locations)` vereist alle stadsdistricten, uniek en met geldige factieaantallen. De pure builder vervangt uitsluitend invloed en controle, inclusief het verwijderen van overtollige oude onderdelen. Personages, onderzoek, locatietegels en andere categorieën worden hierdoor niet bevestigd of gewijzigd. Vier geplaatste personages zijn voor deze beperkte kaartovername niet vereist. Het resultaat gebruikt dezelfde atomaire opdracht en verandert niets bij herhaling; sessieformaat en engine blijven gelijk.
-
-## Milan-module — locatietegels
-
-`prepareComponentSetup(profile, state, locations)` initialiseert een opnieuw aangeboden componentenopstelling: de volledige invloed-/controlekaart wordt gevalideerd en oude onderzoeksfiches gaan terug naar voorraad. Het betreft alleen fiches met de zijde `investigation`; restricted-zijden en andere categorieën blijven behouden. De adapter gebruikt deze stap één keer per setup en bewaart vooraf de oude lokale sessie. Gewone kaartupdates via `reconcileDistrictMap` blijven onderzoeksfiches behouden. Verse, expliciet bevestigde markers tijdens dezelfde setup worden niet herhaaldelijk gewist.
-
-`setLocationTile(state, zones, {zoneId, kind, face, value, expectedRevision})` retourneert nieuwe `milan-location-tiles`-toestand. `kind` is bonus of special; `face` is unconfirmed, hidden of visible. Alleen stadsdistricten en bekende waarden zijn toegestaan. Projecties kopiëren de tegeldata. De stadstafel voegt deze moduletoestand optioneel als `locationTiles` aan de bestaande sessie-envelop toe; de engine blijft ongewijzigd. Zie [locatietegels](games/milan-uprising/LOCATIETEGELS.md).
+`GET /local-artwork/catalog.json` returns a filtered catalog with `available`, `assets`, `components`, `zones`, `groups`, `faces` and `branding`; missing/invalid local package returns `available:false`. Asset values ​​are local PNG routes only. No private source paths in this response. `withArtwork` only enriches the derived presentation; engine, commands and session envelope do not change. Location images are only enabled for the corrected `city.json` profile 0.7.0. See [ARTWORK.md](ARTWORK.md).
 
 
-## Optionele lezerbediening in de UI
+## Presentation extension — physical table view
 
-Een gekoppelde tafel kan `scan(componentId)`, `canScan(componentId)` en `scanStatus()` aanbieden. De UI presenteert dan een Core-lezer naast de kaart. Het lezerdoel heeft geen zone-ID en maakt geen engineplaatsing. Tijdelijke scanpresentatie en registratievoortgang zijn adaptertoestand; blijvende bordposities blijven domeintoestand. De gewone sandbox biedt deze optionele apparaatbediening niet aan.
+No change to engine, profile or save versions. The existing corrected map 0.7 gets an optional physical renderer with presentation geometry only. The schematic renderer and older profiles remain available. `tabletop.subscribe(listener)` provides an unsubscribe function and reports successful state changes, including import and restore; no notification of a rejected order. The callback does not get a mutable domain state. This is a native application contract for other input sources, not an app or Teburu protocol.
+
+## Presentation extension — drag
+
+`installPieceDrag` translates pointer input to one existing placement command after releasing on another board space. The preview does not change any domain state. An optional `tabletop.canMove(componentId)` can restrict input in advance; the adapter remains responsible for command validation and confirmation. During dragging, the controller defers external redraws. Miniatures remain visible on the physical map regardless of the number of other parts. Engine, profiles and session format do not change.
+
+## Milan module — explicit final influence counts
+
+`buildInfluenceArrangement(profile, state, updates)` accepts unique `{zoneId, faction, count}` combinations for city districts, with integers from zero to three. The pure builder checks inventory and returns `{changed, placements, faces}` for one existing `table.arrange` order. Only the named faction influence changes; other placements and sides are retained. The caller skips the command at `changed:false`. This is explicit data acquisition, not automatic Milan rules. See [day phase study](DAGFASE-AUTOMATISERING.md).
+
+`buildBoardInstructions(profile, state, {influence, removeControl})` combines the same final influence counts with explicit control removal from unique city districts. Control deletion only removes the affected control tokens. All validation is done before the existing atomic assignment. The application does not perform phase or faction decisions.
+
+`createPollingWorker({run, interval, onState})` provides a standalone serial background job. `start()` starts without browser request; errors are reported and the next cycle is rescheduled. `stop()` waits for the current cycle and prevents subsequent runs. The private app adapter uses this generic task outside of engine and UI.
+
+`reconcileDistrictMap(profile, state, locations)` requires all city districts, unique and with valid faction numbers. The pure builder only replaces influence and control, including the removal of redundant old parts. This does not confirm or change characters, research, location tiles and other categories. Four seeded characters are not required for this limited map takeover. The result uses the same atomic command and changes nothing when repeated; session format and engine remain the same.
+
+## Milan module — location tiles
+
+`prepareComponentSetup(profile, state, locations)` initializes a newly presented component setup: the entire influence/control map is validated and old Investigation tokens are returned to stock. This only concerns tokens with the side `investigation`; restricted sides and other categories are retained. The adapter uses this step once per setup and saves the old local session beforehand. Regular map updates via `reconcileDistrictMap` will retain Investigation tokens. Fresh, explicitly confirmed markers during the same setup are not cleared repeatedly.
+
+`setLocationTile(state, zones, {zoneId, kind, face, value, expectedRevision})` returns new `milan-location-tiles` state. `kind` is bonus or special; `face` is unconfirmed, hidden or visible. Only city districts and known values ​​are allowed. Projections copy the tile data. The city table optionally adds this module state as `locationTiles` to the existing session envelope; the engine remains unchanged. See [location tiles](games/milan-uprising/LOCATIETEGELS.md).
 
 
-`createSingleFlight(read)` laat gelijktijdige aanroepen dezelfde lopende Promise delen. Na succes of fout voert de volgende aanroep opnieuw een uitlezing uit. De browseradapter gebruikt dit voor statusverzoeken; het verandert geen engine- of speltoestand.
+## Optional reader controls in the UI
+
+A linked table can offer `scan(componentId)`, `canScan(componentId)` and `scanStatus()`. The UI then presents a Core reader next to the card. The reader target has no zone ID and does not create an engine placement. Transient scan presentation and registration progress are adapter state; persistent board positions remain domain state. The regular sandbox does not offer this optional device control.
 
 
-De optionele scanpresentatie groepeert een miniaturenstrook en de Core in één perifere UI-container. `fit({width, height})` reserveert die ruimte voordat de kaart wordt geschaald. De strook ontvangt uitsluitend de door de adapter aangeleverde onderdeel-ID’s; extra slots zijn niet hard gecodeerd. Zoeken en scrollen wijzigen geen domein- of registratiegegevens. De scanplek blijft hetzelfde tijdelijke lezerdoel zonder zone-ID.
+`createSingleFlight(read)` allows concurrent invocations to share the same running Promise. On success or failure, the next call performs a read again. The browser adapter uses this for status requests; it does not change any engine or game state.
 
 
-`buildBoardInstructions` accepteert daarnaast `characterMoves: [{componentId, zoneId}]` met unieke bekende spelerspersonages en bekende bestemmingen. Deze expliciete appuitkomsten worden vooraf gevalideerd en samen met invloed/controle in één bestaande atomaire tafelopdracht verwerkt. Andere onderdelen en fichezijden blijven behouden. De builder bepaalt geen nachtfaseregels of standaardbestemming.
+The optional scan presentation groups a miniature strip and the Core into one peripheral UI container. `fit({width, height})` reserves that space before scaling the map. The strip only receives the part IDs provided by the adapter; additional slots are not hard coded. Searching and scrolling do not change domain or registration information. The scanning location remains the same temporary reader target without zone ID.
 
 
-`mountDiceTray({onRoll, onWake, container})` presenteert vijf d10’s in een dialoog. `update({connected, ready, canRoll, rolling, dice})` neemt de hardwaretoestand over; `dice` bevat alleen index, aanmeldstatus, rolstatus en de laatst bekende waarde. `onRoll(indices)` en `onWake()` leveren zo nodig de nieuwe hardwaretoestand terug. De component heeft geen RNG en maakt geen domeinopdrachten. Openen/sluiten verstuurt geen invoer; selectie blijft lokale UI-toestand. `dispose()` verwijdert de dialoog en openingsknop.
+`buildBoardInstructions` also accepts `characterMoves: [{componentId, zoneId}]` with unique player characters and destinations. These explicit app outcomes are validated in advance and processed together with influence/control in one existing atomic table command. Other parts and token sides are retained. The builder does not determine night phase rules or default destination.
 
-## Milan-module — explicit component instructions
+
+`mountDiceTray({onRoll, onWake, container})` presents five d10s in a dialogue. `update({connected, ready, canRoll, rolling, dice})` adopts the hardware state; `dice` contains only index, registration status, rolling status, and last known value. `onRoll(indices)` and `onWake()` return the new hardware state if necessary. The component has no RNG and does not create domain commands. Open/close does not send any input; selection remains local UI state. `dispose()` removes the dialog and opening button.
+
+## Milan module — explicit component instructions
 
 `buildComponentInstructions(profile, state, instructions)` validates a nonempty batch of unique known component IDs with `operation: place | remove | face`, an existing `zoneId` for placements, and an optional valid `faceId`. Face-only instructions require a side. It validates final ally/ghoul district occupancy before returning an idempotent `{changed, placements, faces}` arrangement for the existing atomic table command. No engine or session format changes are introduced. The private adapter uses this contract for supported explicit named app outcomes and user-verified table-only corrections. See [placement synchronization](PLAATSINGSSYNC.md) for observed coverage and limitations.
 
-## Presentation and observation timing — 27 October 2026
+## Presentation and observation timing — October 27, 2026
 
 `withPendingPlacement(view, action)` in the presentation decorators returns a projected pending destination and `pendingPlacement` presentation flag without changing confirmed session state, events, revision or exports. The renderer marks it as awaiting confirmation. No graphical object is introduced into domain state.
 

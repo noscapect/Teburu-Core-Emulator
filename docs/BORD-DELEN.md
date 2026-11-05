@@ -1,23 +1,23 @@
-# Speelbord op een ander apparaat openen
+# Open the board on another device
 
-Start TCE via de launcher en kies **Connect Android** voor de gewenste module met een gekoppelde adapter. De launcher start de LAN-deelserver zodra die adapter gereed is. Het Control Center toont de bordlink en een zescijferige toegangscode. Open die link op het tweede apparaat en voer de code in. Beide browsers gebruiken dezelfde tafel op de host-pc.
+Start TCE through its launcher and choose **Connect Android** for a module with a linked adapter. The launcher starts the LAN sharing server when that adapter is ready. The Control Center displays the board link and a six-digit access code. Open the link on the second device and enter the code. Both browsers use the same table on the host PC.
 
-De link gebruikt het LAN-adres van de host en poort **5182**, bijvoorbeeld `http://192.168.2.23:5182/board`. Een adres op `127.0.0.1` werkt alleen op de host. De toegangscode verandert na herstart van de deelserver; een aangemelde browsersessie blijft maximaal twaalf uur geldig.
+The link uses the host's LAN address and port **5182**, for example `http://192.168.2.23:5182/board`. A `127.0.0.1` address works only on the host. The access code changes when the sharing server restarts; an authenticated browser session lasts up to twelve hours.
 
-## Netwerk en problemen oplossen
+## Network and troubleshooting
 
-Beide apparaten moeten elkaar op het lokale netwerk kunnen bereiken. Gastnetwerken, clientisolatie en VPN kunnen dit blokkeren. Sta het werkelijk gebruikte Node-programma en inkomend TCP-verkeer op poort 5182 toe voor het privénetwerk. De gebundelde Node-runtime heeft een ander programmapad dan een systeeminstallatie. Routerpoortdoorsturing is niet nodig.
+Both devices must be able to reach each other on the local network. Guest networks, client isolation and VPNs may prevent this. Allow the actual Node executable and incoming TCP traffic on port 5182 for the private network. Bundled Node uses a different executable path from a system installation. Router port forwarding is unnecessary.
 
-TCE hergebruikt een geldig eerder gekozen LAN-adres of kiest de enige geschikte verbinding. Bij meerdere mogelijke verbindingen kan een expliciete keuze nodig zijn. Vanuit een broncheckout kan de deelserver met een gekozen adres worden gestart:
+TCE reuses a valid previous LAN address or chooses the only suitable connection. Multiple connections may require an explicit address. From a source checkout:
 
 ```powershell
-node tools/share-board.mjs JOUW-PC-LAN-IP
+node tools/share-board.mjs YOUR-PC-LAN-IP
 ```
 
-Een fout bij delen blokkeert de lokale tafel niet. Afsluiten of wisselen van gekoppeld spel stopt de beheerde deelserver.
+A sharing failure does not block the local table. Quitting or switching linked games stops the managed sharing server.
 
-## Beschikbare bediening
+## Available controls
 
-De gedeelde pagina toont het bord en de bediening van de geselecteerde spelmodule. Beschikbare acties worden via dezelfde adapter verwerkt als op de host. Welke onderdelen, correcties en bevestigingen beschikbaar zijn, staat in de [modulehandleiding](README.md#spelmodules).
+The shared page displays the selected module's board and controls. Actions use the same adapter as on the host. See the [module guide](README.md#game-modules) for available pieces, corrections and confirmations.
 
-Core-start/stop, technische logs, koppelen, handmatige sensorinvoer en opstellingsimport blijven lokaal. De officiële app en de Core blijven op hun eigen apparaten draaien. Delen is bedoeld voor het lokale netwerk.
+Core start/stop, technical logs, pairing, manual sensor input and setup import remain local. The official app and Core remain on their respective devices. Sharing is intended for the local network.

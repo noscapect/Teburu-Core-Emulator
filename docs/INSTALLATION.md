@@ -8,7 +8,7 @@ In a linked module's Control Center, accept the setup/Android tools terms once a
 
 The Windows package is a local release candidate, not a published reviewed release. Complete installation with physical hardware on a clean second PC remains unvalidated. The source edition below requires development tools for linked play.
 
-First open the TCE game library and choose **Add game** for an available module. Each module declares its artwork and any supported acquisition route. Choose **Connect Android** for a module with a linked adapter, then follow the PC/tablet steps above. Multiple modules can remain enabled; the launcher runs one linked session at a time. See [adding games](GAME-ADDONS.md) and the [module guides](README.md#spelmodules).
+First open the TCE game library and choose **Add game** for an available module. Each module declares its artwork and any supported acquisition route. Choose **Connect Android** for a module with a linked adapter, then follow the PC/tablet steps above. Multiple modules can remain enabled; the launcher runs one linked session at a time. See [adding games](GAME-ADDONS.md) and the [module guides](README.md#game-modules).
 
 ## Table with the included artwork
 
@@ -47,7 +47,7 @@ Implementation references: [Microsoft WSL installation](https://learn.microsoft.
 
 The optional linked table includes its own integration source and helpers. The original Teburu SDK is neither included nor required to build this runtime.
 
-The current linked runtime targets Windows 10/11 and official Android apps with an implemented TCE adapter. Install the official app normally. Compatibility and screenshot language, orientation and resolution must be checked in the [selected module's guide](README.md#spelmodules); Core emulation does not imply universal app support. The source edition requires an authorized USB debugging connection, Android Platform Tools (`adb` on PATH), .NET 8 SDK, Python 3 with the `py` launcher, WSL2 with a Linux distribution and Python 3/venv, and usbipd-win. Source setup downloads the pinned English OCR model and prepares the local reader; the packaged edition includes it. Windows English OCR is optional. These tools are prerequisites for linked play, not for the standalone table.
+The current linked runtime targets Windows 10/11 and official Android apps with an implemented TCE adapter. Install the official app normally. Compatibility and screenshot language, orientation and resolution must be checked in the [selected module's guide](README.md#game-modules); Core emulation does not imply universal app support. The source edition requires an authorized USB debugging connection, Android Platform Tools (`adb` on PATH), .NET 8 SDK, Python 3 with the `py` launcher, WSL2 with a Linux distribution and Python 3/venv, and usbipd-win. Source setup downloads the pinned English OCR model and prepares the local reader; the packaged edition includes it. Windows English OCR is optional. These tools are prerequisites for linked play, not for the standalone table.
 
 1. Connect your own tablet over USB and approve USB debugging. `adb devices` must list exactly one authorized device. Open the selected module's official app; capture is restricted to that module's registered app.
 2. Use `usbipd list` to identify the Bluetooth adapter you intend to use. Record its VID:PID and bus ID. Do not copy the original developer's adapter settings. Sharing this radio with WSL temporarily disconnects its Windows Bluetooth devices; choose an appropriate adapter for your machine.
@@ -72,4 +72,4 @@ From a source checkout, share the linked board on your LAN with `node tools/shar
 
 Pull changes and restart. The linked launcher refreshes only the distributed runtime source and preserves its private settings and sessions. Re-run setup after changing build dependencies or C# code. Do not run files under `integration/runtime/` directly: they are templates for the private runtime.
 
-For source changes, test commands and acceptance evidence, see the [project documentation](README.md#voor-ontwikkelaars-en-projectreview).
+For source changes, test commands and acceptance evidence, see the [project documentation](README.md#development-and-project-review).

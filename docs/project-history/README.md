@@ -1,18 +1,18 @@
-# Ontwikkelverslagen bij gebruikersfuncties
+# Feature development records
 
-Dit archief is projectdocumentatie voor ontwikkeling, onderzoek en review. De verslagen bewaren opeenvolgende implementaties, lokale proeven, oude testaantallen en reparaties. Gebruik voor de huidige bediening de [gebruikersdocumentatie](../README.md).
+This archive is project documentation for development, research and review. It preserves successive implementations, local experiments, earlier test counts and corrections. For current controls, use the [user documentation](../README.md).
 
-- [Automatische setup](AUTOMATIC-SETUP.md)
-- [Slepen en sensorinvoer](SLEPEN-EN-SENSOREN.md)
-- [Scannen en herstel](SAVEGAME-PERSONAGES.md)
-- [LAN-delen](BORD-DELEN.md)
-- [Tafelreset](TAFEL-LEGEN.md)
-- [Bondgenoten en ghouls](ALLIES-EN-GHOULS.md)
-- [Locatietegels en Haven](LOCATIETEGELS.md)
-- [Uitbreidingen](UITBREIDINGEN.md)
+- [Automatic setup](AUTOMATIC-SETUP.md)
+- [Dragging and sensor input](SLEPEN-EN-SENSOREN.md)
+- [Scanning and recovery](SAVEGAME-PERSONAGES.md)
+- [LAN sharing](BORD-DELEN.md)
+- [Table reset](TAFEL-LEGEN.md)
+- [Allies and ghouls](ALLIES-EN-GHOULS.md)
+- [Location tiles and Haven](LOCATIETEGELS.md)
+- [Expansions](UITBREIDINGEN.md)
 - [Prospero](PROSPERO.md)
-- [Firmware-simulatie](FIRMWARE-SIMULATIE.md)
-- [Kaartherstel](KAARTHERSTEL.md)
-- [Onderzoeksmarkers](ONDERZOEKFICHES-SYNC.md)
+- [Firmware simulation](FIRMWARE-SIMULATIE.md)
+- [Map recovery](KAARTHERSTEL.md)
+- [Investigation markers](ONDERZOEKFICHES-SYNC.md)
 
-De overkoepelende bewijsregistratie staat in [VALIDATIE](../VALIDATIE.md). De momentopnamen hier zijn geen actuele installatie- of spelhandleidingen.
+The overall evidence register is [VALIDATIE](../VALIDATIE.md). These snapshots are not current installation or gameplay instructions.

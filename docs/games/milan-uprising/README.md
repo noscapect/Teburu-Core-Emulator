@@ -1,39 +1,39 @@
-# Milan Uprising-module
+# Milan Uprising module
 
-Deze module voegt **Vampire: The Masquerade – Milan Uprising** toe aan [TCE](../../../README.md): bord, componenten, artwork, tafelbediening en een adapter voor de officiële app. Core-emulatie, transport, installatie en sessie-infrastructuur worden door TCE geleverd.
+This module adds **Vampire: The Masquerade – Milan Uprising** to [TCE](../../../README.md): board, components, artwork, tabletop controls and an official-app adapter. TCE supplies shared Core emulation, transport, installation and session infrastructure.
 
-## Beschikbaarheid en appvereisten
+## Availability and app requirements
 
-Milan is momenteel de enige geregistreerde spelmodule. De module biedt een zelfstandige handmatige sandbox en een optionele gekoppelde tafel. Registratie, beweging, dobbelsteeninteractie, hervatten en bepaalde bordupdates zijn beperkt met de ongewijzigde officiële app aangetoond. Volledige campagnes en alle uitbreidingen zijn nog niet gevalideerd.
+Milan is currently the only registered game module. It provides a manual standalone sandbox and an optional linked table. Registration, movement, dice interaction, resuming a campaign and selected board updates have been demonstrated in limited tests with the unmodified official app. Full campaigns and all expansions remain unvalidated.
 
-Voor gekoppeld spelen is de officiële Android-app nodig. Schermherkenning is afgestemd op **English, landscape, 2560 × 1600**. Gebruik de [algemene installatie](../../INSTALLATION.md) om TCE en de pc voor te bereiden; open daarna Milan en verbind via **Connect Android → Start Core**. Het Android-pakket is `com.xplored.teburu.vtm`.
+Linked play requires the official Android app. Screen recognition is calibrated to **English, landscape, 2560 × 1600**. Follow [general installation](../../INSTALLATION.md) to prepare TCE and the PC, then open Milan and connect through **Connect Android → Start Core**. The Android package is `com.xplored.teburu.vtm`.
 
-## Installeren en artwork
+## Installation and artwork
 
-Kies **Add game** bij Milan. De module gebruikt `resources/milan-artwork.json.gz` met 156 geselecteerde afbeeldingen. Ontbreekt het archief, dan kan de pakketeditie de geverifieerde officiële Windows 1.0.9-client downloaden (ongeveer 1,01 GB) en de beelden extraheren. Houd ongeveer 3 GB schijfruimte vrij. De Windows-game wordt niet geïnstalleerd of gestart. De broneditie vereist voor extractie ook Python/UnityPy.
+Choose **Add game** for Milan. The module uses `resources/milan-artwork.json.gz`, containing 156 selected images. If missing, the packaged edition can download the verified official Windows 1.0.9 client (about 1.01 GB) and extract the images. Allow roughly 3 GB of disk space. The Windows game is never installed or started. Source extraction also requires Python/UnityPy.
 
-Het archief moet aanwezig blijven. Milan gebruikt `private/bundled-artwork/` voor de beeldcache en `private/linked/` voor de adapterwerkmap. De gedeelde TCE-pc-configuratie staat in `private/tce-machine.json`.
+Keep the archive. Milan uses `private/bundled-artwork/` for its image cache and `private/linked/` for its adapter workspace. Shared TCE PC configuration is stored in `private/tce-machine.json`.
 
-## Bord en sessie
+## Board and session
 
-Het bord bevat dertig stadsdistricten en tien Havenkamers. Klikgebieden benaderen de gedrukte kaart; ze vormen geen geverifieerd aangrenzendheidsmodel of complete campagnebeginstand. De voorraad bevat 132 basiscomponenten en 101 onderdelen uit zes uitbreidingen.
+The board contains thirty city districts and ten Haven rooms. Click areas approximate the printed map; they are not a verified adjacency model or complete campaign starting state. Inventory includes 132 base components and 101 components from six expansions.
 
-De sandbox voert geen automatische Milan-regels uit. Plaatsingen zijn handmatig. Bewaar een JSON-export vóór sluiten of herladen. Import controleert profiel, events en eindtoestand; undo/redo bewaart maximaal honderd lokale handelingen. Een profielwissel migreert geen sessie stilzwijgend.
+The sandbox has no automated Milan rules. Positions are manual. Save a JSON export before closing or reloading. Import checks the profile, events and final state; undo/redo retains up to one hundred local operations. Switching profiles does not silently migrate a session.
 
-Bij gekoppeld spelen bepaalt Milan de invoer. Een aangevraagde plaatsing is voorlopig gemarkeerd totdat herkenbare appbevestiging volgt. Verborgen of onleesbare onderdelen kunnen ontbreken; een onzichtbaar icoon is geen verwijderinstructie. Spelkeuzes, kosten en campagnevoortgang blijven in Milan.
+During linked play, Milan determines input. Requested positions have a pending marker until recognizable app confirmation arrives. Hidden or unreadable pieces may be missing; an absent icon is not a removal instruction. Choices, costs and campaign progress remain in Milan.
 
-## Handleidingen
+## Guides
 
-- [Miniaturen slepen en bevestigen](SLEPEN-EN-SENSOREN.md)
-- [Scannen, geladen groep en invoerherstel](SAVEGAME-PERSONAGES.md)
-- [Bondgenoten en ghouls](ALLIES-EN-GHOULS.md)
-- [Locatietegels en Havenkamers](LOCATIETEGELS.md)
-- [Tafel legen en gedeeltelijk herstellen](TAFEL-LEGEN.md)
-- [Herstel vanaf de stadskaart](KAARTHERSTEL.md)
-- [Onderzoeksmarkers synchroniseren](ONDERZOEKFICHES-SYNC.md)
-- [Uitbreidingen](UITBREIDINGEN.md)
-- [Prospero en de LED-ring](PROSPERO.md)
+- [Dragging and confirmation](SLEPEN-EN-SENSOREN.md)
+- [Scanning, saved roster and input recovery](SAVEGAME-PERSONAGES.md)
+- [Allies and ghouls](ALLIES-EN-GHOULS.md)
+- [Location tiles and Haven rooms](LOCATIETEGELS.md)
+- [Clearing and partially restoring the table](TAFEL-LEGEN.md)
+- [City-map recovery](KAARTHERSTEL.md)
+- [Investigation marker synchronization](ONDERZOEKFICHES-SYNC.md)
+- [Expansions](UITBREIDINGEN.md)
+- [Prospero and the LED ring](PROSPERO.md)
 
-[LAN-delen](../../BORD-DELEN.md) en [firmware-simulatie](../../FIRMWARE-SIMULATIE.md) zijn algemene TCE-functies. Prospero's weergave en de betekenis van ontvangen appuitvoer horen bij deze module.
+[LAN sharing](../../BORD-DELEN.md) and [firmware simulation](../../FIRMWARE-SIMULATIE.md) are shared TCE features. Prospero's presentation and interpretation of app output belong to this module.
 
-Technische bevindingen en acceptatiebewijzen staan in de [projectvalidatie](../../VALIDATIE.md); zij bewijzen geen ondersteuning voor andere spelapps.
+Technical findings and acceptance evidence are recorded in [project validation](../../VALIDATIE.md); they do not establish support for other game apps.

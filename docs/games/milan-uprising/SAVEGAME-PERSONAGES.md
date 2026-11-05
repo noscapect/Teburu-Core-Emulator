@@ -1,17 +1,17 @@
-# Miniaturen scannen en invoer herstellen
+# Scanning miniatures and recovering input
 
-De gekoppelde tafel toont de laatst gelezen opgeslagen groep als hulpmiddel bij registratie. Scannen is beschikbaar wanneer de Core verbonden is en Milan de lezer inschakelt. Milan bepaalt welke miniatuur geldig is.
+The linked table displays the last read saved roster to guide registration. Scanning is available when Core is connected and Milan enables its reader. Milan decides which miniature is valid.
 
-Sleep de gevraagde miniatuur uit de strook naast de kaart naar de Core-lezer, of gebruik **Pieces → Scan a miniature**. Sleep het gelezen onderdeel daarna naar de bestemming die Milan vraagt. Scannen alleen legt geen bordpositie vast; de tafel wacht op appbevestiging.
+Drag the requested miniature from the shelf beside the map to the Core reader, or use **Pieces → Scan a miniature**. Then drag the scanned piece to Milan's requested destination. Scanning alone records no board position; the table waits for app confirmation.
 
-De strook volgt het actuele scanverzoek. Na voltooiing verdwijnt de ongebruikte selectie; de volledige voorraad blijft bereikbaar via Pieces/Stock. Bij een bevestigde geladen groep helpt de strook de nog te scannen leden te vinden. Onleesbare groepsgegevens blokkeren een ingeschakelde lezer niet. De voorraad bevat elf spelerspersonages, acht bondgenoten en zeven ghouls; hun beschikbaarheid hangt van Milan af.
+The shelf follows the active scan request. Once complete, unused selections disappear; the full inventory remains accessible through Pieces/Stock. A confirmed loaded roster helps identify members still requiring scans. Unreadable roster data does not block an enabled reader. Inventory contains eleven player characters, eight allies and seven ghouls; Milan determines their availability.
 
-## Geladen campagne
+## Loaded campaign
 
-Zichtbare ondersteunde setupschermen en kaartwaarnemingen kunnen posities overnemen. Dit is geen volledige import van de officiële save. Controleer verborgen, gestapelde en niet-herkende onderdelen zelf. Zie [gedeeltelijk herstel](TAFEL-LEGEN.md).
+Supported visible setup screens and map observations can copy positions. This is not a full import of the official save. Check hidden, stacked and unrecognized components yourself. See [partial recovery](TAFEL-LEGEN.md).
 
-## Na een crash of herstart van Milan
+## After Milan crashes or restarts
 
-Gebruik **App restarted? Recover input** op het bord of **Reset registrations / recover input** in het Control Center als de invoer vastzit. Deze bediening wist tijdelijke registratievoortgang en wachtende invoer en geeft actieve sensorcontacten vrij. Bevestigde bordposities, fiches en de officiële campagne blijven behouden. Er wordt geen zet opnieuw verstuurd.
+Use **App restarted? Recover input** on the board or **Reset registrations / recover input** in the Control Center if input is stuck. This clears temporary registration progress and pending input and releases active sensor contacts. Confirmed board positions, tokens and the official campaign are preserved. No move is replayed.
 
-Bij een via USB herkende nieuwe appinstantie wordt tijdelijke invoer eveneens hersteld. Zonder USB-verbinding kan de adapter die herstart niet waarnemen. Volg na herstel het actuele scherm in Milan en scan opnieuw wanneer daarom wordt gevraagd.
+Temporary input is also recovered when a new app instance is detected through USB. Without USB, the adapter cannot observe that restart. Follow Milan's current screen and scan again when requested.

@@ -1,37 +1,37 @@
-# Speelbord op een andere pc openen
+# Open game board on another PC
 
-## Herstel gedeelde artworkroutes — 30 oktober 2026
+## Fix shared artwork routes — October 30, 2026
 
-De deelproxy laat nu ook de publieke `/games/<game-id>/artwork/`-routes door. Na de modulemigratie werd de artworkcatalogus daar geladen, terwijl de proxy alleen de oudere artworkroutes kende. Dit veroorzaakte een 404 en voorkwam dat het gedeelde bord startte. De beheerroutes en overige modulepaden blijven geblokkeerd. De twee proxytests en een browserproef via het LAN-adres controleren aanmelding, zichtbare kaart, leesbare sessie en geweigerde Core-bediening. De lokale gekoppelde Core bleef tijdens het herstel verbonden. Op een bestaande installatie moet de firewallregel overeenkomen met het werkelijk gebruikte Node-programmapad; een regel voor een systeeminstallatie geldt niet voor de meegeleverde runtime.
+The sharing proxy now also allows the public `/games/<game-id>/artwork/` routes to pass through. After the module migration, the artwork catalog was loaded there, while the proxy only knew the older artwork routes. This caused a 404 and prevented the shared board from starting. The management routes and other module paths remain blocked. The two proxy tests and a browser test via the LAN address check login, visible map, readable session, and denied Core operation. The local linked Core remained connected during recovery. On an existing installation, the firewall rule must match the actual Node program path used; a rule for a system installation does not apply to the supplied runtime.
 
-## Automatisch starten — 30 oktober 2026
+## Autostart — October 30, 2026
 
-De standaardlauncher start de deelserver nu automatisch zodra de gekoppelde speladapter gereed is, zowel vanuit de broncode als in het Windows-pakket. De server draait binnen de launcher en stopt bij afsluiten of wisselen van spel. Opnieuw openen controleert dat de server draait. Het actuele adres en een nieuwe toegangscode worden in de private spelwerkmap opgeslagen; het Control Center toont een concrete fout als delen niet kan starten. Een ontbrekende netwerkverbinding blokkeert de lokale tafel niet. De bestaande firewall moet het gebruikte Node-programma en poort 5182 voor het lokale subnet toestaan.
+The default launcher now automatically starts the sharing server once the associated game adapter is ready, both from source code and in the Windows package. The server runs within the launcher and stops when exiting or switching games. Reopen checks that the server is running. The current address and a new access code are stored in the private game workbook; the Control Center shows a concrete error if sharing cannot start. A missing network connection does not block the local table. The existing firewall must allow the Node program in use and port 5182 for the local subnet.
 
-Het laatst gebruikte LAN-adres wordt hergebruikt als dat nog op een fysieke interface bestaat. Bij één geschikte verbinding wordt die automatisch gekozen; bij meerdere verbindingen zonder geldige eerdere keuze volgt een foutmelding. De aparte bron-CLI blijft beschikbaar voor een expliciete adreskeuze. Tests controleren starten, dubbel openen, stoppen, opnieuw starten, adreskeuze en foutmeldingen.
+The last used LAN address is reused if it still exists on a physical interface. If there is one suitable connection, it will be selected automatically; If there are multiple connections without a valid previous choice, an error message will appear. The separate source CLI remains available for explicit address selection. Tests check start, double open, stop, restart, address selection and error messages.
 
-## Historische bronversie — 29 oktober 2026
+## Historical source version — October 29, 2026
 
-Start eerst de gekoppelde tafel en voer vanuit de broncheckout `node tools/share-board.mjs JOUW-PC-LAN-IP` uit. De tool bewaart het actuele adres en de tijdelijke code in `private/linked/board-share-state.json`; het Control Center toont ze zodra de deelserver bereikbaar is. De huidige releasekandidaat start deze optionele deelserver niet automatisch en bevat deze bron-CLI niet. Beschrijvingen hieronder van automatisch delen door private launchers horen bij de oudere ontwikkelopstelling. Zie [installatie](../INSTALLATION.md) voor de huidige hoofdroute. De toegangsgrenzen hieronder blijven gelden.
+First start the linked table and from the source checkout run `node tools/share-board.mjs JOUW-PC-LAN-IP`. The tool stores the current address and temporary code in `private/linked/board-share-state.json`; the Control Center shows them as soon as the sharing server is reachable. The current release candidate does not automatically start this optional sharing server and does not include this resource CLI. Descriptions below of auto-sharing by private launchers are from the older development setup. See [installation](../INSTALLATION.md) for the current main route. The access limits below remain in effect.
 
-De private gekoppelde tafel kan via het lokale netwerk op een tweede scherm worden geopend. De officiële Milan-app en de Core blijven op hun bestaande apparaten draaien; beide browsers gebruiken dezelfde tafelsessie.
+The private linked table can be opened on a second screen via the local network. The official Milan app and the Core will continue to run on their existing devices; both browsers use the same table session.
 
-De normale adressen op `127.0.0.1` werken alleen op de pc waarop de servers draaien. De aparte bordlink gebruikt het LAN-adres van die pc en poort **5182**, bijvoorbeeld `http://192.168.2.23:5182/board`. Gebruik op het tweede apparaat deze link en voer de zescijferige toegangscode in die de delende pc toont. De code staat niet in de URL. De code verandert als de deelserver opnieuw wordt gestart; de browsersessie blijft maximaal twaalf uur bewaard.
+The normal addresses on `127.0.0.1` only work on the PC running the servers. The separate board link uses that PC's LAN address and port **5182**, for example `http://192.168.2.23:5182/board`. On the second device, use this link and enter the six-digit passcode that the sharing PC shows. The code is not in the URL. The code changes when the sharing server is restarted; the browser session is retained for a maximum of twelve hours.
 
-Beide apparaten moeten elkaar op het lokale netwerk kunnen bereiken. Een gastnetwerk, clientisolatie of VPN kan dat verhinderen. Windows moet inkomend TCP-verkeer op poort 5182 toestaan. De lokale proef gebruikt een eigen firewallregel voor Node, het specifieke wifi-adres en uitsluitend het lokale subnet. Er is geen routerpoort of internettoegang ingesteld. Het adres kan veranderen als de pc een ander netwerkadres krijgt.
+Both devices must be able to reach each other on the local network. A guest network, client isolation or VPN can prevent this. Windows must allow incoming TCP traffic on port 5182. The local trial uses its own firewall rule for Node, the specific WiFi address, and the local subnet only. No router port or internet access has been set up. The address may change if the PC gets a different network address.
 
-## Wat wordt gedeeld?
+## What is shared?
 
-De bordpagina, geselecteerde bordassets, actuele sessie en bordstatus worden doorgegeven vanuit de lokale adapter. Verplaatsingsverzoeken gaan naar dezelfde bestaande adapter, inclusief de controle op actieve speler en appbevestiging. De deelserver voegt geen spelregels of hardwareprotocol toe.
+The board page, selected board assets, current session, and board status are passed from the local adapter. Move requests go to the same existing adapter, including active player check and app confirmation. The sharing server does not add any game rules or hardware protocol.
 
-Miniaturen zijn ook via deze link met ingedrukte linkermuisknop naar een ander vak te slepen. Na een update vernieuw je de pagina met Ctrl+F5. Tijdens de appbevestiging blijft de laatst bevestigde positie zichtbaar. Zie [sleepbediening](../games/milan-uprising/SLEPEN-EN-SENSOREN.md).
+Miniatures can also be dragged to another box via this link while holding down the left mouse button. After an update, refresh the page with Ctrl+F5. During the app confirmation, the last confirmed position remains visible. See [drag control](../games/milan-uprising/SLEPEN-EN-SENSOREN.md).
 
-Ook de [locatietegels](../games/milan-uprising/LOCATIETEGELS.md) zijn via deze link te kiezen en om te keren. Deze gedeelde tafelgegevens blijven op de host-pc bewaard. Twee gelijktijdige wijzigingen gebruiken een revisiecontrole, zodat een verouderde browserstand niet stilzwijgend de laatste wijziging vervangt.
+The [location tiles](../games/milan-uprising/LOCATIETEGELS.md) can also be selected and turned over via this link. This shared table data remains on the host PC. Two simultaneous changes use a revision control, so that an outdated browser mode does not silently replace the last change.
 
-Core-start/stop, koppelen, technische logs, handmatige sensorinvoer en opstellingsimport zijn niet via deze bordlink beschikbaar. De technische pc-bediening op poort 5180 blijft lokaal. De bordlink gebruikt een eigen aanmelding, controleert Host en Origin, beperkt foutieve codepogingen en deelt alleen de vastgelegde bordroutes.
+Core start/stop, pairing, tech logs, manual sensor input, and setup import are not available through this board link. The technical PC control on port 5180 remains local. The board link uses its own login, checks Host and Origin, limits incorrect code attempts, and shares only the committed board routes.
 
-## Implementatie en validatie
+## Implementation and validation
 
-`server/board-share.mjs` biedt `createBoardShare({address, port, upstream})` met alleen ingebouwde Node.js-modules. De upstream moet op loopback draaien; het bindadres moet een lokaal IPv4-adres zijn. De private startrunner kiest een daadwerkelijk netwerkadres van deze pc en toont de tijdelijke toegangscode. De normale publieke sandbox blijft zonder deze deelserver werken.
+`server/board-share.mjs` provides `createBoardShare({address, port, upstream})` with only built-in Node.js modules. The upstream must run on loopback; the bind address must be a local IPv4 address. The private start runner chooses an actual network address of this PC and displays the temporary access code. The normal public sandbox continues to work without this sharing server.
 
-Tests controleren aanmelding, sessiecookie, doorgegeven bordroutes, geweigerde beheerfuncties, Host/Origin-controle en begrensde codepogingen. Een browserproef via het LAN-adres op de host-pc bevestigt aanmelding en dezelfde 39 geplaatste onderdelen zonder JavaScriptfouten. Bereikbaarheid vanaf de andere fysieke pc moet de gebruiker nog bevestigen.
+Tests check login, session cookie, passed board routes, denied admin functions, Host/Origin check, and bounded code attempts. A browser test via the LAN address on the host PC confirms login and the same 39 items placed without JavaScript errors. The user must still confirm reachability from the other physical PC.

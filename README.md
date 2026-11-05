@@ -54,7 +54,7 @@ General TCE user guides:
 - [Sharing a linked board on the LAN](docs/BORD-DELEN.md)
 - [Firmware simulation](docs/FIRMWARE-SIMULATIE.md)
 
-For board operation, setup, expansions and game-specific limits, open the selected [game module's guide](docs/README.md#spelmodules).
+For board operation, setup, expansions and game-specific limits, open the selected [game module's guide](docs/README.md#game-modules).
 
 ## Development and project documentation
 

@@ -1,31 +1,33 @@
-# Documentatie
+# Documentation
 
-## TCE gebruiken
+## Using TCE
 
-TCE is de emulator en gedeelde infrastructuur. De officiële app van het gekozen spel blijft verantwoordelijk voor spelregels en campagne. Algemene handleidingen:
+TCE provides the emulator and shared infrastructure. The selected game's official app remains responsible for rules and campaign progress.
 
-- [Overzicht en starten](../README.md)
-- [Installatie en bijwerken](INSTALLATION.md)
-- [Automatische pc-voorbereiding](AUTOMATIC-SETUP.md)
-- [Spelmodules toevoegen en artwork beheren](GAME-ADDONS.md)
-- [Een gekoppeld bord delen via LAN](BORD-DELEN.md)
-- [Firmware-simulatie](FIRMWARE-SIMULATIE.md)
+- [Overview and startup](../README.md)
+- [Installation and updates](INSTALLATION.md)
+- [Automatic PC preparation](AUTOMATIC-SETUP.md)
+- [Adding game modules and managing artwork](GAME-ADDONS.md)
+- [Sharing a linked board over LAN](BORD-DELEN.md)
+- [Firmware simulation](FIRMWARE-SIMULATIE.md)
 
-## Spelmodules
+## Game modules
 
-Elke module beschrijft haar eigen appvereisten, bordbediening, componenten en beperkingen. De huidige meegeleverde module is:
+Each module documents its app requirements, board controls, components and limitations. The current bundled module is:
 
 - [Vampire: The Masquerade – Milan Uprising](games/milan-uprising/README.md)
 
-De mogelijkheid om modules toe te voegen is geen bewijs dat alle Teburu-games al worden ondersteund. Compatibiliteit wordt per module en officiële app vastgesteld.
+An extensible module architecture does not mean every Teburu game is supported. Compatibility is established for each module and official app.
 
-## Voor ontwikkelaars en projectreview
+## Development and project review
 
-- [Ontwikkelplan](PLAN.md), [architectuur](ARCHITECTUUR.md), [contracten](CONTRACTEN.md) en [besluiten](BESLUITEN.md).
-- [Spelmodulecontract](GAME-MODULES.md) en [Milan-artworkbronnen en extractie](ARTWORK.md).
-- [Validatieverslagen](VALIDATIE.md), [appvalidatie](APP-VALIDATIE.md) en [Core-validatie](CORE-VALIDATIE.md).
-- [Onderzoeksregister](ONDERZOEK.md) en [Teburu-/Milan-bronnenonderzoek](TEBURU-DEEPSEARCH.md).
-- [Release-review en acceptatie](RELEASE-REVIEW.md).
-- [Ontwikkelverslagen bij gebruikersfuncties](project-history/README.md).
+- [Development plan](PLAN.md), [architecture](ARCHITECTUUR.md), [contracts](CONTRACTEN.md) and [decisions](BESLUITEN.md).
+- [Game module contract](GAME-MODULES.md) and [Milan artwork sources and extraction](ARTWORK.md).
+- [Validation reports](VALIDATIE.md), [app validation](APP-VALIDATIE.md) and [Core validation](CORE-VALIDATIE.md).
+- [Research register](ONDERZOEK.md) and [Teburu/Milan source research](TEBURU-DEEPSEARCH.md).
+- [Release review and acceptance](RELEASE-REVIEW.md).
+- [Feature development records](project-history/README.md).
 
-Projectdocumentatie bevat gedateerde experimenten, technische afwegingen en bewijsgrenzen. Maak bij bevindingen onderscheid tussen gedeeld Core-gedrag en de geteste spelmodule. Testaantallen en correctiegeschiedenis horen in deze documentatie. Voer de publieke softwaretests uit met `npm test` of `node --test test/*.test.mjs tests/*.test.js`.
+Project records contain dated experiments, technical decisions and evidence limits. Distinguish shared Core behavior from the tested game module. Test counts and correction history belong in these records. Run public software tests with `npm test` or `node --test test/*.test.mjs tests/*.test.js`.
+
+Documentation is maintained in English. Existing filenames and internal identifiers remain unchanged to preserve references.

@@ -1,10 +1,10 @@
-# Locatietegels en Havenkamers
+# Location tiles and Haven rooms
 
-## Havenkamers
+## Haven rooms
 
-De tien Havenkamers hebben vaste typen en effecten. Die zijn direct beschikbaar zonder schermherkenning of handmatige bonusinvoer.
+The ten Haven rooms have fixed types and effects. These are immediately available without screen recognition or manual bonus entry.
 
-| Rij vanaf boven | Links | Rechts |
+| Row from top | Left | Right |
 | --- | --- | --- |
 | 1 | Personal room 1 | Personal room 2 |
 | 2 | Personal room 3 | Personal room 4 |
@@ -12,38 +12,38 @@ De tien Havenkamers hebben vaste typen en effecten. Die zijn direct beschikbaar 
 | 4 | Office | Gym |
 | 5 | Library | Gallery |
 
-Elke kamer toont de geregistreerde bonus op het bord. Selecteer de kamer om beide zijden te bekijken. Gebruik **Record upgraded side**, **Record standard side** of **Save room side** om de gekochte/opgewaardeerde zijde vast te leggen. Zonder registratie wordt de standaardzijde getoond. Beschikbaar upgraded-artwork volgt de gekozen zijde.
+Each room shows the registered bonus on the board. Select the room to view both sides. Use **Record upgraded side**, **Record standard side** or **Save room side** to record the purchased/upgraded side. Without registration the default side is shown. Available upgraded artwork follows the chosen side.
 
-| Kamer | Standaardzijde | Opgewaardeerd / gekocht |
+| Room | Standard side | Upgraded/purchased |
 | --- | --- | --- |
 | Personal room | +1 Willpower | +2 Willpower |
-| Meditation Room | Besteed 2 Willpower: +2 XP of -3 Hunger | Besteed 1 Willpower: +2 XP of -3 Hunger |
-| Living Room | Besteed 3 Resources: +1 AP volgende beurt | Besteed 3 Resources: alle personages +1 AP volgende beurt |
-| Office | Niet gekocht | Besteed 2 Resources: -2 Suspicion |
-| Gym | Niet gekocht | Besteed 1 Willpower: +1 Physical volgende nacht |
-| Library | Niet gekocht | Besteed 1 Willpower: +1 Mental volgende nacht |
-| Gallery | Niet gekocht | Besteed 1 Willpower: +1 Social volgende nacht |
+| Meditation Room | Spend 2 Willpower: +2 XP or -3 Hunger | Spend 1 Willpower: +2 XP or -3 Hunger |
+| Living Room | Spend 3 Resources: +1 AP next turn | Spend 3 Resources: all characters +1 AP next turn |
+| Office | Not purchased | Spend 2 Resources: -2 Suspicion |
+| Gym | Not purchased | Spend 1 Willpower: +1 Physical next night |
+| Library | Not purchased | Spend 1 Willpower: +1 Mental next night |
+| Gallery | Not purchased | Spend 1 Willpower: +1 Social next night |
 
-Deze bediening registreert de tafelstand. Aankopen, betalen, kameracties, ontvangers en duur van effecten worden in Milan afgehandeld. Een Havenkamer staat los van de huisvormige Haven-tegel in een stadsdistrict.
+These controls record the table state. Purchases, payments, room actions, recipients and effect duration are handled in Milan. A Haven room is separate from the house-shaped Haven tile in a city district.
 
-## Stadstegels
+## City tiles
 
-Selecteer een district en open **Location → Board tiles** voor het symbool, de uitleg en de geregistreerde zijde. **Flip tile** wisselt tussen achterzijde en symboolzijde. Gebruik **Copy or correct a tile** om de zichtbare stand in Milan over te nemen. Dit werkt ook op het gedeelde bord.
+Select a district and open **Location → Board tiles** for the symbol, explanation and registered side. **Flip tile** switches between back and symbol side. Use **Copy or correct a tile** to copy the visible position in Milan. This also works on the shared board.
 
-Het vaste bonustype van alle dertig districten is bekend. De zichtbaarheid hangt van de campagne af en moet worden herkend of vastgelegd. Bijzondere locatietegels zijn nog niet volledig gecatalogiseerd of automatisch herkenbaar. Onbekende standen blijven onbevestigd. Op het stadsbord staan symbolen; uitleg staat in het locatiepaneel.
+The fixed bonus type of all thirty districts is known. Visibility depends on the campaign and must be observed or recorded. Special location tiles are not yet fully cataloged or automatically recognized. Unknown states remain unconfirmed. The city board displays symbols; explanations are in the location panel.
 
-Een locatietegel is een omkeerbaar inzetstuk. Attribuuticonen en factiecontrole zijn afzonderlijke bordgegevens. Een tegel omdraaien in TCE voert geen bijbehorende actie in Milan uit.
+A location tile is a reversible insert. Attribute icons and faction control are separate board data. Flipping a tile in TCE does not perform a corresponding action in Milan.
 
-## Automatische overname bij gekoppeld spelen
+## Automatic synchronization during linked play
 
-**Scenario setup → Board tiles** kan ondersteunde zichtbare symbolen en achterzijden overnemen na twee overeenkomende waarnemingen. Ontbrekende of afgedekte iconen gelden niet vanzelf als achterzijde. Niet iedere tegel of locatie wordt betrouwbaar herkend; vergelijk de tafel met Milan en corrigeer waar nodig.
+**Scenario setup → Board tiles** can adopt supported visible symbols and backs after two matching observations. Missing or covered icons do not automatically count as the back. Not every tile or location is reliably recognized; compare the table with Milan and correct where necessary.
 
-Ondersteunde **[bonus] Location Bonus revealed in [district]**-meldingen kunnen een onthulde bonus vastleggen. Onbekende typen of districten worden niet geraden. Een bonusonthulling verplaatst geen Haven en koopt geen kamer.
+Supported **[bonus] Location Bonus revealed in [district]** notifications can capture a revealed bonus. Unknown types or districts are not guessed. A bonus reveal does not move a Haven or buy a room.
 
-De volgende stap **Components setup** behoudt tegels en geregistreerde kamerzijden. De expliciete opdracht **Clear board & resync** wist die wel.
+The next step **Components setup** preserves tiles and registered room sides. The explicit command **Clear board & resync** clears that.
 
-## Bewaren
+## Save
 
-Sandboxexports bevatten de tegel- en kamerzijdegegevens. Import controleert deze vóór vervanging van de tafel. Tegels hebben geen eigen undo/redo; draai of corrigeer de zijde opnieuw om een wijziging terug te zetten.
+Sandbox exports contain the tile and room side data. Import checks this before replacing the table. Tiles do not have their own undo/redo; rotate or correct the side again to reset a change.
 
-Bij gekoppeld spelen staan de gegevens op de host-pc en delen alle bordpagina's dezelfde stand. Een verouderde gelijktijdige wijziging wordt geweigerd en ververst. Bevestig de spelvoortgang met **Continue** in Milan; een tegelcorrectie in TCE stuurt geen sensorcontact.
+During linked play, data is stored on the host PC and all board pages share the same state. A stale concurrent change is rejected and refreshed. Confirm game progress with **Continue** in Milan; a tile correction in TCE sends no sensor contact.

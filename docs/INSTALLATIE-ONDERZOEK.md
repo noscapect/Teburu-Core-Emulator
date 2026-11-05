@@ -1,44 +1,44 @@
-# Officiële Windows-installatie — statische controle
+# Official Windows installation — static check
 
-Gecontroleerd op 22 oktober 2026. De app is op concrete gebruikersopdracht lokaal geïnstalleerd, maar niet gestart. Alleen bestandsnamen, standaard versiemetadata, PE-architectuur en eenvoudige opstartconfiguratie zijn bekeken. Geen decompilatie, protocolanalyse of extractie van spelinhoud uitgevoerd.
+Checked on October 22, 2026. The app was installed locally based on a specific user command, but not started. Only file names, default version metadata, PE architecture, and basic boot configuration were considered. No decompilation, protocol analysis, or game content extraction performed.
 
-## Herkomst en reproduceerbaarheid
+## Origin and reproducibility
 
-- Officiële downloadroute: https://xplo.red/VtM-Win-Download.
-- Deze route verwees tijdens de download naar https://teburu.com/downloads/VtM/BuildWindows/VTMTEBURU_v1.0.9.zip.
-- Archief: `VTMTEBURU_v1.0.9.zip`, 1.014.542.313 bytes.
+- Official download route: https://xplo.red/VtM-Win-Download.
+- This route referred to https://teburu.com/downloads/VtM/BuildWindows/VTMTEBURU_v1.0.9.zip. during the download
+- Archive: `VTMTEBURU_v1.0.9.zip`, 1,014,542,313 bytes.
 - SHA-256: `789E5C968445C18CDB8CD83EC7AE393FE6B3E58EB64ED4BA742C0ADE75E3EE56`.
-- Alle 134 uitgepakte bestanden zijn gecontroleerd op aanwezigheid en overeenkomstige grootte met de ZIP-inhoud. Dit is geen volledige integriteits- of runtimecontrole. De hash identificeert de lokale download; er is geen onafhankelijke fabrikantchecksum vergeleken.
-- Installatie onder `%LOCALAPPDATA%\Programs\Teburu\Milan Uprising\1.0.9\VTMTEBURU_v1.0.9`, met een Startmenusnelkoppeling onder Teburu.
-- De app en het archief staan buiten de repository. Er zijn geen appbestanden of beschermde assets overgenomen.
+- All 134 extracted files have been checked for presence and size correspondence with the ZIP contents. This is not a full integrity or runtime check. The hash identifies the local download; no independent manufacturer checksum was compared.
+- Installed under `%LOCALAPPDATA%\Programs\Teburu\Milan Uprising\1.0.9\VTMTEBURU_v1.0.9`, with a Start menu shortcut under Teburu.
+- The app and archive are outside the repository. No app files or protected assets were taken over.
 
-## Bevindingen en betekenis
+## Findings and significance
 
-| Waarneming | Betekenis voor het project | Grens van het bewijs |
+| Observation | Significance for the project | Limit of the evidence |
 | --- | --- | --- |
-| `VTMTEBURU.exe` heeft PE-machinecode `0x8664` | Dit is een Windows x64-build; een eventuele native helper moet hiermee rekening houden. | Geen bewijs voor minimale Windows-versie of werkende uitvoering op deze computer. |
-| EXE-productmetadata noemt `6000.1.17f1`; `UnityPlayer.dll` en `GameAssembly.dll` zijn aanwezig | De app is een Unity-build. Houd runtimeversie en gameversie apart in een testverslag. | Milan 1.0.9 volgt hier uit de officiële archiefnaam, niet uit een waargenomen versiescherm. |
-| `VTMTEBURU_Data/Plugins/x86_64/BleWinrtDll.dll`, bestands-/productversie `1.1.1` | De distributie bevat een Bluetooth WinRT-plug-in. Dit is een aanwijzing voor de Windows-Bluetoothroute. | Geen bewijs van werkelijk gebruikte API's, GATT-services, payloads, beveiliging of ondersteuning voor virtuele invoer. |
-| `webrtc.dll` is meegeleverd | Noteer netwerk-/remote-functionaliteit als te onderzoeken onderdeel van de normale appflow. | Een bibliotheeknaam bewijst geen remote-invoercontract of toegang voor onze tafel. |
-| Geen losse README, PDF of HTML-handleiding aangetroffen bij de controle op gangbare documentatie-extensies | Er is via deze controle geen meegeleverde integratiehandleiding gevonden. | Geen conclusie dat een ondersteunde interface nergens bestaat. |
+| `VTMTEBURU.exe` has PE machine code `0x8664` | This is a Windows x64 build; any native helper must take this into account. | No evidence of minimum Windows version or working run on this computer. |
+| EXE product metadata names `6000.1.17f1`; `UnityPlayer.dll` and `GameAssembly.dll` are present | The app is a Unity build. Keep runtime version and game version separate in a test report. | Milan 1.0.9 follows here from the official archive name, not from an observed version screen. |
+| `VTMTEBURU_Data/Plugins/x86_64/BleWinrtDll.dll`, file/product version `1.1.1` | The distribution includes a Bluetooth WinRT plugin. This is an indication of the Windows Bluetooth route. | No evidence of actual APIs used, GATT services, payloads, security, or virtual input support. |
+| `webrtc.dll` is included | Note network/remote functionality as part of the normal app flow to investigate. | A library name does not prove a remote entry contract or access for our table. |
+| No separate README, PDF or HTML manual found when checking for common documentation extensions | No included integration manual was found through this check. | No conclusion that a supported interface does not exist anywhere. |
 
-De eenvoudige opstartconfiguratie bevat geen zichtbare instelling voor bordloos spelen of een externe invoeradapter. Dit is alleen een bevinding over dat configuratiebestand, geen bewijs dat zulke mogelijkheden ontbreken in de app of SDK.
+The simple start-up configuration does not include a visible setting for boardless play or an external input adapter. This is only a finding about that configuration file, not evidence that such capabilities are missing from the app or SDK.
 
-## Wat dit nog niet oplevert
+## What this doesn't deliver yet
 
-Geen bewezen Core-vervanging, karakterregistratie, sensor-/locatiemapping, sessiehandshake, appgestuurde tafelupdates of bruikbare digitale worp. Interne spelbestanden zijn geen geverifieerd of vrij herbruikbaar gegevenspakket voor onze engine.
+No proven Core replacement, character registration, sensor/location mapping, session handshake, app-driven table updates, or usable digital roll. Internal game files are not a verified or freely reusable data package for our engine.
 
-## Eerstvolgende verificatie
+## Next verification
 
-Het concrete testprotocol en de niet-verzonden fabrikantvragen staan in [APP-VALIDATIE.md](APP-VALIDATIE.md).
+The concrete test protocol and the unsent manufacturer questions are in [APP-VALIDATIE.md](APP-VALIDATIE.md).
 
-1. Zodra zichtbare bediening mogelijk is: open de app normaal en noteer de getoonde gameversie, startflow, apparaatrollen en het precieze punt waarop een Core nodig is.
-2. Probeer digitale worpen en eventuele handmatige invoer alleen via de normale UI. Als hardware de toegang blokkeert, leg die blokkade vast; concludeer niet dat de functie ontbreekt.
-3. Verifieer bij Xplored of er een ondersteunde virtuele invoer-/testinterface voor bestaande officiële apps is en wat publiek geïmplementeerd mag worden. Geen aanvraag of bericht verstuurd.
+1. Once visible controls are possible: open the app normally and note the game version shown, start flow, device roles and the precise point at which a Core is needed.
+2. Try digital rolls and any manual input via the normal UI only. If hardware blocks access, document that block; do not conclude that the function is missing.
+3. Verify with Xplored that there is a supported virtual input/test interface for existing official apps and what is allowed to be deployed publicly. No request or message sent.
 
-Pas daarna kan een echte adapter worden gespecificeerd. De lokale `virtual-core` blijft uitsluitend onze gedragssimulatie.
+Only then can a real adapter be specified. The local `virtual-core` remains solely our behavioral simulation.
 
 
-## Latere statische verdieping
+## Later static floor
 
-De eerste controle hierboven is historisch. Op 22 oktober zijn op gebruikersopdracht originele textures uitsluitend lokaal geëxporteerd; zie [ARTWORK.md](ARTWORK.md). Vervolgens is het leesbare assemblymanifest nader bekeken voor BLE-, netwerk- en WebRTC-aanwijzingen, zijn 45 locatie-presentatiebestanden geteld en is een read-only randvoorwaardenprobe uitgevoerd. Zie [APP-KOPPELING-VOORONDERZOEK.md](APP-KOPPELING-VOORONDERZOEK.md). Dit is geen runtime-/protocolvalidatie. Ruwe waarnemingen en fingerprints blijven privaat.
+The first check above is historical. On October 22, original textures were exported locally only by user command; see [ARTWORK.md](ARTWORK.md). The readable assembly manifest was then examined in more detail for BLE, network and WebRTC clues, 45 location presentation files were counted and a read-only boundary condition probe was performed. See [APP-KOPPELING-VOORONDERZOEK.md](APP-KOPPELING-VOORONDERZOEK.md). This is not runtime/protocol validation. Raw observations and fingerprints remain private.

@@ -1,17 +1,17 @@
-# Tafel legen en gedeeltelijk herstellen
+# Clearing and partially restoring the table
 
-Kies op de gekoppelde tafel **Table menu → Clear board & resync** en bevestig om de virtuele tafel leeg te maken. Losse onderdelen gaan terug naar de voorraad; tegelinstellingen, tijdelijke scanregistraties en wachtende bewegingen worden gewist. De officiële Android-save en Coreverbinding blijven behouden. De adapter bewaart vooraf een lokale herstelkopie.
+Choose **Table menu → Clear board & resync** on the linked table and confirm. Loose components return to stock; tile settings, temporary registrations and pending moves are cleared. The official Android save and Core connection remain. The adapter first saves a local recovery copy.
 
-## Opnieuw inlezen
+## Reading the board again
 
-Toon de relevante setup- of kaartschermen in Milan en laat ze openstaan voor twee overeenkomende waarnemingen. Ondersteunde informatie omvat invloed en controle, zichtbare personages en bepaalde NPC's/companions, onderzoeksmarkers en locatietegels. Welke informatie beschikbaar is, hangt van het getoonde scherm en de leesbaarheid af.
+Display the relevant setup or map screens in Milan and leave them open for two matching observations. Supported information includes influence/control, visible characters and selected NPCs/companions, Investigation markers and location tiles. Available information depends on the screen and readability.
 
-**Scenario setup → Board tiles** levert ondersteunde tegelstanden. De daaropvolgende **Components setup** bouwt de componentenopstelling opnieuw op en behoudt die tegels en geregistreerde Havenkamerzijden. Herhaalde beelden binnen dezelfde setup wissen geen vers bevestigde markers.
+**Scenario setup → Board tiles** supplies supported tile sides. The following **Components setup** rebuilds component placement while preserving those tiles and recorded Haven-room sides. Repeated observations within the same setup do not erase freshly confirmed markers.
 
-De gewone stadskaart kan positief herkende onderdelen aanvullen of ondersteunde posities corrigeren. Een zichtbare ondersteunde encountermelding kan een onderzoeksmarker herstellen. Controleer het resultaat tegen Milan.
+The normal city map can add positively recognized pieces or correct supported positions. Visible supported encounter messages can restore Investigation markers. Compare the result with Milan.
 
-## Beperkingen
+## Limits
 
-Dit is geen volledige save-import. Verborgen, afgedekte en niet-herkende onderdelen worden niet automatisch gereconstrueerd. Alleen een ontbrekend icoon verwijdert geen onderdeel. Sommige markers en bijzondere locatietegels vereisen handmatige correctie; personages moeten zo nodig opnieuw worden gescand en geplaatst.
+This is not a full save import. Hidden, obscured and unrecognized components cannot be reconstructed automatically. A missing icon alone removes nothing. Some markers and special tiles require manual correction; characters may need rescanning and placement.
 
-Leegmaken op een willekeurig spelscherm kan daarom een onvolledige tafel opleveren. Gebruik voor uitsluitend vastgelopen scan- of bewegingsinvoer [Recover input](SAVEGAME-PERSONAGES.md); die bediening behoudt bevestigde posities.
+Clearing on an arbitrary game screen can leave an incomplete table. For stuck scan/movement input alone, use [Recover input](SAVEGAME-PERSONAGES.md); that preserves confirmed positions.

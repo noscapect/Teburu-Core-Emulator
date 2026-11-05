@@ -1,13 +1,13 @@
-# Gedeeltelijk herstel vanaf de stadskaart
+# Partial recovery from the city map
 
-Laat de stadskaart in Milan openstaan om ondersteunde zichtbare informatie naar de gekoppelde tafel over te nemen. De adapter werkt op de achtergrond; de bordpagina hoeft daarvoor niet open te blijven.
+Leave Milan's city map open to copy supported visible information to the linked table. The adapter runs in the background; the board page need not remain open.
 
-Twee overeenkomende waarnemingen zijn vereist voor positief herkende posities en markerstanden. Ondersteunde kaartinformatie omvat invloed en controle, zichtbare spelerspersonages, bepaalde NPC-/companionportretten en Investigation-iconen. Herkende personageposities kunnen ontbrekende én bestaande lokale posities bijwerken. Een wachtende zet kan met verse passende waarnemingen worden bevestigd zonder nieuwe sensorinvoer.
+Two matching observations are required for positively recognized positions and marker states. Supported map data includes influence and control, visible player characters, selected NPC/companion portraits and Investigation icons. Recognized character positions can update missing and existing local positions. Fresh matching observations can confirm a pending move without further sensor input.
 
-## Grenzen
+## Limits
 
-Gestapelde miniaturen, dialoogvensters en onleesbare iconen kunnen informatie afdekken. Afwezigheid alleen verwijdert geen onderdeel. Restricted-fiches, bijzondere tegels en verhaalmarkers worden niet uit vermoedens teruggezet.
+Stacked miniatures, dialogs and unreadable icons can hide information. Absence alone does not remove a piece. Restricted tokens, special tiles and story markers are not reconstructed from guesses.
 
-**Map · partial recovery** betekent dat de tafel gedeeltelijk is hersteld. Controleer hem tegen Milan; een herkende locatie-instructie of plaatsingsbevestiging kan later aanvullende informatie leveren. Voor [locatietegels](LOCATIETEGELS.md) zijn de bijbehorende setupschermen en correcties beschikbaar.
+**Map · partial recovery** means the table has been partially restored. Compare it with Milan; recognized location instructions or placement confirmations may add information later. Relevant setup screens and corrections are available for [location tiles](LOCATIETEGELS.md).
 
-Na volledig leegmaken zijn vaak meerdere setupschermen nodig. Zie [tafel legen en herstellen](TAFEL-LEGEN.md). Er is geen volledige import van de officiële campagne-save.
+After a full clear, several setup screens are often needed. See [clearing and recovery](TAFEL-LEGEN.md). There is no complete import of the official campaign save.

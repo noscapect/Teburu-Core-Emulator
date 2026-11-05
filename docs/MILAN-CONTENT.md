@@ -1,52 +1,52 @@
-# Milan-content 0.5 — retail-basisspel
+# Milan content 0.5 — retail base game
 
-Aanvulling 0.6: de benoemde districts-/Havenkaart en handmatige opstellingshulp zijn nu beschikbaar als afzonderlijk pakket. Zie [KAART-EN-OPSTELLING.md](KAART-EN-OPSTELLING.md). Onderstaande beschrijving blijft de scope van retailpakket 0.5; bestaande saves daarvan blijven bruikbaar.
+Addition 0.6: The Named District/Haven map and Manual Setup Assistance are now available as a separate package. See [KAART-EN-OPSTELLING.md](KAART-EN-OPSTELLING.md). The description below remains the scope of retail package 0.5; existing saves remain usable.
 
-Broncontrole en implementatie: 22 oktober 2026. Gegevenspakket: `data/games/milan-uprising/retail.json`, `releaseId: retail-core`, pakketversie `0.5.0`, profielschemaversie 2. Alleen sandbox; echte fysieke inhoud maakt de tafel nog geen complete of automatisch gevalideerde spelsessie.
+Source check and deployment: October 22, 2026. Data package: `data/games/milan-uprising/retail.json`, `releaseId: retail-core`, package version `0.5.0`, profile schema version 2. Sandbox only; actual physical content does not make the table a complete or automatically validated gaming session.
 
-## Geïmplementeerde inhoud
+## Implemented content
 
-| Onderdeelgroep | Aantal losse onderdelen |
+| Subgroup | Number of loose parts |
 | --- | ---: |
-| Personages | 7 |
-| Bondgenoten | 2 |
+| Characters | 7 |
+| Allies | 2 |
 | Ghouls | 2 |
-| Anarch-invloed | 30 |
-| Camarilla-invloed | 20 |
-| Hand of St. Ambrose-invloed | 15 |
-| Controlefiches | 29 |
-| Onderzoek / afgesloten locatie | 18 |
+| Anarch influence | 30 |
+| Camarilla influence | 20 |
+| Hand of St. Ambrose influence | 15 |
+| Control tokens | 29 |
+| Investigation / closed location | 18 |
 | Masquerade Encounter | 1 |
-| NPC’s | 8 |
-| **Totaal** | **132** |
+| NPCs | 8 |
+| **Total** | **132** |
 
-Daarnaast bevat de doos één d10 en een spelbord. De app gebruikt lokale d10-worpen; er is geen fysieke dobbelsteenverbinding. De uitgever vermeldt vier personages per spel; zeven beschikbare personages betekenen niet zeven gelijktijdige spelerspersonages.
+In addition, the box contains one d10 and a game board. The app uses local d10 rolls; there is no physical die connection. The publisher lists four characters per game; seven available characters does not mean seven simultaneous player characters.
 
-De voorraad bevat de officiële identiteiten van alle zeven basisclans, hun personagenamen, de bondgenoten/ghouls en de acht NPC’s. Geen personagestatistieken, krachten, biografieën, dialogen, campagne-inhoud, kaarten of artwork zijn overgenomen of verzonnen.
+The inventory contains the official identities of all seven base clans, their character names, the allies/ghouls, and the eight NPCs. No character stats, powers, bios, dialogue, campaign content, maps or artwork have been adapted or invented.
 
-Controlefiches zijn verdeeld over de drie gepubliceerde factiecombinaties: 19, 9 en 1. Iedere combinatie heeft twee selecteerbare zijden. De achttien onderzoek/afgesloten-locatiefiches hebben eveneens twee handmatig selecteerbare toestanden. Dit zijn eigen functionele labels, geen exacte reproductie van bedrukking of symbolen. De fysieke nummering van onderzoeksfiches is nog niet vastgesteld; onze nummers 1–18 identificeren uitsluitend afzonderlijke digitale onderdelen.
+Control tokens are distributed among the three published faction combinations: 19, 9, and 1. Each combination has two selectable sides. The eighteen investigation/closed location tokens also have two manually selectable states. These are their own functional labels, not an exact reproduction of printing or symbols. The physical numbering of Investigation tokens has not yet been determined; our numbers 1–18 identify individual digital components only.
 
-## Bronnen en reikwijdte
+## Sources and scope
 
-1. [Xplored — Physical components, VTM](https://teburu.zendesk.com/hc/en-us/articles/25458904976667-Physical-components-VTM): fysieke aantallen, clanminiaturen, namen van bondgenoten/ghouls en NPC’s, factiecombinaties. De pagina maakt onderscheid tussen retail, pledges en uitbreidingen. Dit pakket bevat uitsluitend de retailbasis; geen Prospero-miniatuur, LED-ring of uitbreidingsonderdelen toegevoegd.
-2. [Officiële gamepagina — Milan Uprising](https://teburu.com/game/Vampire%3A%20The%20Masquerade%20-%20Milan%20Uprising/): namen bij de zeven basisclans. Alleen namen/clans opgenomen; illustraties en biografieën niet gekopieerd.
-3. [Officiële handleiding](https://teburu.com/downloads/VtM/VTM_MU_GameManual.pdf), pagina 6, 12 en 13: visueel gecontroleerd voor factiekleuren, onderscheid tussen invloed en controle, betekenis van onderdelen en NPC’s. Dit onderbouwt de korte eigen groepsbeschrijvingen en kleuronderscheiding. Geometrie en kleurtinten zijn zelfgemaakt.
-4. [Officiële introductie](https://teburu.zendesk.com/hc/en-us/articles/25458903969819-Introduction-to-VTM-Milan-Uprising): groepsgrootte vier personages, één tot vier spelers.
+1. [Xplored - Physical components, VTM](https://teburu.zendesk.com/hc/en-us/articles/25458904976667-Physical-components-VTM): physical numbers, clan miniatures, names of allies/ghouls and NPCs, faction combinations. The page distinguishes between retail, pledges and extensions. This package includes the retail base only; no Prospero miniature, LED ring or expansion parts added.
+2. [Official Game Page - Milan Uprising](https://teburu.com/game/Vampire%3A%20The%20Masquerade%20-%20Milan%20Uprising/): Names of the seven basic clans. Only names/clans included; illustrations and biographies not copied.
+3. [Official Manual](https://teburu.com/downloads/VtM/VTM_MU_GameManual.pdf), pages 6, 12 and 13: visually checked for faction colors, influence/control distinction, meaning of parts and NPCs. This substantiates the short group descriptions and color distinction. Geometry and color tones are homemade.
+4. [Official Introduction](https://teburu.zendesk.com/hc/en-us/articles/25458903969819-Introduction-to-VTM-Milan-Uprising): group size four characters, one to four players.
 
-Elke digitale component verwijst naar een bron in het pakket. De bronlijst wordt in de UI getoond. Feitelijke identificatie is geen claim op een licentie voor beschermde illustraties, teksten of appbestanden. Tijdelijke screenshots van de openbare handleiding blijven onder genegeerd `work/`; de lokale demo bevat ze niet en haalt tijdens gebruik geen externe bronnen op.
+Each digital component points to a resource in the package. The source list is shown in the UI. Factual identification is not a claim to a license for protected illustrations, texts or app files. Temporary screenshots of the public manual remain ignored under `work/`; the local demo does not include them and does not retrieve external resources during use.
 
-## Gebruik en toestand
+## Use and condition
 
-- Start het retailprofiel, kies een onderdeel bij naam of via categorie/zoekveld en plaats het op een zone.
-- Kleuren onderscheiden de drie facties. De clanminiaturen en NPC’s gebruiken eigen geometrische symbolen met afkortingen; volledige namen staan in de voorraad en toegankelijke celbeschrijving.
-- `Keer fiche om` verandert uitsluitend de zijde, ook als een fiche nog in voorraad ligt. Verplaatsen of terugnemen behoudt de zijde. Leegmaken herstelt de eerste gedefinieerde zijde, uitsluitend als technische beginwaarde.
-- Bewaren/hervatten en undo/redo omvatten ook ficheszijden. Een verkeerde eindtoestand in een save wordt geweigerd via replay.
+- Start the retail profile, choose an item by name or via category/search field and place it on a zone.
+- Colors distinguish the three factions. The clan miniatures and NPCs use their own geometric symbols with abbreviations; full names are in the stock and accessible cell description.
+- `Keer fiche om` only changes the side, even if a token is still in stock. Moving or taking back keeps the side. Clear restores the first side defined as a technical initial value only.
+- Save/resume and undo/redo also include token sides. An incorrect end state in a save is rejected via replay.
 
-Alle onderdelen beginnen in voorraad. Dit is geen scenario-opstelling. Een zonecapaciteit van 132 is een technische sandboxkeuze, geen Milan-regel. Handmatige controlefiches bepalen niet automatisch wie een locatie controleert; invloed veroorzaakt geen automatische spelactie.
+All parts start in stock. This is not a scenario setup. A zone capacity of 132 is a technical sandbox choice, not a Milan rule. Manual control tokens do not automatically determine who controls a location; influence does not cause automatic play action.
 
-## Open inhoud
+## Open content
 
-- De volledige uiteindelijke locatiekaart, aangrenzendheid, locatiekenmerken en koppeling met de veertig sensoren zijn nog niet geverifieerd. A1–H5 blijven onze sensorlabels; echte personages worden niet zonder bewijs aan specifieke sensorposities gekoppeld.
-- Havenruimtes, onderzoeknummering en de werkelijke campagne-opstelling moeten verder worden onderbouwd.
-- De app blijft beoogd eigenaar van verhaal, karakterontwikkeling en regels. De nieuwe voorraad is een fysieke onderdelenlaag, geen volledige zelfstandige game of bewezen officiële-appadapter.
-- Uitbreidingen krijgen later afzonderlijke releasepakketten; aantallen uit collectors-/uprisingpledges worden niet stilzwijgend aan retail toegevoegd.
+- The complete final location map, adjacency, location characteristics and linkage to the forty sensors have not yet been verified. A1–H5 remain our sensor labels; real characters are not linked to specific sensor positions without evidence.
+- Haven areas, token numbering and the actual campaign setup need to be further substantiated.
+- The app remains the intended owner of the story, character development and rules. The new stock is a physical component tier, not a full standalone game or proven official app adapter.
+- Expansions will receive separate release packages later; numbers from collectors/uprising pledges are not tacitly added to retail.

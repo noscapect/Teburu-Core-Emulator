@@ -1,34 +1,34 @@
-# Firmware als onafhankelijke onderzoeksbron
+# Firmware as an independent research source
 
-Onderzocht op 24 oktober 2026, nadat de gebruiker de officiële Teburu-app op de tablet had geopend en vroeg of een firmware-update kon worden onderschept voor onderzoek naar het Core-gedrag.
+Investigated on October 24, 2026, after the user opened the official Teburu app on the tablet and asked to intercept a firmware update to investigate Core behavior.
 
-## Uitkomst
+## Outcome
 
-Onderscheppen is voor deze eerste stap niet nodig. De geïnstalleerde officiële Teburu Android-app **1.2.0** bevat al afzonderlijke firmware-updatearchieven voor Core, dice en LED-ring. Via de bestaande geautoriseerde USB-verbinding is uitsluitend het gebundelde Core-archief naar de genegeerde onderzoeksmap gekopieerd. De officiële app en firmware zijn niet gewijzigd; er is niet op Update gedrukt en geen firmware verstuurd of geïnstalleerd.
+Interception is not necessary for this first step. The installed official Teburu Android app **1.2.0** already contains separate firmware update archives for Core, dice and LED ring. Only the bundled Core archive was copied to the ignored research folder via the existing authorized USB connection. The official app and firmware have not been changed; Update was not pressed and no firmware was sent or installed.
 
-De bestandsnaam van het bordpakket verwijst naar **2.31**. Dat bewijst niet dat dit de nieuwste online versie is, of dat de virtuele Core deze firmware uitvoert. Ten tijde van dit onderzoek meldde de virtuele Core versie 0.0.0. Inmiddels bestaat op gebruikersverzoek een [afzonderlijke gesimuleerde update met blijvende compatibiliteitsversies](FIRMWARE-SIMULATIE.md); ook die voert geen officiële firmware uit.
+The board package filename refers to **2.31**. That does not prove that this is the latest online version, or that the Virtual Core is running this firmware. At the time of this research, the virtual Core reported version 0.0.0. By user request, a [separate simulated update with persistent compatibility versions](FIRMWARE-SIMULATIE.md) now exists; it also does not run official firmware.
 
-## Gecontroleerde eigenschappen
+## Checked properties
 
-| Eigenschap | Waarneming |
+| Property | Observation |
 | --- | --- |
-| Pakket | ZIP met toepassingsmanifest, firmware-image en initmetadata |
-| Omvang ZIP | 145.117 bytes |
-| Omvang image | 144.288 bytes; gelijk aan de grootte in de initmetadata |
-| Integriteit | SHA-256 van de image komt overeen met de hash in de initmetadata |
-| Ondertekening | Ondertekende metadata-envelop aanwezig; handtekening niet cryptografisch geverifieerd of gewijzigd |
-| Debugaanduiding | Bestandsnaam bevat debug; initmetadata heeft de debugvlag uit |
-| Meegeleverde bron/symbolen | Geen C-bronbestanden of ELF-bestand in het updatepakket |
-| Technische aanwijzingen | Vectorgegevens en leesbare moduleverwijzingen wijzen op Nordic nRF52-/ARM-microcontrollercode; exacte chip nog niet bevestigd |
+| Package | ZIP with application manifest, firmware image and initmetadata |
+| Size ZIP | 145,117 bytes |
+| Size image | 144,288 bytes; equal to the size in the initmetadata |
+| Integrity | SHA-256 of the image corresponds to the hash in the initmetadata |
+| Signature | Signed metadata envelope present; signature not cryptographically verified or modified |
+| Debug indicator | File name contains debug; init metadata has its debug flag disabled |
+| Supplied source/symbols | No C source files or ELF file in the update package |
+| Technical instructions | Vector data and readable module references indicate Nordic nRF52/ARM microcontroller code; exact token not yet confirmed |
 
-Herkenbare moduleverwijzingen betreffen onder meer BLE, radio, LED-aansturing, USB, timers en de RFID-driver. Dit zijn aanknopingspunten voor statische analyse, geen bewijs dat hun volledige werking al is gereconstrueerd. Exacte bytes, modulepaden, archieven, hashes en analyses blijven privé; beschermde firmware wordt niet gepubliceerd.
+Recognizable module references include BLE, radio, LED control, USB, timers and the RFID driver. These are starting points for static analysis, not evidence that their full operation has yet been reconstructed. Exact bytes, module paths, archives, hashes, and analyzes remain private; protected firmware is not published.
 
-Het manifest en de initmetadata sluiten aan bij het door Nordic gedocumenteerde DFU-formaat. Het officiële [protobuf-schema](https://github.com/NordicSemiconductor/pc-nrfutil/blob/master/nordicsemi/dfu/dfu-cc.proto) beschrijft onder meer toepassingsgrootte, hash en ondertekende commando-envelop. De [S113-documentatie](https://docs.nordicsemi.com/r/bundle/sds_s113/page/sds/s1xx/s113.html) beschrijft de betreffende BLE-stack voor nRF52-systemen. Het aantreffen van zulke verwijzingen maakt een volledige chip- of versie-identificatie nog niet bewezen.
+The manifest and init metadata are in line with the DFU format documented by Nordic. The official [protobuf schema](https://github.com/NordicSemiconductor/pc-nrfutil/blob/master/nordicsemi/dfu/dfu-cc.proto) describes application size, hash, and signed command envelope, among other things. The [S113 documentation](https://docs.nordicsemi.com/r/bundle/sds_s113/page/sds/s1xx/s113.html) describes the respective BLE stack for nRF52 systems. Finding such references does not prove a complete token or version identification.
 
-## Nut voor de virtuele Core
+## Usefulness for the virtual Core
 
-De firmware kan als aanvullende, onafhankelijke referentie dienen voor commandoafhandeling, toestandovergangen, foutreacties en timing. Eerst worden concrete verschillen met het reeds waargenomen app-/SDK-gedrag onderzocht. Bevindingen krijgen afzonderlijke tests in onze eigen implementatie en daarna acceptatie met de ongewijzigde app.
+The firmware can serve as an additional, independent reference for command handling, state transitions, error responses and timing. First, concrete differences with the already observed app/SDK behavior are examined. Findings receive separate testing in our own implementation and then acceptance with the unmodified app.
 
-Een microcontroller-image draait niet rechtstreeks als Windows-programma. Uitvoering in een volledige hardware-emulator zou ook ontbrekende geheugenindeling, BLE-stack, radio, RFID en overige randapparatuur moeten modelleren. De eerste onderzoekslijn is daarom statische analyse, zonder firmwarepatches, beveiligingsomzeiling of een vervalste versieclaim.
+A microcontroller image does not run directly as a Windows program. Execution in a full hardware emulator should also model missing memory layout, BLE stack, radio, RFID and other peripherals. The first line of research is therefore static analysis, without firmware patches, security bypass or a falsified version claim.
 
-Een toekomstige update-opvang zou bovendien een afzonderlijke update-/bootloaderroute moeten modelleren. Alleen op Update klikken garandeert geen volledige overdracht naar de bestaande pc-Core. De officiële [updatebeschrijving](https://teburu.zendesk.com/hc/en-us/articles/25458803972635-Teburu-system-Updates-Upgrades) beschrijft een updateproces met herverbinding; de huidige virtuele Core ondersteunt dat proces niet.
+Furthermore, a future update-capture mechanism should model a separate update/bootloader route. Simply clicking Update does not guarantee a full transfer to the existing PC Core. The official [update description](https://teburu.zendesk.com/hc/en-us/articles/25458803972635-Teburu-system-Updates-Upgrades) describes an update process with reconnection; the current virtual Core does not support that process.

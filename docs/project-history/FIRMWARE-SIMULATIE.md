@@ -1,36 +1,36 @@
-# Gesimuleerde firmware-update
+# Simulated firmware update
 
-De private PC-Core heeft een afzonderlijke, blijvende compatibiliteitsstatus voor de virtuele Core, vijf virtuele dobbelstenen en één virtuele LED-ring. In het lokale Control Center staat **Simulated firmware → Simulate update · Core + 5 dice + LED ring**. Dit is een update van onze simulatie; er wordt geen officiële firmware geïnstalleerd, uitgevoerd of gewijzigd. De updateknop van de officiële app en de bijbehorende bootloaderoverdracht blijven afzonderlijk en worden niet ondersteund door deze patch.
+The private PC Core has a separate persistent compatibility state for the virtual Core, five virtual dice, and one virtual LED ring. In the local Control Center it says **Simulated firmware → Simulate update · Core + 5 dice + LED ring**. This is an update of our simulation; no official firmware is installed, run or modified. The official app update button and associated bootloader transfer remain separate and are not supported by this patch.
 
-De doelversies zijn sinds 25 oktober 2026 Core **2.32.0** en dice **3.39.0**. Deze volgen de daadwerkelijk door de ongewijzigde Android-Milan-app verwachte versies, zichtbaar in zijn eigen versievergelijkingslog. De eerdere doelen 2.31.0 en 3.36.0 volgden de bestandsnamen van meegeleverde firmwarepakketten. Die bleken achter te lopen op de versiecontrole van de app en lieten beide waarschuwingen staan. Dit zijn compatibiliteitsversies van onze gedragssimulatie; er wordt geen officiële firmware uitgevoerd en de versienummers bewijzen geen volledige hardwarecompatibiliteit.
+Since October 25, 2026, the target versions are Core **2.32.0** and dice **3.39.0**. These follow the versions actually expected by the unmodified Android Milan app, visible in its own version comparison log. The previous targets 2.31.0 and 3.36.0 followed the filenames of included firmware packages. They turned out to be behind the version check of the app and left both warnings. These are compatibility versions of our behavioral simulation; no official firmware is running and the version numbers do not prove full hardware compatibility.
 
-Tijdens de simulatie blijven de oude versies geldig. Pas na succesvolle voltooiing worden de nieuwe versies atomair bewaard. Een onderbroken simulatie of blijvende schrijffout meldt geen geslaagde update en kan opnieuw worden geprobeerd. Nogmaals bijwerken naar dezelfde doelversie verandert de stand niet. Het Control Center toont de gemelde en gewenste versies, de voortgang en het uitdrukkelijke simulatielabel. Wanneer een eerder voltooide simulatie oudere doelen heeft, toont het nu **New simulation available** en blijft de updateknop beschikbaar.
+The old versions remain valid during the simulation. Only after successful completion are the new versions stored atomically. An interrupted simulation or persistent write error does not report a successful update and can be retried. Updating again to the same target version will not change the status. The Control Center shows the reported and desired versions, the progress and the explicit simulation label. When a previously completed simulation has older targets, it now shows **New simulation available** and the update button remains available.
 
-De Core-versie wordt opgenomen in de normale opdrachtantwoorden; de vijf dobbelsteenversies in hun ontdekkings- en statusberichten. Reconnectie, sessie sluiten en Core-herstart wissen deze versies niet. Verbind Milan opnieuw om ook de in de app gecachte Coreversie te verversen. De update kiest geen worpuitkomst, verplaatst geen miniatuur en wijzigt de officiële save of de virtuele bordopstelling niet.
+The Core version is included in the normal assignment answers; the five dice versions in their discovery and status messages. Reconnection, close session and Core restart do not erase these versions. Reconnect Milan to also refresh the Core version cached in the app. The update does not choose a roll outcome, move a miniature, or change the official save or virtual board setup.
 
-## Verificatie
+## Verification
 
-Op 25 oktober slagen alle 24 private Core-regressiescenario's, inclusief een nieuwe proef voor upgraden vanaf een eerder voltooide simulatie met oude doelen. De virtuele Bluetooth-regressie met alle veertig contacten, vijf dobbelstenen en groepsselecties slaagt eveneens. De eerdere onafhankelijke SDK-decoderproef las Core 2.31 en alle vijf dice 3.36; die historische proef is geen nieuwe decoderverificatie voor de huidige doelen.
+On October 25, all 24 private Core regression scenarios pass, including a new trial for upgrading from a previously completed simulation with old targets. The virtual Bluetooth regression with all forty contacts, five dice and group selections also succeeds. The previous independent SDK decoder trial read Core 2.31 and all five dice 3.36; that historical test is not a new decoder verification for current purposes.
 
-De browserproef controleert fouten, opnieuw proberen, de melding bij verouderde doelen, blijvend getoonde versies, uitschakelen van een actuele voltooide update en de mobiele indeling. De publieke testsuite heeft 69 geslaagde tests.
+The browser trial checks errors, retries, obsolete target notification, persistently shown versions, disabling a current completed update, and mobile layout. The public test suite has 69 passed tests.
 
-De lokale simulatie is uitgevoerd en de helper is opnieuw geladen. Daarna is met de ongewijzigde Android-Milan-app 1.0.9 via de echte BLE-route bevestigd: Core 2.32.0 komt overeen met de verwachte 2.32.0 en alle vijf dice melden 3.39.0. Beide setupschermen tonen **Continue**, zonder firmware-updatewaarschuwing of FW-pijlen bij de dice. Alleen wakker maken is gebruikt; geen worp verstuurd en geen campagne geopend. Deze acceptatie bewijst het verdwijnen van de versie­waarschuwingen, geen volledige spelcompatibiliteit of uitvoering van officiële firmware.
+The local simulation has been run and the helper has been reloaded. Afterwards, with the unchanged Android Milan app, 1.0.9 was confirmed via the real BLE route: Core 2.32.0 corresponds to the expected 2.32.0 and all five dice report 3.39.0. Both setup screens show **Continue**, with no firmware update warning or FW arrows at the dice. Only waking has been used; no roll sent and no campaign opened. This acceptance proves the disappearance of the version warnings, no full game compatibility or implementation of official firmware.
 
-Implementatie, ruwe apparaatwaarnemingen, identiteiten en decoderinhoud blijven onder genegeerd `private/`. De publieke demo krijgt geen SDK- of Bluetoothafhankelijkheid.
-
-
-## LED-ring — 28 oktober 2026
-
-De LED-ring maakt nu deel uit van dezelfde blijvende firmware-simulatie, met doelversie **1.15.0**. Deze versie is gecontroleerd tegen de versiecontrole van de ongewijzigde Teburu-app 1.2.0. Oudere lokale statusbestanden zonder ringversie blijven leesbaar en vragen een nieuwe simulatie; de eerder ingestelde Core- en diceversies blijven behouden. Alleen succesvol voltooien slaat de nieuwe ringversie op. Afbreken of een schrijffout meldt geen geslaagde update.
-
-De ring meldt nu ook een stabiele gesimuleerde batterijwaarde via dezelfde berekening als de dobbelstenen. Dit is geen fysieke batterijmeting. De hardwareversie blijft onbekend; er wordt geen officiële ringfirmware geïnstalleerd of uitgevoerd.
-
-De wijziging is actief. Na opnieuw verbinden met de echte Android-tablet toonde de ongewijzigde Teburu-app **1.15.0**, **Firmware up to date**, **46%** en **3852 mV**, zonder de eerdere waarschuwing voor beschikbare firmware of een lege batterij. De officiële updateknop is niet gebruikt. De campagne en bordposities zijn niet gewijzigd.
-
-Verificatie: alle 26 private Core-regressiescenario’s slagen, inclusief migratie van een oud statusbestand, afbreken, schrijffout, herstart en stabiele ringtelemetrie. De virtuele Bluetooth-proef en de Control Center-browserproef slagen eveneens. Deze acceptatie bevestigt versie- en batterijweergave; volledige ringanimaties blijven afzonderlijk te toetsen. Ruwe waarnemingen en implementatie blijven privaat.
+Implementation, raw device observations, identities and decoder contents remain ignored under `private/`. The public demo will not have any SDK or Bluetooth dependencies.
 
 
-## Timeout handling — 30 October 2026
+## LED ring — October 28, 2026
+
+The LED ring is now part of the same persistent firmware simulation, with target version **1.15.0**. This version has been checked against the version checker of the unmodified Teburu app 1.2.0. Older local status files without a ring version remain readable and require a new simulation; the previously set Core and Dice versions are retained. Only successful completion will save the new ring version. Abort or a writing error reports no successful update.
+
+The ring now also reports a stable simulated battery value via the same calculation as the dice. This is not a physical battery measurement. The hardware version remains unknown; no official ring firmware is installed or running.
+
+The change is active. After reconnecting to the real Android tablet, the unmodified Teburu app showed **1.15.0**, **Firmware up to date**, **46%** and **3852 mV**, without the previous warning of available firmware or low battery. The official update button has not been used. The campaign and board positions have not changed.
+
+Verification: All 26 private Core regression scenarios pass, including old state file migration, abort, write error, restart, and stable ring telemetry. The Bluetooth virtual test and the Control Center browser test also pass. This acceptance confirms version and battery display; complete ring animations can still be tested separately. Raw observations and implementation remain private.
+
+
+## Timeout handling — October 30, 2026
 
 The transport now keeps a codec command and its response serialized when the caller disconnects or its HTTP request times out. Previously, cancelling the five-second response read allowed a late response to be consumed by a subsequent command. The firmware HTTP request has a separate thirty-second deadline; the codec exchange continues safely after an HTTP timeout. Progress and errors now appear beside the simulation button, including the instruction to reconnect Milan after completion.
 

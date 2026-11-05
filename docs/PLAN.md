@@ -1,185 +1,185 @@
-# Gefaseerd ontwikkelplan
+# Phased development plan
 
-## TCE en spelmodules
+## TCE and game modules
 
-Het product is de Teburu Core Emulator. Werk aan gedeeld Core-gedrag, transport, virtuele apparaten, installatie, herstel en module-isolatie hoort bij TCE. Bordgegevens, appschermen en campagnesynchronisatie horen bij de betrokken spelmodule. Een eigen regelimplementatie is geen voorwaarde voor emulatie: de officiële app blijft regelautoriteit.
+The product is the Teburu Core Emulator. Work on shared Core behavior, transport, virtual devices, installation, recovery and module isolation is part of TCE. Board data, app screens and campaign synchronization belong to the respective game module. Your own rules implementation is not a prerequisite for emulation: the official app remains the rules authority.
 
-Milan Uprising is de huidige geïmplementeerde module en levert concrete acceptatiescenario's. Aanvullende spellen vereisen een eigen module, assets, adapter en echte appvalidatie volgens [het modulecontract](GAME-MODULES.md). Een geslaagde Milan-proef bewijst geen algemene Teburu-appcompatibiliteit.
+Milan Uprising is the currently implemented module and provides concrete acceptance scenarios. Additional games require their own module, assets, adapter and real app validation according to [the module contract](GAME-MODULES.md). A successful Milan trial does not prove general Teburu app compatibility.
 
-## Actuele prioriteiten en leeswijzer — 5 november 2026
+## Current priorities and reading guide — November 5, 2026
 
-De werkende basis bestaat uit de sandbox, eigen sessie-import/replay en undo/redo, Milan-inventarissen en de optionele appadapter. Beperkte interactie met de ongewijzigde officiële app is aangetoond. De publieke softwarecontrole telt 169 geslaagde tests op Windows/Node 26.7.0; zie [validatie](VALIDATIE.md).
+The working base consists of the sandbox, custom session import/replay and undo/redo, Milan inventories and the optional app adapter. Limited interaction with the unmodified official app has been demonstrated. The public software check counts 169 passed tests on Windows/Node 26.7.0; see [validation](VALIDATIE.md).
 
-De eerstvolgende acceptatiepunten zijn volledige spelrondes en hervatten, volledige campagneopstellingen en uitbreidingen, robuuste synchronisatie en installatie op een schone tweede pc met echte tablet/radio. De release blijft afhankelijk van review en fysieke acceptatie.
+The next adoption points are full playthroughs and resumes, full campaign setups and expansions, robust syncing, and installation on a clean second PC with real tablet/radio. The release remains subject to review and physical acceptance.
 
-De gedateerde lijsten hieronder zijn ontwikkelhistorie. Oudere open vakjes voor inmiddels aanwezige import/replay, undo/redo, inventaris of appcontact vormen geen actuele achterstand. Algemene sessiemigraties, automatische sandboxopslag, volledige regels en 3D zijn daarmee niet voltooid. Gebruik README voor huidige functies en VALIDATIE voor gedateerd bewijs.
+The dated lists below are development history. Older open boxes for currently existing import/replay, undo/redo, inventory or app contact do not constitute a current backlog. This does not complete general session migrations, automatic sandbox saves, full rules and 3D. Use README for current features and VALIDATION for dated evidence.
 
-## Overdraagbare distributie — 29 oktober 2026
+## Transferable distribution – October 29, 2026
 
-- [x] Vereenvoudig het Control Center naar één automatische PC-voorbereiding na eenmalige toestemming, met voortgang, herstart-/retry-opvolging, automatische adapterkeuze waar eenduidig, geïsoleerd Linux-account en automatische tabletcontrole. Handmatige stappen blijven onder Advanced. Echte schone-machineacceptatie blijft open.
+- [x] Simplify Control Center to one automatic PC preparation after one-time permission, with progress, restart/retry follow-up, automatic adapter selection where clear, isolated Linux account and automatic tablet checking. Manual steps remain under Advanced. True clean machine adoption remains open.
 
-- [x] Scheid TCE-infrastructuur en spelmodules, registreer expliciete modulecontracten en bewaar meerdere onafhankelijk ingeschakelde spellen. Houd bestaande Milan-sessies compatibel.
-- [x] Voeg éénknopsinstallatie toe met gecontroleerde automatische Windows-clientdownload en artworkextractie; lever Python/UnityPy mee zonder de game te installeren of uit te voeren.
+- [x] Separate TCE infrastructure and game modules, register explicit module contracts, and store multiple independently enabled games. Keep existing Milan sessions compatible.
+- [x] Add one-button installation with controlled automatic Windows client download and artwork extraction; include Python/UnityPy without installing or running the game.
 
-- [x] Voeg begeleide WSL2-/usbipd-voorbereiding toe met statuscontrole, expliciete installatieknoppen, UAC, voortgang/herstartmeldingen en Bluetooth-adapterselectie zonder automatische overdracht.
-- [x] Bouw lokaal een Windows-reviewpakket met runtimes, vooraf gebouwde helpers, installer, Linux-voorbereiding, tabletwizard en beheerde Bluetooth-teruggave/herstel.
-- [ ] Laat de eigenaar het werk reviewen voordat de handmatige GitHub-releaseworkflow wordt uitgevoerd; test de echte installatie op een schone Windows-machine met fysieke tablet/radio.
+- [x] Add guided WSL2/usbipd preparation with status checking, explicit installation buttons, UAC, progress/reboot notifications, and Bluetooth adapter selection without automatic transfer.
+- [x] Locally build a Windows review package with runtimes, pre-built helpers, installer, Linux prep, tablet wizard, and managed Bluetooth rollback/recovery.
+- [ ] Allow the owner to review the work before running the manual GitHub release workflow; test the real installation on a clean Windows machine with physical tablet/radio.
 
-- [x] Neem toegestaan artwork als één archief op, installeer dit via Game add-ons en publiceer de benodigde eigen integratieruntime zonder de SDK zelf.
-- [x] Scheid runtimecode van machineconfiguratie, identifiers en campagnes; start een nieuwe installatie met een lege tafel.
-- [x] Controleer een schone kopie zonder de oorspronkelijke private werkmap, de complete afbeeldingencatalogus en desktop-/mobielweergave. Zie [installatie](INSTALLATION.md) en [validatie](VALIDATIE.md).
-- [ ] Herhaal een fysieke appverbinding op een tweede computer met diens eigen adapter en tabletconfiguratie.
+- [x] Include allowed artwork as one archive, install it via Game add-ons and publish the necessary native integration runtime without the SDK itself.
+- [x] Separate runtime code from machine configuration, identifiers and campaigns; start a new installation with an empty table.
+- [x] Check a clean copy without the original private working directory, complete image catalog and desktop/mobile view. See [installation](INSTALLATION.md) and [validation](VALIDATIE.md).
+- [ ] Repeat a physical app connection on a second computer with its own adapter and tablet configuration.
 
-## Actuele voortgang — 28 oktober 2026
+## Current progress — October 28, 2026
 
-- [x] Herken zichtbare NPC-portretten bij de hervatstap NPC placement; Agnese in Washington live bevestigd. Geen volledige save-import: verborgen onderdelen en overige NPC-portretten blijven afzonderlijk te toetsen. Zie [plaatsingssynchronisatie](PLAATSINGSSYNC.md).
-- [x] Herstel alleen de tien Haven-bonuslabels; districtslabels blijven in het locatiepaneel. Zie [locatietegels](games/milan-uprising/LOCATIETEGELS.md).
-- [x] Voeg de LED-ring toe aan de blijvende firmware-simulatie en dezelfde batterijaanpak als dice. Teburu 1.2.0 toont live 1.15.0, Firmware up to date en 46%. Zie [firmware-simulatie](FIRMWARE-SIMULATIE.md).
-- [x] Corrigeer de LED-segmentoriëntatie in de presentatie; vier verschillende kleuren gecontroleerd in een geïsoleerde browserproef. Zie [Prospero](games/milan-uprising/PROSPERO.md).
-- [ ] Valideer een volledige geladen campagneopstelling en volledige ringanimaties; de beperkte proeven hierboven bewijzen dit niet.
+- [x] Recognize visible NPC portraits at the resume step NPC placement; Agnese confirmed live in Washington. No full save import: hidden parts and other NPC portraits can still be tested separately. See [placement synchronization](PLAATSINGSSYNC.md).
+- [x] Restore only the ten Haven bonus tags; district labels remain in the location panel. See [location tiles](games/milan-uprising/LOCATIETEGELS.md).
+- [x] Add the LED ring to the persistent firmware simulation and the same battery approach as dice. Teburu 1.2.0 shows live 1.15.0, Firmware up to date and 46%. See [firmware simulation](FIRMWARE-SIMULATIE.md).
+- [x] Correct the LED segment orientation in the presentation; four different colors checked in an isolated browser trial. See [Prospero](games/milan-uprising/PROSPERO.md).
+- [ ] Validate a fully loaded campaign setup and full ring animations; the limited trials above do not prove this.
 
-De gedateerde prioriteiten hieronder beschrijven eerdere onderzoeksfasen. Actuele verificatie en aantallen staan in [VALIDATIE.md](VALIDATIE.md); nieuwe module- en installatietests vervangen eerdere kleinere suite-aantallen niet als hardwarebewijs.
+The dated priorities below describe earlier research phases. Current verification and quantities are in [VALIDATIE.md](VALIDATIE.md); new module and installation tests do not replace previous smaller suite numbers as hardware evidence.
 
-## Hoofddoel en eerstvolgende integratiemijlpalen
+## Main goal and upcoming integration milestones
 
-- [x] Voeg de fysieke voorraden van alle zes uitbreidingen toe, met apart profiel, opslag/replay, extra miniaturenscans en handmatige markerbediening op de gekoppelde tafel; zie [uitbreidingen en verificatiegrenzen](games/milan-uprising/UITBREIDINGEN.md).
-- [ ] Accepteer de vier extra personages, nieuwe bondgenoten/ghouls en uitbreidingscampagnes via echte Android-spelhandelingen; automatiseer Sabbat-/Nephilim-terugkoppeling pas na gecontroleerde waarnemingen.
+- [x] Add the physical inventories of all six expansions, with separate profile, save/replay, additional miniature scans, and manual marker controls on the linked table; see [extensions and verification limits](games/milan-uprising/UITBREIDINGEN.md).
+- [ ] Accept the four additional characters, new allies/ghouls and expansion campaigns through real Android gaming operations; only automate Sabbat/Nephilim feedback after controlled observations.
 
-Aanvullend onderzoek op 24 oktober: het ongewijzigde Core-firmwarepakket is al in de geïnstalleerde Teburu-app gevonden en lokaal gecontroleerd. Netwerkonderschepping of het starten van een update was niet nodig. Gebruik dit als onafhankelijke statische referentie voor concrete emulatorverschillen; volledige firmware-uitvoering blijft een apart, onbewezen spoor. Zie [firmware-onderzoek](FIRMWARE-ONDERZOEK.md).
+Additional research on October 24: The unmodified Core firmware package has already been found in the installed Teburu app and checked locally. There was no need for network interception or starting an update. Use this as an independent static reference for concrete emulator differences; full firmware execution remains a separate, unproven trail. See [firmware research](FIRMWARE-ONDERZOEK.md).
 
-Actuele prioriteit op 23 oktober 2026: bouw en test het Core-gedrag onafhankelijk van de Milan-campagne. De private offline regressiesuite is toegevoegd; onafhankelijke decodercontrole, virtuele Bluetooth-tests en fysieke Android-acceptatie blijven afzonderlijke bewijsniveaus. Zie [hardwaredekking en acceptatie](CORE-VALIDATIE.md). Volledige dobbelsteeninvoer, Android-kaartterugkoppeling en werkelijk opslaan/hervatten op Android blijven open.
+Current priority on October 23, 2026: build and test the Core behavior independently of the Milan campaign. The private offline regression suite has been added; independent decoder control, virtual Bluetooth testing and physical Android acceptance remain separate levels of evidence. See [hardware coverage and acceptance](CORE-VALIDATIE.md). Full dice input, Android map feedback, and actual save/resume on Android remain open.
 
-- [x] Neem een gecontroleerde volledige momentopname van de huidige Android-kaart over: dertig districten en 39 onderdelen. Dit is de huidige spelstand, geen algemene campagnebeginstand.
-- [ ] Initialiseer bij iedere nieuwe campagne automatisch een eigen tafelsessie met alle door Milan gevraagde controlefiches, invloed, personages en overige markers; controleer volledigheid vóór de tafel als gereed wordt getoond. De gedeeltelijke vier-personagesopstelling voldoet hier niet aan.
-- [x] Neem de drie zichtbare Engelse invloedseindstanden van de huidige Android-dagfase automatisch en idempotent over; zie [onderzoek en beperkingen](DAGFASE-AUTOMATISERING.md). Volledige fasecontrole, controlewissels en verborgen instructies blijven open.
+- [x] Acquire a controlled full snapshot of the current Android map: thirty districts and 39 components. This is the current game mode, not a general campaign start mode.
+- [ ] Automatically initialize your own table session with each new campaign with all control tokens, influence, characters and other markers requested by Milan; check completeness before the table is shown as ready. The partial four-character setup does not meet this requirement.
+- [x] Inherit the three visible English final influence counts of the current Android day phase automatically and idempotently; see [research and limitations](DAGFASE-AUTOMATISERING.md). Full phase control, control switches and hidden instructions remain open.
 
-Bijsturing op 22 oktober 2026: bouw actief aan de virtuele fysieke tafel; fabrikantcontact is geen voorwaarde voor deze ontwikkeling. Onderzoek naar een echte emulator mag zelfstandig verder op beschikbare informatie, binnen de bestaande grenzen voor beveiliging en assets. Appcompatibiliteit blijft afzonderlijk te bewijzen.
+Adjustment on October 22, 2026: actively build on the virtual physical table; Manufacturer contact is not a prerequisite for this development. Research into a real emulator can continue independently based on available information, within the existing boundaries for security and assets. App compatibility remains to be proven separately.
 
-- [x] Handmatige virtuele tafel met afzonderlijke pionnen, invloedskubussen en fiches, gedeelde zones, voorraadbediening en JSON-herstel voor hetzelfde profiel; zie CONTRACTEN.md uitbreiding 0.4.
-- [x] Ongedaan maken en opnieuw uitvoeren van maximaal honderd lokale handelingen, inclusief leegmaken en behoud van worpuitkomsten; herstelgeschiedenis gescheiden van domeinevents.
-- [x] Voeg de brongecontroleerde retailvoorraad toe met echte personage-/NPC-namen, factiekubussen, fichecombinaties en omkeerbare fiches; behoud aparte demo’s. Zie MILAN-CONTENT.md.
-- [x] Voeg de dertig districtslabels en tien Havenvelden toe in een apart schematisch profiel, met handmatige opstellingsinvoer en atomaire voorraadtoewijzing. Zie KAART-EN-OPSTELLING.md.
-- [x] Herontwerp de UI rond de fysieke kaart met volledige schermbreedte, compacte voorraad/locatie/sessie, zoom en apart voorbereidingsvenster; koppel repaint aan sessiewijzigingen voor toekomstige adapters. Zie TAFEL-LAYOUT.md.
-- [ ] Verifieer de exacte retailkaartverbindingen, Havenwerking en officiële campagnebeginstand; de opstellingshulp is nog geen geverifieerde startpreset.
-- [ ] Onderbouw Milan-locaties en de fysieke inventaris verder en vervang neutrale werkvoorraad/mapping waar geverifieerde gegevens beschikbaar zijn.
-- [x] Vergelijk native BLE, remote/controller, SDK, logs/saves en vensterherkenning; voeg een read-only lokale randvoorwaardenprobe toe. Zie APP-KOPPELING-VOORONDERZOEK.md. Dit bewijst nog geen verbinding.
-- [ ] Onderzoek zelfstandig welke echte appinvoer en terugkoppeling technisch beschikbaar zijn; houd de functionele tafelontwikkeling gaande.
+- [x] Manual virtual table with individual pawns, influence cubes and tokens, shared zones, inventory controls and JSON recovery for the same profile; see CONTRACTEN.md extension 0.4.
+- [x] Undo and redo up to one hundred local actions, including clearing and saving roll outcomes; recovery history separated from domain events.
+- [x] Add the source-controlled retail inventory with real character/NPC names, faction cubes, token combinations, and reversible tokens; keep separate demos. See MILAN-CONTENT.md.
+- [x] Add the thirty district labels and ten Haven spaces in a separate schematic profile, with manual lineup entry and atomic inventory allocation. See KAART-EN-OPSTELLING.md.
+- [x] Redesign the UI around the physical map with full screen width, compact stock/location/session, zoom and separate preparation window; associate repaint with session changes for future adapters. See TAFEL-LAYOUT.md.
+- [ ] Verify exact retail map connections, Haven behavior and official campaign start positions; the setup aid is not yet a verified start preset.
+- [ ] Further substantiate Milan locations and physical inventory and replace neutral work inventory/mapping where verified data is available.
+- [x] Compare native BLE, remote/controller, SDK, logs/saves and window recognition; add a read-only local boundary condition probe. See APP-KOPPELING-VOORONDERZOEK.md. This does not prove a connection.
+- [ ] Investigate independently which real app input and feedback are technically available; keep the functional table development going.
 
-De officiële Milan-app (later andere releases) moet uiteindelijk zonder fysieke spelonderdelen met de virtuele tafel werken. De app beheert regels en verhaal. Een eigen geautomatiseerde Milan-implementatie is optioneel en heeft lagere prioriteit dan een toegestane officiële-appbrug. De eerdere fasen hieronder beschrijven de tafelarchitectuur, niet de voltooiing van deze brug.
+The official Milan app (later other releases) should eventually work with the virtual table without physical game components. The app manages rules and story. A native automated Milan deployment is optional and has lower priority than an allowed official app bridge. The earlier phases below describe the table architecture, not the completion of this bridge.
 
-- [x] Verdiep openbare systeemwerking, appversiegeschiedenis, SDK-route en downloadbronnen; zie TEBURU-DEEPSEARCH.md.
-- [x] Scheid tijdelijk sensorcontact, expliciete demo-identiteit en blijvende zoneplaatsing in een lokale simulatie; behoud referentieprofiel.
-- [x] Voeg d10-interactieprofiel en herhaalde generieke interactie toe; geen echte sensor-/locatiemapping claimen.
-- [x] Download en installeer op gebruikersopdracht de officiële Windows-build; leg statische metadata en beperkingen vast in INSTALLATIE-ONDERZOEK.md. Geen runtimevalidatie.
-- [x] Bereid normale appvalidatie en gerichte fabrikantvragen voor; zie APP-VALIDATIE.md. Concept niet verzonden; uitgevoerde controles staan hieronder en in het testverslag.
-- [x] Inspecteer normale setupflow van de geïnstalleerde officiële Windows-app: Single/Main wachten op een Core, Controller vraagt een bestaande Main. Zie APP-VALIDATIE.md.
-- [x] Test de digitale dice in de Windows-app tijdens een echte spelactie; de app bepaalt de worp zonder fysieke dobbelstenen in de private proef.
-- [x] Neem de door de gebruiker beschikbaar gestelde SDK lokaal in en beoordeel deze statisch; alle bron en inhoudelijke bevindingen blijven onder private/sdk/.
-- [x] Bouw en valideer de private SDK-testproef, afzonderlijk van de officiële app. De lokale proef is geslaagd; bron, builds en technische bevindingen blijven privaat.
-- [x] Toon een verbinding met de ongewijzigde officiële app aan in een private proef; campagnevoorbereiding en personagekeuze zijn bereikbaar. Dit bewijst nog geen speelbare sessie.
-- [x] Registreer vier personages met eigen synthetische identiteiten en verifieer plaatsing, verplaatsen en herhaald contact in de officiële app. Geen fysieke tagidentiteiten gekopieerd; technische uitvoering blijft privaat.
-- [ ] Verifieer ondersteunde virtuele invoer of SDK-toepassing voor bestaande apps en voorwaarden voor publieke implementatie. De agent heeft geen aanvraag gedaan of overeenkomst aanvaard.
-- [ ] Specificeer pas daarna een echte bridge: identiteit, positie/contact, sessiestart, capabilities en appgestuurde visuele updates; wijs regelautoriteit expliciet toe aan de officiële app.
-- [x] Toon campagne starten, interactie, worp en hervatten met de ongewijzigde officiële app zonder fysieke spelonderdelen aan in een beperkte private proef. Geen volledige spelvalidatie; één foutmelding bij beurtwissel blijft te onderzoeken.
-- [x] Verbind de bediening van onze fysieke tafelweergave met de private invoerroute en neem geaccepteerde appwijzigingen terug over. Eén verplaatsing en een echte invloedwijziging zijn live bevestigd; zie APP-VALIDATIE.md. Brede spelvalidatie blijft open.
-- [ ] Onderzoek de foutmelding bij beurtwissel en toets verdere spelrondes, cityrondes en volgende releases.
-- [ ] Verbind volgens de gebruikerskeuze de officiële Milan-app op een fysieke Android-tablet met een Core-helper en het digitale bord op de pc. Verbinding en setup op de echte tablet zijn bevestigd; spelinvoer en kaartterugkoppeling op Android blijven te testen. De emulatorroute blijft alternatief; zie [ZONDER-TABLET.md](ZONDER-TABLET.md).
-- [x] Bewijs ontdekking en verbinding met Milan op de echte tablet via Bumble in WSL en tijdelijke overdracht van de bestaande pc-radio, zonder hernoemen of extra radio. Verbinding, appopdrachten en normale setup tot campagnekeuze bevestigd; spelinvoer en kaartterugkoppeling op Android blijven open.
+- [x] Dig into public system operations, app version history, SDK route and download sources; see TEBURU-DEEPSEARCH.md.
+- [x] Separate temporary sensor contact, explicit demo identity and persistent zone placement in a local simulation; maintain reference profile.
+- [x] Add d10 interaction profile and repeated generic interaction; not claiming true sensor/location mapping.
+- [x] On user command, download and install the official Windows build; record static metadata and constraints in INSTALLATIE-ONDERZOEK.md. No runtime validation.
+- [x] Prepare normal app validation and targeted manufacturer queries; see APP-VALIDATIE.md. Draft not sent; checks carried out are listed below and in the test report.
+- [x] Inspect normal setup flow of the installed official Windows app: Single/Main waiting for a Core, Controller requests an existing Main. See APP-VALIDATIE.md.
+- [x] Test the digital dice in the Windows app during real gaming action; the app determines the role without physical dice in the private trial.
+- [x] Ingest the user-provided SDK locally and evaluate it statically; all source and substantive findings remain under private/sdk/.
+- [x] Build and validate the private SDK test sample, separately from the official app. The local test was successful; source, builds and technical findings remain private.
+- [x] Demonstrate a connection to the unmodified official app in a private trial; campaign preparation and character selection are accessible. This does not prove a playable session.
+- [x] Register four characters with their own synthetic identities and verify placement, movement and repeat contact in the official app. No physical tag identities copied; technical implementation remains private.
+- [ ] Verify supported virtual input or SDK application for existing apps and conditions for public deployment. The agent did not make an application or accept an agreement.
+- [ ] Only then specify a real bridge: identity, position/contact, session start, capabilities and app-driven visual updates; explicitly assign rule authority to the official app.
+- [x] Demonstrate campaign launch, interaction, roll and resume using the unmodified official app without physical game components in a limited private test. No full game validation; one error message during turn change remains to be investigated.
+- [x] Connect the controls of our physical table view to the private input route and adopt accepted app changes back. One move and a real influence change confirmed live; see APP-VALIDATIE.md. Broad game validation remains open.
+- [ ] Investigate the turn change error message and test further game rounds, city rounds and subsequent releases.
+- [ ] According to user choice, connect the official Milan app on a physical Android tablet with a Core helper and the digital board on the PC. Connection and setup on the real tablet are confirmed; game input and map feedback on Android remain to be tested. The emulator route remains an alternative; see [ZONDER-TABLET.md](ZONDER-TABLET.md).
+- [x] Prove discovery and connection to Milan on the real tablet via Bumble in WSL and temporarily transfer the existing PC radio, without renaming or additional radio. Connection, app commands and normal setup to campaign selection confirmed; game input and map feedback on Android remain open.
 
-Huidige integratiestatus: beperkte bordloze spelinvoer, hervatten, rechtstreekse tafelbediening met appbevestiging en automatische invloedsoverdracht zijn aangetoond. De app toonde een foutmelding bij een beurtwissel; na sluiten was de volgende speler actief. Oorzaak, volledige cityrondes en betrouwbaarheid over andere situaties blijven te onderzoeken. Vensterherkenning is alleen op het geteste formaat gevalideerd. Technische inhoud, screenshots en logs blijven privaat; de publieke demo blijft een sandbox.
+Current integration status: Limited boardless game entry, resume, direct table control with app confirmation and automatic influence transfer have been demonstrated. The app showed an error message during a turn change; after closing the next player was active. The cause, complete city rounds and reliability in other situations remain to be investigated. Window recognition has only been validated on the tested format. Technical content, screenshots and logs remain private; the public demo remains a sandbox.
 
-De publieke SDK-aanvraag is gevonden. Dat voltooit niet het onderzoek naar een toegestane bridge. Onbewezen protocolstappen blijven open; geen verzonnen BLE-payloads of automatische SDK-aanmelding.
+The public SDK request has been found. That does not complete the investigation into a permitted bridge. Unproven protocol steps remain open; no fabricated BLE payloads or automatic SDK login.
 
-Bijgesteld op 21 oktober 2026: generiek tabletop-platform met Milan als eerste game-module. De eerdere uitvoeringsvolgorde hieronder is vervangen door de volgende drie fasen. Bestaande resultaten blijven behouden. De eerste sandboxdoorsnede is geïmplementeerd; geverifieerde Milan-reproductie blijft open. Zie CONTRACTEN.md.
+Updated on October 21, 2026: generic tabletop platform with Milan as the first game module. The previous execution sequence below has been replaced by the following three phases. Existing results are retained. The first sandbox cross-section has been implemented; verified Milan reproduction remains open. See CONTRACTEN.md.
 
-## Fase 1 — Getrouwe digitale reproductie in 2D
+## Phase 1 — Faithful 2D digital reproduction
 
-### 1A — Eerstvolgend: specificatie vóór implementatie
+### 1A — Up next: pre-implementation specification
 
-- [ ] Inventariseer fysieke componenten, opstelling, handelingen en Milan-locaties met legale bronnen; markeer geverifieerd, onbekend en placeholder.
-- [x] Definieer de bestaande demoreferentiesessie met pionnen en worpen; zie CONTRACTEN.md.
-- [ ] Breid de referentiesessie uit met kaarten/fiches zodra inventaris, schemas en gebruiksrechten zijn vastgesteld. Verzin geen ontbrekende regels of scenario-inhoud.
-- [x] Specificeer engineopdrachten, toestand, events, game-modulecontract en presentatieprojecties volgens ARCHITECTUUR.md.
-- [ ] Specificeer versieerbare schema's voor borden, kaarten, fiches, personages, scenario's en releases met herkomst/rechten.
-- [x] Leg vast welke toestand handmatig, door de Milan-module of eventueel door de officiële app wordt beheerd.
+- [ ] Inventory physical components, setup, actions and Milan locations with legal sources; mark verified, unknown and placeholder.
+- [x] Define the existing demo reference session with pawns and rolls; see CONTRACTEN.md.
+- [ ] Expand the reference session with maps/fiches once inventory, schedules and usage rights have been established. Don't make up missing lines or scenario content.
+- [x] Specify engine commands, state, events, game module contract and presentation projections according to ARCHITECTUUR.md.
+- [ ] Specify versioned schemas for boards, cards, tokens, characters, scenarios, and origin/rights releases.
+- [x] Determine which state is managed manually, by the Milan module or possibly by the official app.
 
-Acceptatie: reviewbare contracten en synthetische voorbeelden zonder Milan-afhankelijkheid in de kern; geverifieerde reproductiescope en open hiaten zijn traceerbaar.
+Acceptance: reviewable contracts and synthetic examples without Milan dependency at the core; verified reproduction scope and open gaps are traceable.
 
-### 1B — Kern, module en 2D-doorsnede
+### 1B — Core, module and 2D cross-section
 
-- [x] Migreer het bestaande prototype stapsgewijs naar engine, applicatie, Milan-module, data, UI, presentatie en adapters; behoud functies en regressietests.
-- [x] Maak rastervorm, componenten, bezetting en dobbelsteentypen configureerbaar. Behandel 8 × 5 als sensorprofiel, niet als universeel spelbord.
-- [x] Realiseer handmatige tafelopdrachten en bereid expliciete sandboxmodus voor.
-- [x] Toets met een tweede synthetisch profiel met afwijkende geometrie/bezetting, zonder kernwijziging.
-- [x] Rond browsercontrole en toetsenbordbediening af; de eerdere visuele controle is nu uitgevoerd, zie VALIDATIE.md.
+- [x] Migrate the existing prototype step by step to engine, application, Milan module, data, UI, presentation and adapters; preserving features and regression testing.
+- [x] Make grid shape, components, occupancy and die types configurable. Treat 8×5 as a sensor profile, not as a universal game board.
+- [x] Realize manual table commands and prepare explicit sandbox mode.
+- [x] Key with a second synthetic profile with different geometry/occupancy, without core change.
+- [x] Complete browser control and keyboard controls; the previous visual check has now been carried out, see VALIDATIE.md.
 
-Acceptatie: engine en module werken headless; UI en 2D gebruiken dezelfde opdrachten/projecties. Een neutrale doorsnede telt nog niet als geverifieerde Milan-reproductie.
+Acceptance: engine and module work headless; UI and 2D use the same commands/projections. A neutral section does not count as a verified Milan reproduction.
 
-### 1C — Reproductie verifiëren
+### 1C — Verify reproduction
 
-- [ ] Vergelijk de referentiesessie stap voor stap met fysiek spel en toegestane officiële documentatie.
-- [ ] Onderbouw locatie-, component- en actiegedrag; documenteer verschillen en ontbrekende informatie/rechten.
-- [ ] Lever functionele handmatige 2D-reproductie van de geverifieerde scope met zichtbare beperkingen.
+- [ ] Compare the reference session step by step with physical play and permitted official documentation.
+- [ ] Substantiate location, component and action behavior; document differences and missing information/rights.
+- [ ] Deliver a functional manual 2D reproduction of the verified scope, with visible limitations.
 
-Acceptatie: ondersteunde fysieke handelingen hebben aantoonbare digitale equivalenten. Claim geen volledige reproductie of officiële appcompatibiliteit bij open hiaten. Ontbrekende inhoud blokkeert die inhoud, niet de generieke engine.
+Acceptance: Supported physical actions have demonstrable digital equivalents. Do not claim full reproduction or official app compatibility with open gaps. Missing content blocks that content, not the generic engine.
 
-## Fase 2 — Automatisering en duurzame sessies
+## Phase 2 — Automation and sustainable sessions
 
-- [ ] Implementeer Milan-regels, beurten, kaartacties, doelen en validatie uitsluitend in de game-module, met bronverwijzingen en tests per regelgroep.
-- [ ] Maak sandbox volwaardig met handmatige handelingen en structurele controles zonder volledige spelregelautomatisering.
-- [ ] Voeg versieerbare opslag, gevalideerde import, migraties en herstel toe; behandel de huidige demo-export als apart legacyformaat.
-- [ ] Bewaar worpuitkomsten/events en toets deterministische toestandsovergangen en replay.
-- [ ] Overweeg AI na stabiele regels; AI gebruikt hetzelfde opdrachtcontract als spelers.
+- [ ] Implement Milan rules, turns, card actions, objectives and validation exclusively in the game module, with source references and tests per rule group.
+- [ ] Make sandbox full-fledged with manual actions and structural checks without full rule automation.
+- [ ] Add versionable storage, validated imports, migrations and restores; treat the current demo export as a separate legacy format.
+- [ ] Save roll outcomes/events and test deterministic state transitions and replay.
+- [ ] Consider AI after stable rules; AI uses the same command contract as players.
 
-Acceptatie: regels zonder grafische dependencies, fouten zonder gedeeltelijke mutatie, hervatbare sessies en blijvend bruikbare sandbox.
+Acceptance: rules without graphical dependencies, errors without partial mutation, resumable sessions and persistently usable sandbox.
 
-## Fase 3 — Optionele visuele uitbreiding
+## Phase 3 — Optional visual extension
 
-- [ ] Voeg 3D toe boven dezelfde projecties; map logische zones naar presentatieposities.
-- [ ] Voeg optionele animaties, effecten en interactieve omgevingen toe zonder regeluitkomsten van timing afhankelijk te maken.
-- [ ] Behoud 2D en toets prestaties/toegankelijkheid.
+- [ ] Add 3D above the same projections; map logical zones to presentation positions.
+- [ ] Add optional animations, effects and interactive environments without making control outcomes dependent on timing.
+- [ ] Keep 2D and test performance/accessibility.
 
-Acceptatie: dezelfde referentiesessie en worpen leveren headless, met 2D en met 3D dezelfde toestand op zonder herschrijven van spelregels.
+Acceptance: the same reference session and throws yield the same condition headless, with 2D and with 3D without rewriting the game rules.
 
-## Zelfstandig onderzoeksspoor — officiële app en Teburu
+## Standalone Research Track — Official App and Teburu
 
-De eerdere compatibiliteits- en hardwaretaken blijven open en staan hieronder ter behoud. Ze mogen naast fase 1 lopen. Appbehoud blijft voorkeur; ontbrekende interoperabiliteit blokkeert de generieke kern of sandbox niet. Een echte adapter vereist een toegestane interface en reproduceerbare appvalidatie. Contracten en mocks bevatten eigen events, geen verondersteld Teburu-protocol.
+The previous compatibility and hardware tasks remain open and are listed below for preservation. They may run next to phase 1. App retention remains preferred; missing interoperability does not block the generic core or sandbox. A true adapter requires a permissioned interface and reproducible app validation. Contracts and mocks contain their own events, not an assumed Teburu protocol.
 
-## Bewaarde oorspronkelijke werkpakketten
+## Saved original work packages
 
-Onderstaande nummers zijn historische werkpakketnummers, niet de nieuwe ontwikkelfasen. Opslag/gebruikersgemak schuiven naar fase 2; de eerdere uitsluiting van volledige regels is vervangen door bovenstaande fasering.
+The numbers below are historical work package numbers, not the new development phases. Storage/ease of use moves to phase 2; the previous exclusion of complete lines has been replaced by the above phasing.
 
-## 0 — Fundament (gereed)
-- [x] Nederlandse documentatie en Codex-instructies.
-- [x] Sensorindeling via fabrikant verifiëren; eigen notatie onderscheiden.
-- [x] Lokaal 8 × 5 bord met pionnen, demo-dobbelstenen en export.
-- [x] Domeinmodel isoleren en grenzen/bezetting testen.
+## 0 — Foundation (finished)
+- [x] Dutch documentation and Codex instructions.
+- [x] Verify sensor layout via manufacturer; distinguish your own notation.
+- [x] Local 8×5 board with pawns, demo dice and exports.
+- [x] Isolate domain model and test boundaries/occupancy.
 
-## Werkpakket 1 — Compatibiliteitsroute onderzoeken
-- [ ] Zoek officiële SDK/API, ontwikkelaarsondersteuning of gedocumenteerde alternatieve invoer. Leg ook een negatieve zoekuitkomst vast; geen API veronderstellen.
-- [ ] Inventariseer met eigenaar appplatform/versie, beschikbare Core, bord en dobbelstenen wanneer hardwaretests nodig zijn.
-- [ ] Controleer of de officiële app een bruikbare handmatige invoermodus heeft.
-- [ ] Verifieer fysieke sensororiëntatie en mapping naar Milan-locaties met eigen hardware en officiële diagnostiek.
+## Work package 1 — Investigate compatibility route
+- [ ] Find official SDK/API, developer support, or documented alternative input. Also record a negative search result; no API presuppose.
+- [ ] Inventory with app platform/version owner, available Core, board and dice when hardware testing is needed.
+- [ ] Check if the official app has a usable manual input mode.
+- [ ] Verify physical sensor orientation and mapping to Milan locations with native hardware and official diagnostics.
 
-Acceptatie: bronnen en reproduceerbare bevindingen per route. Beslispunt: ondersteunde integratie, handmatige companion of alleen zelfstandige sandbox. Zonder toegestane route geen belofte van bordvervanging.
+Acceptance: sources and reproducible findings per route. Decision point: supported integration, manual companion, or standalone sandbox only. Without a permitted route, no promise of sign replacement.
 
-## 2 — Adaptercontract en simulatie
-- [ ] Definieer transportonafhankelijk contract met beschikbaarheid, capabilities, errors en disconnects.
-- [ ] Bouw mockadapter met fixture-replay van zelfgemaakte events.
-- [ ] Test plaats/verplaats/verwijder, herverbinding en dubbele/vertraagde events.
+## 2 — Adapter contract and simulation
+- [ ] Define transport-independent contract with availability, capabilities, errors and disconnects.
+- [ ] Build mock adapter with fixture replay of custom events.
+- [ ] Test place/move/delete, reconnection and duplicate/delay events.
 
-Acceptatie: lokale mocks werken zonder hardware; eigen schema blijft expliciet onderscheiden van het werkelijke protocol.
+Acceptance: Local mocks work without hardware; own schema remains explicitly distinguished from the actual protocol.
 
-## 3 — Toegestane hardwarevalidatie
-- [ ] Alleen bij gedocumenteerde/toegestane interface: inventariseer BLE-services en vereisten op eigen apparaat zonder beveiliging te omzeilen.
-- [ ] Bewijs correcte sensor-, identiteit- en worpverwerking; test eerst met behoud van echte Core en dice als die route wordt ondersteund.
-- [ ] Leg vast of de officiële app de gekozen route werkelijk accepteert.
+## 3 — Allowed hardware validation
+- [ ] Only on documented/permitted interface: enumerate BLE services and requirements on own device without bypassing security.
+- [ ] Prove correct sensor, identity and throw processing; test first keeping real Core and dice if that route is supported.
+- [ ] Determine whether the official app actually accepts the chosen route.
 
-Acceptatie: reproduceerbare end-to-end sessie met echte app, versies en beperkingen. Stop bij ontbrekende toestemming of beveiligingsgrens. Geen firmwarewijziging of tagklonen.
+Acceptance: Reproducible end-to-end session with real app, versions and limitations. Stop if permission or security boundary is missing. No firmware modification or tag cloning.
 
-## 4 — Bruikbare privétool
-- [ ] Versiebeheer voor savebestanden, gevalideerde import, herstel en gebruikerstest.
-- [ ] Alleen met toestemming eigen locatieprofiel/kaart toevoegen, inclusief herkomst.
-- [ ] Installatie/starten vereenvoudigen; toegankelijkheid en grotere schermen toetsen.
+## 4 — Useful private tool
+- [ ] Version control for save files, validated import, recovery and user testing.
+- [ ] Only add your own location profile/map with permission, including origin.
+- [ ] Simplify installation/start-up; accessibility and larger screen keys.
 
-Acceptatie: gebruiker kan starten, bord beheren en een sessie herstellen; compatibiliteitsstatus blijft zichtbaar. Regelautomatisering volgt nu in fase 2 van de herziene planning.
+Acceptance: user can start, manage board and restore a session; compatibility status remains visible. Control automation will now follow in phase 2 of the revised planning.

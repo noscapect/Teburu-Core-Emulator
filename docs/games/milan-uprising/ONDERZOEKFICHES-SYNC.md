@@ -1,9 +1,9 @@
-# Onderzoeksmarkers synchroniseren
+# Synchronizing Investigation markers
 
-De gekoppelde tafel neemt ondersteunde **[locatie] – Next Encounter in [bestemming]**-meldingen en positief herkende Investigation-iconen op de kaart over na twee overeenkomende waarnemingen.
+The linked table copies supported **[location] – Next Encounter in [destination]** messages and positively recognized map Investigation icons after two matching observations.
 
-Een herhaalde melding maakt geen duplicaat. Een herkende nieuwere encounterbestemming kan de marker van de vervallen bestemming naar de nieuwe verplaatsen. Andere markers en Restricted-zijden blijven behouden. Dit kopieert een appuitkomst en stuurt geen sensorcontact of spelactie naar Milan.
+Repeated messages do not create duplicates. A recognized newer encounter destination can move the marker from the superseded destination. Other markers and Restricted sides remain. This copies an app outcome without sending a sensor contact or gameplay action to Milan.
 
-Laat het relevante scherm even openstaan. Ook terwijl een personagezet op bevestiging wacht, kan de achtergrondlezer onderzoeksmarkers bijwerken. Afgedekte iconen, onbekende bestemmingen en onleesbare meldingen kunnen automatische overname verhinderen. Ontbreken van een icoon alleen is geen verwijderinstructie.
+Leave the relevant screen open briefly. Investigation updates can continue while a character move awaits confirmation. Covered icons, unknown destinations and unreadable messages can prevent automatic synchronization. A missing icon alone is not a removal instruction.
 
-Na [Clear board & resync](TAFEL-LEGEN.md) kan een nog zichtbare ondersteunde melding of kaartmarker de positie herstellen. Dit reconstrueert geen volledige campagne.
+After [Clear board & resync](TAFEL-LEGEN.md), a still-visible supported message or map marker can restore the position. This does not reconstruct an entire campaign.

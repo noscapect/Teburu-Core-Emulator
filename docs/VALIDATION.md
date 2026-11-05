@@ -1,5 +1,11 @@
 # Validation
 
+## Artwork-free release packaging — November 5, 2026
+
+Release staging now excludes game artwork by default. The release builder rejects `includeArtwork:true`, records `artworkIncluded:false` in release metadata and rejects game artwork archives in the final file tree. The Actions workflow no longer offers artwork inclusion. Regression coverage checks default staging without an explicit flag and refusal to bundle artwork. The full public suite passes **172 tests** on Windows with Node 26.7.0 and bundled Node 22.23.4.
+
+The original artwork-containing Windows ZIP and checksum were removed from the now-public `v0.1.0` release for replacement. Module definitions, acquisition recipes and extraction tools remain available so Add game can obtain artwork separately. Earlier private-release and bundled-artwork observations below describe the original candidate.
+
 ## First pre-release checks — November 5, 2026
 
 All **171 public tests** pass on Windows with Node 26.7.0 and the packaged Node 22.23.4. The additional regression verifies that final release cleanup removes nested `bin`, `obj` and `__pycache__` directories created after source staging, preserves published helpers and leaves adjacent directories outside the package untouched.

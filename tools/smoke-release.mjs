@@ -17,6 +17,7 @@ const {stdout:ocr}=await run(join(app,'integration','runtime','app-observer','bu
 // No device or app input: unsupported action validates the self-contained launch only.
 await new Promise((resolve,reject)=>{const child=spawn(executable,['--codec-json-lines'],{env,windowsHide:true,stdio:['pipe','ignore','pipe']});child.once('error',reject);child.once('exit',code=>code===0?resolve():reject(Error(`Core exit ${code}`)));child.stdin.end();});
 const release=JSON.parse(await readFile(join(app,'release.json'),'utf8'));assert.equal(release.format,'milan-windows-release');
+assert.equal(release.artworkIncluded,false,'Game artwork must be installed separately, not bundled in a release.');
 const manifest=JSON.parse(await readFile(join(app,'release-files.json'),'utf8'));
-for(const name of Object.keys(manifest.files))assert(!/^(private|\.git|work|sdk)\//i.test(name));
+for(const name of Object.keys(manifest.files)){assert(!/^(private|\.git|work|sdk)\//i.test(name));assert(!/^resources\/.*\.json\.gz$/i.test(name),'Game artwork archive found in release.');}
 console.log('Packaged Node, Python/vision and Core start without system development runtimes; no radio opened.');

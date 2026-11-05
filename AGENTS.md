@@ -13,5 +13,6 @@ All events in src/model.js are project-defined domain events, not Teburu protoco
 Never present app compatibility or emulation as proven without reproducible hardware testing.
 No security bypass, cloned RFID identities, firmware patches or protected assets.
 Distribution exception confirmed by the project owner on October 29, 2026: selected artwork in resources/milan-artwork.json.gz and our derived integration runtime may be published on GitHub. The SDK itself, SDK libraries, documentation and examples remain excluded. Machine data, saved game states and identifiers remain under private/. See docs/INSTALLATION.md.
+Release packages must exclude game artwork. Keep module definitions, acquisition recipes and extraction tools so users can install artwork separately through Add game.
 Store any observations of your own hardware and identifiers exclusively under private/ (ignored).
 Do not modify or install anything on the official app or hardware without specific instructions.

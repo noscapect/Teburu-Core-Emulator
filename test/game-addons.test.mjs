@@ -5,7 +5,7 @@ import {join} from 'node:path';
 import {tmpdir} from 'node:os';
 import {createGameAddons,validateAddonDefinitions} from '../server/game-addons.mjs';
 import {packArtwork} from '../server/artwork-bundle.mjs';
-import {copyReleaseSources} from '../tools/build-release.mjs';
+import {copyReleaseSources,buildRelease} from '../tools/build-release.mjs';
 import {fileURLToPath} from 'node:url';
 import {createTableServer} from '../server.mjs';
 const definition={id:'milan-uprising',title:'Milan Uprising',archive:'milan-artwork.json.gz',cacheDirectory:'bundled-artwork',client:{table:'src/games/milan-uprising/table.html'}};
@@ -59,10 +59,14 @@ test('HTTP server starts without artwork and enforces archive checks and local-o
  await rename(f.archive,f.archive+'.held');
  assert.equal((await fetch(base+'/table')).status,409);assert.equal((await fetch(base+'/local-artwork/map.png')).status,409);assert.equal((await action('activate')).status,409);
 });
-test('release staging can omit artwork while retaining the addon catalog and complete application sources',async t=>{
+test('release staging excludes artwork by default while retaining the addon catalog and complete application sources',async t=>{
  const root=await mkdtemp(join(tmpdir(),'tce-no-artwork-'));t.after(()=>rm(root,{recursive:true,force:true}));
- await copyReleaseSources(fileURLToPath(new URL('../',import.meta.url)),root,{includeArtwork:false});
+ await copyReleaseSources(fileURLToPath(new URL('../',import.meta.url)),root);
  await assert.rejects(readFile(join(root,'resources',definition.archive)),{code:'ENOENT'});
  assert.equal(JSON.parse(await readFile(join(root,'resources/addons.json'))).games[0].id,definition.id);
  for(const file of ['index.html','server/game-addons.mjs','src/ui/game-addons.js','src/games/milan-uprising/app.js','integration/milan-uprising/android-control.mjs'])assert((await readFile(join(root,file))).length>0);
+});
+
+test('release builder rejects artwork bundling before starting a build',async()=>{
+ await assert.rejects(buildRelease({includeArtwork:true}),/artwork is not bundled/);
 });

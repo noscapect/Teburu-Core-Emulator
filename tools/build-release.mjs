@@ -9,7 +9,7 @@ import {prepareTextReader} from './prepare-text-reader.mjs';
 const run=promisify(execFile);
 export const releaseRoots=['src','server','data','legacy','integration/runtime','games','resources','docs'];
 export const releaseFiles=['index.html','server.mjs','package.json','Start-TCE.cmd','Start-Milan.cmd','README.md','tools/start-linked.mjs','tools/linked-game-launcher.mjs','tools/linked-runtime.mjs','tools/extract-unity-artwork.py','tools/windows-prerequisites.ps1','tools/prepare-release-helpers.mjs','tools/linux-helper-setup.ps1','tools/install-release.ps1','tools/launch-release.ps1'];
-export async function copyReleaseSources(source,destination,{includeArtwork=true}={}){
+export async function copyReleaseSources(source,destination,{includeArtwork=false}={}){
  const games=await loadGameModules(source,JSON.parse(await readFile(join(source,'resources/addons.json'),'utf8')));
  const resources=['README.md','addons.json',...(includeArtwork?games.map(game=>game.archive):[])];
  async function copy(path){
@@ -61,7 +61,8 @@ try {
 } finally { $archive.Dispose() }`;
  await run('powershell.exe',['-NoProfile','-NonInteractive','-Command',script],{windowsHide:true,timeout:300000,env:{...process.env,MILAN_RELEASE_APP:resolve(app),MILAN_RELEASE_ZIP:resolve(zip)}});
 }
-export async function buildRelease({source=fileURLToPath(new URL('../',import.meta.url)),output,includeArtwork=true}={}){
+export async function buildRelease({source=fileURLToPath(new URL('../',import.meta.url)),output,includeArtwork=false}={}){
+ if(includeArtwork)throw Error('Game artwork is not bundled in TCE releases. Install it separately through Add game.');
  if(process.platform!=='win32'||process.arch!=='x64')throw Error('Build the Windows x64 release on Windows x64.');
  const version=JSON.parse(await readFile(join(source,'package.json'),'utf8')).version;
  const directory=output||join(source,'work',`release-${Date.now()}`),app=join(directory,'TCE');
@@ -104,7 +105,7 @@ export async function buildRelease({source=fileURLToPath(new URL('../',import.me
  const {stdout:readerCheck}=await run(join(textReader,'AppObserver.exe'),['--readiness'],{windowsHide:true,timeout:30000,env:{...process.env,TCE_OCR_BACKEND:'portable'}});
  if(JSON.parse(readerCheck).textRecognitionAvailable!==true)throw Error('The bundled OCR reader failed its recognition check.');
  materials.push({name:'Tesseract',version:'5.2.0'},{name:'tessdata_fast/eng',sha256:'7d4322bd2a7749724879683fc3912cb542f19906c83bcc1a52132556427170b2'});
- await writeFile(join(app,'release.json'),JSON.stringify({format:'milan-windows-release',schemaVersion:1,version,architecture:'x64',node:nodeEntry[1],python:pythonVersion,dependencies:materials},null,2));
+ await writeFile(join(app,'release.json'),JSON.stringify({format:'milan-windows-release',schemaVersion:1,version,architecture:'x64',artworkIncluded:false,node:nodeEntry[1],python:pythonVersion,dependencies:materials},null,2));
  await writeFile(join(app,'Install-TCE.cmd'),'@echo off\r\npowershell.exe -NoProfile -ExecutionPolicy Bypass -File "%~dp0tools\\install-release.ps1"\r\nif errorlevel 1 pause\r\n');
  await writeFile(join(app,'THIRD-PARTY.txt'),'Node license: runtime/LICENSE\nPython license: runtime/python/LICENSE.txt\nNumPy/OpenCV/UnityPy and artwork dependency licenses: runtime/python/Lib/site-packages/*.dist-info/\n.NET notices: https://github.com/dotnet/runtime/blob/main/THIRD-PARTY-NOTICES.TXT\nAndroid Platform Tools is downloaded separately after consent to Google terms.\nTeburu SDK is not included.\n');
  await mkdir(join(app,'notices'),{recursive:true});
@@ -115,11 +116,11 @@ export async function buildRelease({source=fileURLToPath(new URL('../',import.me
  // from the final payload and fail closed if an excluded path reappears.
  await removeReleaseBuildCaches(app);
  const integrity={schemaVersion:1,files:{}};
- async function hashTree(path=''){for(const entry of await readdir(join(app,path),{withFileTypes:true})){const name=path?path+'/'+entry.name:entry.name;if(['private','work','.git','sdk','state','bin','obj','__pycache__'].includes(entry.name.toLowerCase()))throw Error('Excluded release path: '+name);if(entry.isSymbolicLink())throw Error('Release must not contain symbolic links.');if(entry.isDirectory())await hashTree(name);else integrity.files[name]=sha(await readFile(join(app,name)));}}
+ async function hashTree(path=''){for(const entry of await readdir(join(app,path),{withFileTypes:true})){const name=path?path+'/'+entry.name:entry.name;if(['private','work','.git','sdk','state','bin','obj','__pycache__'].includes(entry.name.toLowerCase())||/^resources\/.*\.json\.gz$/i.test(name))throw Error('Excluded release path: '+name);if(entry.isSymbolicLink())throw Error('Release must not contain symbolic links.');if(entry.isDirectory())await hashTree(name);else integrity.files[name]=sha(await readFile(join(app,name)));}}
  await hashTree();await writeFile(join(app,'release-files.json'),JSON.stringify(integrity));
  const zip=join(directory,`TCE-${version}-windows-x64.zip`);
  await writeReleaseArchive(app,zip);
  await writeFile(zip+'.sha256',sha(await readFile(zip))+'  '+zip.split(/[\\/]/).at(-1)+'\n');
  console.log('Review package:',zip);return {app,zip};
 }
-if(process.argv[1]&&resolve(process.argv[1])===fileURLToPath(import.meta.url))await buildRelease({includeArtwork:!process.argv.includes('--without-artwork')});
+if(process.argv[1]&&resolve(process.argv[1])===fileURLToPath(import.meta.url))await buildRelease();

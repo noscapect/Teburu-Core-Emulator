@@ -1,6 +1,6 @@
 # Windows release candidate review
 
-The first distribution is the private GitHub pre-release `v0.1.0`. Keep repository visibility private. A published pre-release does not complete the physical acceptance checklist below. The local builder and GitHub API can be used after explicit owner authorization; the Actions workflow remains a separate manual route.
+The first distribution is the public GitHub pre-release `v0.1.0`. Release packages exclude game artwork. A published pre-release does not complete the physical acceptance checklist below. The local builder and GitHub API can be used after explicit owner authorization; the Actions workflow remains a separate manual route.
 
 ZIP creation uses the integrity manifest as its explicit file list. Files created by background build tooling after the manifest is generated are not included. Verify the final archive's contents and hashes, not only its staging directory, before uploading it.
 
@@ -12,7 +12,7 @@ The ZIP is named `TCE-<version>-windows-x64.zip` and contains a folder `TCE`. Ex
 
 First start:
 
-In **Your games**, choose **Add game**, then **Connect Android** for Milan. Existing artwork installs immediately; otherwise the packaged extraction runtime downloads and verifies the reviewed official Windows ZIP and exports the required images automatically. Test both bundled and missing-archive paths, and multiple independently enabled modules. The Windows game is never installed or started. `--without-artwork` and the manual workflow’s **include_artwork** option control packaging. Changing that option does not authorize executing the workflow. See [game installation](GAME-ADDONS.md) and [module contract](GAME-MODULES.md).
+In **Your games**, choose **Add game**, then **Connect Android** for Milan. The packaged extraction runtime downloads and verifies the reviewed official Windows ZIP and exports the required images automatically; an archive supplied separately is also supported. Test automatic acquisition and separately supplied archives, and multiple independently enabled modules. The Windows game is never installed or started. The release builder rejects artwork inclusion and the workflow offers no artwork-inclusion option. The legacy `--without-artwork` flag is harmless but unnecessary. See [game installation](GAME-ADDONS.md) and [module contract](GAME-MODULES.md).
 
 1. Accept the setup/package/Android terms once, then choose **Set up automatically**. TCE installs missing components, prepares one radio and the helpers, with progress in the same card. Existing components are reused; manual controls are under Advanced.
 2. Approve Windows administrator prompts. If requested, restart Windows, reopen TCE and choose **Continue setup**. No automatic reboot is performed. Adapter selection is asked only when ambiguous or the saved radio is missing.

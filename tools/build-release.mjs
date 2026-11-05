@@ -45,6 +45,22 @@ export async function removeReleaseBuildCaches(app){
  }
  await clean(root);
 }
+export async function writeReleaseArchive(app,zip){
+ // Archive only the reviewed manifest entries. IDE/build watchers may recreate
+ // project caches while compression is running; those must never be included.
+ const script=`$ErrorActionPreference='Stop'
+Add-Type -AssemblyName System.IO.Compression
+Add-Type -AssemblyName System.IO.Compression.FileSystem
+$root=$env:MILAN_RELEASE_APP
+$manifest=Get-Content -LiteralPath (Join-Path $root 'release-files.json') -Raw | ConvertFrom-Json
+$archive=[System.IO.Compression.ZipFile]::Open($env:MILAN_RELEASE_ZIP,[System.IO.Compression.ZipArchiveMode]::Create)
+try {
+ foreach($name in @($manifest.files.PSObject.Properties.Name)+@('release-files.json')) {
+  $null=[System.IO.Compression.ZipFileExtensions]::CreateEntryFromFile($archive,(Join-Path $root $name),('TCE/'+$name),[System.IO.Compression.CompressionLevel]::Optimal)
+ }
+} finally { $archive.Dispose() }`;
+ await run('powershell.exe',['-NoProfile','-NonInteractive','-Command',script],{windowsHide:true,timeout:300000,env:{...process.env,MILAN_RELEASE_APP:resolve(app),MILAN_RELEASE_ZIP:resolve(zip)}});
+}
 export async function buildRelease({source=fileURLToPath(new URL('../',import.meta.url)),output,includeArtwork=true}={}){
  if(process.platform!=='win32'||process.arch!=='x64')throw Error('Build the Windows x64 release on Windows x64.');
  const version=JSON.parse(await readFile(join(source,'package.json'),'utf8')).version;
@@ -102,7 +118,7 @@ export async function buildRelease({source=fileURLToPath(new URL('../',import.me
  async function hashTree(path=''){for(const entry of await readdir(join(app,path),{withFileTypes:true})){const name=path?path+'/'+entry.name:entry.name;if(['private','work','.git','sdk','state','bin','obj','__pycache__'].includes(entry.name.toLowerCase()))throw Error('Excluded release path: '+name);if(entry.isSymbolicLink())throw Error('Release must not contain symbolic links.');if(entry.isDirectory())await hashTree(name);else integrity.files[name]=sha(await readFile(join(app,name)));}}
  await hashTree();await writeFile(join(app,'release-files.json'),JSON.stringify(integrity));
  const zip=join(directory,`TCE-${version}-windows-x64.zip`);
- await run('powershell.exe',['-NoProfile','-NonInteractive','-Command','Compress-Archive -LiteralPath $env:MILAN_RELEASE_APP -DestinationPath $env:MILAN_RELEASE_ZIP'],{windowsHide:true,timeout:300000,env:{...process.env,MILAN_RELEASE_APP:app,MILAN_RELEASE_ZIP:zip}});
+ await writeReleaseArchive(app,zip);
  await writeFile(zip+'.sha256',sha(await readFile(zip))+'  '+zip.split(/[\\/]/).at(-1)+'\n');
  console.log('Review package:',zip);return {app,zip};
 }

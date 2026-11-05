@@ -2,6 +2,8 @@
 
 The first distribution is the private GitHub pre-release `v0.1.0`. Keep repository visibility private. A published pre-release does not complete the physical acceptance checklist below. The local builder and GitHub API can be used after explicit owner authorization; the Actions workflow remains a separate manual route.
 
+ZIP creation uses the integrity manifest as its explicit file list. Files created by background build tooling after the manifest is generated are not included. Verify the final archive's contents and hashes, not only its staging directory, before uploading it.
+
 The release workflow is **manual only** (`workflow_dispatch`). No tag, push or pull request starts it. It has not been executed for this work. Do not dispatch it until the project owner has reviewed and approved the work.
 
 `node tools/build-release.mjs` builds a local review ZIP under ignored `work/release-<timestamp>/`. It downloads Node 22 with the official SHA-256 list, Python 3.13.17 with its published SHA-256, and pinned NumPy/OpenCV Windows wheels with PyPI hashes. It builds the project's .NET helpers as self-contained Windows x64 programs. No system runtime, Python installation or SDK is needed on the recipient PC. Source staging uses reviewed public roots and excludes private workspaces and SDK binaries. Final staging removes build caches created after copying and rejects excluded paths before generating the manifest. Runtime licenses/notices are preserved. The release manifest records dependency versions and file hashes; these check integrity, not publisher authenticity.

@@ -3,7 +3,7 @@ import assert from 'node:assert/strict';
 import {mkdtemp,mkdir,writeFile,readdir,rm} from 'node:fs/promises';
 import {tmpdir} from 'node:os';
 import {join,dirname} from 'node:path';
-import {copyReleaseSources,releaseRoots,releaseFiles,removeReleaseBuildCaches} from '../tools/build-release.mjs';
+import {copyReleaseSources,releaseRoots,releaseFiles,removeReleaseBuildCaches,writeReleaseArchive} from '../tools/build-release.mjs';
 import {inspectTablet,createPreparationJob} from '../server/connection-wizard.mjs';
 import {createCoreLifecycle} from '../server/core-lifecycle.mjs';
 import {createCoreStarter} from '../integration/runtime/pc-core-start.mjs';
@@ -38,6 +38,22 @@ test('final release cleanup removes caches created after staging and preserves p
   assert.deepEqual(await readdir(join(app,'runtime/python')),[]);
   assert.equal(await readFile(join(app,'integration/runtime/app-observer/build/AppObserver.exe'),'utf8'),'published helper');
   assert.equal(await readFile(join(outside,'keep.txt'),'utf8'),'outside release');
+ }finally{await rm(root,{recursive:true,force:true});}
+});
+
+test('release ZIP excludes unmanifested files created after integrity checks',{skip:process.platform!=='win32'},async()=>{
+ const root=await mkdtemp(join(tmpdir(),'tce-archive-'));
+ try{
+  const app=join(root,'TCE'),zip=join(root,'release.zip');
+  await mkdir(join(app,'obj'),{recursive:true});
+  await writeFile(join(app,'app.txt'),'reviewed payload');
+  const manifest={schemaVersion:1,files:{'app.txt':createHash('sha256').update('reviewed payload').digest('hex')}};
+  await writeFile(join(app,'release-files.json'),JSON.stringify(manifest));
+  await writeFile(join(app,'obj/local-paths.json'),'must never ship');
+  await writeFile(join(app,'unreviewed.txt'),'must never ship');
+  await writeReleaseArchive(app,zip);
+  const {stdout}=await promisify(execFile)('tar.exe',['-tf',zip],{windowsHide:true});
+  assert.deepEqual(stdout.trim().split(/\r?\n/).sort(),['TCE/app.txt','TCE/release-files.json']);
  }finally{await rm(root,{recursive:true,force:true});}
 });
 

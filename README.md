@@ -73,7 +73,7 @@ Engine, game modules, application, UI and presentation are separate. Domain stat
 | `test/`, `tests/` | Public software tests |
 | `private/` | Ignored local settings, sessions, observations and identifiers |
 
-Run the public suites with `npm test` or `node --test test/*.test.mjs tests/*.test.js`. Both CI workflows use the same selection. A bare `node --test` can include temporary working copies. Release checks passed 170 public tests on Windows/Node 26.7.0 and bundled Node 22.23.4; this is software evidence, not universal app or hardware acceptance.
+Run the public suites with `npm test` or `node --test test/*.test.mjs tests/*.test.js`. Both CI workflows use the same selection. A bare `node --test` can include temporary working copies. Release checks passed 171 public tests on Windows/Node 26.7.0 and bundled Node 22.23.4; this is software evidence, not universal app or hardware acceptance.
 
 Use the [documentation index](docs/README.md) for architecture, module contracts, research and validation. Compatibility evidence must identify the game, app version, scenario and hardware tested.
 
